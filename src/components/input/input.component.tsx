@@ -1,27 +1,34 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-// component
-import Tooltip from '../tooltip/tooltip.component';
-import SvgIcon from '../svg-icon/svg-icon.component';
 
-// hoc
-import clgComponentName from '../hoc/consoleComponentName';
-
-// styles
-import './styles.scss';
 import {
     FieldError,
     FieldValues,
     NestDataObject,
 } from 'react-hook-form/dist/types';
-import { iSearchBarValidatorObj } from 'layouts/BlogSearchBar/search.component';
 
-interface iInputProps {
+// component
+import Tooltip from '../tooltip/tooltip.component';
+import SvgIcon from '../svg-icon/svg-icon.component';
+
+// styles
+import './styles.scss';
+
+export interface SearchBarValidatorObj {
+    required: boolean;
+    k: KeyObjectValidator;
+}
+
+interface KeyObjectValidator {
+    value: string | number;
+    message: string;
+}
+
+interface InputProps {
     type?: string;
     name?: string | null;
     inputClass?: string;
-    required: iSearchBarValidatorObj;
+    required: SearchBarValidatorObj;
     errorMessage?: NestDataObject<FieldValues, FieldError>;
     register?: any;
     labelText?: string;
@@ -33,7 +40,7 @@ interface iInputProps {
     showIcon?: boolean | string;
 }
 
-const InputComponent: React.FC<iInputProps> = ({
+const InputComponent: React.FC<InputProps> = ({
     type,
     name,
     inputClass,
@@ -47,18 +54,18 @@ const InputComponent: React.FC<iInputProps> = ({
     disabled,
     showPasswordIcon,
     showIcon,
-}) => {
+}): JSX.Element => {
     const [showPassword, setShowPassword] = useState(false);
 
     return (
         <>
             <input
-                type={showPassword ? 'text' : type ? type : 'text'}
+                type={showPassword ? 'text' : type || 'text'}
                 disabled={disabled}
                 required
-                name={name ? name : undefined}
-                autoComplete="0"
-                className={`${inputClass ? inputClass : 'input-default'} ${
+                name={name || undefined}
+                autoComplete='0'
+                className={`${inputClass || 'input-default'} ${
                     errorMessage && 'invalid'
                 }`}
                 data-error={errorMessage ? errorMessage.message : undefined}
@@ -67,19 +74,19 @@ const InputComponent: React.FC<iInputProps> = ({
                 onChange={(e) => (onEveryChange ? onEveryChange(e) : null)}
             />
             <label
-                htmlFor={name ? name : undefined}
+                htmlFor={name || undefined}
                 className={`floating-label ${tooltip ? 'flexed' : ''}`}
             >
                 {labelText}{' '}
-                {tooltip && <Tooltip title={tooltip} styles="custom-tooltip" />}
+                {tooltip && <Tooltip title={tooltip} styles='custom-tooltip' />}
             </label>
 
             {showIcon && <SvgIcon icon={showIcon} />}
 
             {showPasswordIcon && (
-                <span onClick={(e) => setShowPassword(!showPassword)}>
+                <span onClick={() => setShowPassword(!showPassword)}>
                     <SvgIcon
-                        iconclass="password"
+                        iconclass='password'
                         pureSvg={`<svg  viewBox="0 0 30 30" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><defs>
                             <path d="M0,15.089434 C0,16.3335929 5.13666091,24.1788679 14.9348958,24.1788679 C24.7325019,24.1788679 29.8697917,16.3335929 29.8697917,15.089434 C29.8697917,13.8456167 24.7325019,6 14.9348958,6 C5.13666091,6 0,13.8456167 0,15.089434 Z" id="outline"></path>
                             <mask id="mask">
@@ -97,7 +104,7 @@ const InputComponent: React.FC<iInputProps> = ({
             )}
             {errorMessage && (
                 <span
-                    data-name={name ? name : undefined}
+                    data-name={name || undefined}
                     data-error={errorMessage && errorMessage.message}
                 />
             )}
@@ -105,20 +112,4 @@ const InputComponent: React.FC<iInputProps> = ({
     );
 };
 
-// InputComponent.propTypes = {
-//     type: PropTypes.string,
-//     name: PropTypes.string.isRequired,
-//     inputClass: PropTypes.string,
-//     required: PropTypes.object.isRequired,
-//     errorMessage: PropTypes.object,
-//     register: PropTypes.func,
-//     labelText: PropTypes.string,
-//     onEveryChange: PropTypes.func,
-//     inputValue: PropTypes.string,
-//     tooltip: PropTypes.string,
-//     disabled: PropTypes.bool,
-//     showPasswordIcon: PropTypes.bool,
-//     showIcon: PropTypes.oneOfType([PropTypes.string, PropTypes.bool])
-// };
-
-export default clgComponentName(InputComponent, 'InputComponent');
+export default InputComponent;

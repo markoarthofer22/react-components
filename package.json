@@ -1,21 +1,15 @@
 {
     "name": "react-components",
     "version": "1.0.0",
-    "description": "The React-Components is library that contains various components intended for reusing on  another projects.",
+    "description": "The React-Components is library that contains various components intended for reusing on another projects.",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
-    "lint-staged": {
-        "*.{js,ts}": [
-            "prettier --write",
-            "eslint --fix"
-        ]
-    },
     "repository": {
         "type": "git",
         "url": "https://github.com/markoarthofer22/react-components/"
     },
     "keywords": [
-        "react-componets"
+        "react-components"
     ],
     "author": "Marko Arthofer",
     "license": "ISC",
@@ -26,10 +20,25 @@
     "scripts": {
         "build": "rimraf dist && tsc",
         "lint": "eslint src --ext=.js,.ts",
-        "prettier": "./node_modules/.bin/prettier --write '**/*.{js,ts}'",
-        "prepare": "husky install"
+        "prettier": "./node_modules/.bin/prettier --write '**/*.{js,ts,tsx}'",
+        "prepare": "husky install",
+        "storybook": "start-storybook -p 6006",
+        "build-storybook": "build-storybook"
+    },
+    "lint-staged": {
+        "*.{js,ts,tsx}": [
+            "prettier --write",
+            "eslint --fix"
+        ]
     },
     "dependencies": {
+        "@storybook/addon-actions": "^6.3.6",
+        "@storybook/addon-backgrounds": "^6.3.6",
+        "@storybook/addon-essentials": "^6.3.6",
+        "@storybook/addon-knobs": "^6.3.0",
+        "@storybook/addon-links": "^6.3.6",
+        "@storybook/addons": "^6.3.6",
+        "@storybook/react": "^6.3.6",
         "axios": "^0.19.0",
         "lodash": "^4.17.21",
         "moment": "^2.29.1",
@@ -37,11 +46,15 @@
         "react-dom": "^17.0.2",
         "react-hook-form": "^5.7.2",
         "react-id-swiper": "^2.3.2",
+        "react-transition-group": "^4.4.1",
+        "sass": "^1.36.0",
+        "sass-loader": "^10",
         "sweetalert2": "^9.17.1",
         "sweetalert2-react-content": "^3.0.3",
         "swiper": "^5.2.0"
     },
     "devDependencies": {
+        "@babel/core": "^7.14.8",
         "@testing-library/jest-dom": "^5.11.9",
         "@testing-library/react": "^11.2.5",
         "@testing-library/user-event": "^12.8.3",
@@ -58,6 +71,7 @@
         "@typescript-eslint/eslint-plugin": "^4.9.0",
         "@typescript-eslint/eslint-plugin-tslint": "^4.9.0",
         "@typescript-eslint/parser": "^4.0.1",
+        "babel-loader": "^8.2.2",
         "eslint": "^7.28.0",
         "eslint-config-airbnb-typescript": "^12.3.1",
         "eslint-config-node": "^4.1.0",
@@ -69,7 +83,6 @@
         "husky": "^6.0.0",
         "jest": "^27.0.4",
         "lint-staged": "^11.0.0",
-        "node-sass": "^5.0.0",
         "prettier": "^2.2.1",
         "ts-jest": "^27.0.2",
         "typescript": "^4.3.2"

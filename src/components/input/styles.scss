@@ -1,4 +1,4 @@
-@import "../../css/variables.scss";
+@import '../../scss/variables.scss';
 
 // *************** FORMS & LABELS **************
 label {
@@ -240,13 +240,13 @@ fieldset {
     .form-item {
         position: relative;
 
-        input[type="radio"] {
+        input[type='radio'] {
             visibility: hidden;
             opacity: 0;
             position: absolute;
         }
 
-        input[type="radio"] + label {
+        input[type='radio'] + label {
             position: relative;
             padding-left: 25px;
             margin: 8px 0;
@@ -255,7 +255,7 @@ fieldset {
             transition: all 0.4s;
 
             &::before {
-                content: "";
+                content: '';
                 position: absolute;
                 top: 0;
                 left: 0;
@@ -267,7 +267,7 @@ fieldset {
             }
         }
 
-        input[type="radio"]:checked + label {
+        input[type='radio']:checked + label {
             color: $grey;
 
             &::before {
@@ -301,13 +301,13 @@ fieldset {
             top: calc(100% - 10px);
         }
 
-        input[type="checkbox"] {
+        input[type='checkbox'] {
             visibility: hidden;
             opacity: 0;
             position: absolute;
         }
 
-        input[type="checkbox"] + label {
+        input[type='checkbox'] + label {
             position: relative;
             padding-left: 35px;
             margin: 8px 0;
@@ -316,7 +316,7 @@ fieldset {
             transition: all 0.4s;
 
             &::before {
-                content: "";
+                content: '';
                 position: absolute;
                 top: 50%;
                 left: 0;
@@ -343,7 +343,7 @@ fieldset {
             }
         }
 
-        input[type="checkbox"]:checked + label {
+        input[type='checkbox']:checked + label {
             &::before {
                 border: 1px solid rgba(#cc2f40, 1);
             }

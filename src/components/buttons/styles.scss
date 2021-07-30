@@ -1,4 +1,4 @@
-@import "../../css/variables.scss";
+@import '../../scss/variables.scss';
 
 a.button,
 button,
@@ -30,8 +30,8 @@ a.button.big {
     padding: 12px 30px;
 }
 
-a.button [class^="icon-"],
-button [class^="icon-"] {
+a.button [class^='icon-'],
+button [class^='icon-'] {
     width: 20px;
     height: 20px;
     transition: all 0.3s;
@@ -132,7 +132,7 @@ button {
     border-radius: 3px;
 
     &::before {
-        content: "";
+        content: '';
         position: absolute;
         background-color: transparent;
         top: 0;
@@ -162,7 +162,7 @@ button {
     }
 
     &::before {
-        content: "";
+        content: '';
         position: absolute;
         top: 0;
         left: 0;

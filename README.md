@@ -69,10 +69,10 @@ You can also manually add stories using the Storybook [`storiesOf` API](https://
 
 ## Usage
 
-Just run npm start to generate Storybook on your localhost
+For starting Storybook on your localhost use
 
 ```sh
-  npm start
+  npm run storybook
 ```
 
 ### Components to do
@@ -99,7 +99,7 @@ If you want to contribute to this project create your own branch and do your wor
 
 We use GitHub Actions for running automated process, and husky for pre-commiting. If your code doesn't meet the requirements it will block you commit.
 
-All upadates will regulary be pushed to npm package
+All upadates will regularly be pushed to npm package
 
 <!-- LICENSE -->
 

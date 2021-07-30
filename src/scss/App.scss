@@ -1,0 +1,46 @@
+//import order is very important!
+@import 'bootstrap-reboot';
+@import 'variables';
+@import 'bootstrap-grid';
+//libs
+@import './libs/swiper';
+@import './libs/animate';
+
+.popup-enter {
+    opacity: 0;
+    transform: scale(1);
+
+    .window {
+        animation: ScaleIn 0.4s;
+    }
+}
+.popup-enter-active {
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 0.4s, transform 0.4s;
+}
+
+.popup-exit {
+    opacity: 1;
+
+    .window {
+        animation: ScaleIn 0.4s reverse;
+    }
+}
+.popup-exit-active {
+    opacity: 0;
+    //transform: scale(0.9);
+    transition: opacity 0.4s, transform 0.4s;
+}
+
+@keyframes scaleIn {
+    0% {
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(0.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}

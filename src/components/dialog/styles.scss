@@ -1,4 +1,4 @@
-@import "../../css/variables.scss";
+@import '../../scss/variables.scss';
 
 .dialog {
     .error-message,
@@ -38,5 +38,9 @@
         color: $white;
         padding: 10px 36px;
         height: auto;
+
+        &:first-of-type {
+            margin-right: 10px;
+        }
     }
 }
