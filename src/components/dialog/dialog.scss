@@ -1,0 +1,42 @@
+@import "../../css/variables.scss";
+
+.dialog {
+    .error-message,
+    .message {
+        font-size: 12px;
+        border: 1px solid #eee;
+        padding: 16px;
+        color: #000;
+        font-weight: 400;
+        max-height: 200px;
+        overflow-y: scroll;
+        margin-bottom: 20px;
+    }
+
+    h1 {
+        margin-top: 0;
+        margin-bottom: 20px;
+        font-size: 24px;
+    }
+
+    .requestMessage {
+        border: 1px solid #eee;
+        padding: 16px;
+        font-weight: 300;
+        min-height: 151px;
+        overflow-y: scroll;
+        margin-bottom: 10px;
+        resize: none;
+    }
+
+    .button {
+        background-color: $darker-blue;
+        font-size: 12px;
+        text-transform: uppercase;
+        border: 1px solid $darker-blue;
+        border-radius: 5px;
+        color: $white;
+        padding: 10px 36px;
+        height: auto;
+    }
+}

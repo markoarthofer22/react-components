@@ -1,0 +1,196 @@
+@import "../../css/variables.scss";
+
+a.button,
+button,
+.button {
+    position: relative;
+    border: none;
+    padding: 10px 15px;
+    transition: all 0.4s;
+    cursor: pointer;
+    display: inline-block;
+    transform: translateZ(0);
+    border-radius: 2px;
+    text-align: center;
+    background-color: transparent;
+    font-weight: 400;
+    height: 40px;
+
+    &.disabled {
+        pointer-events: none;
+    }
+}
+a.button.small,
+button.small,
+.button.small {
+    padding: 5px 10px;
+}
+
+a.button.big {
+    padding: 12px 30px;
+}
+
+a.button [class^="icon-"],
+button [class^="icon-"] {
+    width: 20px;
+    height: 20px;
+    transition: all 0.3s;
+}
+
+a.button.loading,
+button.loading {
+    color: transparent !important;
+    background-color: $dark-blue !important;
+}
+
+a.button.loading.clear,
+button.loading.clear {
+    background-color: transparent !important;
+}
+
+a.button.loading:after,
+button.loading:after {
+    content: url('data:image/svg+xml;utf8,<svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 30 30" style="enable-background:new 0 0 30 30;" xml:space="preserve"><style type="text/css">.st0{fill:none;stroke:url(%23XMLID_3_);stroke-width:2;stroke-linecap:round;stroke-miterlimit:10;}</style><linearGradient id="XMLID_3_" gradientUnits="userSpaceOnUse" x1="3.9823" y1="13.5647" x2="26.0177" y2="13.5647"><stop  offset="0" style="stop-color:%23d1af66"/><stop  offset="1" style="stop-color:%23d1af66"/></linearGradient><path id="XMLID_2_" class="st0" d="M22.5,21.7c1.6-1.8,2.5-4.1,2.5-6.7c0-5.5-4.5-10-10-10S5,9.5,5,15c0,2.8,1.1,5.3,3,7.1"/></svg>');
+    position: absolute;
+    opacity: 1;
+    left: 50%;
+    top: 50%;
+    margin-left: -15px;
+    margin-top: -15px;
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    color: #fff;
+    animation: ScaleIn1 2s infinite linear;
+}
+
+@keyframes ScaleIn1 {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+// CUSTOM BUTTON BY CLASSES
+button {
+    &:disabled {
+        opacity: 0.5;
+    }
+
+    &.default {
+        color: $white;
+        background-color: $black;
+        height: auto;
+        padding: 8px 16px;
+        transition: all 0.6s;
+
+        &:hover {
+            color: $black;
+            background-color: $blue;
+            transform: scale(1.05);
+        }
+    }
+
+    &.red {
+        color: $white;
+        background-color: $warning-red;
+        height: auto;
+        padding: 8px 16px;
+        transition: all 0.6s;
+
+        &:hover {
+            color: $warning-red;
+            background-color: transparent;
+            transform: scale(1.05);
+        }
+    }
+
+    &.yellow {
+        color: $black;
+        background-color: $yellow;
+        height: auto;
+        padding: 8px 16px;
+        transition: all 0.6s;
+
+        &:hover {
+            color: $yellow;
+            background-color: $black;
+            transform: scale(1.05);
+        }
+    }
+}
+
+.button-blue {
+    padding: 15px 100px;
+    background-color: $darker-blue;
+    color: $white;
+    height: auto;
+    font-size: 1.4rem;
+    font-weight: 700;
+    border-radius: 3px;
+
+    &::before {
+        content: "";
+        position: absolute;
+        background-color: transparent;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        transition: all 0.4s;
+    }
+
+    &:hover::before {
+        background-color: rgba(0, 0, 0, 0.15);
+    }
+}
+
+.button-next {
+    position: relative;
+    padding: 10px 30px;
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: 500;
+    background-color: $darker-blue;
+    border-radius: 3px;
+
+    &:hover::before {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.11);
+        transition: all 0.4s;
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+.side-menu-button {
+    width: 50px;
+    height: 50px;
+    background-color: $darker-blue;
+    border-radius: 100%;
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 101;
+    svg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 30px;
+        height: 30px;
+        fill: $white;
+    }
+}

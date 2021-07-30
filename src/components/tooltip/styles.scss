@@ -1,0 +1,56 @@
+@import "../../css/variables.scss";
+
+.tooltip {
+  display: block;
+  position: relative;
+}
+
+.tooltip:hover:after {
+  background: #2e6ab7;
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: 300;
+  bottom: calc(100% + 6px);
+  color: #fff;
+  content: attr(tooltiptitle);
+  left: 0;
+  padding: 5px 15px;
+  position: absolute;
+  z-index: 98;
+  animation: ShowTooltip 0.4s ease-out;
+  min-width: 140px;
+}
+
+.tooltip:hover:before {
+  border: solid;
+  border-color: #0065a4 transparent;
+  border-width: 6px 6px 0 6px;
+  bottom: 100%;
+  content: "";
+  left: 10px;
+  position: absolute;
+  z-index: 99;
+  animation: ShowTooltipPeak 0.4s ease-in-out;
+}
+
+@keyframes ShowTooltip {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 0px);
+  }
+}
+
+@keyframes ShowTooltipPeak {
+  0% {
+    opacity: 0;
+    transform: translate(0px, -10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
+}

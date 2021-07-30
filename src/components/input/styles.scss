@@ -1,0 +1,357 @@
+@import "../../css/variables.scss";
+
+// *************** FORMS & LABELS **************
+label {
+    display: inline-block;
+    margin-bottom: 0.7rem;
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: normal;
+    color: #999;
+}
+
+textarea {
+    padding: 10px 10px;
+    border-radius: 5px;
+    font-size: 1.4rem !important;
+    height: 80px;
+}
+
+input {
+    padding: 0px 10px;
+    height: 60px;
+    border-radius: 5px;
+    font-size: 1.4rem !important;
+
+    &[disabled] {
+        border-color: hsla(0, 0%, 80%, 0.5);
+        color: #999;
+    }
+}
+
+input,
+textarea {
+    width: 100%;
+    border: 1px solid #ccc;
+    background-color: $white;
+    transition: all 0.3s ease;
+    -webkit-appearance: none;
+
+    &:focus {
+        outline: 0;
+        box-shadow: 0;
+        border: 2px solid $dark-blue;
+    }
+}
+
+input.invalid {
+    border: 1px solid #cc2f40;
+}
+
+input.invalid ~ span:before,
+textarea.invalid ~ span:before {
+    position: absolute;
+    top: calc(100% + 0px);
+    padding: 0;
+    padding-top: 3px;
+    border-radius: 4px;
+    content: attr(error);
+    color: #cc2f40;
+    display: block;
+    font-size: 1rem;
+    animation-name: ErrorShow;
+    animation-duration: 1s;
+    z-index: 1;
+
+    @include md {
+        font-size: 1.2rem;
+    }
+}
+
+label.invalid + input,
+span.invalid + input,
+label.invalid + textarea,
+span.invalid + textarea {
+    border: 1px solid #cc2f40;
+    background-color: #ffecec;
+}
+
+label.invalid:before,
+span.invalid:before {
+    position: absolute;
+    top: calc(100% + 2px);
+    padding: 6px;
+    border-radius: 4px;
+    background-color: #cc2f40;
+    content: attr(data-error);
+    color: #fff;
+    display: block;
+    font-size: 12px;
+    animation-name: ErrorShow;
+    animation-duration: 1s;
+    z-index: 1;
+}
+
+@keyframes ErrorShow {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+textarea {
+    &.no-resize {
+        resize: none;
+    }
+}
+
+//Animated input + label
+/* Hide the browser-specific focus styles */
+.form-item-container {
+    display: flex;
+    flex-direction: column;
+
+    @include sm {
+        flex-direction: row;
+        align-items: center;
+
+        .form-item-floating {
+            width: calc(100% - 20px);
+
+            &:first-of-type {
+                margin-right: 20px;
+            }
+
+            &.phone-type {
+                width: calc(50% - 10px);
+                margin-right: 0;
+            }
+        }
+    }
+
+    &.single {
+        .form-item-floating {
+            width: 100%;
+            margin-right: 0;
+        }
+    }
+}
+
+.form-item-floating {
+    position: relative;
+    margin-bottom: 20px;
+
+    input,
+    textarea {
+        background-color: transparent;
+
+        & + label {
+            transition: all 0.4s ease, background-color 0.3s ease-in-out 0.2s;
+            transform-origin: 0 0;
+        }
+
+        &:focus {
+            & + label {
+                top: 0;
+                transform: translateY(calc(-100% +9px)) scale(0.9);
+                padding: 0 10px;
+                background-color: $white;
+            }
+        }
+
+        &:valid {
+            & + label {
+                top: 0;
+                padding: 0 10px;
+                transform: translateY(calc(-100% + 9px)) scale(0.9);
+                background-color: $white;
+            }
+        }
+    }
+
+    input,
+    textarea {
+        &,
+        & + label {
+            line-height: 1;
+            font: inherit;
+            position: relative;
+            font-size: 0.875rem;
+        }
+    }
+
+    input {
+        & + label {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 20px;
+            user-select: none;
+            pointer-events: none;
+        }
+    }
+
+    textarea {
+        & + label {
+            position: absolute;
+            top: 10px;
+            left: 0;
+            user-select: none;
+            pointer-events: none;
+        }
+    }
+}
+
+.form-item-floating {
+    position: relative;
+
+    input,
+    textarea {
+        &,
+        & + label {
+            line-height: 1;
+            font: inherit;
+            position: relative;
+        }
+    }
+}
+
+fieldset {
+    margin: 10px 0 30px 0;
+    padding: 0px;
+    border: none;
+
+    .form-item {
+        display: flex;
+        align-items: center;
+        position: relative;
+
+        input {
+            flex-basis: 35px;
+        }
+    }
+}
+
+fieldset {
+    .form-item {
+        position: relative;
+
+        input[type="radio"] {
+            visibility: hidden;
+            opacity: 0;
+            position: absolute;
+        }
+
+        input[type="radio"] + label {
+            position: relative;
+            padding-left: 25px;
+            margin: 8px 0;
+            line-height: 16px;
+            cursor: pointer;
+            transition: all 0.4s;
+
+            &::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 16px;
+                width: 16px;
+                border-radius: 100%;
+                border: 2px solid rgba($grey, 0.5);
+                transition: all 0.4s;
+            }
+        }
+
+        input[type="radio"]:checked + label {
+            color: $grey;
+
+            &::before {
+                border: 2px solid rgba($grey, 1);
+                background-color: $grey;
+            }
+        }
+    }
+}
+
+fieldset {
+    .form-item {
+        margin-bottom: 1rem;
+        position: relative;
+
+        a {
+            transition: all 0.4s;
+            color: $darker-blue;
+
+            &:hover {
+                color: $dark-blue;
+            }
+        }
+
+        label {
+            color: #333;
+        }
+
+        span::before {
+            left: 35px;
+            top: calc(100% - 10px);
+        }
+
+        input[type="checkbox"] {
+            visibility: hidden;
+            opacity: 0;
+            position: absolute;
+        }
+
+        input[type="checkbox"] + label {
+            position: relative;
+            padding-left: 35px;
+            margin: 8px 0;
+            line-height: 20px;
+            cursor: pointer;
+            transition: all 0.4s;
+
+            &::before {
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: 0;
+                transform: translateY(-50%);
+                height: 25px;
+                width: 25px;
+                border-radius: 5px;
+                border: 1px solid rgba(#cc2f40, 0.5);
+                transition: all 0.4s;
+            }
+
+            &::after {
+                content: url("data:image/svg+xml; utf8,<svg  fill='%23cc2f40' version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 512 512' style='enable-background:new 0 0 512 512;' xml:space='preserve'><g><path d='M504.502,75.496c-9.997-9.998-26.205-9.998-36.204,0L161.594,382.203L43.702,264.311c-9.997-9.998-26.205-9.997-36.204,0c-9.998,9.997-9.998,26.205,0,36.203l135.994,135.992c9.994,9.997,26.214,9.99,36.204,0L504.502,111.7C514.5,101.703,514.499,85.494,504.502,75.496z'/></g></svg>");
+                display: block;
+                width: 15px;
+                height: 15px;
+                position: absolute;
+                left: 5px;
+                top: 50%;
+                transform: translateY(-50%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.4s;
+            }
+        }
+
+        input[type="checkbox"]:checked + label {
+            &::before {
+                border: 1px solid rgba(#cc2f40, 1);
+            }
+
+            &::after {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+    }
+}
