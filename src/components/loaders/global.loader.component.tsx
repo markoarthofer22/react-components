@@ -1,7 +1,4 @@
-import React, { useContext } from 'react';
-
-// Hoc
-import clgComponentName from '../hoc/consoleComponentName';
+import React from 'react';
 
 // components
 import { CSSTransition } from 'react-transition-group';
@@ -9,24 +6,27 @@ import { CSSTransition } from 'react-transition-group';
 // styles
 import './styles.scss';
 
-// context
-import { Context } from '../../contextStore/context';
+interface Props {
+    isLoading: boolean;
+    transitionDuration?: number;
+    customClass?: string;
+}
 
-const GlobalLoader = () => {
-    const { globalState } = useContext(Context);
+const GlobalLoader: React.FC<Props> = ({
+    isLoading,
+    transitionDuration,
+    customClass,
+}): JSX.Element => (
+    <CSSTransition
+        in={isLoading}
+        timeout={transitionDuration || 300}
+        classNames='loader'
+        unmountOnExit
+    >
+        <div className={`main-loader-container ${customClass || ''}`}>
+            <div className='loader'></div>
+        </div>
+    </CSSTransition>
+);
 
-    return (
-        <CSSTransition
-            in={globalState?.isLoading}
-            timeout={300}
-            classNames="loader"
-            unmountOnExit
-        >
-            <div className="main-loader-container">
-                <div className="loader"></div>
-            </div>
-        </CSSTransition>
-    );
-};
-
-export default clgComponentName(GlobalLoader, 'GlobalLoader');
+export default GlobalLoader;

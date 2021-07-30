@@ -1,43 +1,40 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-// styles
+
 import './styles.scss';
 
-import clgComponentName from '../hoc/consoleComponentName';
-
-interface iProps {
-    heroClass?: string;
+interface Props {
+    customClass?: string;
     bgImage: string;
     title: string;
     subtitle?: string;
     hasOverlay?: boolean;
 }
 
-const HeroBox: React.FC<iProps> = (props): JSX.Element => {
-    const { heroClass, bgImage, title, subtitle, hasOverlay } = props;
+const HeroBox: React.FC<Props> = (props): JSX.Element => {
+    const { customClass, bgImage, title, subtitle, hasOverlay } = props;
 
     return (
-        <section className={`hero-box ${heroClass ? heroClass : ''}`}>
+        <section className={`hero-box ${customClass || ''}`}>
             {bgImage && (
                 <div
-                    className="hero-box--helper-img"
+                    className='hero-box--helper-img'
                     style={{
-                        backgroundImage: "url('" + bgImage + "')",
+                        backgroundImage: `url('${bgImage}')`,
                     }}
                 ></div>
             )}
             {hasOverlay && (
-                <div className="hero-box--helper-img--overlay"></div>
+                <div className='hero-box--helper-img--overlay'></div>
             )}
             {(title || subtitle) && (
-                <div className="container">
-                    <div className="row">
-                        <div className="col-12 col-sm-8">
+                <div className='container'>
+                    <div className='row'>
+                        <div className='col-12 col-sm-8'>
                             {title && (
-                                <h1 className="hero-box--title">{title}</h1>
+                                <h1 className='hero-box--title'>{title}</h1>
                             )}
                             {subtitle && (
-                                <h1 className="hero-box--subtitle">
+                                <h1 className='hero-box--subtitle'>
                                     {subtitle}
                                 </h1>
                             )}
@@ -49,12 +46,4 @@ const HeroBox: React.FC<iProps> = (props): JSX.Element => {
     );
 };
 
-HeroBox.propTypes = {
-    heroClass: PropTypes.string,
-    bgImage: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    subtitle: PropTypes.string,
-    hasOverlay: PropTypes.bool,
-};
-
-export default clgComponentName(HeroBox, 'HeroBox');
+export default HeroBox;

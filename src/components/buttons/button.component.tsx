@@ -1,10 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 interface ButtonProps {
     children?: React.ReactNode;
     customClass?: string;
-    clicked?: (e?: any) => void;
+    clicked: (e?: any) => void;
     title: string;
     isLoading?: boolean;
     attributes?: Record<string, unknown>;
@@ -25,16 +24,8 @@ const Button: React.FC<ButtonProps> = ({
         disabled={isLoading}
         {...attributes}
     >
-        {children} {title}
+        {children || title}
     </button>
 );
-
-Button.propTypes = {
-    children: PropTypes.element,
-    customClass: PropTypes.string,
-    clicked: PropTypes.func,
-    title: PropTypes.string.isRequired,
-    isLoading: PropTypes.bool,
-};
 
 export default Button;

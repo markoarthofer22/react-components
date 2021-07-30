@@ -13,7 +13,7 @@ module.exports = {
         project: './tsconfig.json',
         tsconfigRootDir: __dirname,
     },
-    plugins: ['@typescript-eslint', 'prettier', 'import'],
+    plugins: ['@typescript-eslint', 'prettier', 'react'],
     extends: ['airbnb-typescript/base', 'prettier'],
     rules: {
         'no-unused-vars': 'warn',
@@ -21,6 +21,8 @@ module.exports = {
             'error',
             { functions: false, classes: true, variables: true },
         ],
+        'react/jsx-uses-vars': 'error',
+        'react/jsx-uses-react': 'error',
         'no-restricted-globals': 'off',
         'no-underscore-dangle': 'off',
         'no-prototype-builtins': 'off',
