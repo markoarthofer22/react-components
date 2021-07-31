@@ -1,5 +1,3 @@
-@import '../../scss/variables.scss';
-
 // *************** FORMS & LABELS **************
 label {
     display: inline-block;
@@ -42,10 +40,45 @@ textarea {
         box-shadow: 0;
         border: 2px solid $dark-blue;
     }
+
+    & + label {
+        line-height: 1;
+        font: inherit;
+        position: relative;
+        font-size: 1.4rem;
+        font-weight: 700;
+        padding: 0 6px;
+        background-color: $white;
+    }
 }
 
-input.invalid {
-    border: 1px solid #cc2f40;
+input {
+    & + label {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 10px;
+        user-select: none;
+        pointer-events: none;
+    }
+
+    .invalid {
+        border: 1px solid #cc2f40;
+    }
+}
+
+textarea {
+    & + label {
+        position: absolute;
+        top: 10px;
+        left: 0;
+        user-select: none;
+        pointer-events: none;
+    }
+
+    &.no-resize {
+        resize: none;
+    }
 }
 
 input.invalid ~ span:before,
@@ -53,9 +86,10 @@ textarea.invalid ~ span:before {
     position: absolute;
     top: calc(100% + 0px);
     padding: 0;
+    left: 4px;
     padding-top: 3px;
     border-radius: 4px;
-    content: attr(error);
+    content: attr(data-error);
     color: #cc2f40;
     display: block;
     font-size: 1rem;
@@ -65,47 +99,6 @@ textarea.invalid ~ span:before {
 
     @include md {
         font-size: 1.2rem;
-    }
-}
-
-label.invalid + input,
-span.invalid + input,
-label.invalid + textarea,
-span.invalid + textarea {
-    border: 1px solid #cc2f40;
-    background-color: #ffecec;
-}
-
-label.invalid:before,
-span.invalid:before {
-    position: absolute;
-    top: calc(100% + 2px);
-    padding: 6px;
-    border-radius: 4px;
-    background-color: #cc2f40;
-    content: attr(data-error);
-    color: #fff;
-    display: block;
-    font-size: 12px;
-    animation-name: ErrorShow;
-    animation-duration: 1s;
-    z-index: 1;
-}
-
-@keyframes ErrorShow {
-    0% {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0px);
-    }
-}
-
-textarea {
-    &.no-resize {
-        resize: none;
     }
 }
 
@@ -172,52 +165,6 @@ textarea {
             }
         }
     }
-
-    input,
-    textarea {
-        &,
-        & + label {
-            line-height: 1;
-            font: inherit;
-            position: relative;
-            font-size: 0.875rem;
-        }
-    }
-
-    input {
-        & + label {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            left: 20px;
-            user-select: none;
-            pointer-events: none;
-        }
-    }
-
-    textarea {
-        & + label {
-            position: absolute;
-            top: 10px;
-            left: 0;
-            user-select: none;
-            pointer-events: none;
-        }
-    }
-}
-
-.form-item-floating {
-    position: relative;
-
-    input,
-    textarea {
-        &,
-        & + label {
-            line-height: 1;
-            font: inherit;
-            position: relative;
-        }
-    }
 }
 
 fieldset {
@@ -229,59 +176,11 @@ fieldset {
         display: flex;
         align-items: center;
         position: relative;
+        margin-bottom: 1rem;
 
         input {
             flex-basis: 35px;
         }
-    }
-}
-
-fieldset {
-    .form-item {
-        position: relative;
-
-        input[type='radio'] {
-            visibility: hidden;
-            opacity: 0;
-            position: absolute;
-        }
-
-        input[type='radio'] + label {
-            position: relative;
-            padding-left: 25px;
-            margin: 8px 0;
-            line-height: 16px;
-            cursor: pointer;
-            transition: all 0.4s;
-
-            &::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                height: 16px;
-                width: 16px;
-                border-radius: 100%;
-                border: 2px solid rgba($grey, 0.5);
-                transition: all 0.4s;
-            }
-        }
-
-        input[type='radio']:checked + label {
-            color: $grey;
-
-            &::before {
-                border: 2px solid rgba($grey, 1);
-                background-color: $grey;
-            }
-        }
-    }
-}
-
-fieldset {
-    .form-item {
-        margin-bottom: 1rem;
-        position: relative;
 
         a {
             transition: all 0.4s;
@@ -353,5 +252,52 @@ fieldset {
                 visibility: visible;
             }
         }
+
+        input[type='radio'] {
+            visibility: hidden;
+            opacity: 0;
+            position: absolute;
+        }
+
+        input[type='radio'] + label {
+            position: relative;
+            padding-left: 25px;
+            margin: 8px 0;
+            line-height: 16px;
+            cursor: pointer;
+            transition: all 0.4s;
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 16px;
+                width: 16px;
+                border-radius: 100%;
+                border: 2px solid rgba($grey, 0.5);
+                transition: all 0.4s;
+            }
+        }
+
+        input[type='radio']:checked + label {
+            color: $grey;
+
+            &::before {
+                border: 2px solid rgba($grey, 1);
+                background-color: $grey;
+            }
+        }
+    }
+}
+
+@keyframes ErrorShow {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
     }
 }

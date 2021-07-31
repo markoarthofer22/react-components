@@ -25,6 +25,7 @@ Basic structure:
 -   Typscript for typing. AirBnb convention
 -   All components made from scratch
 -   Using linter and prettier for code consistency
+-   Using [react-icons](https://react-icons.github.io/react-icons/) lib for icons (default in project is [Material](https://react-icons.github.io/react-icons/icons?name=md))
 
 ### Built With
 
@@ -40,8 +41,9 @@ Basic structure:
 First, to discuss structure and typing in app.
 
 -   files are sorted per usage. (alphabetically)
--   inside component folder you should have 3 files
-    -   .scss for stylings, component (`*.component.tsx`) and Storybook for showing component (`*.stories.js`)
+-   inside component folder you should have 2 files
+    -   .component (`*.component.tsx`) and Storybook for showing component (`*.stories.js`)
+    -   stylings go to scss folder (name it after component and import inside `App.scss`)
 -   use `npm run build` to create build for testing (build process in run trough GitHub Actions)
 -   use `npm run lint` to run linter with --fix param
 -   use `npm run prettier` to run prettier
@@ -125,3 +127,4 @@ Project Link: [https://github.com/markoarthofer22/react-components](https://gith
 -   [sweetalert2](https://sweetalert2.github.io/)
 -   [typescript](https://www.typescriptlang.org/)
 -   [storybook](https://storybook.js.org/)
+-   [react-icons](https://react-icons.github.io/react-icons/)

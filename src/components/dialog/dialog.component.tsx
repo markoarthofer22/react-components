@@ -3,8 +3,6 @@ import { CSSTransition } from 'react-transition-group';
 import Popup from '../popup/popup.component';
 import Button from '../buttons/button.component';
 
-import './styles.scss';
-
 interface DialogProps {
     title: string;
     message?: string;
