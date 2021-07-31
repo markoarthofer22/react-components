@@ -1,7 +1,5 @@
 import React from 'react';
 
-import './styles.scss';
-
 interface ButtonProps {
     children?: React.ReactNode;
     customClass?: string;
@@ -21,7 +19,7 @@ const Button: React.FC<ButtonProps> = ({
 }): JSX.Element => (
     <button
         title={title}
-        className={`button ${customClass} ${isLoading ? 'disabled' : ''}`}
+        className={`button ${customClass} ${isLoading ? 'loading' : ''}`}
         onClick={clicked && ((e) => clicked(e))}
         disabled={isLoading}
         {...attributes}

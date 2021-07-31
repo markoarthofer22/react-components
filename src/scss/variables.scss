@@ -15,9 +15,9 @@ $darker-blue: #1693c5;
 $light-blue: #29a9e1;
 $pink: #cc2f40;
 //font setup
-$h-font: "Roboto", sans-serif;
-$title-font: "Roboto";
-$font: "Poppins", sans-serif;
+$h-font: 'Roboto', sans-serif;
+$title-font: 'Roboto';
+$font: 'Poppins', sans-serif;
 $font-size-main: 10px;
 $mainColor: #000;
 
@@ -63,7 +63,7 @@ $screen-xl-min: 1200px;
 
 // Custom devices
 @mixin rwd($screen) {
-    @media (min-width: $screen+"px") {
+    @media (min-width: $screen+'px') {
         @content;
     }
 }

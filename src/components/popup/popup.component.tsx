@@ -1,19 +1,17 @@
 import React, { useEffect } from 'react';
-
-// styles
-import './styles.scss';
-
-// components
-// import SvgIcon from '../svg-icon/svg-icon.component';
+import { MdClose } from 'react-icons/md';
 
 interface PopupProps {
     closePopup: (e?: any) => void;
     children: React.ReactNode;
     customClass?: string;
+    icon?: React.FC;
 }
 
 const Popup: React.FC<PopupProps> = (props): JSX.Element => {
-    const { closePopup, children, customClass } = props;
+    const { closePopup, children, customClass, icon } = props;
+
+    const C = icon || MdClose;
 
     useEffect(() => {
         const closeOnEsc = (e?: any) => {
@@ -46,7 +44,7 @@ const Popup: React.FC<PopupProps> = (props): JSX.Element => {
                         aria-label='close'
                         onClick={(e?: any) => closePopup(e)}
                     >
-                        {/* <SvgIcon icon='close' /> */}x
+                        <C />
                     </button>
                 )}
                 {children}
