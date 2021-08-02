@@ -3,9 +3,6 @@ import React from 'react';
 // components
 import { CSSTransition } from 'react-transition-group';
 
-// styles
-import './styles.scss';
-
 interface Props {
     isLoading: boolean;
     transitionDuration?: number;

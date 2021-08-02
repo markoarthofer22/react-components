@@ -1,7 +1,7 @@
 import React from 'react';
 import { CSSTransition } from 'react-transition-group';
-import Popup from '../popup/popup.component';
-import Button from '../buttons/button.component';
+import Popup from '../../components/popup/popup.component';
+import Button from '../../components/buttons/button.component';
 
 interface DialogProps {
     title: string;

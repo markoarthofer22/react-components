@@ -6,7 +6,7 @@ import { useForm } from 'react-hook-form';
 import InputComponent from './input.component';
 import InputTypePhone from './input-type-phone.component';
 
-storiesOf(`Components/Inputs`)
+storiesOf(`Designs/Atoms/Inputs`)
     .addDecorator(withKnobs)
     .add('Default inputs', () => {
         const { register, errors } = useForm({

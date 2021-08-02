@@ -5,7 +5,7 @@ interface PopupProps {
     closePopup: (e?: any) => void;
     children: React.ReactNode;
     customClass?: string;
-    icon?: React.FC;
+    icon?: React.ElementType | React.ComponentType;
 }
 
 const Popup: React.FC<PopupProps> = (props): JSX.Element => {
