@@ -9,6 +9,9 @@ module.exports = {
         '@storybook/addon-knobs',
         '@storybook/addon-backgrounds/register',
         '@storybook/addon-essentials',
+        '@storybook/addon-docs',
+        '@storybook/addon-viewport',
+        '@storybook/addon-a11y',
     ],
     webpackFinal: async (config, { configType }) => {
         // `configType` has a value of 'DEVELOPMENT' or 'PRODUCTION'

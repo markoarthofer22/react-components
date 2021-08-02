@@ -1,42 +1,55 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs } from '@storybook/addon-knobs';
+import { withKnobs, text, optionsKnob, select } from '@storybook/addon-knobs';
+import { action } from '@storybook/addon-actions';
 import Button from './button.component';
+
+// for sizing
+const label = 'Size';
+const options = {
+    Small: 'small',
+    Normal: '',
+    Big: 'big',
+};
+const defaultValue = '';
+const optionsObj = {
+    display: 'inline-radio',
+};
+
+// colors select
+const colors = {
+    Normal: 'default',
+    Red: 'red',
+    Blue: 'blue',
+    Yellow: 'yellow',
+};
 
 storiesOf(`Components/Buttons`)
     .addDecorator(withKnobs)
     .add('Default', () => (
         <React.Fragment>
-            <Button customClass='default' title='Click me' />
-        </React.Fragment>
-    ))
-    .add('Red', () => (
-        <React.Fragment>
-            <Button customClass='red' title='Click me' />
-        </React.Fragment>
-    ))
-    .add('Blue', () => (
-        <React.Fragment>
-            <Button customClass='blue' title='Click me' />
-        </React.Fragment>
-    ))
-    .add('Yellow', () => (
-        <React.Fragment>
-            <Button customClass='yellow' title='Click me' />
-        </React.Fragment>
-    ))
-    .add('Big', () => (
-        <React.Fragment>
-            <Button customClass='big red' title='Click me' />
-        </React.Fragment>
-    ))
-    .add('Small', () => (
-        <React.Fragment>
-            <Button customClass='small blue' title='Click me' />
-        </React.Fragment>
-    ))
-    .add('Big loading', () => (
-        <React.Fragment>
-            <Button customClass='big blue' isLoading={true} title='Click me' />
+            <Button
+                clicked={action({
+                    onClick: `clikced on`,
+                })}
+                customClass={`default ${optionsKnob(
+                    label,
+                    options,
+                    defaultValue,
+                    optionsObj
+                )}
+                ${optionsKnob(
+                    'Is Loading',
+                    {
+                        False: '',
+                        True: 'loading',
+                    },
+                    '',
+                    optionsObj
+                )}
+                ${select('Colors', colors, 'Normal')}
+                `}
+                title={text('Label', 'Click me')}
+            />
         </React.Fragment>
     ));

@@ -9,7 +9,7 @@ import {
 
 // component
 // import Tooltip from '../tooltip/tooltip.component';
-// import SvgIcon from '../svg-icon/svg-icon.component';
+import { MdRemoveRedEye } from 'react-icons/md';
 
 export interface SearchBarValidatorObj {
     required: boolean;
@@ -33,8 +33,8 @@ interface InputProps {
     inputValue?: string;
     tooltip?: string;
     disabled?: boolean;
-    showPasswordIcon?: boolean;
-    showIcon?: boolean | string;
+    showIcon?: boolean;
+    icon?: React.ElementType | React.ComponentType;
 }
 
 const InputComponent: React.FC<InputProps> = ({
@@ -48,10 +48,11 @@ const InputComponent: React.FC<InputProps> = ({
     onEveryChange,
     inputValue,
     tooltip,
-    disabled,
-    // showIcon,
+    disabled = false,
+    showIcon = false,
+    icon,
 }): JSX.Element => {
-    console.log(errorMessage);
+    const C = icon || MdRemoveRedEye;
 
     return (
         <>
@@ -73,11 +74,11 @@ const InputComponent: React.FC<InputProps> = ({
                 htmlFor={name || undefined}
                 className={`floating-label ${tooltip ? 'flexed' : ''}`}
             >
-                {labelText}{' '}
+                {labelText}
                 {/* {tooltip && <Tooltip title={tooltip} styles='custom-tooltip' />} */}
             </label>
 
-            {/* {showIcon && <SvgIcon icon={showIcon} />} */}
+            {showIcon && <C />}
 
             {errorMessage && (
                 <span

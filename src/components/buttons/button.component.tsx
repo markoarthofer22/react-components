@@ -19,7 +19,7 @@ const Button: React.FC<ButtonProps> = ({
 }): JSX.Element => (
     <button
         title={title}
-        className={`button ${customClass} ${isLoading ? 'loading' : ''}`}
+        className={`button ${customClass || ''} ${isLoading ? 'loading' : ''}`}
         onClick={clicked && ((e) => clicked(e))}
         disabled={isLoading}
         {...attributes}

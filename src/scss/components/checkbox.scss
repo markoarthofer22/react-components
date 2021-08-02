@@ -21,9 +21,11 @@
     }
 
     input[type='checkbox'] {
-        visibility: hidden;
         opacity: 0;
         position: absolute;
+        height: 100%;
+        z-index: 1000;
+        cursor: pointer;
     }
 
     input[type='checkbox'] + label {
@@ -31,7 +33,10 @@
         padding-left: 35px;
         margin: 8px 0;
         line-height: 20px;
-        cursor: pointer;
+        pointer-events: all;
+        top: unset;
+        transform: none;
+        user-select: auto;
         transition: all 0.4s;
 
         &::before {
