@@ -1,0 +1,146 @@
+import React, { useState, useEffect, useLayoutEffect, useRef } from 'react';
+import { MdExpandMore } from 'react-icons/md';
+import { CountriesProps } from '../input/input-type-phone.component';
+
+interface SelectProps {
+    title?: string | null;
+    data: CountriesProps[];
+    selectClass?: string;
+    placeholder?: string;
+    returnValue: (name: string, value: string, valueNumber: string) => void;
+    isSearchable?: boolean;
+}
+
+const Select: React.FC<SelectProps> = ({
+    title,
+    data,
+    selectClass,
+    placeholder,
+    returnValue,
+    isSearchable,
+}): JSX.Element => {
+    const [isOpen, setOpen] = useState<boolean>(false);
+    const [selectedTitle, setSelectedTitle] = useState<string | undefined>('');
+    const [selectData, setSelectData] = useState<CountriesProps[]>(data);
+
+    const searchInput = useRef<HTMLInputElement | null>(null);
+    const mainInput = useRef<HTMLInputElement | null>(null);
+
+    useEffect(() => {
+        if (!title) return;
+        setSelectedTitle(title);
+    }, [title]);
+
+    useLayoutEffect(() => {
+        function handleClickOutside(e: any) {
+            if (mainInput.current === null) return;
+
+            if (mainInput.current.contains(e.target)) {
+                return;
+            }
+            setOpen(false);
+        }
+
+        if (isOpen) {
+            document.addEventListener('mousedown', handleClickOutside);
+        } else {
+            document.removeEventListener('mousedown', handleClickOutside);
+        }
+
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [isOpen]);
+
+    const toggleDropdown = (e: React.MouseEvent) => {
+        e.preventDefault();
+        e.stopPropagation();
+        setOpen(!isOpen);
+    };
+
+    const selectItem = (
+        e: React.MouseEvent,
+        name: string,
+        value: string,
+        valueNumber: string
+    ) => {
+        e.preventDefault();
+        e.stopPropagation();
+        setOpen(false);
+        setSelectedTitle(name);
+        returnValue(name, value, valueNumber);
+    };
+
+    const searchTroughSelectData = (e: any) => {
+        if (e.target.value.length !== 0) {
+            let searchPattern: string;
+            if (e.target.value.charAt(0) === '+') {
+                searchPattern = e.target.value.slice(1);
+            } else {
+                searchPattern = e.target.value;
+            }
+            const res = data.filter((item: CountriesProps) =>
+                Object.keys(item).some((itemChild: string) =>
+                    item[itemChild as keyof CountriesProps]
+                        .toLowerCase()
+                        .includes(searchPattern.toLowerCase())
+                )
+            );
+            setSelectData(res || []);
+        } else {
+            setSelectData(data);
+        }
+    };
+
+    return (
+        <div className={`select ${selectClass}`} ref={mainInput}>
+            <div
+                className={`select-header ${isOpen ? 'open' : ''} `}
+                onClick={(e) => {
+                    toggleDropdown(e);
+                }}
+            >
+                {selectedTitle ? (
+                    <div className='selected-item-title'>
+                        {selectedTitle || ''}
+                    </div>
+                ) : (
+                    <div className='placeholder'>{placeholder || ''}</div>
+                )}
+                <MdExpandMore />
+            </div>
+            <div className={`select-list ${isOpen ? 'open' : ''}`}>
+                {isSearchable && (
+                    <input
+                        ref={searchInput}
+                        type='text'
+                        autoComplete='off'
+                        name='search-select'
+                        id='search-select'
+                        className='search-select'
+                        onChange={(e) => searchTroughSelectData(e)}
+                    />
+                )}
+                {selectData.map((item, index) => (
+                    <li
+                        className='select-item'
+                        key={index}
+                        data-value={item.dialing_code}
+                        onClick={(e) => {
+                            selectItem(
+                                e,
+                                item.country,
+                                item.iso,
+                                item.dialing_code
+                            );
+                        }}
+                    >
+                        {item.country}
+                    </li>
+                ))}
+            </div>
+        </div>
+    );
+};
+
+export default Select;

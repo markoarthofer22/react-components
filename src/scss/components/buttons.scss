@@ -2,7 +2,7 @@ a.button,
 button,
 .button {
     position: relative;
-    padding: 10px 15px;
+    padding: 10px 25px;
     transition: all 0.4s;
     cursor: pointer;
     display: inline-block;
@@ -14,6 +14,7 @@ button,
     font-weight: 400;
     height: 40px;
     transition: all 0.4s ease;
+    font-size: 14px;
 
     &.disabled {
         pointer-events: none;
@@ -72,7 +73,6 @@ button {
         color: $white;
         background-color: $black;
         height: auto;
-        padding: 8px 16px;
 
         &:hover {
             color: $black;
@@ -86,7 +86,6 @@ button {
         color: $white;
         background-color: $warning-red;
         height: auto;
-        padding: 8px 16px;
 
         &:hover {
             color: $warning-red;
@@ -100,12 +99,11 @@ button {
         color: $black;
         background-color: $yellow;
         height: auto;
-        padding: 8px 16px;
 
         &:hover {
-            color: $yellow;
-            background-color: $black;
-            border-color: $yellow;
+            color: $black;
+            background-color: transparent;
+            border-color: $black;
             transform: scale(1.05);
         }
     }
@@ -114,7 +112,6 @@ button {
         color: $white;
         background-color: $dark-blue;
         height: auto;
-        padding: 8px 16px;
 
         &:hover {
             color: $dark-blue;

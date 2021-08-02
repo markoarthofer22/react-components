@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs } from '@storybook/addon-knobs';
+import { withKnobs, text, boolean } from '@storybook/addon-knobs';
 import Dialog from './dialog.component';
 
 storiesOf(`Components`)
@@ -8,9 +8,9 @@ storiesOf(`Components`)
     .add('Dialog', () => (
         <React.Fragment>
             <Dialog
-                title='Click me if you want'
-                message='This is text message'
-                isShowing={true}
+                title={text('Title', 'Click me if you want')}
+                message={text('Message', 'This is text message')}
+                isShowing={boolean('Is showing?', true)}
                 okCallback={() => console.log('clicked ok')}
                 cancelCallback={() => console.log('clicked cancle')}
             />

@@ -1,6 +1,19 @@
+import { addDecorator, addParameters } from '@storybook/react';
+import { withConsole } from '@storybook/addon-console';
+import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
+
+import '../src/scss/Defaults.scss';
 import '../src/scss/App.scss';
 
-export const parameters = {
+addDecorator((storyFn, context) => withConsole()(storyFn)(context));
+
+addParameters({
+    a11y: {
+        disable: true,
+    },
+    viewport: {
+        viewports: INITIAL_VIEWPORTS,
+    },
     actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {
         matchers: {
@@ -9,7 +22,6 @@ export const parameters = {
         },
     },
     backgrounds: {
-        default: 'twitter',
         values: [
             {
                 name: 'twitter',
@@ -25,4 +37,4 @@ export const parameters = {
             },
         ],
     },
-};
+});

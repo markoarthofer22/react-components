@@ -3,7 +3,7 @@
   <h3 align="center">React Components Collection</h3>
 
   <p align="center">
-    Collection of react components build from ground up :smile:
+    Collection of react components built from ground up :smile:
     <br />
     <br />
     <br />
