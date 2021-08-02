@@ -22,9 +22,11 @@ const colors = {
     Red: 'red',
     Blue: 'blue',
     Yellow: 'yellow',
+    Pink: 'pink',
+    Green: 'green',
 };
 
-storiesOf(`Components/Buttons`)
+storiesOf(`Designs/Atoms/Buttons`)
     .addDecorator(withKnobs)
     .add('Default', () => (
         <React.Fragment>

@@ -1,28 +1,26 @@
 .notification-box {
     position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 10;
+    transition: all 0.6s;
+    top: 50%;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%, -50%);
 
-    &.mail-success {
-        opacity: 0;
-        visibility: hidden;
-        z-index: 10;
+    &.open {
+        opacity: 1;
+        visibility: visible;
 
-        transition: all 0.6s;
-
-        top: 50%;
-        left: 50%;
-        bottom: 0;
-        transform: translate(-50%, -50%);
-
-        &.open {
+        .notification-body {
+            transform: scale(1);
             opacity: 1;
             visibility: visible;
-
-            .notification-body {
-                transform: scale(1);
-                opacity: 1;
-                visibility: visible;
-            }
         }
+    }
+    button:first-of-type {
+        margin-right: 6px;
     }
 
     .notification-body {
@@ -41,15 +39,17 @@
     .title {
         margin-top: 10px;
         margin-bottom: 10px;
-        font-size: 1.8rem;
+        font-size: 18px;
         color: $pink;
     }
 
     .content {
-        margin: 10px 0;
+        margin: 10px 0 20px;
 
         p {
             margin: 0;
+            font-size: 12px;
+            font-weight: 500;
         }
     }
 

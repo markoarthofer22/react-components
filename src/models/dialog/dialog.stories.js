@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, text, boolean } from '@storybook/addon-knobs';
 import Dialog from './dialog.component';
 
-storiesOf(`Components`)
+storiesOf(`Designs/Models`)
     .addDecorator(withKnobs)
     .add('Dialog', () => (
         <React.Fragment>

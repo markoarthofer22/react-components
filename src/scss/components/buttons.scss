@@ -11,7 +11,7 @@ button,
     text-align: center;
     background-color: transparent;
     border: 1px solid transparent;
-    font-weight: 400;
+    font-weight: 600;
     height: 40px;
     transition: all 0.4s ease;
     font-size: 14px;
@@ -104,6 +104,32 @@ button {
             color: $black;
             background-color: transparent;
             border-color: $black;
+            transform: scale(1.05);
+        }
+    }
+
+    &.pink {
+        background-color: $pink;
+        color: $white;
+        height: auto;
+
+        &:hover {
+            color: $pink;
+            background-color: transparent;
+            border-color: $pink;
+            transform: scale(1.05);
+        }
+    }
+
+    &.green {
+        background-color: $green;
+        color: $white;
+        height: auto;
+
+        &:hover {
+            color: $green;
+            background-color: transparent;
+            border-color: $green;
             transform: scale(1.05);
         }
     }
