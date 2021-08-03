@@ -1,10 +1,31 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs } from '@storybook/addon-knobs';
+import { withKnobs, optionsKnob } from '@storybook/addon-knobs';
 import { useForm } from 'react-hook-form';
 
 import InputComponent from './input.component';
 import InputTypePhone from './input-type-phone.component';
+
+const Warning = () => (
+    <p style={{ marginBottom: 20, fontSize: 13 }}>
+        Wrap your inputs with
+        <div
+            style={{
+                margin: '10px 0',
+                fontSize: 14,
+                color: 'red',
+                fontWeight: 500,
+            }}
+        >
+            {String(`
+    <div className="form-item-container">
+        <div className="form-item-floating">{children}</div>
+    </div>
+    `)}
+        </div>
+        to achive focus and click styles intended.
+    </p>
+);
 
 storiesOf(`Designs/Atoms/Inputs`)
     .addDecorator(withKnobs)
@@ -18,6 +39,7 @@ storiesOf(`Designs/Atoms/Inputs`)
             <div
                 style={{ maxWidth: '400px', width: '100%', marginTop: '20px' }}
             >
+                <Warning />
                 <div className='form-item-container single'>
                     <div
                         className={`form-item-floating ${
@@ -100,6 +122,63 @@ storiesOf(`Designs/Atoms/Inputs`)
                         name='checkboxExample'
                         labelText='Officia cillum aute magna in est nostrud dolore ullamco excepteur in mollit id.'
                         errorMessage={errors.checkboxExample}
+                        register={register}
+                        required={{
+                            required: 'This field is required',
+                        }}
+                    />
+                </div>
+            </div>
+        );
+    })
+    .add('Radio', () => {
+        const { register, errors } = useForm({
+            mode: 'onChange',
+            reValidateMode: 'onSubmit',
+        });
+
+        return (
+            <div
+                className={`radio-single      ${optionsKnob(
+                    'Display inline (add class inline)',
+                    {
+                        False: '',
+                        True: 'inline',
+                    },
+                    '',
+                    { display: 'inline-radio' }
+                )} `}
+            >
+                <div
+                    className={`radio-single-item ${
+                        errors.radioExample && 'invalid'
+                    }`}
+                >
+                    <InputComponent
+                        type='radio'
+                        id='val1'
+                        inputValue='value1'
+                        name='radioExample'
+                        labelText='value1'
+                        errorMessage={errors.radioExample}
+                        register={register}
+                        required={{
+                            required: 'This field is required',
+                        }}
+                    />
+                </div>
+                <div
+                    className={`radio-single-item ${
+                        errors.radioExample && 'invalid'
+                    }`}
+                >
+                    <InputComponent
+                        type='radio'
+                        id='val2'
+                        inputValue='value2'
+                        name='radioExample'
+                        labelText='value2'
+                        errorMessage={errors.radioExample}
                         register={register}
                         required={{
                             required: 'This field is required',

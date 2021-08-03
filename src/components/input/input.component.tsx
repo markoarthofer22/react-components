@@ -35,6 +35,7 @@ interface InputProps {
     disabled?: boolean;
     showIcon?: boolean;
     icon?: React.ElementType | React.ComponentType;
+    id?: string;
 }
 
 const InputComponent: React.FC<InputProps> = ({
@@ -51,12 +52,14 @@ const InputComponent: React.FC<InputProps> = ({
     disabled = false,
     showIcon = false,
     icon,
+    id,
 }): JSX.Element => {
     const C = icon || MdRemoveRedEye;
 
     return (
         <>
             <input
+                id={id}
                 type={type || 'text'}
                 disabled={disabled}
                 required
