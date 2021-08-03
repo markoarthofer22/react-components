@@ -27,7 +27,9 @@ input {
     }
 }
 
-input,
+input[type='text'],
+input[type='password'],
+input[type='number'],
 textarea {
     width: 100%;
     border: 1px solid #ccc;
@@ -44,15 +46,15 @@ textarea {
     & + label {
         line-height: 1;
         font: inherit;
-        position: relative;
         font-size: 1.4rem;
-        font-weight: 700;
+        font-weight: 500;
         padding: 0 6px;
         background-color: $white;
     }
 }
 
-input {
+input[type='text'],
+input[type='password'] {
     & + label {
         position: absolute;
         top: 50%;
@@ -138,7 +140,7 @@ textarea.invalid ~ span:before {
     position: relative;
     margin-bottom: 20px;
 
-    input,
+    input[type='text'],
     textarea {
         background-color: transparent;
 

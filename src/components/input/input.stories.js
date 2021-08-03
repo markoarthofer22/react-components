@@ -27,6 +27,7 @@ const Warning = () => (
     </p>
 );
 
+//
 storiesOf(`Designs/Atoms/Inputs`)
     .addDecorator(withKnobs)
     .add('Default inputs', () => {
@@ -110,7 +111,10 @@ storiesOf(`Designs/Atoms/Inputs`)
         });
 
         return (
-            <div className='form-item-container single checkbox-single'>
+            <div
+                className='form-item-container single checkbox-single'
+                style={{ width: 'fit-content' }}
+            >
                 <div
                     className={`form-item-floating ${
                         errors.checkboxExample && 'invalid'
@@ -139,7 +143,7 @@ storiesOf(`Designs/Atoms/Inputs`)
 
         return (
             <div
-                className={`radio-single      ${optionsKnob(
+                className={`form-item-container single radio-single ${optionsKnob(
                     'Display inline (add class inline)',
                     {
                         False: '',

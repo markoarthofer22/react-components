@@ -5,9 +5,8 @@
     border-radius: 3px;
 
     .select-countries {
-        flex-basis: 35%;
         height: 40px;
-
+        flex-basis: 40%;
         &.disabled {
             pointer-events: none;
 
@@ -21,12 +20,7 @@
             }
         }
 
-        @include lg {
-            flex-basis: 40%;
-        }
-
         .select-header {
-            padding: 0;
             height: 40px;
             border: none;
             border-right: 1px solid #ccc;
@@ -59,7 +53,6 @@
 
     .countries-input-holder {
         position: relative;
-        flex-basis: 80%;
 
         input {
             border: none !important;

@@ -16,14 +16,13 @@
         width: 100%;
         font-size: 1.2rem;
         margin-left: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
 
         @include sm {
             font-size: 1.4rem;
             margin-left: 0;
-            position: absolute;
-            top: 50%;
-            left: 10px;
-            transform: translateY(-50%);
         }
     }
 
@@ -31,15 +30,11 @@
         position: relative;
         cursor: pointer;
         border: 1px solid $darker-blue;
-        padding: 15px 0;
+        padding: 15px 0 15px 10px;
         transition: all 0.4s;
         display: flex;
         align-items: center;
         justify-content: space-evenly;
-
-        @include sm {
-            display: block;
-        }
 
         &.open {
         }
@@ -54,17 +49,14 @@
             transition: all 0.3s ease-in-out;
 
             @include sm {
-                position: absolute;
-                right: 0;
-                top: 50%;
-                transform: translateY(-50%) rotate(0deg);
+                transform: rotate(0deg);
             }
 
             &.open {
                 transform: rotate(90deg);
 
                 @include sm {
-                    transform: translateY(-50%) rotate(90deg);
+                    transform: rotate(90deg);
                 }
             }
         }
