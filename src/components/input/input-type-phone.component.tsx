@@ -42,6 +42,7 @@ interface InputPhoneProps {
     disableFocus?: boolean;
     labelText?: string;
     selectPlaceholder?: string;
+    selectBindingValue?: string;
 }
 
 const InputTypePhone: React.FC<InputPhoneProps> = ({
@@ -58,20 +59,17 @@ const InputTypePhone: React.FC<InputPhoneProps> = ({
     disableFocus,
     labelText,
     selectPlaceholder,
+    selectBindingValue,
 }): JSX.Element => {
     const [countriesID, setCountriesID] = useState<string>('');
     const [countriesName, setCountriesName] = useState<string>('');
     const [countriesDial, setCountriesDial] = useState<string>('');
     const [inputValue, setInputValue] = useState<string>('');
 
-    const returnValueFromSelect = (
-        _name: string,
-        _value: string,
-        _valueNumber: string
-    ) => {
-        setCountriesName(_name);
-        setCountriesID(_value);
-        setCountriesDial(_valueNumber);
+    const returnValueFromSelect = (data: any) => {
+        setCountriesName(data.country);
+        setCountriesID(data.iso);
+        setCountriesDial(data.dialing_code);
     };
 
     const checkForCountryPhone = (countryID: string) => {
@@ -166,6 +164,7 @@ const InputTypePhone: React.FC<InputPhoneProps> = ({
                     }`}
                     returnValue={returnValueFromSelect}
                     isSearchable
+                    bindingValue={selectBindingValue}
                 />
                 <div className='countries-input-holder'>
                     <input

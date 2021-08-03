@@ -1,14 +1,14 @@
 import React, { useState, useEffect, useLayoutEffect, useRef } from 'react';
 import { MdExpandMore } from 'react-icons/md';
-import { CountriesProps } from '../input/input-type-phone.component';
 
 interface SelectProps {
     title?: string | null;
-    data: CountriesProps[];
+    data: any[];
     selectClass?: string;
     placeholder?: string;
-    returnValue: (name: string, value: string, valueNumber: string) => void;
+    returnValue: (data: any) => void;
     isSearchable?: boolean;
+    bindingValue?: string;
 }
 
 const Select: React.FC<SelectProps> = ({
@@ -18,10 +18,11 @@ const Select: React.FC<SelectProps> = ({
     placeholder,
     returnValue,
     isSearchable,
+    bindingValue,
 }): JSX.Element => {
     const [isOpen, setOpen] = useState<boolean>(false);
     const [selectedTitle, setSelectedTitle] = useState<string | undefined>('');
-    const [selectData, setSelectData] = useState<CountriesProps[]>(data);
+    const [selectData, setSelectData] = useState<any[]>(data);
 
     const searchInput = useRef<HTMLInputElement | null>(null);
     const mainInput = useRef<HTMLInputElement | null>(null);
@@ -60,15 +61,15 @@ const Select: React.FC<SelectProps> = ({
 
     const selectItem = (
         e: React.MouseEvent,
-        name: string,
-        value: string,
-        valueNumber: string
+        item: {
+            [key: string]: string;
+        }
     ) => {
         e.preventDefault();
         e.stopPropagation();
         setOpen(false);
-        setSelectedTitle(name);
-        returnValue(name, value, valueNumber);
+        setSelectedTitle(item[bindingValue || 'name']);
+        returnValue(item);
     };
 
     const searchTroughSelectData = (e: any) => {
@@ -79,9 +80,9 @@ const Select: React.FC<SelectProps> = ({
             } else {
                 searchPattern = e.target.value;
             }
-            const res = data.filter((item: CountriesProps) =>
+            const res = data.filter((item: any) =>
                 Object.keys(item).some((itemChild: string) =>
-                    item[itemChild as keyof CountriesProps]
+                    item[itemChild]
                         .toLowerCase()
                         .includes(searchPattern.toLowerCase())
                 )
@@ -125,14 +126,9 @@ const Select: React.FC<SelectProps> = ({
                     <li
                         className='select-item'
                         key={index}
-                        data-value={item.dialing_code}
+                        data-value={item[bindingValue || 'value']}
                         onClick={(e) => {
-                            selectItem(
-                                e,
-                                item.country,
-                                item.iso,
-                                item.dialing_code
-                            );
+                            selectItem(e, item);
                         }}
                     >
                         {item.country}
