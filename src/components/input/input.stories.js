@@ -164,6 +164,7 @@ storiesOf(`Designs/Atoms/Inputs`)
                     >
                         <InputTypePhone
                             countriesList={countries}
+                            selectBindingValue={'iso'}
                             predefinedDialValue='385'
                             returnInputValue={returnInputValue}
                             name='phone'
