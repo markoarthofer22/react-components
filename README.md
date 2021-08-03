@@ -67,6 +67,8 @@ The project includes a [Storybook](https://storybook.js.org/) for developing and
 
 To add a story for your component create a `*.stories.js` file. Preferably inside component you are creating
 
+Additionaly you can add `knobs` (more on [knobs](https://storybook.js.org/addons/storybook-addon-knobs-color-options)) for adding props trough storybook UI
+
 You can also manually add stories using the Storybook [`storiesOf` API](https://storybook.js.org/docs/formats/storiesof-api/)
 
 ## Usage
@@ -81,10 +83,10 @@ For starting Storybook on your localhost use
 
 These are some of the components that we have in mind. Will be populated over time with new ones. :smile:
 
-1. Container (flex, bootstrap)
-2. Alerts Box/Bar
-3. Checkbox Input
-4. Radio Input
+1. Container (flex, bootstrap) :soon:
+2. Alerts Box/Bar :soon:
+3. Checkbox Input :white_check_mark:
+4. Radio Input :soon:
 5. Slider Bar
 6. Switch button
 7. List Wrapper (wrapper for passed children)
