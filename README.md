@@ -86,7 +86,7 @@ These are some of the components that we have in mind. Will be populated over ti
 1. Container (flex, bootstrap) :soon:
 2. Alerts Box/Bar :soon:
 3. Checkbox Input :white_check_mark:
-4. Radio Input :soon:
+4. Radio Input :white_check_mark:
 5. Slider Bar
 6. Switch button
 7. List Wrapper (wrapper for passed children)
