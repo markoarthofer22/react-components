@@ -8,10 +8,12 @@ interface Props {
     title: string;
     subtitle?: string;
     hasOverlay?: boolean;
+    columnSize?: string;
 }
 
 const HeroBox: React.FC<Props> = (props): JSX.Element => {
-    const { customClass, bgImage, title, subtitle, hasOverlay } = props;
+    const { customClass, bgImage, title, subtitle, hasOverlay, columnSize } =
+        props;
 
     return (
         <section className={`hero-box ${customClass || ''}`}>
@@ -29,7 +31,7 @@ const HeroBox: React.FC<Props> = (props): JSX.Element => {
             {(title || subtitle) && (
                 <div className='container'>
                     <div className='row'>
-                        <div className='col-12 col-sm-8'>
+                        <div className={`${columnSize || 'col-12 col-sm-8'}`}>
                             {title && (
                                 <h1 className='hero-box--title'>{title}</h1>
                             )}
