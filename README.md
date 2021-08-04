@@ -22,7 +22,7 @@ Basic structure:
 -   Function based React, knowledge of Hooks is required
 -   Grid system based on Bootstrap framework
 -   Normalize copied from Bootstrap
--   Typscript for typing. AirBnb convention
+-   Typescript for typing. AirBnb convention
 -   All components made from scratch
 -   Using linter and prettier for code consistency
 -   Using [react-icons](https://react-icons.github.io/react-icons/) lib for icons (default in project is [Material](https://react-icons.github.io/react-icons/icons?name=md))
@@ -38,7 +38,7 @@ Basic structure:
 
 ## Getting Started
 
-First, to discuss structure and typing in app.
+First, to discuss structure and typing in the app.
 
 -   files are sorted per usage. (alphabetically)
 -   inside component folder you should have 2 files
