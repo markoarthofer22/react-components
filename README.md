@@ -48,6 +48,63 @@ First, to discuss structure and typing in app.
 -   use `npm run lint` to run linter with --fix param
 -   use `npm run prettier` to run prettier
 
+### Styling
+
+For `.scss` files please use [BEM convention](http://getbem.com/). This keeps it readable, neat and understandable to other devs :smile:
+
+#### What is BEM?
+
+According to creator definition of BEM is as follows:
+
+"BEM is a highly useful, powerful, and simple naming convention that makes your front-end code easier to read and understand, easier to work with, easier to scale, more robust and explicit, and a lot more strict."
+
+<b>BEM structure</b>
+
+```scss
+.block {
+    //usually a wrapper that containes component
+    position: relative;
+    width: 100%;
+
+    &--element {
+        //this is how we define element inside of a block
+        opacity: 0;
+
+        &-modifier {
+            opacity: 1;
+            //modifier, such as "open", "disabled" ect
+        }
+    }
+}
+```
+
+<b>Example of BEM usage</b>
+
+```scss
+.select {
+    position: relative;
+    width: 100%;
+
+    &--header {
+        position: relative;
+        cursor: pointer;
+
+        svg {
+            fill: $black;
+            transform: rotateX(0deg);
+            transition: all 0.4s ease;
+        }
+
+        &-open {
+            svg {
+                transform: rotateX(180deg);
+                fill: $blue;
+            }
+        }
+    }
+}
+```
+
 ### Installation
 
 1. Clone the repo
