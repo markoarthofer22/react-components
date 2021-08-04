@@ -20,7 +20,7 @@ const GlobalLoader: React.FC<Props> = ({
         classNames='loader'
         unmountOnExit
     >
-        <div className={`main-loader-container ${customClass || ''}`}>
+        <div className={`loader--container ${customClass || ''}`}>
             <div className='loader'></div>
         </div>
     </CSSTransition>

@@ -1,6 +1,5 @@
 .dialog {
-    .error-message,
-    .message {
+    &--message {
         font-size: 12px;
         border: 1px solid #eee;
         padding: 16px;
@@ -11,13 +10,13 @@
         margin-bottom: 20px;
     }
 
-    h1 {
+    &--title {
         margin-top: 0;
         margin-bottom: 20px;
         font-size: 24px;
     }
 
-    .requestMessage {
+    &--request-message {
         border: 1px solid #eee;
         padding: 16px;
         font-weight: 300;
@@ -27,7 +26,8 @@
         resize: none;
     }
 
-    .button {
+    &--confirm,
+    &--cancel {
         background-color: $darker-blue;
         font-size: 12px;
         text-transform: uppercase;
@@ -36,9 +36,9 @@
         color: $white;
         padding: 10px 36px;
         height: auto;
+    }
 
-        &:first-of-type {
-            margin-right: 10px;
-        }
+    &--confirm {
+        margin-right: 10px;
     }
 }

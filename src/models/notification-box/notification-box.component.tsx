@@ -40,10 +40,10 @@ const NotificationBox: React.FC<NotificationBoxProp> = (props): JSX.Element => {
     return (
         <div
             className={`notification-box ${customClass || ''} ${
-                isShowing ? 'open' : ''
+                isShowing ? 'notification-box-open' : ''
             }`}
         >
-            <div className='notification-body'>
+            <div className='notification-box--body'>
                 {alertType === 'success' && (
                     <div
                         className={`svg-icon-success ${
@@ -105,15 +105,15 @@ const NotificationBox: React.FC<NotificationBoxProp> = (props): JSX.Element => {
                         </svg>
                     </div>
                 )}
-                <span className='title'>{title}</span>
-                <div className='content'>
+                <span className='notification-box--title'>{title}</span>
+                <div className='notification-box--content'>
                     {message && (
-                        <div className='message'>
+                        <div className='notification-box--content--message'>
                             <p>{message}</p>
                         </div>
                     )}
                 </div>
-                <div className='actions'>
+                <div className='notification-box--actions'>
                     {okCallback && (
                         <Button
                             customClass='pink'

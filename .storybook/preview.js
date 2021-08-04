@@ -1,11 +1,13 @@
 import { addDecorator, addParameters } from '@storybook/react';
 import { withConsole } from '@storybook/addon-console';
+import StoryRouter from 'storybook-react-router';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 
 import '../src/scss/Defaults.scss';
 import '../src/scss/App.scss';
 
 addDecorator((storyFn, context) => withConsole()(storyFn)(context));
+addDecorator(StoryRouter());
 
 addParameters({
     a11y: {

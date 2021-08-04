@@ -96,21 +96,27 @@ const Select: React.FC<SelectProps> = ({
     return (
         <div className={`select ${selectClass}`} ref={mainInput}>
             <div
-                className={`select-header ${isOpen ? 'open' : ''} `}
+                className={`select--header ${
+                    isOpen ? 'select--header-open' : ''
+                } `}
                 onClick={(e) => {
                     toggleDropdown(e);
                 }}
             >
                 {selectedTitle ? (
-                    <div className='selected-item-title'>
+                    <div className='select--header--title'>
                         {selectedTitle || ''}
                     </div>
                 ) : (
-                    <div className='placeholder'>{placeholder || ''}</div>
+                    <div className='select--header--placeholder'>
+                        {placeholder || ''}
+                    </div>
                 )}
                 <MdExpandMore />
             </div>
-            <div className={`select-list ${isOpen ? 'open' : ''}`}>
+            <div
+                className={`select--list ${isOpen ? 'select--list-open' : ''}`}
+            >
                 {isSearchable && (
                     <input
                         ref={searchInput}
@@ -118,13 +124,13 @@ const Select: React.FC<SelectProps> = ({
                         autoComplete='off'
                         name='search-select'
                         id='search-select'
-                        className='search-select'
+                        className='select--list--search'
                         onChange={(e) => searchTroughSelectData(e)}
                     />
                 )}
                 {selectData.map((item, index) => (
                     <li
-                        className='select-item'
+                        className='select--item'
                         key={index}
                         data-value={item[bindingValue || 'value']}
                         onClick={(e) => {

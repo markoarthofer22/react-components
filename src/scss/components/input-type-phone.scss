@@ -4,28 +4,34 @@
     border: 1px solid #ccc;
     border-radius: 3px;
 
-    .select-countries {
-        height: 40px;
-        flex-basis: 40%;
-        &.disabled {
-            pointer-events: none;
+    &--name {
+    }
 
-            .select-header {
-                color: #999;
+    .select {
+        &--countries {
+            height: 40px;
+            flex-basis: 40%;
 
-                svg {
-                    fill: #999;
-                    stroke: #999;
+            &-disabled {
+                pointer-events: none;
+
+                .select--header {
+                    color: #999;
+
+                    svg {
+                        fill: #999;
+                        stroke: #999;
+                    }
                 }
             }
         }
 
-        .select-header {
+        &--header {
             height: 40px;
             border: none;
             border-right: 1px solid #ccc;
             color: #333;
-            transition: all 0.4s;
+
             svg {
                 transition: all 0.4s;
                 fill: $black;
@@ -34,16 +40,12 @@
                 width: 18px;
             }
 
-            .placeholder {
+            &--placeholder {
                 font-size: 1.3rem;
             }
         }
 
-        .select-item-title {
-            width: 90%;
-        }
-
-        .select-list {
+        &--list {
             border-color: #ccc;
             left: -1px; // for border-right on input
             width: calc(100% + 1px);

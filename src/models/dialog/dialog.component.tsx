@@ -34,21 +34,21 @@ const Dialog: React.FC<DialogProps> = ({
             }
         >
             <div className={`dialog ${customClass || ''}`}>
-                <h1 className=''>{title}</h1>
-                {message && <p className='message'>{message}</p>}
+                <h1 className='dialog--title'>{title}</h1>
+                {message && <p className='dialog--message'>{message}</p>}
                 {requestMessage && (
-                    <textarea className='requestMessage'></textarea>
+                    <textarea className='dialog--request-message'></textarea>
                 )}
                 {okCallback && (
                     <Button
-                        customClass='default confirm mr-1'
+                        customClass='dialog--confirm'
                         title='Ok'
                         clicked={okCallback}
                     />
                 )}
                 {cancelCallback && (
                     <Button
-                        customClass='default cancel'
+                        customClass='dialog--cancel'
                         title='Cancel'
                         clicked={cancelCallback}
                     />

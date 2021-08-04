@@ -151,7 +151,7 @@ const InputTypePhone: React.FC<InputPhoneProps> = ({
 
     return (
         <>
-            <label htmlFor={name} className='floating-name'>
+            <label htmlFor={name} className='form-item-phone--name'>
                 {labelText}
             </label>
             <div className='form-item-phone'>
@@ -159,8 +159,8 @@ const InputTypePhone: React.FC<InputPhoneProps> = ({
                     title={countriesName || null}
                     data={countriesList}
                     placeholder={selectPlaceholder || 'Choose from list'}
-                    selectClass={`select-countries  ${
-                        predefinedValue ? 'disabled' : ''
+                    selectClass={`select--countries  ${
+                        predefinedValue ? 'select--countries-disabled' : ''
                     }`}
                     returnValue={returnValueFromSelect}
                     isSearchable

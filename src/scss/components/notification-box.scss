@@ -9,11 +9,11 @@
     bottom: 0;
     transform: translate(-50%, -50%);
 
-    &.open {
+    &-open {
         opacity: 1;
         visibility: visible;
 
-        .notification-body {
+        .notification-box--body {
             transform: scale(1);
             opacity: 1;
             visibility: visible;
@@ -23,7 +23,7 @@
         margin-right: 6px;
     }
 
-    .notification-body {
+    &--body {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -36,14 +36,14 @@
         text-align: center;
     }
 
-    .title {
+    &--title {
         margin-top: 10px;
         margin-bottom: 10px;
         font-size: 18px;
         color: $pink;
     }
 
-    .content {
+    &--content {
         margin: 10px 0 20px;
 
         p {
@@ -59,13 +59,20 @@
         height: 50px;
     }
 
-    .svg-icon-success .circle-check {
-        fill: none;
-        fill-opacity: 0;
-        stroke: #fff;
-        stroke-width: 4px;
-        stroke-location: inside;
-        stroke-dasharray: 0 100;
+    .svg-icon-success {
+        .circle {
+            fill: $pink;
+        }
+
+        .circle-check {
+            fill: none;
+            fill-opacity: 0;
+            stroke-width: 4px;
+            stroke-dasharray: 0 100;
+            stroke: #fff;
+            stroke-linecap: round;
+            stroke-miterlimit: 10;
+        }
     }
 
     .svg-icon-success.is-animated .circle-check {
@@ -74,32 +81,6 @@
         animation-delay: 0.3s;
         animation-timing-function: ease-in-out;
         animation-fill-mode: both;
-    }
-
-    .svg-icon-error.is-animated .x-single {
-        animation-name: rotate;
-        animation-duration: 0.5s;
-        animation-delay: 0.3s;
-        animation-timing-function: ease-in-out;
-        animation-fill-mode: both;
-        transform-origin: 50% 50%;
-    }
-}
-
-// set default
-
-.notification-box {
-    .svg-icon-success {
-        .circle {
-            fill: $pink;
-        }
-        .circle-check {
-            fill: none;
-            stroke: #fff;
-            stroke-linecap: round;
-            stroke-miterlimit: 10;
-            stroke-width: 4px;
-        }
     }
 
     .svg-icon-error {
@@ -112,6 +93,15 @@
         .x-single {
             fill: #fff;
         }
+    }
+
+    .svg-icon-error.is-animated .x-single {
+        animation-name: rotate;
+        animation-duration: 0.5s;
+        animation-delay: 0.3s;
+        animation-timing-function: ease-in-out;
+        animation-fill-mode: both;
+        transform-origin: 50% 50%;
     }
 }
 

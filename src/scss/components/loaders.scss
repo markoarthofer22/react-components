@@ -1,29 +1,29 @@
-.main-loader-container {
-    position: fixed;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(#000, 0.5);
-    z-index: 10001;
-    top: 0px;
-    width: 100%;
-    height: 100%;
+.loader {
+    color: $pink;
+    font-size: 90px;
+    text-indent: -9999em;
+    overflow: hidden;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    margin: 72px auto;
+    position: relative;
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-animation: load6 1.7s infinite ease, round 1.7s infinite ease;
+    animation: load6 1.7s infinite ease, round 1.7s infinite ease;
 
-    .loader {
-        color: $pink;
-        font-size: 90px;
-        text-indent: -9999em;
-        overflow: hidden;
-        width: 1em;
-        height: 1em;
-        border-radius: 50%;
-        margin: 72px auto;
-        position: relative;
-        -webkit-transform: translateZ(0);
-        -ms-transform: translateZ(0);
-        transform: translateZ(0);
-        -webkit-animation: load6 1.7s infinite ease, round 1.7s infinite ease;
-        animation: load6 1.7s infinite ease, round 1.7s infinite ease;
+    &--container {
+        position: fixed;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(#000, 0.5);
+        z-index: 10001;
+        top: 0px;
+        width: 100%;
+        height: 100%;
     }
     @-webkit-keyframes load6 {
         0% {
@@ -107,31 +107,31 @@
             transform: rotate(360deg);
         }
     }
-}
 
-.loader-enter {
-    opacity: 0;
-    transform: scale(1);
+    &-enter {
+        opacity: 0;
+        transform: scale(1);
 
-    .window {
-        animation: ScaleIn 0.4s;
+        .window {
+            animation: ScaleIn 0.4s;
+        }
     }
-}
-.loader-enter-active {
-    opacity: 1;
-    transform: scale(1);
-    transition: opacity 0.4s, transform 0.4s;
-}
-
-.loader-exit {
-    opacity: 1;
-
-    .window {
-        animation: ScaleIn 0.4s reverse;
+    &-enter-active {
+        opacity: 1;
+        transform: scale(1);
+        transition: opacity 0.4s, transform 0.4s;
     }
-}
-.loader-exit-active {
-    opacity: 0;
-    //transform: scale(0.9);
-    transition: opacity 0.4s, transform 0.4s;
+
+    &-exit {
+        opacity: 1;
+
+        .window {
+            animation: ScaleIn 0.4s reverse;
+        }
+    }
+    &-exit-active {
+        opacity: 0;
+        //transform: scale(0.9);
+        transition: opacity 0.4s, transform 0.4s;
+    }
 }

@@ -2,31 +2,7 @@
     position: relative;
     width: 100%;
 
-    .select-label {
-        color: $white;
-        font-weight: 700;
-        text-transform: uppercase;
-        margin-left: 15px;
-        font-size: 0.875rem;
-    }
-
-    .selected-item-title {
-        text-align: left;
-        font-weight: 400;
-        width: 100%;
-        font-size: 1.2rem;
-        margin-left: 5px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-
-        @include sm {
-            font-size: 1.4rem;
-            margin-left: 0;
-        }
-    }
-
-    .select-header {
+    &--header {
         position: relative;
         cursor: pointer;
         border: 1px solid $darker-blue;
@@ -36,50 +12,58 @@
         align-items: center;
         justify-content: space-evenly;
 
-        &.open {
-        }
-
         svg {
             fill: $black;
             stroke: $black;
             margin-right: 5px;
-            height: 14px;
-            width: 14px;
-            transform: rotate(0deg);
-            transition: all 0.3s ease-in-out;
+            height: 16px;
+            width: 16px;
+            transform: rotateX(0deg);
+            transition: all 0.4s ease;
+        }
+
+        &-open {
+            svg {
+                transform: rotateX(180deg);
+                fill: $blue;
+            }
+        }
+
+        &--title {
+            text-align: left;
+            font-weight: 400;
+            width: 100%;
+            font-size: 1.2rem;
+            margin-left: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
 
             @include sm {
-                transform: rotate(0deg);
+                font-size: 1.4rem;
+                margin-left: 0;
             }
+        }
 
-            &.open {
-                transform: rotate(90deg);
+        &--placeholder {
+            text-align: left;
+            font-weight: 400;
+            width: 100%;
+            font-size: 1rem;
+            margin-left: 5px;
 
-                @include sm {
-                    transform: rotate(90deg);
-                }
+            @include sm {
+                font-size: 1.4rem;
+                margin-left: 0;
+                position: absolute;
+                top: 50%;
+                left: 10px;
+                transform: translateY(-50%);
             }
         }
     }
 
-    .placeholder {
-        text-align: left;
-        font-weight: 400;
-        width: 100%;
-        font-size: 1rem;
-        margin-left: 5px;
-
-        @include sm {
-            font-size: 1.4rem;
-            margin-left: 0;
-            position: absolute;
-            top: 50%;
-            left: 10px;
-            transform: translateY(-50%);
-        }
-    }
-
-    .select-list {
+    &--list {
         z-index: 10;
         position: absolute;
         visibility: hidden;
@@ -95,14 +79,24 @@
         max-height: 0px;
         transition: all 0.5s;
 
-        &.open {
+        &-open {
             opacity: 1;
             visibility: visible;
             max-height: 250px;
         }
+
+        &--search {
+            display: block;
+            width: 95% !important;
+            margin: 5px auto !important;
+            height: 32px !important;
+            border-radius: 4px !important;
+            padding: 0 5px;
+            font-size: 0.875rem;
+        }
     }
 
-    .select-item {
+    &--item {
         width: 100%;
         cursor: pointer;
         font-size: 1.2rem;
@@ -116,15 +110,5 @@
             background-color: $darker-blue;
             color: $white;
         }
-    }
-
-    .search-select {
-        display: block;
-        width: 95% !important;
-        margin: 5px auto !important;
-        height: 32px !important;
-        border-radius: 4px !important;
-        padding: 0 5px;
-        font-size: 0.875rem;
     }
 }
