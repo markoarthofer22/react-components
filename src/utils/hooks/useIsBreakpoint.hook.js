@@ -1,10 +1,14 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function useIsBreakpoint() {
     const [isMobileView, setIsMobileView] = useState(false);
 
     const checkWidth = () => {
-        setIsMobileView(window.getComputedStyle(document.body, '::before').content.replace(/\"/g, ''));
+        setIsMobileView(
+            window
+                .getComputedStyle(document.body, '::before')
+                .content.replace(/"/g, '')
+        );
     };
 
     useEffect(() => {
@@ -12,7 +16,7 @@ export default function useIsBreakpoint() {
     }, []);
 
     useEffect(() => {
-        if (typeof window === 'undefined') return;
+        if (typeof window === 'undefined') return undefined;
         window.addEventListener('resize', checkWidth);
 
         return () => {
