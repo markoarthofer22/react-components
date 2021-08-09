@@ -1,0 +1,36 @@
+@import '../../css/variables.scss';
+.quantity-input {
+    display: flex;
+    align-items: center;
+
+    .inc {
+        border-radius: 0px 4px 4px 0px;
+    }
+
+    .dec {
+        border-radius: 4px 0px 0px 4px;
+    }
+
+    .dec,
+    .inc {
+        background-color: #f1f1f1;
+        width: 55px;
+        height: 40px;
+
+        @include respond-to(sm) {
+            width: 40px;
+            height: 40px;
+        }
+    }
+
+    .input {
+        border-radius: 0;
+        flex: 1;
+        text-align: center;
+        font-weight: bold;
+
+        @include respond-to(sm) {
+            max-width: 70px;
+        }
+    }
+}

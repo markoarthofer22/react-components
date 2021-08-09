@@ -1,0 +1,200 @@
+@import '../../css/variables.scss';
+
+.maps {
+    position: relative;
+    overflow: auto;
+    width: 100%;
+    height: 600px;
+
+    .title.mapTitle {
+        margin: 20px;
+        text-transform: unset;
+        text-align: center;
+        @include respond-to(sm) {
+            text-align: left;
+        }
+    }
+
+    iframe {
+        height: 600px;
+        width: 100%;
+        border: none;
+    }
+}
+
+.map-label {
+    position: absolute;
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s;
+    color: #333;
+    padding: 8px;
+    max-width: 100px;
+    font-size: 13px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 4px;
+    z-index: 9999999;
+    background: #fff;
+    animation-name: ShowLabel;
+    animation-duration: 0.5s;
+}
+
+@keyframes ShowLabel {
+    0% {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+.map-label:after,
+.map-label:before {
+    top: 100%;
+    left: 50%;
+    border: solid transparent;
+    content: ' ';
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+}
+
+.map-label:after {
+    transition: all 0.3s;
+    border-top-color: #fff;
+    border-width: 10px;
+    margin-left: -10px;
+}
+
+.map-label.open:after {
+    border-top-color: #222;
+}
+
+.map-label h6 {
+    color: #333;
+    font-size: 12px;
+    max-width: 80px;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 8px;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.map-label p {
+    font-size: 0.75rem;
+    color: #000;
+}
+
+.map-label > img {
+    border-radius: 4px;
+    width: 100%;
+    min-width: 100%;
+}
+
+.map-label .details {
+    position: absolute;
+    top: 0;
+    left: calc(100% + 10px);
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.4);
+    animation-name: ShowDetails;
+    animation-duration: 0.5s;
+    width: 400px;
+}
+
+@keyframes ShowDetails {
+    0% {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+.map-label .details img {
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.map-label .details .close {
+    position: absolute;
+    left: 100%;
+    padding: 10px;
+    top: 10px;
+    background-color: #d01111;
+}
+
+.map-label .details .close svg {
+    fill: #fff;
+    width: 50px;
+    height: 50px;
+}
+
+.map-label.open {
+    box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.4);
+    background-color: #222 !important;
+    z-index: 99999999;
+}
+
+.map-label.open h6 {
+    color: #fff;
+}
+
+.map-label.open .details {
+    visibility: visible;
+    opacity: 1;
+    z-index: 10;
+}
+
+.map-label.open .details .close {
+    animation-name: ShowCloseButton;
+    animation-duration: 0.5s;
+}
+
+@keyframes ShowCloseButton {
+    0% {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+.map-label:hover {
+    background-color: #eee;
+}
+
+.map-label .opis {
+    max-height: 200px;
+    overflow-y: scroll;
+    margin-bottom: 10px;
+}
+
+.map-label .info {
+    margin-bottom: 10px;
+}
+
+.close-button {
+    cursor: pointer;
+    line-height: 1px;
+    padding: 20px;
+    text-align: center;
+
+    font-size: 50px;
+    color: #d01111;
+    position: absolute;
+    top: 0px;
+    right: -90px;
+}

@@ -1,0 +1,64 @@
+@import "../../css/variables.scss";
+
+.breadcrumbs {
+  //display: flex;
+  //align-items: flex-start;
+  //flex-direction: row;
+  margin: 0;
+  padding: 0;
+
+  @include respond-to(sm) {
+    display: flex;
+
+    align-items: center;
+    flex-direction: row;
+  }
+
+  li {
+    list-style-type: none;
+
+    &:first-child a {
+      font-weight: bold;
+      color: $black;
+    }
+
+    &:not(:last-child) {
+      display: inline;
+
+      @include respond-to(sm) {
+        display: block;
+      }
+    }
+
+    &:not(:last-child) a:after {
+      content: "";
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background-color: $pink;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      border-radius: 8px;
+    }
+  }
+
+  a {
+    position: relative;
+    margin-right: 10px;
+    padding-right: 10px;
+    transition: all 0.4s;
+    font-weight: 400;
+    font-size: 0.75rem;
+    color: #888;
+
+    @include respond-to(sm) {
+      font-size: 1rem;
+      padding-right: 15px;
+    }
+
+    &:hover {
+      color: $black;
+    }
+  }
+}
