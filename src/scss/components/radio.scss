@@ -39,21 +39,17 @@
             height: 16px;
             width: 16px;
             border-radius: 100%;
-            border: 2px solid rgba($grey, 0.5);
+            border: 2px solid rgba($blue, 0.5);
             transition: all 0.4s;
         }
     }
 
     input[type='radio']:checked + label {
-        color: $grey;
+        color: $blue;
 
         &::before {
-            border: 2px solid rgba($grey, 1);
-            background-color: $grey;
+            border: 2px solid rgba($blue, 1);
+            background-color: $blue;
         }
     }
-}
-
-.radio-single-item {
-    position: relative;
 }

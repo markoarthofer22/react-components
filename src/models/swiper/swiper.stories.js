@@ -101,7 +101,7 @@ storiesOf(`Designs/Models`)
                         >
                             Picturs taken from{' '}
                             <a
-                                style={{ color: '#c71585' }}
+                                style={{ color: '#1693c5' }}
                                 href='https://randomwordgenerator.com/picture.php'
                                 target='_blank'
                             >
