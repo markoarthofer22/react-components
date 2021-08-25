@@ -23,7 +23,7 @@ const CustomSwiper: React.FC<SwiperProps> = (props): JSX.Element => {
     } = props;
 
     const options = {
-        slidesPerView: 'auto',
+        slidesPerView: 'auto' as const,
         navigation: {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
