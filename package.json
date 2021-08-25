@@ -2,11 +2,11 @@
     "name": "react-components",
     "version": "1.0.0",
     "description": "The React-Components is library that contains various components intended for reusing on another projects.",
-    "main": "dist/index.js",
-    "module": "dist/index.es.js",
-    "types": "dist/index.d.ts",
+    "main": "./dist/index.js",
+    "module": "./dist/index.es.js",
+    "types": "./dist/index.d.ts",
     "files": [
-        "dist"
+        "./dist"
     ],
     "repository": {
         "type": "git",
@@ -22,8 +22,8 @@
     },
     "homepage": "https://github.com/markoarthofer22/react-components#readme",
     "scripts": {
-        "build": "rimraf dist  && tsc && cp -R ./src/scss ./lib/ && rollup -c && rimraf ./lib",
-        "lint": "eslint src --ext=.js,.ts",
+        "build": "rm -rf ./lib && rimraf dist  && tsc && cp -R ./src/scss ./lib/ && rollup -c && rm -rf ./lib",
+        "lint": "eslint src --ext=.js,.ts,.tsx",
         "prettier": "./node_modules/.bin/prettier --write '**/*.{js,ts,tsx}'",
         "prepare": "husky install",
         "storybook": "start-storybook -p 6006",
