@@ -1,8 +1,6 @@
 import React from 'react';
 import Swiper from 'react-id-swiper';
 
-// minimal code change for push
-
 interface SwiperProps {
     params?: object;
     children: JSX.Element;
