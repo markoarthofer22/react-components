@@ -18,7 +18,7 @@ jobs:
                   NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
             - name: Run linter
-              run: eslint src --ext=.js,.ts
+              run: npx --no-install eslint src --ext=.js,.ts,.tsx
 
             - name: Run prettier
-              run: prettier --write '**/*.{js,ts,tsx}'
+              run: npm --no-install prettier --check
