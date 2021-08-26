@@ -41,7 +41,7 @@ jobs:
         - name: Bump version and push tag
         uses: TriPSs/conventional-changelog-action@master
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN_ACTION }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           git-message: 'chore(release): {version}'
           preset: 'react'
           tag-prefix: ''
