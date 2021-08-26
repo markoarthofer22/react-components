@@ -1,0 +1,24 @@
+name: Run Lint and Prettier
+on: [pull_request]
+jobs:
+    eslint-prettier:
+        runs-on: ubuntu-latest
+        env:
+            NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+        steps:
+            - name: Check-out repository under $GITHUB_WORKSPACE, so workflow can access it.
+              uses: actions/checkout@v2
+
+            - name: Install dependecies
+              run: npm ci
+              env:
+                  NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+
+            - name: Run linter
+              run: npx --no-install eslint src --ext=.js,.ts,.tsx
+
+            - name: Run prettier
+              run: npx --no-install prettier --check

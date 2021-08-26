@@ -24,12 +24,6 @@ jobs:
               env:
                   NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
-            - name: Run linter
-              run: npm run lint
-
-            - name: Run prettier
-              run: npm run prettier
-
             - name: Run build
               run: npm run build
 

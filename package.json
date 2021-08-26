@@ -28,7 +28,7 @@
     "scripts": {
         "tsc": "tsc",
         "build": "rimraf dist && tsc && rollup --config",
-        "lint": "eslint src --ext=.js,.ts",
+        "lint": "eslint src --ext=.js,.ts,.tsx",
         "prettier": "./node_modules/.bin/prettier --write '**/*.{js,ts,tsx}'",
         "prepare": "husky install",
         "storybook": "start-storybook -p 6006",
