@@ -32,11 +32,12 @@ jobs:
               with:
                   node-version: '14.x'
                   registry-url: 'https://registry.npmjs.org/'
+                  scope: '@markoarthofer22'
 
             - name: Bump version and push tag
               uses: TriPSs/conventional-changelog-action@v3
               with:
-                  github-token: ${{ secrets.PUBLISH_KEY }}
+                  github-token: ${{ secrets.GITHUB_TOKEN }}
                   git-message: 'chore(release): {version}'
                   preset: 'angular'
                   tag-prefix: ''
@@ -45,4 +46,4 @@ jobs:
             - name: Publish package
               run: 'npm publish'
               env:
-                  NODE_AUTH_TOKEN: ${{ secrets.PUBLISH_KEY }}
+                  NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
