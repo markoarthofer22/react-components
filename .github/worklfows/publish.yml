@@ -1,8 +1,7 @@
 name: "Publish Package"
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
      paths-ignore:
       - 'package.json'
       - 'CHANGELOG.md'
@@ -21,6 +20,8 @@ jobs:
 
       - name: Install dependecies
       - run: npm ci
+        env:
+        NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
       - name: Run linter
       - run: npm run lint
