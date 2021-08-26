@@ -37,7 +37,7 @@ jobs:
             - name: Bump version and push tag
               uses: TriPSs/conventional-changelog-action@v3
               with:
-                  github-token: ${{ secrets.GITHUB_TOKEN }}
+                  github-token: ${{ secrets.PUBLISH_KEY }}
                   git-message: 'chore(release): {version}'
                   preset: 'angular'
                   tag-prefix: ''
@@ -46,4 +46,4 @@ jobs:
             - name: Publish package
               run: 'npm publish'
               env:
-                  NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  NODE_AUTH_TOKEN: ${{ secrets.PUBLISH_KEY }}
