@@ -21,4 +21,4 @@ jobs:
               run: npx --no-install eslint src --ext=.js,.ts,.tsx
 
             - name: Run prettier
-              run: npm --no-install prettier --check
+              run: npx --no-install prettier --check
