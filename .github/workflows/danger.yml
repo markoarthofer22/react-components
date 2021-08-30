@@ -1,0 +1,21 @@
+name: Danger JS
+on: [pull_request]
+jobs:
+    test:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@master
+            - name: Use Node.js 12.x
+              uses: actions/setup-node@v1
+              with:
+                  node-version: 12.x
+            - name: Move package.json out of the way so we install just stuff we need
+              run: mv package.json package.json-temp
+            - name: Npm install
+              run: npm install node-fetch
+            - name: Move package.json back into place
+              run: mv package.json-temp package.json
+            - name: Danger
+              run: npx danger ci
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

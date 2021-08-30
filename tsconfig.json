@@ -23,6 +23,6 @@
         "sourceMap": true,
         "removeComments": true
     },
-    "include": ["src/**/*.ts", "src/**/*.tsx"],
-    "exclude": ["node_modules", "dist"]
+    "include": ["./src/**/*.ts", "./src/**/*.tsx"],
+    "exclude": ["./node_modules", "./dist", "./dangerfile.js"]
 }
