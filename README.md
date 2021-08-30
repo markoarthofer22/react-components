@@ -115,6 +115,10 @@ According to creator definition of BEM is as follows:
     ```sh
     npm install
     ```
+    
+### Install lib from NPM
+
+`npm i @markoarthofer22/react-components`
 
 <!-- USAGE EXAMPLES -->
 
@@ -136,21 +140,44 @@ For starting Storybook on your localhost use
   npm run storybook
 ```
 
-### Components to do
+### List of components
 
 These are some of the components that we have in mind. Will be populated over time with new ones. :smile:
 
-1. Container (flex, bootstrap) :soon:
-2. Alerts Box/Bar :soon:
-3. Checkbox Input :white_check_mark:
-4. Radio Input :white_check_mark:
-5. Slider Bar
-6. Switch button
-7. List Wrapper (wrapper for passed children)
-8. Content Card
-9. Accordion
-10. Avatar Icon
-11. Badges
+#### Components
+
+1.  Buttons :white_check_mark:
+2.  Breadcrumbs :soon:
+3.  Dropdown :white_check_mark:
+4.  Input (default, phone, checkbox, radio) :white_check_mark:
+5.  Global loader :white_check_mark:
+6.  Popup :white_check_mark:
+7.  Select :white_check_mark:
+8.  Tooltip :white_check_mark:
+9.  Alerts Box/Bar :soon:
+10. Slider Bar :soon:
+11. Switch Button :soon:
+12. Avatar :soon:
+13. Badges :soon:
+14. Google Analyitcs Wrapper :soon:
+15. Google Map with Custom pins :soon:
+16. Hamburger :soon:
+17. Jump to top :soon:
+18. Input (quantity) :soon:
+
+#### Models
+
+1.  Dialog :white_check_mark:
+2.  Hero Box :white_check_mark:
+3.  Notification Box :white_check_mark:
+4.  Swiper :white_check_mark:
+5.  Container :soon:
+6.  List (wrapper for passed children) :soon:
+7.  Dynamic List Card :soon:
+8.  Accordion :soon:
+9.  Instagram Feed - In planning
+10. Share Socials - In planning
+11. Navigation :soon:
 
 <!-- PUBLISH -->
 

@@ -116,7 +116,7 @@ const NotificationBox: React.FC<NotificationBoxProp> = (props): JSX.Element => {
                 <div className='notification-box--actions'>
                     {okCallback && (
                         <Button
-                            customClass='pink'
+                            customClass='blue'
                             title='Ok'
                             clicked={okCallback}
                         />
@@ -124,7 +124,7 @@ const NotificationBox: React.FC<NotificationBoxProp> = (props): JSX.Element => {
 
                     {cancelCallback && (
                         <Button
-                            customClass='pink'
+                            customClass='blue'
                             title='Cancel'
                             clicked={handleClose}
                         />

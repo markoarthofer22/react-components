@@ -24,6 +24,7 @@ interface KeyObjectValidator {
 }
 
 interface InputPhoneProps {
+    hasWrapper?: boolean;
     id?: string;
     onBlur?: (e: any) => void;
     predefinedValue?: string;
@@ -60,6 +61,7 @@ const InputTypePhone: React.FC<InputPhoneProps> = ({
     labelText,
     selectPlaceholder,
     selectBindingValue,
+    hasWrapper = true,
 }): JSX.Element => {
     const [countriesID, setCountriesID] = useState<string>('');
     const [countriesName, setCountriesName] = useState<string>('');
@@ -149,45 +151,59 @@ const InputTypePhone: React.FC<InputPhoneProps> = ({
         }
     };
 
-    return (
-        <>
-            <label htmlFor={name} className='form-item-phone--name'>
-                {labelText}
-            </label>
-            <div className='form-item-phone'>
-                <Select
-                    title={countriesName || null}
-                    data={countriesList}
-                    placeholder={selectPlaceholder || 'Choose from list'}
-                    selectClass={`select--countries  ${
-                        predefinedValue ? 'select--countries-disabled' : ''
-                    }`}
-                    returnValue={returnValueFromSelect}
-                    isSearchable
-                    bindingValue={selectBindingValue}
-                />
-                <div className='countries-input-holder'>
-                    <input
-                        disabled={Boolean(predefinedValue)}
-                        type='text'
-                        className={errorMessage && 'invalid'}
-                        data-error={errorMessage && errorMessage.message}
-                        id={`${id || 'countries'}`}
-                        required
-                        name={name}
-                        autoComplete='off'
-                        ref={register ? register({ ...required }) : null}
-                        value={inputValue}
-                        onChange={(e) => setInput(e)}
-                        onBlur={(e) => (onBlur ? onBlur(e) : null)}
+    function returnInput() {
+        return (
+            <>
+                <label htmlFor={name} className='form-item-phone--name'>
+                    {labelText}
+                </label>
+                <div className='form-item-phone'>
+                    <Select
+                        title={countriesName || null}
+                        data={countriesList}
+                        placeholder={selectPlaceholder || 'Choose from list'}
+                        selectClass={`select--countries  ${
+                            predefinedValue ? 'select--countries-disabled' : ''
+                        }`}
+                        returnValue={returnValueFromSelect}
+                        isSearchable
+                        bindingValue={selectBindingValue}
                     />
-                    <span
-                        data-name={name}
-                        data-error={errorMessage && errorMessage.message}
-                    />
+                    <div className='countries-input-holder'>
+                        <input
+                            disabled={Boolean(predefinedValue)}
+                            type='text'
+                            className={errorMessage && 'invalid'}
+                            data-error={errorMessage && errorMessage.message}
+                            id={`${id || 'countries'}`}
+                            required
+                            name={name}
+                            autoComplete='off'
+                            ref={register ? register({ ...required }) : null}
+                            value={inputValue}
+                            onChange={(e) => setInput(e)}
+                            onBlur={(e) => (onBlur ? onBlur(e) : null)}
+                        />
+                        <span
+                            data-name={name}
+                            data-error={errorMessage && errorMessage.message}
+                        />
+                    </div>
                 </div>
-            </div>
-        </>
+            </>
+        );
+    }
+
+    return hasWrapper ? (
+        <div
+            className={`form-item-floating phone-type ${
+                errorMessage && 'invalid'
+            }`}
+        >
+            {returnInput()}
+        </div>
+    ) : (
+        returnInput()
     );
 };
 
