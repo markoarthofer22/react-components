@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { boolean, text, withKnobs } from '@storybook/addon-knobs';
 import Select from './select.component';
 
-storiesOf(`Designs/Atoms`)
+storiesOf(`Designs/Atoms`, module)
     .addDecorator(withKnobs)
 
     .add('Select', () => {

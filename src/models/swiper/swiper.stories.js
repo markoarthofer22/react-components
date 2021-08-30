@@ -86,7 +86,7 @@ const SlidersArray = ({ array }) =>
         </div>
     ));
 
-storiesOf(`Designs/Models`)
+storiesOf(`Designs/Models`, module)
     .addDecorator(withKnobs)
     .add('Swiper', () => (
         <React.Fragment>
