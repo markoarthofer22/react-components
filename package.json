@@ -51,7 +51,8 @@
         "react-transition-group": "^4.4.1",
         "sweetalert2": "^9.17.1",
         "sweetalert2-react-content": "^3.0.3",
-        "swiper": "^5.2.0"
+        "swiper": "^5.2.0",
+        "underscore": "^1.13.1"
     },
     "devDependencies": {
         "@babel/core": "^7.15.0",
@@ -91,6 +92,7 @@
         "@typescript-eslint/eslint-plugin-tslint": "^4.9.0",
         "@typescript-eslint/parser": "^4.0.1",
         "babel-loader": "^8.2.2",
+        "danger": "^10.6.6",
         "eslint": "^7.28.0",
         "eslint-config-airbnb-typescript": "^12.3.1",
         "eslint-config-node": "^4.1.0",
@@ -104,6 +106,8 @@
         "lint-staged": "^11.1.2",
         "postcss": "^8.3.6",
         "prettier": "^2.2.1",
+        "react": ">=16.8.0",
+        "react-dom": ">=16.8.0",
         "rimraf": "^3.0.2",
         "rollup": "^2.56.3",
         "rollup-plugin-peer-deps-external": "^2.2.4",
