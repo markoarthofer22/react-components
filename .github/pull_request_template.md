@@ -18,6 +18,6 @@ Upload screenshot that shows new component or work done on an existing one.
 Please add labels to indicate the kind of change you're making.
 
 -   **🐞 Bug** - This change fixes within a code
--   **🧩 Component** - This change add news component
--   **🌿 Feature** - This change modifies the behaviour of components
+-   **🧩 Component** - This change adds new component
+-   **🌿 Feature** - This change modifies the behavior of components
 -   **📙 Documentation** - This change includes new / modifications to docs

@@ -1,0 +1,55 @@
+name: Publish tags
+on:
+    push:
+        branches:
+            - main
+
+jobs:
+    publish-tags:
+        runs-on: ubuntu-18.04
+        steps:
+            - name: Checkout project `react-components`
+              uses: actions/checkout@v2
+              with:
+                  persist-credentials: false
+
+            - name: Auto tag
+              id: auto_tag
+              uses: Klemensas/action-autotag@stable
+              with:
+                  GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
+                  tag_prefix: 'release v'
+                  tag_message: 'Auto tagged from package.json version change'
+
+            - name: Setup Node
+              if: ${{ steps.auto_tag.outputs.tagname }}
+              uses: actions/setup-node@v2-beta
+              with:
+                  node-version: 14
+
+            - uses: actions/cache@v2
+              with:
+                  path: ~/.npm
+                  key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+                  restore-keys: |
+                      ${{ runner.os }}-node-
+            - name: Npm install
+              if: ${{ steps.auto_tag.outputs.tagname }}
+              run: npm install
+
+            - name: Build
+              if: ${{ steps.auto_tag.outputs.tagname }}
+              run: |
+                  npm run build
+            - name: Modify git ignore to remove dist
+              run: sed -i.bak '/\/dist/d' ./.gitignore
+
+            - name: Deploy
+              if: ${{ steps.auto_tag.outputs.tagname }}
+              uses: peaceiris/actions-gh-pages@v3
+              with:
+                  github_token: ${{ secrets.GITHUB_TOKEN }}
+                  publish_dir: ./
+                  publish_branch: 'publish'
+                  tag_name: v${{ steps.auto_tag.outputs.version }}
+                  tag_message: 'Deployment v${{ steps.auto_tag.outputs.version }}'
