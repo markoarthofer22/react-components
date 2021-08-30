@@ -115,6 +115,10 @@ According to creator definition of BEM is as follows:
     ```sh
     npm install
     ```
+    
+### Install lib from NPM
+
+`npm i @markoarthofer22/react-components`
 
 <!-- USAGE EXAMPLES -->
 
