@@ -22,3 +22,5 @@ danger.git.commits.forEach(commit => {
         fail(`Commit message '${commit.message}' doesn't match the correct format`);
     }
 })
+
+// testing danger.js
