@@ -1,7 +1,5 @@
-@import '../../css/variables.scss';
-
 //Default navigation styles
-.openMenu {
+.hamburger {
     position: absolute;
     width: 50px;
     height: 50px;
@@ -11,13 +9,15 @@
     transform: translateY(-50%);
     cursor: pointer;
 
-    @include respond-to(md) {
-        display: none;
+    &--hide-desktop {
+        @include md {
+            display: none;
+        }
     }
 
-    & > div {
+    &--item {
         height: 2px;
-        background-color: $white;
+        background-color: $blue;
         position: absolute;
         left: 13px;
         right: 13px;
@@ -36,13 +36,9 @@
         }
     }
 
-    &.open {
-        & ~ .container {
-            padding: 0;
-        }
-
+    &-open {
         & > div {
-            background-color: $white;
+            background-color: $blue;
         }
 
         :nth-child(1) {
