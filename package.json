@@ -103,6 +103,7 @@
         "prettier": "^2.2.1",
         "react": ">=16.8.0",
         "react-dom": ">=16.8.0",
+        "react-ga": "^3.3.0",
         "rimraf": "^3.0.2",
         "rollup": "^2.56.3",
         "rollup-plugin-peer-deps-external": "^2.2.4",
