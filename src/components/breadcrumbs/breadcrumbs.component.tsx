@@ -16,6 +16,8 @@ interface BreadcrumbsProps {
     crumbs: Crumb[];
 }
 
+// some stupid comment
+
 const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
     hasHomeIcon = true,
     homeIcon,
