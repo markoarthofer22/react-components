@@ -251,7 +251,7 @@
         }
 
         &--item {
-            background-color: #f2f3f5;
+            background-color: $lighter-grey;
             border-radius: 20px;
             padding: 10px;
             margin-bottom: 15px;
@@ -280,7 +280,7 @@
 
 .custom-card-wrapper {
     background: $white;
-    border: 1px solid #f2f2f2;
+    border: 1px solid $lighter-grey;
     border-radius: 3px;
     width: 100%;
     max-width: 600px;

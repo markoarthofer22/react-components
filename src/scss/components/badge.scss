@@ -1,0 +1,21 @@
+.badge {
+    &--wrapper {
+        position: absolute;
+        top: -22px;
+        right: -22px;
+        padding: 8px;
+        border-radius: 100%;
+        background-color: $blue;
+        color: $white;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &--value {
+            font-size: 14px;
+            font-family: $title-font;
+            line-height: 1;
+        }
+    }
+}

@@ -9,9 +9,11 @@ interface TooltipProps {
     icon?: React.ElementType | React.ComponentType;
 }
 
-const Tooltip: React.FC<TooltipProps> = (props): JSX.Element => {
-    const { customClass, title, icon } = props;
-
+const Tooltip: React.FC<TooltipProps> = ({
+    customClass,
+    title,
+    icon,
+}): JSX.Element => {
     const C = icon || BsQuestion;
 
     return (
