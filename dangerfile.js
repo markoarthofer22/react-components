@@ -12,13 +12,13 @@ if (packageChanged && !lockfileChanged) {
     warn(`Changes were made to package.json, but not to package-lock.json - <i>'Perhaps you need to run ${String(`npm install`)}?'</i>`);
 }
 
-const bigPRThreshold = 600;
+const bigPRThreshold = 900;
 if (danger.github.pr.additions + danger.github.pr.deletions > bigPRThreshold) {
   warn('Big pull request, please keep small to make it easier to review');
 }
 
 danger.git.commits.forEach(commit => {
-    if (!commit.message.match(/^(feat:)|(fix:)|(major:)|(chore:)|(update:)/g)) {
+    if (!commit.message.match(/^(feat:)|(fix:)|(major:)|(chore:)|(update:)|(bump:)/g)) {
         fail(`Commit message '${commit.message}' doesn't match the correct format`);
     }
 })
