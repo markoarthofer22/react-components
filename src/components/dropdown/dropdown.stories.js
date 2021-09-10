@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { boolean, object, text, withKnobs } from '@storybook/addon-knobs';
 import Dropdown from './dropdown.component';
 
-storiesOf(`Designs/Atoms`)
+storiesOf(`Designs/Atoms`, module)
     .addDecorator(withKnobs)
     .add('Dropdown', () => {
         const data = [

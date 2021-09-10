@@ -21,8 +21,9 @@
         "isolatedModules": true,
         "noImplicitAny": true,
         "sourceMap": true,
-        "removeComments": true
+        "removeComments": true,
+        "typeRoots": ["./node_modules/@types"]
     },
     "include": ["./src/**/*.ts", "./src/**/*.tsx"],
-    "exclude": ["./node_modules", "./dist", "./dangerfile.js"]
+    "exclude": ["./node_modules", "./dist", "./dangerfile.js", "./todo"]
 }

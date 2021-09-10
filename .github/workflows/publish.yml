@@ -1,8 +1,10 @@
 name: 'Publish Package'
 on:
-    push:
-        branches:
-            - main
+    workflow_run:
+        workflows: ['Publish tags']
+        branches: [main]
+        types:
+            - completed
         paths-ignore:
             - 'package.json'
             - 'CHANGELOG.md'
@@ -35,6 +37,6 @@ jobs:
                   scope: '@markoarthofer22'
 
             - name: Publish package
-              run: 'npm publish'
+              run: 'npm publish --access public'
               env:
                   NODE_AUTH_TOKEN: ${{ secrets.PUBLISH_KEY }}

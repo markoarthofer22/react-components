@@ -1,0 +1,47 @@
+.jump-to-top {
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    z-index: 100000;
+    pointer-events: none;
+    transition: all 0.6s;
+
+    &--button {
+        position: absolute;
+        bottom: 21px;
+        pointer-events: all;
+        cursor: pointer;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        z-index: 10;
+        opacity: 1;
+        visibility: visible;
+        display: flex;
+        width: 35px;
+        height: 35px;
+        border-radius: 4px 4px 4px 4px;
+        background: #000;
+    }
+
+    &-hidden {
+        bottom: -100px;
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    svg {
+        width: 20px;
+        height: 20px;
+        fill: $white;
+    }
+
+    &--title {
+        font-size: 10px;
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 8px;
+        z-index: 1000;
+        color: $white;
+    }
+}

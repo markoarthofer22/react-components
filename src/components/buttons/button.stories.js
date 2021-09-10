@@ -26,7 +26,7 @@ const colors = {
     Green: 'green',
 };
 
-storiesOf(`Designs/Atoms/Buttons`)
+storiesOf(`Designs/Atoms/Buttons`, module)
     .addDecorator(withKnobs)
     .add('Default', () => (
         <React.Fragment>

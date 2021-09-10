@@ -115,7 +115,7 @@ According to creator definition of BEM is as follows:
     ```sh
     npm install
     ```
-    
+
 ### Install lib from NPM
 
 `npm i @markoarthofer22/react-components`
@@ -159,11 +159,10 @@ These are some of the components that we have in mind. Will be populated over ti
 11. Switch Button :soon:
 12. Avatar :soon:
 13. Badges :soon:
-14. Google Analyitcs Wrapper :soon:
-15. Google Map with Custom pins :soon:
-16. Hamburger :soon:
-17. Jump to top :soon:
-18. Input (quantity) :soon:
+14. Google Analyitcs Wrapper :white_check_mark:
+15. Hamburger :white_check_mark:
+16. Jump to top :white_check_mark:
+17. Input (quantity) :white_check_mark:
 
 #### Models
 
@@ -173,11 +172,10 @@ These are some of the components that we have in mind. Will be populated over ti
 4.  Swiper :white_check_mark:
 5.  Container :soon:
 6.  List (wrapper for passed children) :soon:
-7.  Dynamic List Card :soon:
+7.  Social Network Cards (facebook | instagram | custom) - :white_check_mark:
 8.  Accordion :soon:
-9.  Instagram Feed - In planning
-10. Share Socials - In planning
-11. Navigation :soon:
+9.  Share Socials - In planning
+10. Side Navigation :soon:
 
 <!-- PUBLISH -->
 

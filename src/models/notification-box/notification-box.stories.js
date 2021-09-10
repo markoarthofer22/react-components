@@ -8,7 +8,7 @@ const valuesObj = {
     Fail: 'fail',
 };
 
-storiesOf(`Designs/Models`)
+storiesOf(`Designs/Models`, module)
     .addDecorator(withKnobs)
     .add('Notification Box', () => (
         <React.Fragment>
