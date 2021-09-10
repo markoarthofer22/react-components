@@ -12,7 +12,7 @@ const style = {
     textAlign: 'center',
 };
 
-storiesOf(`Designs/Atoms`)
+storiesOf(`Designs/Atoms`, module)
     .addDecorator(withKnobs)
     .add('Popup', () => (
         <React.Fragment>

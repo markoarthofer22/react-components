@@ -12,7 +12,7 @@ const style = {
     marginTop: '80px',
 };
 
-storiesOf(`Designs/Atoms`)
+storiesOf(`Designs/Atoms`, module)
     .addDecorator(withKnobs)
     .add('Tooltip', () => (
         <React.Fragment>

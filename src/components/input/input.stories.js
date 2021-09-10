@@ -19,7 +19,7 @@ const Warning = () => (
 );
 
 //
-storiesOf(`Designs/Atoms/Inputs`)
+storiesOf(`Designs/Atoms/Inputs`, module)
     .addDecorator(withKnobs)
     .add('Default inputs', () => {
         const { register, errors } = useForm({

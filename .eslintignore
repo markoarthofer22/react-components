@@ -4,6 +4,7 @@ node_modules
 # don't lint build output (make sure it's set to your correct build folder name)
 dist
 lib
+todo
 rollup.config.js
 # since we are using typscript parser ignore eslintrc since we dont want to parse it
 .eslintrc.js

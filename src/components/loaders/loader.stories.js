@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, boolean, text } from '@storybook/addon-knobs';
 import GlobalLoader from './global.loader.component';
 
-storiesOf(`Designs/Atoms`)
+storiesOf(`Designs/Atoms`, module)
     .addDecorator(withKnobs)
     .add('Loader', () => (
         <React.Fragment>
