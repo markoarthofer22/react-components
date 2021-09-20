@@ -22,3 +22,4 @@ export { default as GoogleAnalytics } from './components/google-analytics/google
 export { default as SliderBar } from './components/slider-bar/slider-bar.components';
 export { default as SocialCards } from './models/social-network-cards/social-network-cards.component';
 export { default as SwitchButton } from './components/switch-button/switch-button.component';
+export { default as Avatar } from './components/avatar/avatar.component';
