@@ -3,6 +3,7 @@ import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import postcss from 'rollup-plugin-postcss';
+import { terser } from 'rollup-plugin-terser';
 import pkg from './package.json';
 
 // Array of extensions to be handled by babel
@@ -17,12 +18,14 @@ export default {
         {
             file: pkg.module,
             sourcemap: true, // We want a source map to trace the original code
-            format: 'esm', // Built files will follow ES Module format
+            format: 'esm', // Built files will follow ES Module format,
+            plugins: [terser()],
         },
         {
             file: pkg.main,
             format: 'cjs',
             sourcemap: true,
+            plugins: [terser()],
         },
     ],
     plugins: [

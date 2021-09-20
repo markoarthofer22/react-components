@@ -1,0 +1,83 @@
+.avatar {
+    &--wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+
+        &--grouped {
+            .avatar--item {
+                margin: 0;
+
+                &:not(:first-of-type) {
+                    margin-left: -20px;
+                }
+            }
+        }
+    }
+
+    &--item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 15px;
+        font-size: 22px;
+        font-family: $title-font;
+        font-weight: 700;
+        padding: 4px;
+        overflow: hidden;
+
+        &:last-of-type {
+            margin-right: 0;
+        }
+
+        & * {
+            max-width: 100%;
+            max-height: 100%;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        &-small {
+            width: 32px;
+            height: 32px;
+            font-size: 12px;
+        }
+
+        &-normal {
+            width: 52px;
+            height: 52px;
+        }
+
+        &-big {
+            width: 76px;
+            height: 76px;
+            font-size: 26px;
+        }
+
+        &-circled {
+            border-radius: 50%;
+        }
+
+        &-squared {
+            border-radius: 0px;
+        }
+
+        &-rounded {
+            border-radius: 8px;
+        }
+
+        &--counter {
+            background-color: $light-grey;
+
+            p {
+                font-size: 22px;
+                font-family: $title-font;
+                font-weight: 700;
+            }
+        }
+    }
+}

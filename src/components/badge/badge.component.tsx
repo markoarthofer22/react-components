@@ -8,7 +8,7 @@ interface BadgeProps {
     stylesObj?: {
         [key: string]: React.CSSProperties;
     };
-    value: string | (number & IconType);
+    value: string | number | IconType;
 }
 
 const Badge: React.FC<BadgeProps> = ({

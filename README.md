@@ -157,7 +157,7 @@ These are some of the components that we have in mind. Will be populated over ti
 9.  Alerts Box/Bar :soon:
 10. Slider Bar :white_check_mark:
 11. Switch Button :white_check_mark:
-12. Avatar :soon:
+12. Avatar :white_check_mark:
 13. Badges :white_check_mark:
 14. Google Analyitcs Wrapper :white_check_mark:
 15. Hamburger :white_check_mark:
