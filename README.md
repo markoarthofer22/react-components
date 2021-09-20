@@ -147,7 +147,7 @@ These are some of the components that we have in mind. Will be populated over ti
 #### Components
 
 1.  Buttons :white_check_mark:
-2.  Breadcrumbs :soon:
+2.  Breadcrumbs :white_check_mark:
 3.  Dropdown :white_check_mark:
 4.  Input (default, phone, checkbox, radio) :white_check_mark:
 5.  Global loader :white_check_mark:
@@ -155,10 +155,10 @@ These are some of the components that we have in mind. Will be populated over ti
 7.  Select :white_check_mark:
 8.  Tooltip :white_check_mark:
 9.  Alerts Box/Bar :soon:
-10. Slider Bar :soon:
-11. Switch Button :soon:
-12. Avatar :soon:
-13. Badges :soon:
+10. Slider Bar :white_check_mark:
+11. Switch Button :white_check_mark:
+12. Avatar :white_check_mark:
+13. Badges :white_check_mark:
 14. Google Analyitcs Wrapper :white_check_mark:
 15. Hamburger :white_check_mark:
 16. Jump to top :white_check_mark:
