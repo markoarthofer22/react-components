@@ -5,27 +5,18 @@ import {
     FieldValues,
     NestDataObject,
 } from 'react-hook-form/dist/types';
+import { MdRemoveRedEye } from 'react-icons/md';
+import { RegisterOptions } from './validation.types';
 
 // component
-import { MdRemoveRedEye } from 'react-icons/md';
 import Tooltip from '../tooltip/tooltip.component';
-
-export interface SearchBarValidatorObj {
-    required: boolean;
-    k: KeyObjectValidator;
-}
-
-interface KeyObjectValidator {
-    value: string | number;
-    message: string;
-}
 
 interface InputProps {
     hasWrapper?: boolean;
     type?: string;
     name?: string | null;
     inputClass?: string;
-    required: SearchBarValidatorObj;
+    required: RegisterOptions;
     errorMessage?: NestDataObject<FieldValues, FieldError>;
     register?: any;
     labelText?: string;

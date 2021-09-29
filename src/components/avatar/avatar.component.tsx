@@ -1,4 +1,7 @@
+/** @jsxImportSource @emotion/react */
 import React, { useEffect, useState } from 'react';
+import { useTheme } from '@emotion/react';
+import { AvatarStyles } from './styles';
 
 type IconType = React.ElementType | React.ComponentType;
 
@@ -25,6 +28,8 @@ const Avatar: React.FC<AvatarProps> = ({
     backgroundColor = 'transparent',
     groupedLimit = '3',
 }): JSX.Element => {
+    const theme = useTheme();
+
     const [itemsLength, setItemsLength] = useState<number | null>(null);
 
     const getInitialsFromString = (
@@ -67,7 +72,7 @@ const Avatar: React.FC<AvatarProps> = ({
     }, [values, children, groupedLimit, grouped]);
 
     return (
-        <div className='avatar'>
+        <div className='avatar' css={AvatarStyles(theme)}>
             <div
                 className={`avatar--wrapper ${
                     grouped ? 'avatar--wrapper--grouped' : ''

@@ -1,6 +1,7 @@
+/** @jsxImportSource @emotion/react */
 import React from 'react';
-
-// components
+import { useTheme } from '@emotion/react';
+import { BadgeStyles } from './styles';
 
 type IconType = React.ElementType | React.ComponentType;
 
@@ -14,10 +15,16 @@ interface BadgeProps {
 const Badge: React.FC<BadgeProps> = ({
     stylesObj = {},
     value,
-}): JSX.Element => (
-    <div className='badge--wrapper' style={stylesObj}>
-        <span className='badge--wrapper--value'>{value}</span>
-    </div>
-);
+}): JSX.Element => {
+    const theme = useTheme();
+
+    return (
+        <div css={BadgeStyles(theme)}>
+            <div className='badge--wrapper' style={stylesObj}>
+                <span className='badge--wrapper--value'>{value}</span>
+            </div>
+        </div>
+    );
+};
 
 export default Badge;

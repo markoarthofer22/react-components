@@ -137,7 +137,7 @@ const Select: React.FC<SelectProps> = ({
                             selectItem(e, item);
                         }}
                     >
-                        {item.country}
+                        {item[bindingValue || 'value']}
                     </li>
                 ))}
             </div>

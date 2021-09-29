@@ -1,6 +1,9 @@
+/** @jsxImportSource @emotion/react */
 import React, { useState, useEffect } from 'react';
+import { useTheme } from '@emotion/react';
 import { Link } from 'react-router-dom';
 import { MdKeyboardArrowDown } from 'react-icons/md';
+import { DropdownStyles } from './styles';
 
 interface Data {
     value: string;
@@ -32,6 +35,8 @@ const Dropdown: React.FC<DropdownProps> = (props): JSX.Element => {
         defaultValue,
         returnValue,
     } = props;
+
+    const theme = useTheme();
 
     const [isOpen, setOpen] = useState<boolean>(isDefaultOpen);
     const [selectedTitle, setSelectedTitle] = useState<string | null>(null);
@@ -70,61 +75,65 @@ const Dropdown: React.FC<DropdownProps> = (props): JSX.Element => {
     }, [selectedTitle]);
 
     return (
-        <div id={dropdownID} className={`dropdown ${dropdownClass}`}>
-            {label && <label className='dropdown--label'>{label}</label>}
-            <div
-                className={`dropdown--header ${
-                    isOpen ? 'dropdown--header-open' : ''
-                } `}
-                onClick={(e) => toggleDropdown(e)}
-            >
-                {selectedTitle ? (
-                    <div className='dropdown--header--title'>
-                        {selectedTitle || ''}
-                    </div>
-                ) : (
-                    <div className='dropdown--header--placeholder'>
-                        {placeholder || ''}
-                    </div>
-                )}
+        <div css={DropdownStyles(theme)}>
+            <div id={dropdownID} className={`dropdown ${dropdownClass}`}>
+                {label && <label className='dropdown--label'>{label}</label>}
+                <div
+                    className={`dropdown--header ${
+                        isOpen ? 'dropdown--header-open' : ''
+                    } `}
+                    onClick={(e) => toggleDropdown(e)}
+                >
+                    {selectedTitle ? (
+                        <div className='dropdown--header--title'>
+                            {selectedTitle || ''}
+                        </div>
+                    ) : (
+                        <div className='dropdown--header--placeholder'>
+                            {placeholder || ''}
+                        </div>
+                    )}
 
-                <MdKeyboardArrowDown />
-            </div>
-            <div
-                className={`dropdown--list ${
-                    isOpen ? 'dropdown--list-open' : ''
-                }`}
-            >
-                {data.map((item) => {
-                    const isPathURL: boolean =
-                        item?.link?.substring(0, 1) === '/';
+                    <MdKeyboardArrowDown />
+                </div>
+                <div
+                    className={`dropdown--list ${
+                        isOpen ? 'dropdown--list-open' : ''
+                    }`}
+                >
+                    {data.map((item) => {
+                        const isPathURL: boolean =
+                            item?.link?.substring(0, 1) === '/';
 
-                    if (!item.link) {
+                        if (!item.link) {
+                            return (
+                                <li
+                                    className='dropdown--item'
+                                    key={item.id}
+                                    onClick={(e) => {
+                                        selectItem(e, item);
+                                    }}
+                                >
+                                    {item.value}
+                                </li>
+                            );
+                        }
+                        if (isPathURL) {
+                            return (
+                                <Link key={item.id} to={item.link}>
+                                    <li className='dropdown--item'>
+                                        {item.value}
+                                    </li>
+                                </Link>
+                            );
+                        }
                         return (
-                            <li
-                                className='dropdown--item'
-                                key={item.id}
-                                onClick={(e) => {
-                                    selectItem(e, item);
-                                }}
-                            >
-                                {item.value}
-                            </li>
-                        );
-                    }
-                    if (isPathURL) {
-                        return (
-                            <Link key={item.id} to={item.link}>
+                            <a key={item.id} href={item.link} target='_blank'>
                                 <li className='dropdown--item'>{item.value}</li>
-                            </Link>
+                            </a>
                         );
-                    }
-                    return (
-                        <a key={item.id} href={item.link} target='_blank'>
-                            <li className='dropdown--item'>{item.value}</li>
-                        </a>
-                    );
-                })}
+                    })}
+                </div>
             </div>
         </div>
     );

@@ -1,7 +1,11 @@
 @import 'variables';
 //  Import custom scss libs
+// @import './components/buttons';
+// @import './components/avatar';
+// @import './components/badge';
+// @import './components/breadcrumbs';
+// @import './components/dropdown';
 @import './components/input';
-@import './components/buttons';
 @import './components/checkbox';
 @import './components/radio';
 @import './components/input-type-phone';
@@ -13,13 +17,9 @@
 @import './components/select';
 @import './components/swiper';
 @import './components/tooltip';
-@import './components/dropdown';
-@import './components/breadcrumbs';
 @import './components/quantity-input';
 @import './components/hamburger';
 @import './components/jump-to-top';
 @import './components/social-networks-cards';
 @import './components/slider-bar';
-@import './components/badge';
 @import './components/switch-button';
-@import './components/avatar';

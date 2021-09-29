@@ -1,7 +1,10 @@
+/** @jsxImportSource @emotion/react */
 import React, { useState } from 'react';
+import { useTheme } from '@emotion/react';
 import { NavLink } from 'react-router-dom';
 import { MdStore } from 'react-icons/md';
 import { uniqueId } from 'underscore';
+import { BreadcrumbsStyles } from './styles';
 
 interface Crumb {
     id: string | number;
@@ -22,6 +25,8 @@ const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
     isHomeRoot = true,
     crumbs,
 }): JSX.Element => {
+    const theme = useTheme();
+
     const initialArray: Crumb[] = isHomeRoot
         ? [
               {
@@ -38,34 +43,25 @@ const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
     const C = homeIcon || MdStore;
 
     return (
-        <ol
-            itemType='https://schema.org/BreadcrumbList'
-            itemScope
-            className='breadcrumbs'
-        >
-            {breadcrumbs.map((item, index) => (
-                <li
-                    itemProp='itemListElement'
-                    itemScope
-                    itemType='https://schema.org/ListItem'
-                    key={index}
-                    className='breadcrumbs--item'
-                >
-                    <NavLink
-                        itemProp='item'
-                        to={item.link}
-                        className='breadcrumbs--link'
-                    >
-                        {index === 0 && hasHomeIcon ? (
-                            <C itemProp='name' />
-                        ) : (
-                            <span itemProp='name'>{item.title}</span>
-                        )}
-                    </NavLink>
-                    <meta itemProp='position' content={String(index + 1)} />
-                </li>
-            ))}
-        </ol>
+        <div css={BreadcrumbsStyles(theme)}>
+            <ol className='breadcrumbs'>
+                {breadcrumbs.map((item, index) => (
+                    <li key={index} className='breadcrumbs--item'>
+                        <NavLink
+                            itemProp='item'
+                            to={item.link}
+                            className='breadcrumbs--link'
+                        >
+                            {index === 0 && hasHomeIcon ? (
+                                <C itemProp='name' />
+                            ) : (
+                                <span itemProp='name'>{item.title}</span>
+                            )}
+                        </NavLink>
+                    </li>
+                ))}
+            </ol>
+        </div>
     );
 };
 

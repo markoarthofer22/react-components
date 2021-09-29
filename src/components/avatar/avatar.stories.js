@@ -9,6 +9,7 @@ import {
 } from '@storybook/addon-knobs';
 import { AiOutlineQuestion } from 'react-icons/ai';
 import Avatar from './avatar.component';
+import GlobalThemeProvider from '../../themes/global-theme.provider';
 
 const itemsArray = [
     <img src='https://avataaars.io/?avatarStyle=Transparent&topType=Turban&accessoriesType=Prescription01&hatColor=PastelRed&hairColor=Brown&facialHairType=BeardMajestic&facialHairColor=Blonde&clotheType=ShirtCrewNeck&clotheColor=PastelBlue&graphicType=Bear&eyeType=Dizzy&eyebrowType=Angry&mouthType=Serious&skinColor=Yellow' />,
@@ -20,7 +21,7 @@ const itemsArray = [
 storiesOf(`Designs/Atoms/Avatar`, module)
     .addDecorator(withKnobs)
     .add('Default', () => (
-        <React.Fragment>
+        <GlobalThemeProvider>
             <div>
                 <Avatar
                     groupedLimit={number('Limit', 3)}
@@ -67,10 +68,10 @@ storiesOf(`Designs/Atoms/Avatar`, module)
                     </div>
                 </Avatar>
             </div>
-        </React.Fragment>
+        </GlobalThemeProvider>
     ))
     .add('Avatar with array of values', () => (
-        <React.Fragment>
+        <GlobalThemeProvider>
             <div>
                 <Avatar
                     groupedLimit={number('Limit', 3)}
@@ -94,5 +95,5 @@ storiesOf(`Designs/Atoms/Avatar`, module)
                     )}
                 />
             </div>
-        </React.Fragment>
+        </GlobalThemeProvider>
     ));

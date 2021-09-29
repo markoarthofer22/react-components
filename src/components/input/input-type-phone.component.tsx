@@ -5,22 +5,14 @@ import {
     FieldValues,
     NestDataObject,
 } from 'react-hook-form/dist/types';
+import { RegisterOptions } from './validation.types';
+
 import Select from '../select/select.component';
 
 export interface CountriesProps {
     country: string;
     iso: string;
     dialing_code: string;
-}
-
-export interface SearchBarValidatorObj {
-    required: boolean;
-    k: KeyObjectValidator;
-}
-
-interface KeyObjectValidator {
-    value: string | number;
-    message: string;
 }
 
 interface InputPhoneProps {
@@ -36,7 +28,7 @@ interface InputPhoneProps {
         inputValue: string
     ) => void;
     register?: any;
-    required: SearchBarValidatorObj;
+    required: RegisterOptions;
     name?: string;
     errorMessage?: NestDataObject<FieldValues, FieldError>;
     countriesList: CountriesProps[];

@@ -39,10 +39,6 @@ const SwitchButton: React.FC<SwitchButtonProps> = ({
         onChange(!checked);
     };
 
-    React.useEffect(() => {
-        console.log(icon);
-    });
-
     return (
         <div
             className={`toggle-switch ${
