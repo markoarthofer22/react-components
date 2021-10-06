@@ -29,7 +29,7 @@ const InstagramCard: React.FC<SocialCardsProps> = ({
 
         {image && (
             <div className='instagram-card--image'>
-                <div style={{ backgroundImage: `url(${image})` }}></div>
+                <div style={{ backgroundImage: `url(${image})` }} />
             </div>
         )}
 

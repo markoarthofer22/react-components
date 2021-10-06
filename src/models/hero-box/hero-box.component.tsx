@@ -21,11 +21,9 @@ const HeroBox: React.FC<Props> = (props): JSX.Element => {
                     style={{
                         backgroundImage: `url('${bgImage}')`,
                     }}
-                ></div>
+                />
             )}
-            {hasOverlay && (
-                <div className='hero-box--helper-img--overlay'></div>
-            )}
+            {hasOverlay && <div className='hero-box--helper-img--overlay' />}
             {(title || subtitle) && (
                 <div className='container'>
                     <div className='row'>

@@ -12,7 +12,16 @@ interface GlobalThemeProviderProps {
 
 const GlobalWrapper: React.FC = (): JSX.Element => {
     const theme: any = useTheme();
-    const { colors, fonts } = theme;
+    const { colors, fonts, breakpoints } = theme;
+
+    const breakpointsArr = [
+        breakpoints.sm,
+        breakpoints.md,
+        breakpoints.lg,
+        breakpoints.xlg,
+    ];
+
+    const mq = breakpointsArr.map((bp) => `@media (min-width: ${bp}px)`);
 
     return (
         <Global
@@ -83,7 +92,37 @@ const GlobalWrapper: React.FC = (): JSX.Element => {
                 strong {
                     color: $black;
                     font-weight: 700;
-                }
+                },
+
+                .form-item-container {
+                    display: flex;
+                    flex-direction: column;
+
+                    ${[mq[0]]}: {
+                            flex-direction: row;
+                            align-items: center;
+                    
+                            .form-item-floating {
+                                width: calc(100% - 20px);
+                    
+                                &:first-of-type {
+                                    margin-right: 20px;
+                                }
+                    
+                                &.phone-type {
+                                    width: calc(50% - 10px);
+                                    margin-right: 0;
+                                }
+                            }
+                    }                
+                    &.single {
+                        .form-item-floating {
+                            width: 100%;
+                            margin-right: 0;
+                        }
+                    }
+                },
+                
             `}
         />
     );

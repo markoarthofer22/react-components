@@ -23,6 +23,8 @@ const Hamburger: React.FC<HamburgerProps> = ({
 
     return (
         <div
+            role='button'
+            tabIndex={0}
             className={`hamburger ${customClass || ''} ${
                 isHamburgerOpen ? 'hamburger-open' : ''
             } ${disableOnDesktop ? 'hamburger--hide-desktop' : ''}`}
@@ -30,9 +32,9 @@ const Hamburger: React.FC<HamburgerProps> = ({
                 setIsHamburgerOpen(!isHamburgerOpen);
             }}
         >
-            <div className='hamburger--item'></div>
-            <div className='hamburger--item'></div>
-            <div className='hamburger--item'></div>
+            <div className='hamburger--item' />
+            <div className='hamburger--item' />
+            <div className='hamburger--item' />
         </div>
     );
 };

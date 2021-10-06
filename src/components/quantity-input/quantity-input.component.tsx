@@ -67,7 +67,11 @@ const QuantityInput: React.FC<QuantityProps> = ({
 
     return (
         <div className='quantity-input' onClick={(e) => e.stopPropagation()}>
-            <button className='quantity-input--decrement' onClick={decrement}>
+            <button
+                className='quantity-input--decrement'
+                onClick={decrement}
+                type='button'
+            >
                 -
             </button>
             <input
@@ -80,7 +84,11 @@ const QuantityInput: React.FC<QuantityProps> = ({
                     setValue(e.target.value === '' ? '0' : e.target.value);
                 }}
             />
-            <button className='quantity-input--increment' onClick={increment}>
+            <button
+                className='quantity-input--increment'
+                onClick={increment}
+                type='button'
+            >
                 +
             </button>
         </div>

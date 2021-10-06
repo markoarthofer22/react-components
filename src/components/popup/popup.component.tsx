@@ -40,6 +40,7 @@ const Popup: React.FC<PopupProps> = (props): JSX.Element => {
             <div className='window'>
                 {closePopup && (
                     <button
+                        type='button'
                         className='close-button close'
                         aria-label='close'
                         onClick={(e?: any) => closePopup(e)}

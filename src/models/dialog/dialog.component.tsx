@@ -37,7 +37,7 @@ const Dialog: React.FC<DialogProps> = ({
                 <h1 className='dialog--title'>{title}</h1>
                 {message && <p className='dialog--message'>{message}</p>}
                 {requestMessage && (
-                    <textarea className='dialog--request-message'></textarea>
+                    <textarea className='dialog--request-message' />
                 )}
                 {okCallback && (
                     <Button

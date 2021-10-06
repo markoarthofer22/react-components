@@ -1,3 +1,4 @@
+/** @jsxImportSource @emotion/react */
 import React, { useState, useEffect } from 'react';
 import _ from 'underscore';
 import {
@@ -5,7 +6,9 @@ import {
     FieldValues,
     NestDataObject,
 } from 'react-hook-form/dist/types';
+import { useTheme } from '@emotion/react';
 import { RegisterOptions } from './validation.types';
+import { InputStyles, InputPhoneStyles } from './styles';
 
 import Select from '../select/select.component';
 
@@ -55,6 +58,8 @@ const InputTypePhone: React.FC<InputPhoneProps> = ({
     selectBindingValue,
     hasWrapper = true,
 }): JSX.Element => {
+    const theme = useTheme();
+
     const [countriesID, setCountriesID] = useState<string>('');
     const [countriesName, setCountriesName] = useState<string>('');
     const [countriesDial, setCountriesDial] = useState<string>('');
@@ -188,6 +193,7 @@ const InputTypePhone: React.FC<InputPhoneProps> = ({
 
     return hasWrapper ? (
         <div
+            css={[InputStyles(theme), InputPhoneStyles(theme)]}
             className={`form-item-floating phone-type ${
                 errorMessage && 'invalid'
             }`}

@@ -30,9 +30,7 @@ const FacebookCard: React.FC<SocialCardsProps> = ({
         <div className='facebook-card'>
             <div className='facebook-card--header'>
                 <div className='facebook-card--author--img'>
-                    <div
-                        style={{ backgroundImage: `url(${author.image})` }}
-                    ></div>
+                    <div style={{ backgroundImage: `url(${author.image})` }} />
                 </div>
                 <div className='facebook-card--author'>
                     <p>{author.name}</p>
@@ -44,7 +42,7 @@ const FacebookCard: React.FC<SocialCardsProps> = ({
             </div>
             {image && (
                 <div className='facebook-card--image'>
-                    <div style={{ backgroundImage: `url(${image})` }}></div>
+                    <div style={{ backgroundImage: `url(${image})` }} />
                 </div>
             )}
             <div className='facebook-card--info'>

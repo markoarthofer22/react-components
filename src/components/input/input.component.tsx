@@ -1,3 +1,4 @@
+/** @jsxImportSource @emotion/react */
 import React from 'react';
 
 import {
@@ -6,7 +7,9 @@ import {
     NestDataObject,
 } from 'react-hook-form/dist/types';
 import { MdRemoveRedEye } from 'react-icons/md';
+import { useTheme } from '@emotion/react';
 import { RegisterOptions } from './validation.types';
+import { InputStyles } from './styles';
 
 // component
 import Tooltip from '../tooltip/tooltip.component';
@@ -46,6 +49,8 @@ const InputComponent: React.FC<InputProps> = ({
     icon,
     id,
 }): JSX.Element => {
+    const theme = useTheme();
+
     const C = icon || MdRemoveRedEye;
 
     function returnInput() {
@@ -90,6 +95,7 @@ const InputComponent: React.FC<InputProps> = ({
 
     return hasWrapper ? (
         <div
+            css={InputStyles(theme)}
             className={`form-item-floating ${
                 (type === 'radio' || type === 'checkbox') && 'mb-0'
             }  ${errorMessage && 'invalid'}`}

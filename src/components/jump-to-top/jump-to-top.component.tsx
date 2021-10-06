@@ -74,6 +74,8 @@ const JumpToTop: React.FC<JumpToTopProps> = ({
             className={`jump-to-top ${customClass || ''} ${
                 !isScrollVisible ? 'jump-to-top-hidden' : ''
             }`}
+            role='button'
+            tabIndex={0}
             onClick={() => scrollToTarget(targetElement, animationDuration)}
         >
             <div className='jump-to-top--button'>

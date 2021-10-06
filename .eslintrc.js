@@ -14,7 +14,7 @@ module.exports = {
         tsconfigRootDir: __dirname,
     },
     plugins: ['@emotion', '@typescript-eslint', 'prettier', 'react'],
-    extends: ['airbnb-typescript/base', 'prettier'],
+    extends: ['airbnb', 'airbnb-typescript', 'prettier'],
     settings: {
         'import/resolver': {
             node: {
@@ -41,5 +41,13 @@ module.exports = {
         'no-use-before-define': 'off',
         '@typescript-eslint/no-use-before-define': ['error'],
         'no-param-reassign': 0,
+        'no-unused-expressions': 'off',
+        '@typescript-eslint/no-unused-expressions': ['off'],
+        'react/no-array-index-key': 'off',
+        'react/jsx-props-no-spreading': 'off',
+        'react/require-default-props': 'off',
+        'jsx-a11y/click-events-have-key-events': 'off',
+        'jsx-a11y/no-static-element-interactions': 'off',
+        'jsx-a11y/no-noninteractive-element-interactions': 'off',
     },
 };

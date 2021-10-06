@@ -77,8 +77,14 @@ const Dropdown: React.FC<DropdownProps> = (props): JSX.Element => {
     return (
         <div css={DropdownStyles(theme)}>
             <div id={dropdownID} className={`dropdown ${dropdownClass}`}>
-                {label && <label className='dropdown--label'>{label}</label>}
+                {label && (
+                    <label htmlFor={dropdownID} className='dropdown--label'>
+                        {label}
+                    </label>
+                )}
                 <div
+                    role='button'
+                    tabIndex={0}
                     className={`dropdown--header ${
                         isOpen ? 'dropdown--header-open' : ''
                     } `}
@@ -128,7 +134,12 @@ const Dropdown: React.FC<DropdownProps> = (props): JSX.Element => {
                             );
                         }
                         return (
-                            <a key={item.id} href={item.link} target='_blank'>
+                            <a
+                                key={item.id}
+                                href={item.link}
+                                target='_blank'
+                                rel='noreferrer'
+                            >
                                 <li className='dropdown--item'>{item.value}</li>
                             </a>
                         );

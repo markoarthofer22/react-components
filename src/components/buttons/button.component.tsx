@@ -28,6 +28,7 @@ const Button: React.FC<ButtonProps> = ({
             className={`button ${customClass || ''} ${
                 isLoading ? 'loading' : ''
             }`}
+            type='button'
             onClick={clicked && ((e) => clicked(e))}
             disabled={isLoading}
             css={ButtonStyles(theme)}
