@@ -3,6 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, text, number } from '@storybook/addon-knobs';
 import { MdKeyboardArrowUp } from 'react-icons/md';
 import JumpToTop from './jump-to-top.component';
+import GlobalThemeProvider from '../../themes/global-theme.provider';
 
 const styles = {
     width: '100%',
@@ -15,17 +16,17 @@ const styles = {
 storiesOf(`Designs/Atoms/Jump to Top`, module)
     .addDecorator(withKnobs)
     .add('Default Jump to Top', () => (
-        <React.Fragment>
+        <GlobalThemeProvider>
             <div style={styles}>
                 <JumpToTop
                     visibleFrom={number('Visible from', 800)}
                     customClass={text('Custom class', '')}
                 />
             </div>
-        </React.Fragment>
+        </GlobalThemeProvider>
     ))
     .add('Component with custom icon and title', () => (
-        <React.Fragment>
+        <GlobalThemeProvider>
             <div id='jump-to-top'></div>
             <div style={styles}>
                 <JumpToTop
@@ -37,10 +38,10 @@ storiesOf(`Designs/Atoms/Jump to Top`, module)
                     customClass={text('Custom class', '')}
                 />
             </div>
-        </React.Fragment>
+        </GlobalThemeProvider>
     ))
     .add('Component with custom icon', () => (
-        <React.Fragment>
+        <GlobalThemeProvider>
             <div id='jump-to-top'></div>
             <div style={styles}>
                 <JumpToTop
@@ -50,5 +51,5 @@ storiesOf(`Designs/Atoms/Jump to Top`, module)
                     customClass={text('Custom class', '')}
                 />
             </div>
-        </React.Fragment>
+        </GlobalThemeProvider>
     ));

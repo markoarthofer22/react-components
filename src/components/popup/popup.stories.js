@@ -3,6 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, text } from '@storybook/addon-knobs';
 import { RiCloseCircleLine } from 'react-icons/ri';
 import Popup from './popup.component';
+import GlobalThemeProvider from '../../themes/global-theme.provider';
 
 const style = {
     fontSize: '14px',
@@ -15,7 +16,7 @@ const style = {
 storiesOf(`Designs/Atoms`, module)
     .addDecorator(withKnobs)
     .add('Popup', () => (
-        <React.Fragment>
+        <GlobalThemeProvider>
             <Popup
                 customClass={text('Custom Class', '')}
                 icon={RiCloseCircleLine}
@@ -26,5 +27,5 @@ storiesOf(`Designs/Atoms`, module)
                     <h4>Some H4 tag</h4>
                 </div>
             </Popup>
-        </React.Fragment>
+        </GlobalThemeProvider>
     ));

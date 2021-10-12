@@ -1,4 +1,7 @@
+/** @jsxImportSource @emotion/react */
 import React, { useEffect, useState } from 'react';
+import { useTheme } from '@emotion/react';
+import { QuantityInputStyles } from './styles';
 
 interface QuantityProps {
     onChange: (e: any) => void;
@@ -12,6 +15,8 @@ const QuantityInput: React.FC<QuantityProps> = ({
     defaultValue = '0',
 }) => {
     const max = parseInt(maxValue, 10);
+    const theme = useTheme();
+
     const checkDefaultValue =
         Number(defaultValue) < 0
             ? '0'
@@ -66,32 +71,37 @@ const QuantityInput: React.FC<QuantityProps> = ({
     }, [value]);
 
     return (
-        <div className='quantity-input' onClick={(e) => e.stopPropagation()}>
-            <button
-                className='quantity-input--decrement'
-                onClick={decrement}
-                type='button'
+        <span css={QuantityInputStyles(theme)}>
+            <div
+                className='quantity-input'
+                onClick={(e) => e.stopPropagation()}
             >
-                -
-            </button>
-            <input
-                className='quantity-input--input'
-                type='text'
-                value={value}
-                onFocus={() => setValue('')}
-                onBlur={onBlurChange}
-                onChange={(e): void => {
-                    setValue(e.target.value === '' ? '0' : e.target.value);
-                }}
-            />
-            <button
-                className='quantity-input--increment'
-                onClick={increment}
-                type='button'
-            >
-                +
-            </button>
-        </div>
+                <button
+                    className='quantity-input--decrement'
+                    onClick={decrement}
+                    type='button'
+                >
+                    -
+                </button>
+                <input
+                    className='quantity-input--input'
+                    type='text'
+                    value={value}
+                    onFocus={() => setValue('')}
+                    onBlur={onBlurChange}
+                    onChange={(e): void => {
+                        setValue(e.target.value === '' ? '0' : e.target.value);
+                    }}
+                />
+                <button
+                    className='quantity-input--increment'
+                    onClick={increment}
+                    type='button'
+                >
+                    +
+                </button>
+            </div>
+        </span>
     );
 };
 
