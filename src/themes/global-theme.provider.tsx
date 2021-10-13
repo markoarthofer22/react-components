@@ -92,37 +92,91 @@ const GlobalWrapper: React.FC = (): JSX.Element => {
                 strong {
                     color: $black;
                     font-weight: 700;
-                },
+                }
 
+                ,
                 .form-item-container {
                     display: flex;
                     flex-direction: column;
 
                     ${[mq[0]]}: {
-                            flex-direction: row;
-                            align-items: center;
-                    
-                            .form-item-floating {
-                                width: calc(100% - 20px);
-                    
-                                &:first-of-type {
-                                    margin-right: 20px;
-                                }
-                    
-                                &.phone-type {
-                                    width: calc(50% - 10px);
-                                    margin-right: 0;
-                                }
+                        flex-direction: row;
+                        align-items: center;
+
+                        .form-item-floating {
+                            width: calc(100% - 20px);
+
+                            &:first-of-type {
+                                margin-right: 20px;
                             }
-                    }                
+
+                            &.phone-type {
+                                width: calc(50% - 10px);
+                                margin-right: 0;
+                            }
+                        }
+                    }
                     &.single {
                         .form-item-floating {
                             width: 100%;
                             margin-right: 0;
                         }
                     }
-                },
-                
+
+                    ,
+                    &.radio-single {
+                        display: flex;
+                        align-items: flex-start;
+                        flex-direction: column;
+                        justify-content: flex-start;
+
+                        &.inline: {
+                            flex-direction: row;
+                        }
+                    }
+                }
+                ,
+                .form-item-floating {
+                    position: relative;
+                    marginbottom: 20px;
+
+                    &--radio {
+                        display: flex;
+                        align-items: center;
+                        justify-content: flex-start;
+                        height: 60px;
+                    }
+
+                    &--checkbox {
+                        height: 60px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: flex-start;
+                    }
+                }
+                ,
+                .checkbox-single {
+                    margin-bottom: 10px;
+                    position: relative;
+
+                    a {
+                        transition: all 0.4s;
+                        color: #333;
+
+                        &:hover {
+                            color: #333;
+                        }
+                    }
+
+                    label {
+                        color: #333;
+                    }
+
+                    span::before {
+                        left: 35px;
+                        top: calc(100% - 10px);
+                    }
+                }
             `}
         />
     );

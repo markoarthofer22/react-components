@@ -1,4 +1,7 @@
+/** @jsxImportSource @emotion/react */
 import React, { useLayoutEffect } from 'react';
+import { useTheme } from '@emotion/react';
+import { SliderbarStyles } from './styles';
 
 interface SliderBarProps {
     customClass?: string;
@@ -17,6 +20,8 @@ const SliderBar: React.FC<SliderBarProps> = ({
     formatFn = (number) => number.toFixed(0),
     onChange,
 }): JSX.Element => {
+    const theme = useTheme();
+
     const getPercentage = (
         _current: number,
         _min: number,
@@ -92,21 +97,26 @@ const SliderBar: React.FC<SliderBarProps> = ({
     }, [initialValue, initialPercentage, handleUpdate]);
 
     return (
-        <div className={`slider-bar ${customClass || ''}`}>
-            <div className='slider-bar--header'>
-                <div>{formatFn(min)}</div>
-                <div>{formatFn(max)}</div>
+        <span css={SliderbarStyles(theme)}>
+            <div className={`slider-bar ${customClass || ''}`}>
+                <div className='slider-bar--header'>
+                    <div>{formatFn(min)}</div>
+                    <div>{formatFn(max)}</div>
+                </div>
+                <div className='slider-bar--slider' ref={rangeRef}>
+                    <div
+                        className='slider-bar--progress'
+                        ref={rangeProgressRef}
+                    />
+                    <div
+                        className='slider-bar--thumb'
+                        ref={thumbRef}
+                        onMouseDown={handleMouseDown}
+                    />
+                </div>
+                <p ref={currentRef} className='slider-bar--value' />
             </div>
-            <div className='slider-bar--slider' ref={rangeRef}>
-                <div className='slider-bar--progress' ref={rangeProgressRef} />
-                <div
-                    className='slider-bar--thumb'
-                    ref={thumbRef}
-                    onMouseDown={handleMouseDown}
-                />
-            </div>
-            <p ref={currentRef} className='slider-bar--value' />
-        </div>
+        </span>
     );
 };
 

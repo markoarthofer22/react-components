@@ -39,14 +39,15 @@
         ]
     },
     "dependencies": {
-        "react-hook-form": "5.7.2",
-        "react-icons": "^4.2.0",
-        "react-transition-group": "^4.4.1",
-        "swiper": "^5.2.0",
-        "underscore": "^1.13.1",
         "@emotion/react": "^11.4.1",
         "emotion-normalize": "^11.0.1",
-        "react-id-swiper": "^2.3.2"
+        "emotion-rgba": "0.0.9",
+        "react-hook-form": "5.7.2",
+        "react-icons": "^4.2.0",
+        "react-id-swiper": "^2.3.2",
+        "react-transition-group": "^4.4.1",
+        "swiper": "^5.2.0",
+        "underscore": "^1.13.1"
     },
     "devDependencies": {
         "@babel/core": "^7.15.0",

@@ -95,23 +95,19 @@ storiesOf(`Designs/Atoms/Inputs`, module)
                     className='form-item-container single checkbox-single'
                     style={{ width: 'fit-content' }}
                 >
-                    <div
-                        className={`form-item-floating ${
-                            errors.checkboxExample && 'invalid'
-                        }`}
-                    >
-                        <InputComponent
-                            type='checkbox'
-                            inputValue='agree'
-                            name='checkboxExample'
-                            labelText='Officia cillum aute magna in est nostrud dolore ullamco excepteur in mollit id.'
-                            errorMessage={errors.checkboxExample}
-                            register={register}
-                            required={{
-                                required: 'This field is required',
-                            }}
-                        />
-                    </div>
+                    <InputComponent
+                        hasWrapper={true}
+                        checked={true}
+                        type='checkbox'
+                        inputValue='agree'
+                        name='checkboxExample'
+                        labelText='Officia cillum aute magna in est nostrud dolore ullamco excepteur in mollit id.'
+                        errorMessage={errors.checkboxExample}
+                        register={register}
+                        required={{
+                            required: 'This field is required',
+                        }}
+                    />
                 </div>
             </GlobalThemeProvider>
         );
@@ -124,21 +120,12 @@ storiesOf(`Designs/Atoms/Inputs`, module)
 
         return (
             <GlobalThemeProvider>
-                <div
-                    className={`form-item-container single radio-single ${optionsKnob(
-                        'Display inline (add class inline)',
-                        {
-                            False: '',
-                            True: 'inline',
-                        },
-                        '',
-                        { display: 'inline-radio' }
-                    )} `}
-                >
+                <div className={`form-item-container single radio-single`}>
                     <InputComponent
                         type='radio'
                         id='val1'
                         inputValue='value1'
+                        checked={true}
                         name='radioExample'
                         labelText='value1'
                         errorMessage={errors.radioExample}

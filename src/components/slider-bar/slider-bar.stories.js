@@ -2,20 +2,21 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, number } from '@storybook/addon-knobs';
 import SliderBar from './slider-bar.components';
+import GlobalThemeProvider from '../../themes/global-theme.provider';
 
 storiesOf(`Designs/Atoms/Slider Bar`, module)
     .addDecorator(withKnobs)
     .add('Default', () => (
-        <React.Fragment>
+        <GlobalThemeProvider>
             <SliderBar
                 initialValue={number('Initial value', 10)}
                 min={number('Minimal value', 5)}
                 max={number('Maximal value', 50)}
             />
-        </React.Fragment>
+        </GlobalThemeProvider>
     ))
     .add('With on change callback and formater', () => (
-        <React.Fragment>
+        <GlobalThemeProvider>
             <h4>Format kilograms to pounds</h4>
             <SliderBar
                 initialValue={number('Initial value', 10)}
@@ -24,5 +25,5 @@ storiesOf(`Designs/Atoms/Slider Bar`, module)
                 formatFn={(value) => `${(value * 2.2).toFixed(2)} lbs`}
                 onChange={(_) => console.log(_)}
             />
-        </React.Fragment>
+        </GlobalThemeProvider>
     ));

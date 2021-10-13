@@ -1,4 +1,5 @@
 import { css, keyframes } from '@emotion/react';
+import { rgba } from 'emotion-rgba';
 
 const errorShow = keyframes`
 0% {
@@ -22,9 +23,6 @@ export const InputStyles = (theme) => {
     const mq = breakpoints.map((bp) => `@media (min-width: ${bp}px)`);
 
     return css({
-        position: 'relative',
-        marginBottom: 20,
-
         "input[type='text'], textarea": {
             backgroundColor: 'transparent',
 
@@ -69,7 +67,7 @@ export const InputStyles = (theme) => {
             height: 80,
         },
 
-        input: {
+        "input[type='text'], input[type='password'], input[type='number']": {
             padding: '0 10px',
             height: 60,
             borderRadius: 5,
@@ -223,6 +221,140 @@ export const InputPhoneStyles = (theme) =>
 
             input: {
                 border: 'none !important',
+            },
+        },
+    });
+
+export const InputRadioStyles = (theme) =>
+    css({
+        "input[type='radio']": {
+            opacity: 0,
+            position: 'absolute',
+            height: '100%',
+            width: '100%',
+            zIndex: 10000,
+            cursor: 'pointer',
+        },
+
+        "input[type='radio'] + label": {
+            display: 'unset',
+            position: 'relative',
+            paddingLeft: 25,
+            margin: '8px 0',
+            lineHeight: 16,
+            cursor: 'pointer',
+            transition: 'all 0.4s',
+            zIndex: 1000,
+            transform: 'none',
+            top: 'unset',
+            left: 'unset',
+            pointerEvents: 'all',
+            userSelect: 'all',
+
+            '&::before': {
+                content: "''",
+                position: 'absolute',
+                top: '50%',
+                left: 0,
+                transform: 'translateY(-50%)',
+                height: 16,
+                width: 16,
+                borderRadius: '100%',
+                border: `2px solid ${rgba(theme.colors.blue, 0.5)}`,
+                transition: 'all 0.4s',
+            },
+        },
+
+        "input[type='radio']:checked + label": {
+            color: theme.colors.blue,
+
+            '&::before': {
+                border: `2px solid ${rgba(theme.colors.blue, 0.5)}`,
+                backgroundColor: theme.colors.blue,
+            },
+        },
+    });
+
+export const InputCheckboxStyles = (theme) =>
+    css({
+        "input[type='checkbox']": {
+            opacity: 0,
+            position: 'absolute',
+            height: '100%',
+            width: '100%',
+            zIndex: 1000,
+            cursor: 'pointer',
+        },
+
+        "input[type='checkbox'] + label": {
+            display: 'unset',
+            position: 'relative',
+            paddingLeft: 35,
+            margin: '8px 0',
+            lineHeight: '20px',
+            transition: 'all 0.4s ease',
+
+            '&::before': {
+                content: "''",
+                position: 'absolute',
+                top: '50%',
+                left: 0,
+                transform: 'translateY(-50%)',
+                height: 25,
+                width: 25,
+                borderRadius: 5,
+                border: `1px solid ${rgba(theme.colors.blue, 0.5)}`,
+                transition: 'all 0.4s ease',
+            },
+
+            '&::after': {
+                content: `url('data:image/svg+xml;utf8,<svg fill="%231693c5"xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512 "xml:space="preserve"><g><path d="M504.502,75.496c-9.997-9.998-26.205-9.998-36.204,0L161.594,382.203L43.702,264.311c-9.997-9.998-26.205-9.997-36.204,0c-9.998,9.997-9.998,26.205,0,36.203l135.994,135.992c9.994,9.997,26.214,9.99,36.204,0L504.502,111.7C514.5,101.703,514.499,85.494,504.502,75.496z"/></g></svg>')`,
+                display: 'block',
+                width: 15,
+                height: 15,
+                position: 'absolute',
+                left: 5,
+                top: '50%',
+                transform: 'translateY(-50%)',
+                opacity: 0,
+                visibility: 'hidden',
+                transition: 'all 0.4s ease',
+            },
+        },
+
+        '.checkbox-svg': {
+            display: 'block',
+            width: 18,
+            height: 18,
+            color: theme.colors.blue,
+            position: 'absolute',
+            left: 4,
+            top: '50%',
+            transform: 'translateY(-50%)',
+            opacity: 0,
+            visibility: 'hidden',
+            transition: 'all 0.4s ease',
+        },
+
+        "input[type='checkbox'].invalid + label": {
+            '&::before': {
+                border: `1px solid ${rgba(theme.colors.warningRed, 1)}`,
+            },
+
+            '& > .checkbox-svg': {
+                opacity: 0,
+                visibility: 'hidden',
+            },
+        },
+
+        "input[type='checkbox']:checked + label": {
+            '&::before': {
+                border: `1px solid ${rgba(theme.colors.blue, 1)}`,
+            },
+
+            '& > .checkbox-svg': {
+                opacity: 1,
+                visibility: 'visible',
             },
         },
     });
