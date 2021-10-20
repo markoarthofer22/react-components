@@ -27,6 +27,17 @@ const GlobalWrapper: React.FC = (): JSX.Element => {
         <Global
             styles={css`
                 ${emotionNormalize}
+
+                @fontface {
+                    font-family: 'Poppins', sans-serif;
+                    src: url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap');
+                }
+
+                @fontface {
+                    font-family: 'Exo 2', sans-serif;
+                    src: url('https://fonts.googleapis.com/css?family=Exo+2:400,900,800,700,600,500,300,200,100');
+                }
+
                 html {
                     font-family: ${fonts.font};
                     width: 100%;
@@ -37,6 +48,7 @@ const GlobalWrapper: React.FC = (): JSX.Element => {
 
                 body {
                     font-family: ${fonts.font};
+                    font-size: ${fonts.fontSizeMain}px;
                     line-height: 1.231;
                     height: 100%;
                     font-weight: 500;
@@ -51,10 +63,10 @@ const GlobalWrapper: React.FC = (): JSX.Element => {
                 }
 
                 p {
-                    font-size: 1rem;
+                    font-size: ${fonts.fontSizeMain}px;
                     color: ${colors.black};
-                    font-weight: 300;
-                    line-height: 1.8rem;
+                    font-weight: 500;
+                    line-height: ${fonts.fontSizeMain + 2}px;
                 }
 
                 h1,
@@ -63,10 +75,9 @@ const GlobalWrapper: React.FC = (): JSX.Element => {
                 h4,
                 h5,
                 h6 {
-                    // font-family: $h-font, sans-serif;
                     margin: 0.47em 0;
-                    font-weight: 300;
-                    color: $black;
+                    font-weight: 500;
+                    color: ${colors.black};
                 }
 
                 h1 {
@@ -90,7 +101,7 @@ const GlobalWrapper: React.FC = (): JSX.Element => {
 
                 b,
                 strong {
-                    color: $black;
+                    color: ${colors.black};
                     font-weight: 700;
                 }
 
@@ -117,7 +128,6 @@ const GlobalWrapper: React.FC = (): JSX.Element => {
                 }
                 .popup-exit-active {
                     opacity: 0;
-                    //transform: scale(0.9);
                     transition: opacity 0.4s, transform 0.4s;
                 }
 
@@ -175,13 +185,13 @@ const GlobalWrapper: React.FC = (): JSX.Element => {
 
                 .form-item-floating {
                     position: relative;
-                    marginbottom: 20px;
+                    margin-bottom: 20px;
 
                     &--radio {
                         display: flex;
                         align-items: center;
                         justify-content: flex-start;
-                        height: 60px;
+                        height: 40px;
                     }
 
                     &--checkbox {

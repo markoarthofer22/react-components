@@ -96,7 +96,7 @@ export const InputStyles = (theme) => {
                 },
 
                 '& + label': {
-                    lineHeight: 1,
+                    lineHeight: '1',
                     font: 'inherit',
                     fontSize: 14,
                     fontWeight: 500,
@@ -145,8 +145,7 @@ export const InputStyles = (theme) => {
             color: theme.colors.warningRed,
             display: 'block',
             fontSize: 10,
-            animationName: errorShow,
-            animationDuration: '1s',
+            animation: `${errorShow} 1s`,
             zIndex: 1,
 
             [mq[1]]: {
@@ -163,14 +162,16 @@ export const InputPhoneStyles = (theme) =>
             alignItems: 'center',
             border: '1px solid #ccc',
             borderRadius: 3,
+            height: 40,
+
+            '& > span': {
+                flexBasis: '40%',
+            },
         },
 
         '.select': {
+            height: 'unset !important',
             '&--countries': {
-                position: 'relative',
-                height: 40,
-                flexBasis: '40%',
-
                 '&-disabled': {
                     pointerEvents: 'none',
 
@@ -186,10 +187,12 @@ export const InputPhoneStyles = (theme) =>
             },
 
             '&--header': {
-                height: 40,
-                border: 'none',
-                borderRight: '1px solid #ccc',
+                height: '40px !important',
+                border: 'none !important',
+                borderRight: '1px solid #ccc !important',
                 color: '#333',
+                paddingTop: '0 !important',
+                paddingBottom: '0 !important',
 
                 svg: {
                     transition: 'all 0.4s',
@@ -201,10 +204,10 @@ export const InputPhoneStyles = (theme) =>
 
                 '&--placeholder': {
                     fontSize: 13,
-                    position: 'relative',
-                    transform: 'none',
-                    top: 'unset',
-                    left: 'unset',
+                    position: 'relative !important',
+                    transform: 'none !important',
+                    top: 'unset !important',
+                    left: 'unset !important',
                 },
             },
 
@@ -213,6 +216,16 @@ export const InputPhoneStyles = (theme) =>
                 left: -1, // for border-right on input
                 width: 'calc(100% + 1px)',
                 overflowX: 'hidden',
+
+                '&--search': {
+                    width: '85% !important',
+                    margin: '5px auto !important',
+                    borderRadius: 4,
+                    padding: '0 5px !important',
+                    fontSize: '10px !important',
+                    height: '32px !important',
+                    border: `1px solid ${theme.colors.blue} !important`,
+                },
             },
         },
 
@@ -220,6 +233,7 @@ export const InputPhoneStyles = (theme) =>
             position: 'relative',
 
             input: {
+                height: 40,
                 border: 'none !important',
             },
         },
@@ -241,7 +255,7 @@ export const InputRadioStyles = (theme) =>
             position: 'relative',
             paddingLeft: 25,
             margin: '8px 0',
-            lineHeight: 16,
+            lineHeight: '16px',
             cursor: 'pointer',
             transition: 'all 0.4s',
             zIndex: 1000,

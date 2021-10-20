@@ -4,7 +4,7 @@ import { MdTrendingUp } from 'react-icons/md';
 import { useTheme } from '@emotion/react';
 import { JumpToTopStyles } from './styles';
 
-interface JumpToTopProps {
+interface IJumpToTopProps {
     icon?: React.ElementType | React.ComponentType;
     title?: string;
     targetElement: string;
@@ -13,7 +13,7 @@ interface JumpToTopProps {
     customClass?: string;
 }
 
-const JumpToTop: React.FC<JumpToTopProps> = ({
+const JumpToTop: React.FC<IJumpToTopProps> = ({
     icon,
     title,
     targetElement,

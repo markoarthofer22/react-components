@@ -5,25 +5,25 @@ import { Link } from 'react-router-dom';
 import { MdKeyboardArrowDown } from 'react-icons/md';
 import { DropdownStyles } from './styles';
 
-interface Data {
+interface IData {
     value: string;
     id: string;
     link?: string;
 }
 
-interface DropdownProps {
-    data: Data[];
+interface IDropdownProps {
+    data: IData[];
     dropdownClass?: string;
     placeholder?: string;
     label?: string;
     dropdownID: string;
     onChange?: (e?: any) => void;
-    returnValue?: (data: Data) => void;
+    returnValue?: (data: IData) => void;
     isDefaultOpen?: boolean;
     defaultValue?: string;
 }
 
-const Dropdown: React.FC<DropdownProps> = (props): JSX.Element => {
+const Dropdown: React.FC<IDropdownProps> = (props): JSX.Element => {
     const {
         data,
         dropdownClass,
@@ -56,7 +56,7 @@ const Dropdown: React.FC<DropdownProps> = (props): JSX.Element => {
         setOpen(!isOpen);
     };
 
-    const selectItem = (e: any, item: Data): void => {
+    const selectItem = (e: any, item: IData): void => {
         e.stopPropagation();
         setOpen(false);
         setSelectedTitle(item.value);
@@ -75,7 +75,7 @@ const Dropdown: React.FC<DropdownProps> = (props): JSX.Element => {
     }, [selectedTitle]);
 
     return (
-        <div css={DropdownStyles(theme)}>
+        <span css={DropdownStyles(theme)}>
             <div id={dropdownID} className={`dropdown ${dropdownClass}`}>
                 {label && (
                     <label htmlFor={dropdownID} className='dropdown--label'>
@@ -146,7 +146,7 @@ const Dropdown: React.FC<DropdownProps> = (props): JSX.Element => {
                     })}
                 </div>
             </div>
-        </div>
+        </span>
     );
 };
 

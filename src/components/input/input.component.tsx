@@ -15,7 +15,7 @@ import { InputStyles, InputRadioStyles, InputCheckboxStyles } from './styles';
 // component
 import Tooltip from '../tooltip/tooltip.component';
 
-interface InputProps {
+interface IInputProps {
     hasWrapper?: boolean;
     type?: string;
     name?: string | null;
@@ -35,7 +35,7 @@ interface InputProps {
     checkboxIcon?: React.ElementType | React.ComponentType;
 }
 
-const InputComponent: React.FC<InputProps> = ({
+const InputComponent: React.FC<IInputProps> = ({
     hasWrapper = true,
     type = 'text',
     name,

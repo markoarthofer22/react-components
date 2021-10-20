@@ -3,7 +3,7 @@ import React from 'react';
 import { useTheme } from '@emotion/react';
 import { ButtonStyles } from './styles';
 
-interface ButtonProps {
+interface IButtonProps {
     children?: React.ReactNode;
     customClass?: string;
     clicked: (e?: any) => void;
@@ -12,7 +12,7 @@ interface ButtonProps {
     attributes?: Record<string, unknown>;
 }
 
-const Button: React.FC<ButtonProps> = ({
+const Button: React.FC<IButtonProps> = ({
     children,
     customClass,
     clicked,

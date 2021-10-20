@@ -59,6 +59,7 @@ export const DropdownStyles = (theme) =>
                 borderBottomLeftRadius: 3,
                 padding: 0,
                 overflowY: 'scroll',
+                overflowX: 'hidden',
                 webkitOverflowScrolling: 'touch',
                 opacity: 0,
                 visibility: 'hidden',

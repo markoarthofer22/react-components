@@ -1,11 +1,13 @@
 export const GlobalStyles = {
     colors: {
         warningRed: '#d71920',
-        white: '#fff',
+        white: '#ffffff',
         background: '#f9fbfe',
-        black: ' #000',
+        black: '#000000',
         lighterGrey: '#f2f2f2',
         lightGrey: '#a7b0b4',
+        grey20: '#cccccc',
+        grey90: '#999999',
         lighterGrey: '#e7eaed',
         grey: ' #6d6e70',
         blue: '#1693c5',
@@ -23,7 +25,7 @@ export const GlobalStyles = {
     fonts: {
         titleFont: "'Exo 2', sans-serif",
         font: "'Poppins', sans-serif",
-        fontSizeMain: 10,
+        fontSizeMain: 14,
         mainColor: '#000',
     },
     breakpoints: {

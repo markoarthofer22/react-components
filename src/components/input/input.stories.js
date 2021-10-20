@@ -9,13 +9,10 @@ import InputTypePhone from './input-type-phone.component';
 
 const Warning = () => (
     <p style={{ marginBottom: 20, fontSize: 13 }}>
-        If you want to inline them use{' '}
+        If you want to get styles like this wrap it in{' '}
         <span style={{ color: 'red', display: 'block' }}>
             {String("<div className='form-item-container'></div>")}
         </span>
-        <br />
-        If you want them displayed block add class{' '}
-        <span style={{ color: 'red' }}>"single"</span> to wrapper
     </p>
 );
 

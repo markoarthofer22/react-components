@@ -4,14 +4,14 @@ import React, { useEffect } from 'react';
 import { MdClose } from 'react-icons/md';
 import { PopupStyles } from './styles';
 
-interface PopupProps {
+interface IPopupProps {
     closePopup: (e?: any) => void;
     children: React.ReactNode;
     customClass?: string;
     icon?: React.ElementType | React.ComponentType;
 }
 
-const Popup: React.FC<PopupProps> = ({
+const Popup: React.FC<IPopupProps> = ({
     closePopup,
     children,
     customClass,

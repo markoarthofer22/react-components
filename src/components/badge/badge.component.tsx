@@ -5,14 +5,14 @@ import { BadgeStyles } from './styles';
 
 type IconType = React.ElementType | React.ComponentType;
 
-interface BadgeProps {
+interface IBadgeProps {
     stylesObj?: {
         [key: string]: React.CSSProperties;
     };
     value: string | number | IconType;
 }
 
-const Badge: React.FC<BadgeProps> = ({
+const Badge: React.FC<IBadgeProps> = ({
     stylesObj = {},
     value,
 }): JSX.Element => {

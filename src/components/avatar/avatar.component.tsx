@@ -7,7 +7,7 @@ type IconType = React.ElementType | React.ComponentType;
 
 type Color = string | 'transparent';
 
-interface AvatarProps {
+interface IAvatarProps {
     stringifyLetter?: boolean;
     grouped?: boolean;
     size?: 'small' | 'normal' | 'big';
@@ -18,7 +18,7 @@ interface AvatarProps {
     groupedLimit?: string | number;
 }
 
-const Avatar: React.FC<AvatarProps> = ({
+const Avatar: React.FC<IAvatarProps> = ({
     stringifyLetter = false,
     grouped = false,
     size = 'normal',

@@ -2,11 +2,12 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text, boolean } from '@storybook/addon-knobs';
 import HeroBox from './hero-box.component';
+import GlobalThemeProvider from '../../themes/global-theme.provider';
 
 storiesOf(`Designs/Models`, module)
     .addDecorator(withKnobs)
     .add('Hero Box', () => (
-        <React.Fragment>
+        <GlobalThemeProvider>
             <HeroBox
                 customClass={text('Custom class', '')}
                 bgImage={text(
@@ -24,5 +25,5 @@ storiesOf(`Designs/Models`, module)
                 )}
                 hasOverlay={boolean('Has overlay?', true)}
             />
-        </React.Fragment>
+        </GlobalThemeProvider>
     ));

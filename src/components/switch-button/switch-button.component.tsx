@@ -1,6 +1,10 @@
+/** @jsxImportSource @emotion/react */
 import React from 'react';
+import { useTheme } from '@emotion/react';
 
-interface SwitchButtonProps {
+import { SwitchButtonStyles } from './styles';
+
+interface ISwitchButtonProps {
     customClass?: string;
     checked?: boolean;
     id: string;
@@ -18,7 +22,7 @@ interface SwitchButtonProps {
     };
 }
 
-const SwitchButton: React.FC<SwitchButtonProps> = ({
+const SwitchButton: React.FC<ISwitchButtonProps> = ({
     id,
     name,
     checked = false,
@@ -32,6 +36,8 @@ const SwitchButton: React.FC<SwitchButtonProps> = ({
     customClass,
     icon,
 }): JSX.Element => {
+    const theme = useTheme();
+
     const handleKeyPress = (e: React.KeyboardEvent): void => {
         if (e.code !== '32' || !onChange) return;
         e.preventDefault();
@@ -40,74 +46,82 @@ const SwitchButton: React.FC<SwitchButtonProps> = ({
     };
 
     return (
-        <div
-            className={`toggle-switch ${
-                small ? 'toggle-switch--small-switch' : ''
-            } ${customClass || ''}`}
-        >
-            <input
-                type='checkbox'
-                name={name}
-                className='toggle-switch--checkbox'
-                id={id}
-                checked={checked}
-                onChange={(e) => onChange && onChange(e.target.checked)}
-                disabled={disabled}
-            />
-            <label
-                className='toggle-switch--label'
-                tabIndex={disabled ? -1 : 1}
-                onKeyDown={(e) => handleKeyPress(e)}
-                htmlFor={id}
+        <span css={SwitchButtonStyles(theme)}>
+            <div
+                className={`toggle-switch ${
+                    small ? 'toggle-switch--small-switch' : ''
+                } ${customClass || ''}`}
             >
-                {icon && !small ? (
-                    <span
-                        className={
-                            disabled
-                                ? 'toggle-switch--inner toggle-switch--disabled'
-                                : 'toggle-switch--inner'
-                        }
-                        tabIndex={-1}
-                    >
-                        <div
-                            className={`toggle-switch--icon ${
-                                checked ? 'toggle-switch--icon-checked' : ''
-                            }`}
+                <input
+                    type='checkbox'
+                    name={name}
+                    className='toggle-switch--checkbox'
+                    id={id}
+                    checked={checked}
+                    onChange={(e) => onChange && onChange(e.target.checked)}
+                    disabled={disabled}
+                />
+                <label
+                    className={`toggle-switch--label ${
+                        checked ? 'checked' : ''
+                    }`}
+                    tabIndex={disabled ? -1 : 1}
+                    onKeyDown={(e) => handleKeyPress(e)}
+                    htmlFor={id}
+                >
+                    {icon && !small ? (
+                        <span
+                            className={
+                                disabled
+                                    ? 'toggle-switch--inner toggle-switch--disabled'
+                                    : 'toggle-switch--inner'
+                            }
+                            tabIndex={-1}
                         >
-                            <div className='toggle-switch--icon--yes'>
-                                {icon.yes}
+                            <div
+                                className={`toggle-switch--icon ${
+                                    checked ? 'toggle-switch--icon-checked' : ''
+                                }`}
+                            >
+                                <div className='toggle-switch--icon--yes'>
+                                    {icon.yes}
+                                </div>
+                                <div className='toggle-switch--icon--no'>
+                                    {icon.no}
+                                </div>
                             </div>
-                            <div className='toggle-switch--icon--no'>
-                                {icon.no}
-                            </div>
-                        </div>
-                    </span>
-                ) : (
+                        </span>
+                    ) : (
+                        <span
+                            className={
+                                disabled
+                                    ? 'toggle-switch--inner toggle-switch--disabled'
+                                    : 'toggle-switch--inner'
+                            }
+                            data-yes={optionLabels.yes}
+                            data-no={optionLabels.no}
+                            tabIndex={-1}
+                        />
+                    )}
                     <span
                         className={
                             disabled
-                                ? 'toggle-switch--inner toggle-switch--disabled'
-                                : 'toggle-switch--inner'
+                                ? `toggle-switch--switch toggle-switch--disabled ${
+                                      checked
+                                          ? 'toggle-switch--switch-checked'
+                                          : ''
+                                  }`
+                                : `toggle-switch--switch ${
+                                      checked
+                                          ? 'toggle-switch--switch-checked'
+                                          : ''
+                                  } `
                         }
-                        data-yes={optionLabels.yes}
-                        data-no={optionLabels.no}
                         tabIndex={-1}
                     />
-                )}
-                <span
-                    className={
-                        disabled
-                            ? `toggle-switch--switch toggle-switch--disabled ${
-                                  checked ? 'toggle-switch--switch-checked' : ''
-                              }`
-                            : `toggle-switch--switch ${
-                                  checked ? 'toggle-switch--switch-checked' : ''
-                              } `
-                    }
-                    tabIndex={-1}
-                />
-            </label>
-        </div>
+                </label>
+            </div>
+        </span>
     );
 };
 

@@ -12,13 +12,13 @@ import { InputStyles, InputPhoneStyles } from './styles';
 
 import Select from '../select/select.component';
 
-export interface CountriesProps {
+export interface ICountriesProps {
     country: string;
     iso: string;
     dialing_code: string;
 }
 
-interface InputPhoneProps {
+interface IInputPhoneProps {
     hasWrapper?: boolean;
     id?: string;
     onBlur?: (e: any) => void;
@@ -34,14 +34,14 @@ interface InputPhoneProps {
     required: RegisterOptions;
     name?: string;
     errorMessage?: NestDataObject<FieldValues, FieldError>;
-    countriesList: CountriesProps[];
+    countriesList: ICountriesProps[];
     disableFocus?: boolean;
     labelText?: string;
     selectPlaceholder?: string;
     selectBindingValue?: string;
 }
 
-const InputTypePhone: React.FC<InputPhoneProps> = ({
+const InputTypePhone: React.FC<IInputPhoneProps> = ({
     id,
     onBlur,
     predefinedValue,

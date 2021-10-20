@@ -1,5 +1,4 @@
 import { css, keyframes } from '@emotion/react';
-import { rgba } from 'emotion-rgba';
 
 const ShowTooltip = keyframes`
     0% {
@@ -55,7 +54,7 @@ export const TooltipStyles = (theme) =>
             fontSize: 12,
             fontWeight: 500,
             color: theme.colors.white,
-            content: 'attr(data-tooltipTitle)',
+            content: 'attr(data-tooltiptitle)',
             position: 'absolute',
             bottom: 'calc(100% + 6px)',
             transform: 'translateX(-50%) translateY(-15px)',

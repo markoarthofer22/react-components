@@ -3,7 +3,7 @@ import React, { useLayoutEffect } from 'react';
 import { useTheme } from '@emotion/react';
 import { SliderbarStyles } from './styles';
 
-interface SliderBarProps {
+interface ISliderBarProps {
     customClass?: string;
     initialValue: number;
     min?: number;
@@ -12,7 +12,7 @@ interface SliderBarProps {
     onChange: (e: any) => any;
 }
 
-const SliderBar: React.FC<SliderBarProps> = ({
+const SliderBar: React.FC<ISliderBarProps> = ({
     initialValue,
     min = 0,
     customClass,

@@ -14,31 +14,36 @@ export const QuantityInputStyles = (theme) => {
         '.quantity-input': {
             display: 'flex',
             alignItems: 'center',
-
-            '&--increment': {
-                borderRadius: '0px 4px 4px 0px',
-            },
-
-            '&--decrement': {
-                borderRadius: '4px 0px 0px 4px',
-            },
+            border: `1px solid ${theme.colors.blue}`,
+            width: 'fit-content',
 
             '&--increment, &--decrement': {
-                backgroundColors: '#f1f1f1',
+                cursor: 'pointer',
+                backgroundColor: '#f1f1f1',
                 borderColor: theme.colors.blue,
                 color: theme.colors.blue,
+                border: 'none',
                 width: 40,
-                height: 40,
+                height: 42,
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 fontSize: 16,
                 fontWeight: 500,
                 transition: 'all 0.4s ease',
+                alignSelf: 'stretch',
 
                 '&:hover': {
                     backgroundColor: `rgba(${theme.colors.lightBlue}, 0.3)`,
                 },
+            },
+
+            '&--increment': {
+                borderLeft: `1px solid ${theme.colors.blue}`,
+            },
+
+            '&--decrement': {
+                borderRight: `1px solid ${theme.colors.blue}`,
             },
 
             '&--input': {
@@ -46,17 +51,14 @@ export const QuantityInputStyles = (theme) => {
                 flex: 1,
                 textAlign: 'center',
                 fontWeight: 500,
-                borderTop: `1px solid ${theme.colors.blue} !important`,
-                borderBottom: `1px solid ${theme.colors.blue}  !important`,
-                borderLeft: 'none !important',
-                borderRight: 'none !important',
+                border: 'none',
 
-                '&:focus': {
-                    borderTop: `1px solid ${theme.colors.blue}  !important`,
-                    borderBottom: `1px solid ${theme.colors.blue}  !important`,
-                    borderLeft: 'none !important',
-                    borderRight: 'none !important',
-                },
+                // '&:focus': {
+                //     borderTop: `1px solid ${theme.colors.blue}  `,
+                //     borderBottom: `1px solid ${theme.colors.blue}  `,
+                //     borderLeft: 'none ',
+                //     borderRight: 'none ',
+                // },
 
                 [mq[0]]: {
                     height: 40,

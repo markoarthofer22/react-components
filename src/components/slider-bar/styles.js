@@ -1,15 +1,6 @@
 import { css } from '@emotion/react';
 
 export const SliderbarStyles = (theme) => {
-    const breakpoints = [
-        theme.breakpoints.sm,
-        theme.breakpoints.md,
-        theme.breakpoints.lg,
-        theme.breakpoints.xlg,
-    ];
-
-    const mq = breakpoints.map((bp) => `@media (min-width: ${bp}px)`);
-
     return css({
         '.slider-bar': {
             maxWidth: 400,

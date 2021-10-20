@@ -13,7 +13,7 @@ module.exports = {
         project: './tsconfig.json',
         tsconfigRootDir: __dirname,
     },
-    plugins: ['@emotion', '@typescript-eslint', 'prettier', 'react'],
+    plugins: ['@typescript-eslint', '@emotion', 'prettier', 'react'],
     extends: ['airbnb', 'airbnb-typescript', 'prettier'],
     settings: {
         'import/resolver': {

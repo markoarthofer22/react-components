@@ -33,6 +33,7 @@ export const BreadcrumbsStyles = (theme) => {
                         height: 20,
                         fill: theme.colors.black,
                         transition: 'all 0.4s',
+                        display: 'block',
                     },
 
                     '&:hover': {
@@ -66,6 +67,7 @@ export const BreadcrumbsStyles = (theme) => {
             },
 
             '&--link': {
+                display: 'block',
                 position: 'relative',
                 marginRight: 10,
                 paddingRight: 10,
@@ -78,6 +80,8 @@ export const BreadcrumbsStyles = (theme) => {
                     fontSize: 16,
                     paddingRight: 15,
                     marginRight: 15,
+                    alignItems: 'center',
+                    justifyContent: 'center',
                 },
 
                 '&:hover': {

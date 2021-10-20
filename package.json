@@ -44,9 +44,7 @@
         "emotion-rgba": "0.0.9",
         "react-hook-form": "5.7.2",
         "react-icons": "^4.2.0",
-        "react-id-swiper": "^2.3.2",
         "react-transition-group": "^4.4.1",
-        "swiper": "^5.2.0",
         "underscore": "^1.13.1"
     },
     "devDependencies": {
@@ -81,7 +79,6 @@
         "@types/react-router-config": "^5.0.2",
         "@types/react-router-dom": "^5.1.7",
         "@types/react-transition-group": "^4.4.1",
-        "@types/swiper": "^5.4.3",
         "@types/underscore": "^1.11.3",
         "@typescript-eslint/eslint-plugin": "^4.33.0",
         "@typescript-eslint/eslint-plugin-tslint": "^4.9.0",

@@ -7,7 +7,7 @@ import Button from '../../components/buttons/button.component';
 
 import { DialogStyles } from './styles';
 
-interface DialogProps {
+interface IDialogProps {
     title: string;
     message?: string;
     requestMessage?: string;
@@ -17,7 +17,7 @@ interface DialogProps {
     cancelCallback: (e?: any) => void;
 }
 
-const Dialog: React.FC<DialogProps> = ({
+const Dialog: React.FC<IDialogProps> = ({
     title,
     message,
     requestMessage,

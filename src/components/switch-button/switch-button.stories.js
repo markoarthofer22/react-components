@@ -3,6 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, text, boolean, object } from '@storybook/addon-knobs';
 import { VscCheck, VscChromeClose } from 'react-icons/vsc';
 import SwitchButton from './switch-button.component';
+import GlobalThemeProvider from '../../themes/global-theme.provider';
 
 const font = {
     fontSize: 16,
@@ -15,7 +16,7 @@ storiesOf(`Designs/Atoms/Switch button`, module)
         const [isChecked, setIsChecked] = useState(false);
 
         return (
-            <React.Fragment>
+            <GlobalThemeProvider>
                 <div>
                     <p style={font}>Switch button</p>
                     <SwitchButton
@@ -39,14 +40,14 @@ storiesOf(`Designs/Atoms/Switch button`, module)
                         {isChecked ? 'checked' : 'not checked'}
                     </strong>
                 </p>
-            </React.Fragment>
+            </GlobalThemeProvider>
         );
     })
     .add('With Icons', () => {
         const [isChecked, setIsChecked] = useState(false);
 
         return (
-            <React.Fragment>
+            <GlobalThemeProvider>
                 <div>
                     <p style={font}>Switch button with label icons</p>
                     <SwitchButton
@@ -70,6 +71,6 @@ storiesOf(`Designs/Atoms/Switch button`, module)
                         {isChecked ? 'checked' : 'not checked'}
                     </strong>
                 </p>
-            </React.Fragment>
+            </GlobalThemeProvider>
         );
     });

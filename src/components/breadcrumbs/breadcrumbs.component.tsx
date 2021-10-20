@@ -6,20 +6,20 @@ import { MdStore } from 'react-icons/md';
 import { uniqueId } from 'underscore';
 import { BreadcrumbsStyles } from './styles';
 
-interface Crumb {
+interface ICrumb {
     id: string | number;
     link: string;
     title: string;
 }
 
-interface BreadcrumbsProps {
+interface IBreadcrumbsProps {
     hasHomeIcon?: boolean;
     homeIcon?: React.ElementType | React.ComponentType;
     isHomeRoot?: boolean;
-    crumbs: Crumb[];
+    crumbs: ICrumb[];
 }
 
-const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
+const Breadcrumbs: React.FC<IBreadcrumbsProps> = ({
     hasHomeIcon = true,
     homeIcon,
     isHomeRoot = true,
@@ -27,7 +27,7 @@ const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
 }): JSX.Element => {
     const theme = useTheme();
 
-    const initialArray: Crumb[] = isHomeRoot
+    const initialArray: ICrumb[] = isHomeRoot
         ? [
               {
                   id: uniqueId('breadcrumbs_'),
@@ -38,7 +38,7 @@ const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
           ]
         : [...crumbs];
 
-    const [breadcrumbs] = useState<Crumb[]>(initialArray);
+    const [breadcrumbs] = useState<ICrumb[]>(initialArray);
 
     const C = homeIcon || MdStore;
 
