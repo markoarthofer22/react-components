@@ -1,3 +1,4 @@
+/** @jsxImportSource @emotion/react */
 import React, { useState, useEffect } from 'react';
 import _ from 'underscore';
 import {
@@ -5,25 +6,19 @@ import {
     FieldValues,
     NestDataObject,
 } from 'react-hook-form/dist/types';
+import { useTheme } from '@emotion/react';
+import { RegisterOptions } from './validation.types';
+import { InputStyles, InputPhoneStyles } from './styles';
+
 import Select from '../select/select.component';
 
-export interface CountriesProps {
+export interface ICountriesProps {
     country: string;
     iso: string;
     dialing_code: string;
 }
 
-export interface SearchBarValidatorObj {
-    required: boolean;
-    k: KeyObjectValidator;
-}
-
-interface KeyObjectValidator {
-    value: string | number;
-    message: string;
-}
-
-interface InputPhoneProps {
+interface IInputPhoneProps {
     hasWrapper?: boolean;
     id?: string;
     onBlur?: (e: any) => void;
@@ -36,17 +31,17 @@ interface InputPhoneProps {
         inputValue: string
     ) => void;
     register?: any;
-    required: SearchBarValidatorObj;
+    required: RegisterOptions;
     name?: string;
     errorMessage?: NestDataObject<FieldValues, FieldError>;
-    countriesList: CountriesProps[];
+    countriesList: ICountriesProps[];
     disableFocus?: boolean;
     labelText?: string;
     selectPlaceholder?: string;
     selectBindingValue?: string;
 }
 
-const InputTypePhone: React.FC<InputPhoneProps> = ({
+const InputTypePhone: React.FC<IInputPhoneProps> = ({
     id,
     onBlur,
     predefinedValue,
@@ -63,6 +58,8 @@ const InputTypePhone: React.FC<InputPhoneProps> = ({
     selectBindingValue,
     hasWrapper = true,
 }): JSX.Element => {
+    const theme = useTheme();
+
     const [countriesID, setCountriesID] = useState<string>('');
     const [countriesName, setCountriesName] = useState<string>('');
     const [countriesDial, setCountriesDial] = useState<string>('');
@@ -196,6 +193,7 @@ const InputTypePhone: React.FC<InputPhoneProps> = ({
 
     return hasWrapper ? (
         <div
+            css={[InputStyles(theme), InputPhoneStyles(theme)]}
             className={`form-item-floating phone-type ${
                 errorMessage && 'invalid'
             }`}

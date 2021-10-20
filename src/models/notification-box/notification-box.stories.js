@@ -1,6 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text, boolean, optionsKnob } from '@storybook/addon-knobs';
+import GlobalThemeProvider from '../../themes/global-theme.provider';
 import NotificationBox from './notification-box.component';
 
 const valuesObj = {
@@ -11,7 +12,7 @@ const valuesObj = {
 storiesOf(`Designs/Models`, module)
     .addDecorator(withKnobs)
     .add('Notification Box', () => (
-        <React.Fragment>
+        <GlobalThemeProvider>
             <NotificationBox
                 title={text('Title', 'This is notification box!')}
                 message={text(
@@ -26,5 +27,5 @@ storiesOf(`Designs/Models`, module)
                     display: 'inline-radio',
                 })}
             />
-        </React.Fragment>
+        </GlobalThemeProvider>
     ));

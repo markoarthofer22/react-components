@@ -1,19 +1,23 @@
+/** @jsxImportSource @emotion/react */
 import React, { useState, useEffect } from 'react';
+import { useTheme } from '@emotion/react';
+import { HamburgerStyles } from './styles';
 
-interface HamburgerProps {
+interface IHamburgerProps {
     customClass?: string;
     isOpen: boolean;
     onChange?: (e?: any) => void;
     disableOnDesktop?: boolean;
 }
 
-const Hamburger: React.FC<HamburgerProps> = ({
+const Hamburger: React.FC<IHamburgerProps> = ({
     isOpen,
     onChange,
     customClass,
     disableOnDesktop = true,
 }): JSX.Element => {
     const [isHamburgerOpen, setIsHamburgerOpen] = useState<boolean>(isOpen);
+    const theme = useTheme();
 
     useEffect(() => {
         if (!onChange) return;
@@ -22,18 +26,22 @@ const Hamburger: React.FC<HamburgerProps> = ({
     }, [isHamburgerOpen, onChange]);
 
     return (
-        <div
-            className={`hamburger ${customClass || ''} ${
-                isHamburgerOpen ? 'hamburger-open' : ''
-            } ${disableOnDesktop ? 'hamburger--hide-desktop' : ''}`}
-            onClick={() => {
-                setIsHamburgerOpen(!isHamburgerOpen);
-            }}
-        >
-            <div className='hamburger--item'></div>
-            <div className='hamburger--item'></div>
-            <div className='hamburger--item'></div>
-        </div>
+        <span css={HamburgerStyles(theme)}>
+            <div
+                role='button'
+                tabIndex={0}
+                className={`hamburger ${customClass || ''} ${
+                    isHamburgerOpen ? 'hamburger--open' : ''
+                } ${disableOnDesktop ? 'hamburger--hide-desktop' : ''}`}
+                onClick={() => {
+                    setIsHamburgerOpen(!isHamburgerOpen);
+                }}
+            >
+                <div className='hamburger--item' />
+                <div className='hamburger--item' />
+                <div className='hamburger--item' />
+            </div>
+        </span>
     );
 };
 

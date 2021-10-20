@@ -1,10 +1,15 @@
+/** @jsxImportSource @emotion/react */
 import React from 'react';
+import { useTheme } from '@emotion/react';
+
 import FacebookCard from './facebook/facebook.component';
 import InstagramCard from './instagram/instagram.component';
 
+import { CustomCardStyles } from './styles';
+
 type CardType = 'instagram' | 'custom' | 'facebook';
 
-interface Post {
+interface IPost {
     likes: number | string;
     commentsTotal: number | string;
     published?: string;
@@ -16,7 +21,7 @@ interface Post {
     ];
 }
 
-export interface SocialCardsProps {
+export interface ISocialCardsProps {
     title?: string;
     description: string;
     image?: string;
@@ -27,12 +32,14 @@ export interface SocialCardsProps {
     };
     isHorizontal?: boolean;
     type: CardType | CardType[];
-    post: Post;
+    post: IPost;
     children?: React.ReactNode;
 }
 
-const SocialCards: React.FC<SocialCardsProps> = (props): JSX.Element => {
+const SocialCards: React.FC<ISocialCardsProps> = (props): JSX.Element => {
     const { type, children, isHorizontal = false } = props;
+
+    const theme = useTheme();
 
     const renderBasedOnType = (_type: typeof type): JSX.Element => {
         switch (_type) {
@@ -41,9 +48,11 @@ const SocialCards: React.FC<SocialCardsProps> = (props): JSX.Element => {
 
             case 'custom':
                 return (
-                    <div className='custom-card-wrapper' {...props}>
-                        {children}
-                    </div>
+                    <span css={CustomCardStyles(theme)}>
+                        <div className='custom-card-wrapper' {...props}>
+                            {children}
+                        </div>
+                    </span>
                 );
 
             case 'instagram':

@@ -1,8 +1,9 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, text } from '@storybook/addon-knobs';
+import { withKnobs } from '@storybook/addon-knobs';
 import { AiOutlineQuestion } from 'react-icons/ai';
 import Badge from './badge.component';
+import GlobalThemeProvider from '../../themes/global-theme.provider';
 
 const style = {
     width: 200,
@@ -21,7 +22,7 @@ const img = {
 storiesOf(`Designs/Atoms/Badge`, module)
     .addDecorator(withKnobs)
     .add('Default', () => (
-        <React.Fragment>
+        <GlobalThemeProvider>
             <div style={{ position: 'relative' }}>
                 <div style={style}>
                     <img
@@ -32,10 +33,10 @@ storiesOf(`Designs/Atoms/Badge`, module)
                     <Badge value='90' />
                 </div>
             </div>
-        </React.Fragment>
+        </GlobalThemeProvider>
     ))
     .add('With custom stlyes', () => (
-        <React.Fragment>
+        <GlobalThemeProvider>
             <div style={{ position: 'relative' }}>
                 <div style={style}>
                     <img
@@ -49,10 +50,10 @@ storiesOf(`Designs/Atoms/Badge`, module)
                     />
                 </div>
             </div>
-        </React.Fragment>
+        </GlobalThemeProvider>
     ))
     .add('With custom icon ', () => (
-        <React.Fragment>
+        <GlobalThemeProvider>
             <div style={{ position: 'relative' }}>
                 <div style={style}>
                     <img
@@ -66,5 +67,5 @@ storiesOf(`Designs/Atoms/Badge`, module)
                     />
                 </div>
             </div>
-        </React.Fragment>
+        </GlobalThemeProvider>
     ));

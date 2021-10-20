@@ -7,14 +7,14 @@ declare global {
     }
 }
 
-interface AnalyticsProps extends RouteComponentProps<any> {
+interface IAnalyticsProps extends RouteComponentProps<any> {
     ID: string;
     handleLocationChange: (
         history: RouteComponentProps['history']
     ) => any | void;
 }
 
-const GoogleAnalytics: React.FC<AnalyticsProps> = ({
+const GoogleAnalytics: React.FC<IAnalyticsProps> = ({
     location,
     history,
     ID,

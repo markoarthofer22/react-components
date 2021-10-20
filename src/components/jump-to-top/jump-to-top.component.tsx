@@ -1,7 +1,10 @@
+/** @jsxImportSource @emotion/react */
 import React, { useEffect, useState } from 'react';
 import { MdTrendingUp } from 'react-icons/md';
+import { useTheme } from '@emotion/react';
+import { JumpToTopStyles } from './styles';
 
-interface JumpToTopProps {
+interface IJumpToTopProps {
     icon?: React.ElementType | React.ComponentType;
     title?: string;
     targetElement: string;
@@ -10,7 +13,7 @@ interface JumpToTopProps {
     customClass?: string;
 }
 
-const JumpToTop: React.FC<JumpToTopProps> = ({
+const JumpToTop: React.FC<IJumpToTopProps> = ({
     icon,
     title,
     targetElement,
@@ -18,6 +21,7 @@ const JumpToTop: React.FC<JumpToTopProps> = ({
     customClass,
     visibleFrom,
 }) => {
+    const theme = useTheme();
     const Icon = icon || MdTrendingUp;
 
     const [isScrollVisible, setIsScrollVisible] = useState<boolean>(false);
@@ -70,17 +74,23 @@ const JumpToTop: React.FC<JumpToTopProps> = ({
     }, [isScrollVisible]);
 
     return (
-        <div
-            className={`jump-to-top ${customClass || ''} ${
-                !isScrollVisible ? 'jump-to-top-hidden' : ''
-            }`}
-            onClick={() => scrollToTarget(targetElement, animationDuration)}
-        >
-            <div className='jump-to-top--button'>
-                <Icon />
-                {title && <span className='jump-to-top--title'>{title}</span>}
+        <span css={JumpToTopStyles(theme)}>
+            <div
+                className={`jump-to-top ${customClass || ''} ${
+                    !isScrollVisible ? 'jump-to-top-hidden' : ''
+                }`}
+                role='button'
+                tabIndex={0}
+                onClick={() => scrollToTarget(targetElement, animationDuration)}
+            >
+                <div className='jump-to-top--button'>
+                    <Icon />
+                    {title && (
+                        <span className='jump-to-top--title'>{title}</span>
+                    )}
+                </div>
             </div>
-        </div>
+        </span>
     );
 };
 

@@ -20,8 +20,7 @@ Basic structure:
 -   Collection of components written in ReactJS
 -   Using StroyBook lib for presentation
 -   Function based React, knowledge of Hooks is required
--   Grid system based on Bootstrap framework
--   Normalize copied from Bootstrap
+-   Normalize from [Infinum](https://github.com/infinum/emotion-normalize) :heart:
 -   Typescript for typing. AirBnb convention
 -   All components made from scratch
 -   Using linter and prettier for code consistency
@@ -43,14 +42,20 @@ First, to discuss structure and typing in the app.
 -   files are sorted per usage. (alphabetically)
 -   inside component folder you should have 2 files
     -   .component (`*.component.tsx`) and Storybook for showing component (`*.stories.js`)
-    -   stylings go to scss folder (name it after component and import inside `App.scss`)
+    -   stylings go to scss folder (name it after component and import inside `App.scss`) => **legacy**
+    -   Changed from css to JSS (emotion)
+    -   stylings now go to styles.js, styles are now scoped to component
 -   use `npm run build` to create build for testing (build process in run trough GitHub Actions)
 -   use `npm run lint` to run linter with --fix param
 -   use `npm run prettier` to run prettier
 
 ### Styling
 
-For `.scss` files please use [BEM convention](http://getbem.com/). This keeps it readable, neat and understandable to other devs :smile:
+~~For `.scss` files please use [BEM convention](http://getbem.com/). This keeps it readable, neat and understandable to other devs :smile:~~
+
+For styling we now use JSS ([emotion](https://emotion.sh/docs/introduction)). Each style is scoped to its own component.
+
+Global styles are added to themes folder, where you can find `<GlobalThemeProvider/>` component. Variables are inside _theme/styles.js_
 
 #### What is BEM?
 
@@ -90,7 +95,7 @@ According to creator definition of BEM is as follows:
         cursor: pointer;
 
         svg {
-            fill: $black;
+            fill: theme.colors.black;
             transform: rotateX(0deg);
             transition: all 0.4s ease;
         }
@@ -98,12 +103,92 @@ According to creator definition of BEM is as follows:
         &-open {
             svg {
                 transform: rotateX(180deg);
-                fill: $blue;
+                fill: theme.colors.blue;
             }
         }
     }
 }
 ```
+
+### `Typings`
+
+For Typescript types use interfaces. Respect naming convention. All of your types should start with a capital "I". Also, if you are creating interface for component props they should end with "Props"
+
+<b>Good Example</b>
+
+```ts
+interface IComponentProps {
+    propOne: string,
+    propTwo: number
+    ...
+}
+```
+
+### `Linter and prettier`
+
+Prettier uses common rules to keep indent and other structural features clean. More on [Prettier package](https://prettier.io/)
+
+Linter is used for enforcing code style. Here we use lightly modified [Airb'n'b convention](https://github.com/airbnb/javascript/tree/master/react) with @typescript-eslint rules
+
+### `Component writing`
+
+All of the components/models/pages are typed, so use `.tsx` extension when adding new.
+Also we enforce functional coding.
+
+Here is a good example of how to add a new component/model/page
+
+```jsx
+    // dont forget to add, so you can use emotion css prop
+    /** @jsxImportSource @emotion/react */
+    // import packages
+    import React, {useEffect, useState} from "react";
+    import { useTheme } from "emotion"
+
+    import { stylesObj } from "./styles"
+
+    // define prop types
+    interface IComponentProps {
+        propOne: string,
+        propTwo: number
+    }
+
+    const Component: React.FC<IComponentProps> = (props): JSX.Element => {
+        // define theme hook
+        const theme = useTheme()
+
+        // define your state
+        const [stateObj, setStateObj] = useState<type T>(initial value)
+
+        // define your const
+        const a = val
+
+        // define functions
+        const function = (): returnType | any | void => {
+            // do something
+        }
+
+        // add lifecycle hook
+        useEffect(()=>{
+            // do something
+        },[])
+
+        // if you are using BEM markup for emotion add span element as a wrepper
+        // so you can write proper bem
+        return <span css={stylesObj(theme)}>
+                    <div className="element">Some markup</div>
+                </span>
+
+        // else use this
+        return <div>Some markup</div>
+    }
+
+    export default Component
+
+```
+
+### `Precommiting`
+
+We use [Husky](https://github.com/typicode/husky) for precommit, so you don't need to worry about your code before review
 
 ### Installation
 
@@ -150,7 +235,7 @@ These are some of the components that we have in mind. Will be populated over ti
 2.  Breadcrumbs :white_check_mark:
 3.  Dropdown :white_check_mark:
 4.  Input (default, phone, checkbox, radio) :white_check_mark:
-5.  Global loader :white_check_mark:
+5.  Global loader - removed
 6.  Popup :white_check_mark:
 7.  Select :white_check_mark:
 8.  Tooltip :white_check_mark:
@@ -169,7 +254,7 @@ These are some of the components that we have in mind. Will be populated over ti
 1.  Dialog :white_check_mark:
 2.  Hero Box :white_check_mark:
 3.  Notification Box :white_check_mark:
-4.  Swiper :white_check_mark:
+4.  Swiper - removed
 5.  Container :soon:
 6.  List (wrapper for passed children) :soon:
 7.  Social Network Cards (facebook | instagram | custom) - :white_check_mark:
@@ -212,3 +297,5 @@ Project Link: [https://github.com/markoarthofer22/react-components](https://gith
 -   [typescript](https://www.typescriptlang.org/)
 -   [storybook](https://storybook.js.org/)
 -   [react-icons](https://react-icons.github.io/react-icons/)
+-   [emotion](https://emotion.sh/docs/introduction)
+-   [emotion/normalize](https://github.com/infinum/emotion-normalize)

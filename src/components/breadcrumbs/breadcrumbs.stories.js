@@ -4,6 +4,7 @@ import { withKnobs } from '@storybook/addon-knobs';
 import { RiCloseCircleLine } from 'react-icons/ri';
 import Breadcrumbs from './breadcrumbs.component';
 import { uniqueId } from 'underscore';
+import GlobalThemeProvider from '../../themes/global-theme.provider';
 
 const crumbsWithoutHome = [
     {
@@ -39,36 +40,36 @@ const crubsWithHome = [
 storiesOf(`Designs/Atoms/Breadcrumbs`, module)
     .addDecorator(withKnobs)
     .add('Breadcrumbs with Home root and default icon', () => (
-        <React.Fragment>
+        <GlobalThemeProvider>
             <Breadcrumbs hasHomeIcon isHomeRoot crumbs={crumbsWithoutHome} />
-        </React.Fragment>
+        </GlobalThemeProvider>
     ))
     .add('Breadcrumbs with Home root and custom icon', () => (
-        <React.Fragment>
+        <GlobalThemeProvider>
             <Breadcrumbs
                 hasHomeIcon
                 homeIcon={RiCloseCircleLine}
                 isHomeRoot
                 crumbs={crumbsWithoutHome}
             />
-        </React.Fragment>
+        </GlobalThemeProvider>
     ))
     .add('Breadcrumbs without Home root and with custom icon', () => (
-        <React.Fragment>
+        <GlobalThemeProvider>
             <Breadcrumbs
                 hasHomeIcon
                 homeIcon={RiCloseCircleLine}
                 isHomeRoot={false}
                 crumbs={crubsWithHome}
             />
-        </React.Fragment>
+        </GlobalThemeProvider>
     ))
     .add('Breadcrumbs without icon', () => (
-        <React.Fragment>
+        <GlobalThemeProvider>
             <Breadcrumbs
                 hasHomeIcon={false}
                 isHomeRoot
                 crumbs={crumbsWithoutHome}
             />
-        </React.Fragment>
+        </GlobalThemeProvider>
     ));

@@ -4,6 +4,8 @@ import { withKnobs, text, optionsKnob, select } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 import Button from './button.component';
 
+import GlobalThemeProvider from '../../themes/global-theme.provider';
+
 // for sizing
 const label = 'Size';
 const options = {
@@ -29,7 +31,7 @@ const colors = {
 storiesOf(`Designs/Atoms/Buttons`, module)
     .addDecorator(withKnobs)
     .add('Default', () => (
-        <React.Fragment>
+        <GlobalThemeProvider>
             <Button
                 clicked={action({
                     onClick: `clikced on`,
@@ -53,5 +55,5 @@ storiesOf(`Designs/Atoms/Buttons`, module)
                 `}
                 title={text('Label', 'Click me')}
             />
-        </React.Fragment>
+        </GlobalThemeProvider>
     ));
