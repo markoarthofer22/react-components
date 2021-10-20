@@ -1,7 +1,11 @@
+/** @jsxImportSource @emotion/react */
 import React from 'react';
 import { CSSTransition } from 'react-transition-group';
+import { useTheme } from '@emotion/react';
 import Popup from '../../components/popup/popup.component';
 import Button from '../../components/buttons/button.component';
+
+import { DialogStyles } from './styles';
 
 interface DialogProps {
     title: string;
@@ -21,41 +25,49 @@ const Dialog: React.FC<DialogProps> = ({
     okCallback,
     cancelCallback,
     customClass,
-}): JSX.Element => (
-    <CSSTransition
-        in={isShowing}
-        timeout={400}
-        classNames='popup'
-        unmountOnExit
-    >
-        <Popup
-            closePopup={(e?: any) =>
-                cancelCallback ? cancelCallback(e) : okCallback(e)
-            }
+}): JSX.Element => {
+    const theme = useTheme();
+
+    return (
+        <CSSTransition
+            in={isShowing}
+            timeout={400}
+            classNames='popup'
+            unmountOnExit
         >
-            <div className={`dialog ${customClass || ''}`}>
-                <h1 className='dialog--title'>{title}</h1>
-                {message && <p className='dialog--message'>{message}</p>}
-                {requestMessage && (
-                    <textarea className='dialog--request-message' />
-                )}
-                {okCallback && (
-                    <Button
-                        customClass='dialog--confirm'
-                        title='Ok'
-                        clicked={okCallback}
-                    />
-                )}
-                {cancelCallback && (
-                    <Button
-                        customClass='dialog--cancel'
-                        title='Cancel'
-                        clicked={cancelCallback}
-                    />
-                )}
-            </div>
-        </Popup>
-    </CSSTransition>
-);
+            <span css={DialogStyles(theme)}>
+                <Popup
+                    closePopup={(e?: any) =>
+                        cancelCallback ? cancelCallback(e) : okCallback(e)
+                    }
+                >
+                    <div className={`dialog ${customClass || ''}`}>
+                        <h1 className='dialog--title'>{title}</h1>
+                        {message && (
+                            <p className='dialog--message'>{message}</p>
+                        )}
+                        {requestMessage && (
+                            <textarea className='dialog--request-message' />
+                        )}
+                        {okCallback && (
+                            <Button
+                                customClass='dialog--confirm'
+                                title='Ok'
+                                clicked={okCallback}
+                            />
+                        )}
+                        {cancelCallback && (
+                            <Button
+                                customClass='dialog--cancel'
+                                title='Cancel'
+                                clicked={cancelCallback}
+                            />
+                        )}
+                    </div>
+                </Popup>
+            </span>
+        </CSSTransition>
+    );
+};
 
 export default Dialog;

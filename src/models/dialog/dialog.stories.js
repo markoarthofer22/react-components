@@ -3,10 +3,12 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, text, boolean } from '@storybook/addon-knobs';
 import Dialog from './dialog.component';
 
+import GlobalThemeProvider from '../../themes/global-theme.provider';
+
 storiesOf(`Designs/Models`, module)
     .addDecorator(withKnobs)
     .add('Dialog', () => (
-        <React.Fragment>
+        <GlobalThemeProvider>
             <Dialog
                 title={text('Title', 'Click me if you want')}
                 message={text('Message', 'This is text message')}
@@ -14,5 +16,5 @@ storiesOf(`Designs/Models`, module)
                 okCallback={() => console.log('clicked ok')}
                 cancelCallback={() => console.log('clicked cancle')}
             />
-        </React.Fragment>
+        </GlobalThemeProvider>
     ));

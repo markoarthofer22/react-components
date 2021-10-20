@@ -3,6 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, text } from '@storybook/addon-knobs';
 import { AiOutlineQuestion } from 'react-icons/ai';
 import Tooltip from './tooltip.component';
+import GlobalThemeProvider from '../../themes/global-theme.provider';
 
 const style = {
     fontSize: '14px',
@@ -15,7 +16,7 @@ const style = {
 storiesOf(`Designs/Atoms`, module)
     .addDecorator(withKnobs)
     .add('Tooltip', () => (
-        <React.Fragment>
+        <GlobalThemeProvider>
             <div>
                 <p style={style}>
                     This is custom text that has tooltip
@@ -29,5 +30,5 @@ storiesOf(`Designs/Atoms`, module)
                     />
                 </p>
             </div>
-        </React.Fragment>
+        </GlobalThemeProvider>
     ));

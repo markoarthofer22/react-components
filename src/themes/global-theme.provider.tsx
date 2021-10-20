@@ -34,7 +34,7 @@ const GlobalWrapper: React.FC = (): JSX.Element => {
                     box-sizing: border-box;
                     -ms-overflow-style: scrollbar;
                 }
-                ,
+
                 body {
                     font-family: ${fonts.font};
                     line-height: 1.231;
@@ -94,7 +94,45 @@ const GlobalWrapper: React.FC = (): JSX.Element => {
                     font-weight: 700;
                 }
 
-                ,
+                .popup-enter {
+                    opacity: 0;
+                    transform: scale(1);
+
+                    .window {
+                        animation: ScaleIn 0.4s;
+                    }
+                }
+                .popup-enter-active {
+                    opacity: 1;
+                    transform: scale(1);
+                    transition: opacity 0.4s, transform 0.4s;
+                }
+
+                .popup-exit {
+                    opacity: 1;
+
+                    .window {
+                        animation: ScaleIn 0.4s reverse;
+                    }
+                }
+                .popup-exit-active {
+                    opacity: 0;
+                    //transform: scale(0.9);
+                    transition: opacity 0.4s, transform 0.4s;
+                }
+
+                @keyframes scaleIn {
+                    0% {
+                        transform: scale(0);
+                    }
+                    50% {
+                        transform: scale(0.2);
+                    }
+                    100% {
+                        transform: scale(1);
+                    }
+                }
+
                 .form-item-container {
                     display: flex;
                     flex-direction: column;
@@ -123,7 +161,6 @@ const GlobalWrapper: React.FC = (): JSX.Element => {
                         }
                     }
 
-                    ,
                     &.radio-single {
                         display: flex;
                         align-items: flex-start;
@@ -135,7 +172,7 @@ const GlobalWrapper: React.FC = (): JSX.Element => {
                         }
                     }
                 }
-                ,
+
                 .form-item-floating {
                     position: relative;
                     marginbottom: 20px;
@@ -154,7 +191,7 @@ const GlobalWrapper: React.FC = (): JSX.Element => {
                         justify-content: flex-start;
                     }
                 }
-                ,
+
                 .checkbox-single {
                     margin-bottom: 10px;
                     position: relative;

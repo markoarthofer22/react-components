@@ -1,7 +1,9 @@
+/** @jsxImportSource @emotion/react */
 import React from 'react';
+import { useTheme } from '@emotion/react';
 
-// components
 import { BsQuestion } from 'react-icons/bs';
+import { TooltipStyles } from './styles';
 
 interface TooltipProps {
     customClass?: string;
@@ -16,12 +18,16 @@ const Tooltip: React.FC<TooltipProps> = ({
 }): JSX.Element => {
     const C = icon || BsQuestion;
 
+    const theme = useTheme();
+
     return (
-        <span
-            className={`${customClass || ''} tooltip`}
-            data-tooltipTitle={title || 'Not defined'}
-        >
-            {icon ? <C /> : '?'}
+        <span css={TooltipStyles(theme)}>
+            <span
+                className={`${customClass || ''} tooltip`}
+                data-tooltipTitle={title || 'Not defined'}
+            >
+                {icon ? <C /> : '?'}
+            </span>
         </span>
     );
 };
