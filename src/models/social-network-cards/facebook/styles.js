@@ -2,19 +2,19 @@ import { css } from '@emotion/react';
 
 export const FacebookCardStyles = (theme) => {
     return css({
-        display: 'block',
+        background: theme.colors.white,
+        border: `1px solid ${theme.colors.lighterGrey}`,
+        borderRadius: 3,
+        width: '100%',
+        maxWidth: 600,
+        borderRadius: 12,
+        height: '100%',
+        margin: '0 15px',
+        display: 'flex',
+        flexDirection: 'column',
         alignSelf: 'stretch',
-        margin: '0 10px',
 
         '.facebook-card': {
-            background: theme.colors.white,
-            border: `1px solid ${theme.colors.lighterGrey}`,
-            borderRadius: 3,
-            width: '100%',
-            maxWidth: 600,
-            borderRadius: 12,
-            height: '100%',
-
             '&--header': {
                 padding: '15px 20px',
                 display: 'flex',
@@ -33,7 +33,7 @@ export const FacebookCardStyles = (theme) => {
 
                 span: {
                     fontWeight: 400,
-                    color: '#606770',
+                    color: theme.colors.grey20,
                     fontSize: 10,
                 },
 

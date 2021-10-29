@@ -26,7 +26,6 @@ storiesOf(`Designs/Atoms/Switch button`, module)
                         checked={isChecked}
                         onChange={(checked) => setIsChecked(checked)}
                         name='current-select'
-                        customClass={text('Custom class', '')}
                         optionLabels={object('Option Labels', {
                             yes: 'yes',
                             no: 'no',
@@ -57,7 +56,6 @@ storiesOf(`Designs/Atoms/Switch button`, module)
                         checked={isChecked}
                         onChange={(checked) => setIsChecked(checked)}
                         name='current-select-with-icon'
-                        customClass={text('Custom class', '')}
                         icon={{
                             yes: <VscCheck />,
                             no: <VscChromeClose />,

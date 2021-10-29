@@ -2,10 +2,9 @@ import { css } from '@emotion/react';
 
 export const DropdownStyles = (theme) =>
     css({
+        position: ' relative',
+        width: '100%',
         '.dropdown': {
-            position: ' relative',
-            width: '100%',
-
             '&--label': {
                 color: theme.colors.black,
                 fontWeight: 500,

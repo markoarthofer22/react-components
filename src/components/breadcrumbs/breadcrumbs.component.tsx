@@ -17,6 +17,7 @@ interface IBreadcrumbsProps {
     homeIcon?: React.ElementType | React.ComponentType;
     isHomeRoot?: boolean;
     crumbs: ICrumb[];
+    className?: string;
 }
 
 const Breadcrumbs: React.FC<IBreadcrumbsProps> = ({
@@ -24,13 +25,14 @@ const Breadcrumbs: React.FC<IBreadcrumbsProps> = ({
     homeIcon,
     isHomeRoot = true,
     crumbs,
+    className = 'breadcrumbs',
 }): JSX.Element => {
     const theme = useTheme();
 
     const initialArray: ICrumb[] = isHomeRoot
         ? [
               {
-                  id: uniqueId('breadcrumbs_'),
+                  id: uniqueId(`${className}_`),
                   title: 'Home',
                   link: '/',
               },
@@ -43,25 +45,23 @@ const Breadcrumbs: React.FC<IBreadcrumbsProps> = ({
     const C = homeIcon || MdStore;
 
     return (
-        <div css={BreadcrumbsStyles(theme)}>
-            <ol className='breadcrumbs'>
-                {breadcrumbs.map((item, index) => (
-                    <li key={index} className='breadcrumbs--item'>
-                        <NavLink
-                            itemProp='item'
-                            to={item.link}
-                            className='breadcrumbs--link'
-                        >
-                            {index === 0 && hasHomeIcon ? (
-                                <C itemProp='name' />
-                            ) : (
-                                <span itemProp='name'>{item.title}</span>
-                            )}
-                        </NavLink>
-                    </li>
-                ))}
-            </ol>
-        </div>
+        <ol className={`${className}`} css={BreadcrumbsStyles(theme)}>
+            {breadcrumbs.map((item, index) => (
+                <li key={index} className={`${className}--item`}>
+                    <NavLink
+                        itemProp='item'
+                        to={item.link}
+                        className={`${className}--link`}
+                    >
+                        {index === 0 && hasHomeIcon ? (
+                            <C itemProp='name' />
+                        ) : (
+                            <span itemProp='name'>{item.title}</span>
+                        )}
+                    </NavLink>
+                </li>
+            ))}
+        </ol>
     );
 };
 

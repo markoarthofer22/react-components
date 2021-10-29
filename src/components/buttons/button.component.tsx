@@ -5,7 +5,7 @@ import { ButtonStyles } from './styles';
 
 interface IButtonProps {
     children?: React.ReactNode;
-    customClass?: string;
+    className?: string;
     clicked: (e?: any) => void;
     title: string;
     isLoading?: boolean;
@@ -14,7 +14,7 @@ interface IButtonProps {
 
 const Button: React.FC<IButtonProps> = ({
     children,
-    customClass,
+    className = 'button',
     clicked,
     title,
     isLoading,
@@ -25,7 +25,7 @@ const Button: React.FC<IButtonProps> = ({
     return (
         <button
             title={title}
-            className={`button ${customClass || ''} ${
+            className={`button ${className || ''} ${
                 isLoading ? 'loading' : ''
             }`}
             type='button'

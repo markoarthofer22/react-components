@@ -32,17 +32,17 @@ export const DialogStyles = (theme) =>
             },
 
             '&--confirm, &--cancel': {
-                backgroundColor: theme.colors.darkBlue,
+                backgroundColor: theme.colors.blue,
                 fontSize: 12,
                 textTransform: 'uppercase',
-                border: `1px solid ${theme.colors.darkBlue}`,
+                border: `1px solid ${theme.colors.blue}`,
                 borderRadius: 5,
                 color: theme.colors.white,
                 padding: '10px 36px',
                 height: 'auto',
 
                 '&:hover': {
-                    backgroundColor: rgba(theme.colors.darkBlue, 0.85),
+                    backgroundColor: rgba(theme.colors.blue, 0.85),
                 },
             },
 

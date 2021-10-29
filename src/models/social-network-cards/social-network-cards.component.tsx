@@ -34,6 +34,7 @@ export interface ISocialCardsProps {
     type: CardType | CardType[];
     post: IPost;
     children?: React.ReactNode;
+    className?: string;
 }
 
 const SocialCards: React.FC<ISocialCardsProps> = (props): JSX.Element => {

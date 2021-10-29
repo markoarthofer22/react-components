@@ -39,11 +39,13 @@ interface IInputPhoneProps {
     labelText?: string;
     selectPlaceholder?: string;
     selectBindingValue?: string;
+    className?: string;
 }
 
 const InputTypePhone: React.FC<IInputPhoneProps> = ({
     id,
     onBlur,
+    className = 'form-item-phone',
     predefinedValue,
     predefinedDialValue,
     returnInputValue,
@@ -151,10 +153,10 @@ const InputTypePhone: React.FC<IInputPhoneProps> = ({
     function returnInput() {
         return (
             <>
-                <label htmlFor={name} className='form-item-phone--name'>
+                <label htmlFor={name} className={`${className}--name`}>
                     {labelText}
                 </label>
-                <div className='form-item-phone'>
+                <div className={`${className}`}>
                     <Select
                         title={countriesName || null}
                         data={countriesList}

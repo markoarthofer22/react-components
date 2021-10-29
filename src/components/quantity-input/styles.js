@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-
+import { rgba } from 'emotion-rgba';
 export const QuantityInputStyles = (theme) => {
     const breakpoints = [
         theme.breakpoints.sm,
@@ -11,12 +11,11 @@ export const QuantityInputStyles = (theme) => {
     const mq = breakpoints.map((bp) => `@media (min-width: ${bp}px)`);
 
     return css({
+        display: 'flex',
+        alignItems: 'center',
+        border: `1px solid ${theme.colors.blue}`,
+        width: 'fit-content',
         '.quantity-input': {
-            display: 'flex',
-            alignItems: 'center',
-            border: `1px solid ${theme.colors.blue}`,
-            width: 'fit-content',
-
             '&--increment, &--decrement': {
                 cursor: 'pointer',
                 backgroundColor: '#f1f1f1',
@@ -34,7 +33,7 @@ export const QuantityInputStyles = (theme) => {
                 alignSelf: 'stretch',
 
                 '&:hover': {
-                    backgroundColor: `rgba(${theme.colors.lightBlue}, 0.3)`,
+                    backgroundColor: rgba(`${theme.colors.lightBlue}`, 0.3),
                 },
             },
 
@@ -52,13 +51,6 @@ export const QuantityInputStyles = (theme) => {
                 textAlign: 'center',
                 fontWeight: 500,
                 border: 'none',
-
-                // '&:focus': {
-                //     borderTop: `1px solid ${theme.colors.blue}  `,
-                //     borderBottom: `1px solid ${theme.colors.blue}  `,
-                //     borderLeft: 'none ',
-                //     borderRight: 'none ',
-                // },
 
                 [mq[0]]: {
                     height: 40,

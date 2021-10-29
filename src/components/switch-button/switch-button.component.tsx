@@ -5,7 +5,7 @@ import { useTheme } from '@emotion/react';
 import { SwitchButtonStyles } from './styles';
 
 interface ISwitchButtonProps {
-    customClass?: string;
+    className?: string;
     checked?: boolean;
     id: string;
     name: string;
@@ -33,7 +33,7 @@ const SwitchButton: React.FC<ISwitchButtonProps> = ({
     },
     small = false,
     disabled = false,
-    customClass,
+    className = 'toggle-switch',
     icon,
 }): JSX.Element => {
     const theme = useTheme();
@@ -46,23 +46,23 @@ const SwitchButton: React.FC<ISwitchButtonProps> = ({
     };
 
     return (
-        <span css={SwitchButtonStyles(theme)}>
+        <div css={SwitchButtonStyles(theme)}>
             <div
-                className={`toggle-switch ${
-                    small ? 'toggle-switch--small-switch' : ''
-                } ${customClass || ''}`}
+                className={`${className} ${
+                    small ? `${className}--small-switch` : ''
+                }`}
             >
                 <input
                     type='checkbox'
                     name={name}
-                    className='toggle-switch--checkbox'
+                    className={`${className}--checkbox`}
                     id={id}
                     checked={checked}
                     onChange={(e) => onChange && onChange(e.target.checked)}
                     disabled={disabled}
                 />
                 <label
-                    className={`toggle-switch--label ${
+                    className={`${className}--label ${
                         checked ? 'checked' : ''
                     }`}
                     tabIndex={disabled ? -1 : 1}
@@ -73,20 +73,20 @@ const SwitchButton: React.FC<ISwitchButtonProps> = ({
                         <span
                             className={
                                 disabled
-                                    ? 'toggle-switch--inner toggle-switch--disabled'
-                                    : 'toggle-switch--inner'
+                                    ? `${className}--inner ${className}--disabled`
+                                    : `${className}--inner`
                             }
                             tabIndex={-1}
                         >
                             <div
-                                className={`toggle-switch--icon ${
-                                    checked ? 'toggle-switch--icon-checked' : ''
+                                className={`${className}--icon ${
+                                    checked ? `${className}--icon-checked` : ''
                                 }`}
                             >
-                                <div className='toggle-switch--icon--yes'>
+                                <div className={`${className}--icon--yes`}>
                                     {icon.yes}
                                 </div>
-                                <div className='toggle-switch--icon--no'>
+                                <div className={`${className}--icon--no`}>
                                     {icon.no}
                                 </div>
                             </div>
@@ -95,8 +95,8 @@ const SwitchButton: React.FC<ISwitchButtonProps> = ({
                         <span
                             className={
                                 disabled
-                                    ? 'toggle-switch--inner toggle-switch--disabled'
-                                    : 'toggle-switch--inner'
+                                    ? `${className}--inner ${className}--disabled`
+                                    : `${className}--inner`
                             }
                             data-yes={optionLabels.yes}
                             data-no={optionLabels.no}
@@ -106,14 +106,14 @@ const SwitchButton: React.FC<ISwitchButtonProps> = ({
                     <span
                         className={
                             disabled
-                                ? `toggle-switch--switch toggle-switch--disabled ${
+                                ? `${className}--switch ${className}--disabled ${
                                       checked
-                                          ? 'toggle-switch--switch-checked'
+                                          ? `${className}--switch-checked`
                                           : ''
                                   }`
-                                : `toggle-switch--switch ${
+                                : `${className}--switch ${
                                       checked
-                                          ? 'toggle-switch--switch-checked'
+                                          ? `${className}--switch-checked`
                                           : ''
                                   } `
                         }
@@ -121,7 +121,7 @@ const SwitchButton: React.FC<ISwitchButtonProps> = ({
                     />
                 </label>
             </div>
-        </span>
+        </div>
     );
 };
 

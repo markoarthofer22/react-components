@@ -14,6 +14,7 @@ interface IData {
 interface IDropdownProps {
     data: IData[];
     dropdownClass?: string;
+    className?: string;
     placeholder?: string;
     label?: string;
     dropdownID: string;
@@ -34,6 +35,7 @@ const Dropdown: React.FC<IDropdownProps> = (props): JSX.Element => {
         isDefaultOpen = false,
         defaultValue,
         returnValue,
+        className = 'dropdown',
     } = props;
 
     const theme = useTheme();
@@ -75,78 +77,82 @@ const Dropdown: React.FC<IDropdownProps> = (props): JSX.Element => {
     }, [selectedTitle]);
 
     return (
-        <span css={DropdownStyles(theme)}>
-            <div id={dropdownID} className={`dropdown ${dropdownClass}`}>
-                {label && (
-                    <label htmlFor={dropdownID} className='dropdown--label'>
-                        {label}
-                    </label>
+        <div
+            id={dropdownID}
+            css={DropdownStyles(theme)}
+            className={`${className} ${dropdownClass}`}
+        >
+            {label && (
+                <label htmlFor={dropdownID} className={`${className}--label`}>
+                    {label}
+                </label>
+            )}
+            <div
+                role='button'
+                tabIndex={0}
+                className={`${className}--header ${
+                    isOpen ? `${className}--header-open` : ''
+                } `}
+                onClick={(e) => toggleDropdown(e)}
+            >
+                {selectedTitle ? (
+                    <div className={`${className}--header--title`}>
+                        {selectedTitle || ''}
+                    </div>
+                ) : (
+                    <div className={`${className}--header--placeholder`}>
+                        {placeholder || ''}
+                    </div>
                 )}
-                <div
-                    role='button'
-                    tabIndex={0}
-                    className={`dropdown--header ${
-                        isOpen ? 'dropdown--header-open' : ''
-                    } `}
-                    onClick={(e) => toggleDropdown(e)}
-                >
-                    {selectedTitle ? (
-                        <div className='dropdown--header--title'>
-                            {selectedTitle || ''}
-                        </div>
-                    ) : (
-                        <div className='dropdown--header--placeholder'>
-                            {placeholder || ''}
-                        </div>
-                    )}
 
-                    <MdKeyboardArrowDown />
-                </div>
-                <div
-                    className={`dropdown--list ${
-                        isOpen ? 'dropdown--list-open' : ''
-                    }`}
-                >
-                    {data.map((item) => {
-                        const isPathURL: boolean =
-                            item?.link?.substring(0, 1) === '/';
+                <MdKeyboardArrowDown />
+            </div>
+            <div
+                className={`${className}--list ${
+                    isOpen ? `${className}--list-open` : ''
+                }`}
+            >
+                {data.map((item) => {
+                    const isPathURL: boolean =
+                        item?.link?.substring(0, 1) === '/';
 
-                        if (!item.link) {
-                            return (
-                                <li
-                                    className='dropdown--item'
-                                    key={item.id}
-                                    onClick={(e) => {
-                                        selectItem(e, item);
-                                    }}
-                                >
+                    if (!item.link) {
+                        return (
+                            <li
+                                className={`${className}--item`}
+                                key={item.id}
+                                onClick={(e) => {
+                                    selectItem(e, item);
+                                }}
+                            >
+                                {item.value}
+                            </li>
+                        );
+                    }
+                    if (isPathURL) {
+                        return (
+                            <Link key={item.id} to={item.link}>
+                                <li className={`${className}--item`}>
                                     {item.value}
                                 </li>
-                            );
-                        }
-                        if (isPathURL) {
-                            return (
-                                <Link key={item.id} to={item.link}>
-                                    <li className='dropdown--item'>
-                                        {item.value}
-                                    </li>
-                                </Link>
-                            );
-                        }
-                        return (
-                            <a
-                                key={item.id}
-                                href={item.link}
-                                target='_blank'
-                                rel='noreferrer'
-                            >
-                                <li className='dropdown--item'>{item.value}</li>
-                            </a>
+                            </Link>
                         );
-                    })}
-                </div>
+                    }
+                    return (
+                        <a
+                            key={item.id}
+                            href={item.link}
+                            target='_blank'
+                            rel='noreferrer'
+                        >
+                            <li className={`${className}--item`}>
+                                {item.value}
+                            </li>
+                        </a>
+                    );
+                })}
             </div>
-        </span>
+        </div>
     );
 };
 

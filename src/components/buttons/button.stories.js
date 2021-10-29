@@ -36,7 +36,7 @@ storiesOf(`Designs/Atoms/Buttons`, module)
                 clicked={action({
                     onClick: `clikced on`,
                 })}
-                customClass={`default ${optionsKnob(
+                className={`default ${optionsKnob(
                     label,
                     options,
                     defaultValue,

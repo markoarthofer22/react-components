@@ -7,12 +7,14 @@ interface IQuantityProps {
     onChange: (e: any) => void;
     maxValue?: string;
     defaultValue?: string;
+    className?: string;
 }
 
 const QuantityInput: React.FC<IQuantityProps> = ({
     onChange,
     maxValue = '99',
     defaultValue = '0',
+    className = 'quantity-input',
 }) => {
     const max = parseInt(maxValue, 10);
     const theme = useTheme();
@@ -71,37 +73,36 @@ const QuantityInput: React.FC<IQuantityProps> = ({
     }, [value]);
 
     return (
-        <span css={QuantityInputStyles(theme)}>
-            <div
-                className='quantity-input'
-                onClick={(e) => e.stopPropagation()}
+        <div
+            className={`${className}`}
+            css={QuantityInputStyles(theme)}
+            onClick={(e) => e.stopPropagation()}
+        >
+            <button
+                className={`${className}--decrement`}
+                onClick={decrement}
+                type='button'
             >
-                <button
-                    className='quantity-input--decrement'
-                    onClick={decrement}
-                    type='button'
-                >
-                    -
-                </button>
-                <input
-                    className='quantity-input--input'
-                    type='text'
-                    value={value}
-                    onFocus={() => setValue('')}
-                    onBlur={onBlurChange}
-                    onChange={(e): void => {
-                        setValue(e.target.value === '' ? '0' : e.target.value);
-                    }}
-                />
-                <button
-                    className='quantity-input--increment'
-                    onClick={increment}
-                    type='button'
-                >
-                    +
-                </button>
-            </div>
-        </span>
+                -
+            </button>
+            <input
+                className={`${className}--input`}
+                type='text'
+                value={value}
+                onFocus={() => setValue('')}
+                onBlur={onBlurChange}
+                onChange={(e): void => {
+                    setValue(e.target.value === '' ? '0' : e.target.value);
+                }}
+            />
+            <button
+                className={`${className}--increment`}
+                onClick={increment}
+                type='button'
+            >
+                +
+            </button>
+        </div>
     );
 };
 

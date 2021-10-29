@@ -4,7 +4,7 @@ import { useTheme } from '@emotion/react';
 import { HamburgerStyles } from './styles';
 
 interface IHamburgerProps {
-    customClass?: string;
+    className?: string;
     isOpen: boolean;
     onChange?: (e?: any) => void;
     disableOnDesktop?: boolean;
@@ -13,7 +13,7 @@ interface IHamburgerProps {
 const Hamburger: React.FC<IHamburgerProps> = ({
     isOpen,
     onChange,
-    customClass,
+    className = 'hamburger',
     disableOnDesktop = true,
 }): JSX.Element => {
     const [isHamburgerOpen, setIsHamburgerOpen] = useState<boolean>(isOpen);
@@ -26,22 +26,22 @@ const Hamburger: React.FC<IHamburgerProps> = ({
     }, [isHamburgerOpen, onChange]);
 
     return (
-        <span css={HamburgerStyles(theme)}>
+        <div css={HamburgerStyles(theme)}>
             <div
                 role='button'
                 tabIndex={0}
-                className={`hamburger ${customClass || ''} ${
-                    isHamburgerOpen ? 'hamburger--open' : ''
-                } ${disableOnDesktop ? 'hamburger--hide-desktop' : ''}`}
+                className={`${className}  ${
+                    isHamburgerOpen ? `${className}--open` : ''
+                } ${disableOnDesktop ? `${className}--hide-desktop` : ''}`}
                 onClick={() => {
                     setIsHamburgerOpen(!isHamburgerOpen);
                 }}
             >
-                <div className='hamburger--item' />
-                <div className='hamburger--item' />
-                <div className='hamburger--item' />
+                <div className={`${className}--item`} />
+                <div className={`${className}--item`} />
+                <div className={`${className}--item`} />
             </div>
-        </span>
+        </div>
     );
 };
 

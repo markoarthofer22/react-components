@@ -1,4 +1,4 @@
-import { css, keyframes } from '@emotion/react';
+import { css } from '@emotion/react';
 
 export const JumpToTopStyles = (theme) =>
     css({
@@ -37,11 +37,12 @@ export const JumpToTopStyles = (theme) =>
             svg: {
                 width: 20,
                 height: 20,
+                fontSize: 12,
                 fill: theme.colors.white,
             },
 
             '&--title': {
-                fontSize: 10,
+                fontSize: 7,
                 textTransform: 'uppercase',
                 fontWeight: 700,
                 zIndex: 1000,

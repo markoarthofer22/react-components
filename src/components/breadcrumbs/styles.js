@@ -11,16 +11,16 @@ export const BreadcrumbsStyles = (theme) => {
     const mq = breakpoints.map((bp) => `@media (min-width: ${bp}px)`);
 
     return css({
+        margin: 0,
+        padding: 0,
+
+        [mq[0]]: {
+            flexDirection: 'row',
+            display: 'flex',
+            alignItems: 'center',
+        },
+
         '.breadcrumbs': {
-            margin: 0,
-            padding: 0,
-
-            [mq[0]]: {
-                flexDirection: 'row',
-                display: 'flex',
-                alignItems: 'center',
-            },
-
             '&--item': {
                 listStyleType: 'none',
 

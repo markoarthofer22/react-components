@@ -2,10 +2,9 @@ import { css } from '@emotion/react';
 
 export const SliderbarStyles = (theme) => {
     return css({
+        maxWidth: 400,
+        width: '100%',
         '.slider-bar': {
-            maxWidth: 400,
-            width: '100%',
-
             '&--header': {
                 display: 'flex',
                 justifyContent: 'space-between',

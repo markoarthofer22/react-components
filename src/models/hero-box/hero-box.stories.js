@@ -9,7 +9,6 @@ storiesOf(`Designs/Models`, module)
     .add('Hero Box', () => (
         <GlobalThemeProvider>
             <HeroBox
-                customClass={text('Custom class', '')}
                 bgImage={text(
                     'Background Image',
                     'https://www.foragerscs.com/assets/home-bg-full.jpg'
@@ -18,10 +17,6 @@ storiesOf(`Designs/Models`, module)
                 subtitle={text(
                     'Subtitle',
                     'Laboris officia excepteur enim proident.'
-                )}
-                columnSize={text(
-                    'Column size (use bootstrap values)',
-                    'col-12 col-sm-8'
                 )}
                 hasOverlay={boolean('Has overlay?', true)}
             />

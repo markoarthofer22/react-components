@@ -10,7 +10,7 @@ interface INotificationBoxProp {
     alertType: 'success' | 'fail';
     isShowing: boolean;
     title: string;
-    customClass?: string;
+    className?: string;
     message: string;
     okCallback?: (e?: any) => void;
     cancelCallback?: (e?: any) => void;
@@ -27,7 +27,7 @@ const NotificationBox: React.FC<INotificationBoxProp> = (
         message,
         okCallback,
         cancelCallback,
-        customClass,
+        className = 'notification-box',
         handleClose,
     } = props;
 
@@ -46,13 +46,13 @@ const NotificationBox: React.FC<INotificationBoxProp> = (
     }, [isShowing]);
 
     return (
-        <span css={NotificationBoxStyles(theme)}>
+        <div css={NotificationBoxStyles(theme)}>
             <div
-                className={`notification-box ${customClass || ''} ${
-                    isShowing ? 'notification-box-open' : ''
+                className={`${className} ${
+                    isShowing ? `${className}-open` : ''
                 }`}
             >
-                <div className='notification-box--body'>
+                <div className={`${className}--body`}>
                     {alertType === 'success' && (
                         <div
                             className={`svg-icon-success ${
@@ -114,18 +114,18 @@ const NotificationBox: React.FC<INotificationBoxProp> = (
                             </svg>
                         </div>
                     )}
-                    <span className='notification-box--title'>{title}</span>
-                    <div className='notification-box--content'>
+                    <span className={`${className}--title`}>{title}</span>
+                    <div className={`${className}--content`}>
                         {message && (
-                            <div className='notification-box--content--message'>
+                            <div className={`${className}--content--message`}>
                                 <p>{message}</p>
                             </div>
                         )}
                     </div>
-                    <div className='notification-box--actions'>
+                    <div className={`${className}--actions`}>
                         {okCallback && (
                             <Button
-                                customClass='blue'
+                                className='blue'
                                 title='Ok'
                                 clicked={okCallback}
                             />
@@ -133,7 +133,7 @@ const NotificationBox: React.FC<INotificationBoxProp> = (
 
                         {cancelCallback && (
                             <Button
-                                customClass='blue'
+                                className='blue'
                                 title='Cancel'
                                 clicked={handleClose}
                             />
@@ -141,7 +141,7 @@ const NotificationBox: React.FC<INotificationBoxProp> = (
                     </div>
                 </div>
             </div>
-        </span>
+        </div>
     );
 };
 

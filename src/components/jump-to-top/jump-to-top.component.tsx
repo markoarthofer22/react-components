@@ -10,7 +10,7 @@ interface IJumpToTopProps {
     targetElement: string;
     visibleFrom: number;
     animationDuration?: number;
-    customClass?: string;
+    className?: string;
 }
 
 const JumpToTop: React.FC<IJumpToTopProps> = ({
@@ -18,7 +18,7 @@ const JumpToTop: React.FC<IJumpToTopProps> = ({
     title,
     targetElement,
     animationDuration = 400,
-    customClass,
+    className = 'jump-to-top',
     visibleFrom,
 }) => {
     const theme = useTheme();
@@ -74,23 +74,23 @@ const JumpToTop: React.FC<IJumpToTopProps> = ({
     }, [isScrollVisible]);
 
     return (
-        <span css={JumpToTopStyles(theme)}>
+        <div css={JumpToTopStyles(theme)}>
             <div
-                className={`jump-to-top ${customClass || ''} ${
-                    !isScrollVisible ? 'jump-to-top-hidden' : ''
+                className={`${className} ${
+                    !isScrollVisible ? `${className}-hidden` : ''
                 }`}
                 role='button'
                 tabIndex={0}
                 onClick={() => scrollToTarget(targetElement, animationDuration)}
             >
-                <div className='jump-to-top--button'>
+                <div className={`${className}--button`}>
                     <Icon />
                     {title && (
-                        <span className='jump-to-top--title'>{title}</span>
+                        <span className={`${className}--title`}>{title}</span>
                     )}
                 </div>
             </div>
-        </span>
+        </div>
     );
 };
 

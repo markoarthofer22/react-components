@@ -22,32 +22,29 @@ const ShowTooltipPeak = keyframes`
 
 export const TooltipStyles = (theme) =>
     css({
-        '.tooltip': {
-            position: 'relative',
-            cursor: 'pointer',
-            marginLeft: 6,
-            borderRadius: '100%',
-            color: theme.colors.white,
-            backgroundColor: theme.colors.blue,
-            fontSize: 12,
-            fontWeight: 700,
-            width: 20,
-            height: 20,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-
-            '&::after': {
-                left: '50%',
-            },
-
-            '&::before': {
-                left: '50%',
-                transform: 'translateX(-50%)',
-            },
+        position: 'relative',
+        cursor: 'pointer',
+        marginLeft: 6,
+        borderRadius: '100%',
+        color: theme.colors.white,
+        backgroundColor: theme.colors.blue,
+        fontSize: 12,
+        fontWeight: 700,
+        width: 20,
+        height: 20,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        '&::after': {
+            left: '50%',
         },
 
-        '.tooltip:hover:after': {
+        '&::before': {
+            left: '50%',
+            transform: 'translateX(-50%)',
+        },
+
+        '&:hover:after': {
             background: theme.colors.blue,
             borderRadius: 5,
             padding: '5px 15px',
@@ -64,7 +61,7 @@ export const TooltipStyles = (theme) =>
             width: '100%',
         },
 
-        '.tooltip:hover:before': {
+        '&:hover:before': {
             border: '1px solid',
             borderColor: `${theme.colors.blue} transparent`,
             borderWidth: '6px 6px 0 6px',

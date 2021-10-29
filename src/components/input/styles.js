@@ -23,6 +23,104 @@ export const InputStyles = (theme) => {
     const mq = breakpoints.map((bp) => `@media (min-width: ${bp}px)`);
 
     return css({
+        label: {
+            display: 'inline-block',
+            marginBottom: 7,
+            fontSize: 14,
+            fontWeight: 400,
+            lineHeight: 'normal',
+            color: theme.colors.grey90,
+        },
+
+        textarea: {
+            padding: 10,
+            borderRadius: 5,
+            fontSize: 14,
+            outline: 'none',
+            width: '100%',
+            border: `1px solid ${theme.colors.grey20}`,
+            backgroundColor: theme.colors.white,
+            WebkitAppearance: 'none',
+            transition: 'all 0.3s ease',
+
+            '& + label': {
+                position: 'absolute',
+                top: 10,
+                left: 0,
+                userSelect: 'none',
+                pointerEvents: 'none',
+            },
+
+            '&.no-resize': {
+                resize: 'none',
+            },
+        },
+
+        "input[type='text'], input[type='password'], input[type='number']": {
+            padding: '0 10px',
+            height: 60,
+            borderRadius: 5,
+            fontSize: 14,
+            outline: 'none',
+            width: '100%',
+            border: `1px solid ${theme.colors.grey20}`,
+            backgroundColor: theme.colors.white,
+            WebkitAppearance: 'none',
+            transition: 'all 0.3s ease',
+
+            '&[disabled]': {
+                borderColor: rgba(theme.colors.grey90, 0.3),
+                color: theme.colors.grey90,
+            },
+
+            '&:focus': {
+                outline: 0,
+                boxShadow: 0,
+                border: `2px solid ${theme.colors.blue}`,
+            },
+
+            '& + label': {
+                lineHeight: '1',
+                font: 'inherit',
+                fontSize: 14,
+                fontWeight: 500,
+                px: 6,
+                backgroundColor: theme.colors.white,
+            },
+
+            '& + label': {
+                position: 'absolute',
+                top: '50%',
+                transform: 'translateY(-50%)',
+                left: 10,
+                userSelect: 'none',
+                pointerEvents: 'none',
+            },
+
+            '.invalid': {
+                border: `1px solid ${theme.colors.warningRed}`,
+            },
+        },
+
+        'input.invalid ~ span:before, textarea.invalid ~ span:before': {
+            position: 'absolute',
+            top: 'calc(100% + 0px)',
+            padding: 0,
+            left: 4,
+            paddingTop: 3,
+            borderRadius: 4,
+            content: 'attr(data-error)',
+            color: theme.colors.warningRed,
+            display: 'block',
+            fontSize: 10,
+            animation: `${errorShow} 1s`,
+            zIndex: 1,
+
+            [mq[1]]: {
+                fontSize: 12,
+            },
+        },
+
         "input[type='text'], textarea": {
             backgroundColor: 'transparent',
 
@@ -50,108 +148,6 @@ export const InputStyles = (theme) => {
                 },
             },
         },
-
-        label: {
-            display: 'inline-block',
-            marginBottom: 7,
-            fontSize: 14,
-            fontWeight: 400,
-            lineHeight: 'normal',
-            color: '#999',
-        },
-
-        textarea: {
-            padding: 10,
-            borderRadius: 5,
-            fontSize: 14,
-            height: 80,
-        },
-
-        "input[type='text'], input[type='password'], input[type='number']": {
-            padding: '0 10px',
-            height: 60,
-            borderRadius: 5,
-            fontSize: 14,
-            outline: 'none',
-
-            '&[disabled]': {
-                borderColor: ' hsla(0, 0%, 80%, 0.5)',
-                color: '#999',
-            },
-        },
-
-        "input[type='text'], input[type='password'], input[type='number'], textarea":
-            {
-                width: '100%',
-                border: '1px solid #ccc',
-                backgroundColor: theme.colors.white,
-                transition: 'all 0.3s ease',
-                WebkitAppearance: 'none',
-                padding: '0 10px',
-
-                '&:focus': {
-                    outline: 0,
-                    boxShadow: 0,
-                    border: `2px solid ${theme.colors.blue}`,
-                },
-
-                '& + label': {
-                    lineHeight: '1',
-                    font: 'inherit',
-                    fontSize: 14,
-                    fontWeight: 500,
-                    px: 6,
-                    backgroundColor: theme.colors.white,
-                },
-            },
-
-        "input[type='text'], input[type='password']": {
-            '& + label': {
-                position: 'absolute',
-                top: '50%',
-                transform: 'translateY(-50%)',
-                left: 10,
-                userSelect: 'none',
-                pointerEvents: 'none',
-            },
-
-            '.invalid': {
-                border: `1px solid ${theme.colors.warningRed}`,
-            },
-        },
-
-        textarea: {
-            '& + label': {
-                position: 'absolute',
-                top: 10,
-                left: 0,
-                userSelect: 'none',
-                pointerEvents: 'none',
-            },
-
-            '&.no-resize': {
-                resize: 'none',
-            },
-        },
-
-        'input.invalid ~ span:before, textarea.invalid ~ span:before': {
-            position: 'absolute',
-            top: 'calc(100% + 0px)',
-            padding: 0,
-            left: 4,
-            paddingTop: 3,
-            borderRadius: 4,
-            content: 'attr(data-error)',
-            color: theme.colors.warningRed,
-            display: 'block',
-            fontSize: 10,
-            animation: `${errorShow} 1s`,
-            zIndex: 1,
-
-            [mq[1]]: {
-                fontSize: 12,
-            },
-        },
     });
 };
 
@@ -160,7 +156,7 @@ export const InputPhoneStyles = (theme) =>
         '.form-item-phone': {
             display: 'flex',
             alignItems: 'center',
-            border: '1px solid #ccc',
+            border: `1px solid ${theme.colors.grey20}`,
             borderRadius: 3,
             height: 40,
 
@@ -170,17 +166,18 @@ export const InputPhoneStyles = (theme) =>
         },
 
         '.select': {
-            height: 'unset !important',
             '&--countries': {
+                flexBasis: '40%',
+
                 '&-disabled': {
                     pointerEvents: 'none',
 
                     '.select--header': {
-                        color: '#999',
+                        color: theme.colors.grey90,
 
                         svg: {
-                            fill: '#999',
-                            stroke: ' #999',
+                            fill: theme.colors.grey90,
+                            stroke: theme.colors.grey90,
                         },
                     },
                 },
@@ -189,8 +186,8 @@ export const InputPhoneStyles = (theme) =>
             '&--header': {
                 height: '40px !important',
                 border: 'none !important',
-                borderRight: '1px solid #ccc !important',
-                color: '#333',
+                borderRight: `1px solid ${theme.colors.grey20} !important`,
+                color: theme.colors.grey70,
                 paddingTop: '0 !important',
                 paddingBottom: '0 !important',
 
@@ -212,7 +209,7 @@ export const InputPhoneStyles = (theme) =>
             },
 
             '&--list': {
-                borderColor: '#ccc',
+                borderColor: theme.colors.grey20,
                 left: -1, // for border-right on input
                 width: 'calc(100% + 1px)',
                 overflowX: 'hidden',

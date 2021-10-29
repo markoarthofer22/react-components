@@ -7,7 +7,7 @@ import GlobalThemeProvider from '../../themes/global-theme.provider';
 storiesOf(`Designs/Atoms`, module)
     .addDecorator(withKnobs)
     .add('Select', () => {
-        const [countries, setCountries] = React.useState([
+        const [countries] = React.useState([
             {
                 country: 'Croatia',
                 iso: 'HR',

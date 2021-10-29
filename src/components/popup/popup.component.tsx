@@ -7,14 +7,14 @@ import { PopupStyles } from './styles';
 interface IPopupProps {
     closePopup: (e?: any) => void;
     children: React.ReactNode;
-    customClass?: string;
+    className?: string;
     icon?: React.ElementType | React.ComponentType;
 }
 
 const Popup: React.FC<IPopupProps> = ({
     closePopup,
     children,
-    customClass,
+    className = 'popup',
     icon,
 }): JSX.Element => {
     const theme = useTheme();
@@ -45,12 +45,12 @@ const Popup: React.FC<IPopupProps> = ({
 
     return (
         <span css={PopupStyles(theme)}>
-            <div id='popup' className={`popup ${customClass || ''}`}>
-                <div className='window'>
+            <div id='popup' className={`${className}`}>
+                <div className={`${className}--window`}>
                     {closePopup && (
                         <button
                             type='button'
-                            className='close-button close'
+                            className={`${className}--close`}
                             aria-label='close'
                             onClick={(e?: any) => closePopup(e)}
                         >
