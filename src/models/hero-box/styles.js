@@ -12,16 +12,16 @@ export const HeroBoxStyles = (theme) => {
     const mq = breakpoints.map((bp) => `@media (min-width: ${bp}px)`);
 
     return css({
-        '.hero-box': {
-            width: '100%',
-            height: 650,
-            position: 'relative',
-            zIndex: 1000,
-            overflow: 'hidden',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
+        width: '100%',
+        height: 650,
+        position: 'relative',
+        zIndex: 1000,
+        overflow: 'hidden',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'flex-start',
 
+        '.hero-box': {
             ' &--helper-img': {
                 position: 'absolute',
                 backgroundSize: 'cover',
@@ -44,6 +44,17 @@ export const HeroBoxStyles = (theme) => {
                     left: 0,
                     backgroundColor: rgba(theme.colors.black, 0.3),
                     zIndex: 100,
+                },
+            },
+
+            '&--container': {
+                zIndex: 100,
+                padding: '10px 20px',
+                textAlign: 'center',
+
+                [mq[1]]: {
+                    textAlign: 'left',
+                    marginLeft: '10%',
                 },
             },
 

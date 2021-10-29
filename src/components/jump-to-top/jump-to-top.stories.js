@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, text, number } from '@storybook/addon-knobs';
+import { withKnobs, number } from '@storybook/addon-knobs';
 import { MdKeyboardArrowUp } from 'react-icons/md';
 import JumpToTop from './jump-to-top.component';
 import GlobalThemeProvider from '../../themes/global-theme.provider';
@@ -18,10 +18,7 @@ storiesOf(`Designs/Atoms/Jump to Top`, module)
     .add('Default Jump to Top', () => (
         <GlobalThemeProvider>
             <div style={styles}>
-                <JumpToTop
-                    visibleFrom={number('Visible from', 800)}
-                    customClass={text('Custom class', '')}
-                />
+                <JumpToTop visibleFrom={number('Visible from', 800)} />
             </div>
         </GlobalThemeProvider>
     ))
@@ -35,7 +32,6 @@ storiesOf(`Designs/Atoms/Jump to Top`, module)
                     targetElement='#jump-to-top'
                     visibleFrom={number('Visible from', 800)}
                     animationDuration={number('Animation duration', 300)}
-                    customClass={text('Custom class', '')}
                 />
             </div>
         </GlobalThemeProvider>
@@ -48,7 +44,6 @@ storiesOf(`Designs/Atoms/Jump to Top`, module)
                     icon={MdKeyboardArrowUp}
                     visibleFrom={number('Visible from', 800)}
                     animationDuration={number('Animation duration', 300)}
-                    customClass={text('Custom class', '')}
                 />
             </div>
         </GlobalThemeProvider>

@@ -105,6 +105,70 @@ const GlobalWrapper: React.FC = (): JSX.Element => {
                     font-weight: 700;
                 }
 
+                .mt-5 {
+                    margin-top: 5px;
+                }
+
+                .mb-5 {
+                    margin-bottom: 5px;
+                }
+
+                .mt-10 {
+                    margin-top: 10px;
+                }
+
+                .mb-10 {
+                    margin-bottom: 10px;
+                }
+
+                .mt-15 {
+                    margin-top: 15px;
+                }
+
+                .mb-15 {
+                    margin-bottom: 15px;
+                }
+
+                .mt-20 {
+                    margin-top: 20px;
+                }
+
+                .mb-20 {
+                    margin-bottom: 20px;
+                }
+
+                .mr-5 {
+                    margin-right: 5px;
+                }
+
+                .ml-5 {
+                    margin-left: 5px;
+                }
+
+                .mr-10 {
+                    margin-right: 10px;
+                }
+
+                .ml-10 {
+                    margin-left: 10px;
+                }
+
+                .mr-15 {
+                    margin-right: 15px;
+                }
+
+                .ml-15 {
+                    margin-left: 15px;
+                }
+
+                .mr-20 {
+                    margin-right: 20px;
+                }
+
+                .ml-20 {
+                    margin-left: 20px;
+                }
+
                 .popup-enter {
                     opacity: 0;
                     transform: scale(1);

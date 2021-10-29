@@ -10,19 +10,23 @@ interface IBadgeProps {
         [key: string]: React.CSSProperties;
     };
     value: string | number | IconType;
+    className?: string;
 }
 
 const Badge: React.FC<IBadgeProps> = ({
     stylesObj = {},
     value,
+    className = 'badge',
 }): JSX.Element => {
     const theme = useTheme();
 
     return (
-        <div css={BadgeStyles(theme)}>
-            <div className='badge--wrapper' style={stylesObj}>
-                <span className='badge--wrapper--value'>{value}</span>
-            </div>
+        <div
+            className={`${className}--wrapper`}
+            css={BadgeStyles(theme)}
+            style={stylesObj}
+        >
+            <span className={`${className}--wrapper--value`}>{value}</span>
         </div>
     );
 };

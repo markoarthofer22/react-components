@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, text, boolean } from '@storybook/addon-knobs';
+import { withKnobs } from '@storybook/addon-knobs';
 import GlobalThemeProvider from '../../themes/global-theme.provider';
 import Hamburger from './hamburger.component';
 
@@ -21,9 +21,8 @@ storiesOf(`Designs/Atoms`, module)
         <GlobalThemeProvider>
             <div style={styles}>
                 <Hamburger
-                    isOpen={false}
+                    isOpen={true}
                     disableOnDesktop={false}
-                    customClass={text('Custom class', '')}
                     onChange={() => onChange()}
                 />
             </div>

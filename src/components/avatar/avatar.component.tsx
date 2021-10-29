@@ -16,6 +16,7 @@ interface IAvatarProps {
     children?: React.ElementType | React.ReactNode;
     backgroundColor?: Color;
     groupedLimit?: string | number;
+    className?: string;
 }
 
 const Avatar: React.FC<IAvatarProps> = ({
@@ -27,6 +28,7 @@ const Avatar: React.FC<IAvatarProps> = ({
     children,
     backgroundColor = 'transparent',
     groupedLimit = '3',
+    className = 'avatar',
 }): JSX.Element => {
     const theme = useTheme();
 
@@ -43,9 +45,10 @@ const Avatar: React.FC<IAvatarProps> = ({
     };
 
     const getVariant = (_variant: typeof variant): string =>
-        `avatar--item-${_variant}`;
+        `${className}--item-${_variant}`;
 
-    const getSize = (_size: typeof size): string => `avatar--item-${_size}`;
+    const getSize = (_size: typeof size): string =>
+        `${className}--item-${_size}`;
 
     useEffect(() => {
         if (!grouped) return;
@@ -72,10 +75,10 @@ const Avatar: React.FC<IAvatarProps> = ({
     }, [values, children, groupedLimit, grouped]);
 
     return (
-        <div className='avatar' css={AvatarStyles(theme)}>
+        <div className={`${className}`} css={AvatarStyles(theme)}>
             <div
-                className={`avatar--wrapper ${
-                    grouped ? 'avatar--wrapper--grouped' : ''
+                className={`${className}--wrapper ${
+                    grouped ? `${className}--wrapper--grouped` : ''
                 }`}
             >
                 {values
@@ -83,7 +86,7 @@ const Avatar: React.FC<IAvatarProps> = ({
                           (child, i) =>
                               i < Number(groupedLimit) && (
                                   <div
-                                      className={`avatar--item ${getVariant(
+                                      className={`${className}--item ${getVariant(
                                           variant
                                       )} ${getSize(size)}`}
                                       key={i}
@@ -101,7 +104,7 @@ const Avatar: React.FC<IAvatarProps> = ({
                           (child: any, i) =>
                               i < Number(groupedLimit) && (
                                   <div
-                                      className={`avatar--item ${getVariant(
+                                      className={`${className}--item ${getVariant(
                                           variant
                                       )} ${getSize(size)}`}
                                       key={i}
@@ -118,9 +121,9 @@ const Avatar: React.FC<IAvatarProps> = ({
                       )}
                 {grouped && itemsLength && itemsLength > 0 && (
                     <div
-                        className={`avatar--item ${getVariant(
+                        className={`${className}--item ${getVariant(
                             variant
-                        )} ${getSize(size)} avatar--item--counter`}
+                        )} ${getSize(size)} ${className}--item--counter`}
                     >
                         <p>+{itemsLength}</p>
                     </div>

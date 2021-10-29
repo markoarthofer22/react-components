@@ -11,71 +11,65 @@ const InstagramCard: React.FC<ISocialCardsProps> = ({
     image,
     author,
     post,
+    className = 'instagram-card',
 }): JSX.Element => {
     const theme = useTheme();
 
     return (
-        <span css={InstagramCardStyles(theme)}>
-            <div className='instagram-card'>
-                <div className='instagram-card--header'>
-                    <span>
-                        <img
-                            alt=''
-                            src={author.avatarLink}
-                            className='instagram-card--user-image'
-                        />
+        <div css={InstagramCardStyles(theme)} className={`${className}`}>
+            <div className={`${className}--header`}>
+                <span>
+                    <img
+                        alt=''
+                        src={author.avatarLink}
+                        className={`${className}--user-image`}
+                    />
+                    <a
+                        className={`${className}--user-name`}
+                        href={`https://www.instagram.com/${author.name}`}
+                    >
+                        {author.name}
+                    </a>
+                </span>
+                <div className={`${className}--time`}>{post.published}</div>
+            </div>
+
+            {image && (
+                <div className={`${className}--image`}>
+                    <div style={{ backgroundImage: `url(${image})` }} />
+                </div>
+            )}
+
+            <div className={`${className}--content`}>
+                <div className={`${className}--main`}>
+                    <p className={`${className}--likes`}>{post.likes} likes</p>
+                    {title && <h4>{title}</h4>}
+                    <p>
                         <a
-                            className='instagram-card--user-name'
+                            className={`${className}--content-user`}
                             href={`https://www.instagram.com/${author.name}`}
                         >
                             {author.name}
                         </a>
-                    </span>
-                    <div className='instagram-card--time'>{post.published}</div>
+                        {description}
+                    </p>
                 </div>
-
-                {image && (
-                    <div className='instagram-card--image'>
-                        <div style={{ backgroundImage: `url(${image})` }} />
-                    </div>
-                )}
-
-                <div className='instagram-card--content'>
-                    <div className='instagram-card--main'>
-                        <p className='instagram-card--likes'>
-                            {post.likes} likes
-                        </p>
-                        {title && <h4>{title}</h4>}
-                        <p>
-                            <a
-                                className='instagram-card--content-user'
-                                href={`https://www.instagram.com/${author.name}`}
-                            >
-                                {author.name}
+                <div className={`${className}--footer`}>
+                    <p className={`${className}--comments`}>
+                        Go over {post.commentsTotal} comments
+                    </p>
+                    {post.comments?.map((item, i) => (
+                        <div key={i} className={`${className}--user-comment`}>
+                            <a href='https://www.instagram.com/'>
+                                {item.author}
                             </a>
-                            {description}
-                        </p>
-                    </div>
-                    <div className='instagram-card--footer'>
-                        <p className='instagram-card--comments'>
-                            Go over {post.commentsTotal} comments
-                        </p>
-                        {post.comments?.map((item, i) => (
-                            <div
-                                key={i}
-                                className='instagram-card--user-comment'
-                            >
-                                <a href='https://www.instagram.com/'>
-                                    {item.author}
-                                </a>
-                                <p>{item.content}</p>
-                            </div>
-                        ))}
-                        <hr />
-                    </div>
+                            <p>{item.content}</p>
+                        </div>
+                    ))}
+                    <hr />
                 </div>
             </div>
-        </span>
+        </div>
     );
 };
 

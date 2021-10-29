@@ -4,7 +4,7 @@ import { useTheme } from '@emotion/react';
 import { SliderbarStyles } from './styles';
 
 interface ISliderBarProps {
-    customClass?: string;
+    className?: string;
     initialValue: number;
     min?: number;
     max?: number;
@@ -15,7 +15,7 @@ interface ISliderBarProps {
 const SliderBar: React.FC<ISliderBarProps> = ({
     initialValue,
     min = 0,
-    customClass,
+    className = 'slider-bar',
     max = 100,
     formatFn = (number) => number.toFixed(0),
     onChange,
@@ -97,26 +97,24 @@ const SliderBar: React.FC<ISliderBarProps> = ({
     }, [initialValue, initialPercentage, handleUpdate]);
 
     return (
-        <span css={SliderbarStyles(theme)}>
-            <div className={`slider-bar ${customClass || ''}`}>
-                <div className='slider-bar--header'>
-                    <div>{formatFn(min)}</div>
-                    <div>{formatFn(max)}</div>
-                </div>
-                <div className='slider-bar--slider' ref={rangeRef}>
-                    <div
-                        className='slider-bar--progress'
-                        ref={rangeProgressRef}
-                    />
-                    <div
-                        className='slider-bar--thumb'
-                        ref={thumbRef}
-                        onMouseDown={handleMouseDown}
-                    />
-                </div>
-                <p ref={currentRef} className='slider-bar--value' />
+        <div css={SliderbarStyles(theme)} className={`${className}`}>
+            <div className={`${className}--header`}>
+                <div>{formatFn(min)}</div>
+                <div>{formatFn(max)}</div>
             </div>
-        </span>
+            <div className={`${className}--slider`} ref={rangeRef}>
+                <div
+                    className={`${className}--progress`}
+                    ref={rangeProgressRef}
+                />
+                <div
+                    className={`${className}--thumb`}
+                    ref={thumbRef}
+                    onMouseDown={handleMouseDown}
+                />
+            </div>
+            <p ref={currentRef} className={`${className}--value`} />
+        </div>
     );
 };
 

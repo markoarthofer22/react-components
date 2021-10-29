@@ -6,13 +6,13 @@ import { BsQuestion } from 'react-icons/bs';
 import { TooltipStyles } from './styles';
 
 interface ITooltipProps {
-    customClass?: string;
+    className?: string;
     title: string;
     icon?: React.ElementType | React.ComponentType;
 }
 
 const Tooltip: React.FC<ITooltipProps> = ({
-    customClass,
+    className = 'tooltip',
     title,
     icon,
 }): JSX.Element => {
@@ -21,13 +21,12 @@ const Tooltip: React.FC<ITooltipProps> = ({
     const theme = useTheme();
 
     return (
-        <span css={TooltipStyles(theme)}>
-            <span
-                className={`${customClass || ''} tooltip`}
-                data-tooltiptitle={title || 'Not defined'}
-            >
-                {icon ? <C /> : '?'}
-            </span>
+        <span
+            css={TooltipStyles(theme)}
+            className={`${className}`}
+            data-tooltiptitle={title || 'Not defined'}
+        >
+            {icon ? <C /> : '?'}
         </span>
     );
 };

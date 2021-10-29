@@ -57,6 +57,32 @@ For styling we now use JSS ([emotion](https://emotion.sh/docs/introduction)). Ea
 
 Global styles are added to themes folder, where you can find `<GlobalThemeProvider/>` component. Variables are inside _theme/styles.js_
 
+#### Important
+
+Every component and model has `className` prop which you can add. This prop will rename base of every class inside component.
+
+If you set `className` to "select-new" output will be as follows (select component):
+
+```jsx
+<div
+    // default is 'select'
+    css={SelectStyles(theme)}
+    className='select-new'
+    ref={mainInput}
+>
+    <div
+        className={`select-new--header ${
+            isOpen ? `select-new--header-open` : ''
+        } `}
+        onClick={(e) => {
+            toggleDropdown(e);
+        }}
+    >
+        ...
+    </div>
+</div>
+```
+
 #### What is BEM?
 
 According to creator definition of BEM is as follows:
@@ -172,13 +198,6 @@ Here is a good example of how to add a new component/model/page
             // do something
         },[])
 
-        // if you are using BEM markup for emotion add span element as a wrepper
-        // so you can write proper bem
-        return <span css={stylesObj(theme)}>
-                    <div className="element">Some markup</div>
-                </span>
-
-        // else use this
         return <div>Some markup</div>
     }
 
@@ -248,6 +267,7 @@ These are some of the components that we have in mind. Will be populated over ti
 15. Hamburger :white_check_mark:
 16. Jump to top :white_check_mark:
 17. Input (quantity) :white_check_mark:
+18. Modal :white_check_mark:
 
 #### Models
 

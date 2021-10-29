@@ -12,6 +12,7 @@ const FacebookCard: React.FC<ISocialCardsProps> = ({
     image,
     author,
     post,
+    className = 'facebook-card',
 }): JSX.Element => {
     const theme = useTheme();
 
@@ -24,7 +25,7 @@ const FacebookCard: React.FC<ISocialCardsProps> = ({
 
     const calculateCommentsSectionHeight = (): { maxHeight: number } => {
         const box = document.querySelector(
-            '.facebook-card--all-comments'
+            `.${className}--all-comments`
         ) as HTMLElement;
 
         return {
@@ -33,72 +34,68 @@ const FacebookCard: React.FC<ISocialCardsProps> = ({
     };
 
     return (
-        <span css={FacebookCardStyles(theme)}>
-            <div className='facebook-card'>
-                <div className='facebook-card--header'>
-                    <div className='facebook-card--author--img'>
-                        <div
-                            style={{ backgroundImage: `url(${author.image})` }}
-                        />
-                    </div>
-                    <div className='facebook-card--author'>
-                        <p>{author.name}</p>
-                        <span>{post.published}</span>
-                    </div>
+        <div css={FacebookCardStyles(theme)} className={`${className}`}>
+            <div className={`${className}--header`}>
+                <div className={`${className}--author--img`}>
+                    <div style={{ backgroundImage: `url(${author.image})` }} />
                 </div>
-                <div className='facebook-card--content'>
-                    <p>{description}</p>
+                <div className={`${className}--author`}>
+                    <p>{author.name}</p>
+                    <span>{post.published}</span>
                 </div>
-                {image && (
-                    <div className='facebook-card--image'>
-                        <div style={{ backgroundImage: `url(${image})` }} />
-                    </div>
-                )}
-                <div className='facebook-card--info'>
-                    <div className='facebook-card--likes'>
-                        <span className='facebook-card--likes--round-wrap'>
-                            <AiFillLike />
-                        </span>
-                        <p className='facebook-card--likes--count'>
-                            {post.likes > 0 ? post.likes : 0}
-                        </p>
-                    </div>
-
-                    <div
-                        className={`facebook-card--comments ${
-                            post?.comments?.length! < 1 &&
-                            'facebook-card--comments-disabled'
-                        }`}
-                        onClick={setCommentsSectionActive}
-                    >
-                        <p>
-                            {post?.comments?.length! > 0
-                                ? post.comments?.length
-                                : 0}{' '}
-                            comments
-                        </p>
-                    </div>
-                </div>
-                {post?.comments?.length! > 0 && (
-                    <div
-                        className={`facebook-card--all-comments ${
-                            isActive && 'facebook-card--all-comments-active'
-                        }`}
-                        style={isActive ? calculateCommentsSectionHeight() : {}}
-                    >
-                        {post.comments?.map((item, i) => (
-                            <div
-                                key={i}
-                                className='facebook-card--all-comments--item'
-                            >
-                                <span>{item.author}</span>
-                                <p>{item.content}</p>
-                            </div>
-                        ))}
-                    </div>
-                )}
             </div>
-        </span>
+            <div className={`${className}--content`}>
+                <p>{description}</p>
+            </div>
+            {image && (
+                <div className={`${className}--image`}>
+                    <div style={{ backgroundImage: `url(${image})` }} />
+                </div>
+            )}
+            <div className={`${className}--info`}>
+                <div className={`${className}--likes`}>
+                    <span className={`${className}--likes--round-wrap`}>
+                        <AiFillLike />
+                    </span>
+                    <p className={`${className}--likes--count`}>
+                        {post.likes > 0 ? post.likes : 0}
+                    </p>
+                </div>
+
+                <div
+                    className={`${className}--comments ${
+                        post?.comments?.length! < 1 &&
+                        `${className}--comments-disabled`
+                    }`}
+                    onClick={setCommentsSectionActive}
+                >
+                    <p>
+                        {post?.comments?.length! > 0
+                            ? post.comments?.length
+                            : 0}{' '}
+                        comments
+                    </p>
+                </div>
+            </div>
+            {post?.comments?.length! > 0 && (
+                <div
+                    className={`${className}--all-comments ${
+                        isActive && `${className}--all-comments-active`
+                    }`}
+                    style={isActive ? calculateCommentsSectionHeight() : {}}
+                >
+                    {post.comments?.map((item, i) => (
+                        <div
+                            key={i}
+                            className={`${className}--all-comments--item`}
+                        >
+                            <span>{item.author}</span>
+                            <p>{item.content}</p>
+                        </div>
+                    ))}
+                </div>
+            )}
+        </div>
     );
 };
 

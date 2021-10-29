@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, text } from '@storybook/addon-knobs';
+import { withKnobs } from '@storybook/addon-knobs';
 import { RiCloseCircleLine } from 'react-icons/ri';
 import Popup from './popup.component';
 import GlobalThemeProvider from '../../themes/global-theme.provider';
@@ -18,7 +18,6 @@ storiesOf(`Designs/Atoms`, module)
     .add('Popup', () => (
         <GlobalThemeProvider>
             <Popup
-                customClass={text('Custom Class', '')}
                 icon={RiCloseCircleLine}
                 closePopup={() => console.log('clicked close')}
             >

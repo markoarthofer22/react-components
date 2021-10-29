@@ -24,6 +24,14 @@ export const SwitchButtonStyles = (theme) => {
             textAlign: 'left',
             transform: 'scale(0.75)',
 
+            [mq[1]]: {
+                transform: 'scale(0.825)',
+            },
+
+            [mq[2]]: {
+                transform: 'scale(0.9)',
+            },
+
             '&--checkbox': {
                 display: 'none',
             },
@@ -170,13 +178,6 @@ export const SwitchButtonStyles = (theme) => {
                     margin: '3px 1px',
                 },
             },
-        },
-        [mq[1]]: {
-            transform: 'scale(0.825)',
-        },
-
-        [mq[2]]: {
-            transform: 'scale(0.9)',
         },
     });
 };

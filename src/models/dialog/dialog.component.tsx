@@ -12,7 +12,7 @@ interface IDialogProps {
     message?: string;
     requestMessage?: string;
     isShowing: boolean;
-    customClass?: string;
+    className?: string;
     okCallback: (e?: any) => void;
     cancelCallback: (e?: any) => void;
 }
@@ -24,7 +24,7 @@ const Dialog: React.FC<IDialogProps> = ({
     isShowing,
     okCallback,
     cancelCallback,
-    customClass,
+    className = 'dialog',
 }): JSX.Element => {
     const theme = useTheme();
 
@@ -35,37 +35,35 @@ const Dialog: React.FC<IDialogProps> = ({
             classNames='popup'
             unmountOnExit
         >
-            <span css={DialogStyles(theme)}>
-                <Popup
-                    closePopup={(e?: any) =>
-                        cancelCallback ? cancelCallback(e) : okCallback(e)
-                    }
-                >
-                    <div className={`dialog ${customClass || ''}`}>
-                        <h1 className='dialog--title'>{title}</h1>
-                        {message && (
-                            <p className='dialog--message'>{message}</p>
-                        )}
-                        {requestMessage && (
-                            <textarea className='dialog--request-message' />
-                        )}
-                        {okCallback && (
-                            <Button
-                                customClass='dialog--confirm'
-                                title='Ok'
-                                clicked={okCallback}
-                            />
-                        )}
-                        {cancelCallback && (
-                            <Button
-                                customClass='dialog--cancel'
-                                title='Cancel'
-                                clicked={cancelCallback}
-                            />
-                        )}
-                    </div>
-                </Popup>
-            </span>
+            <Popup
+                closePopup={(e?: any) =>
+                    cancelCallback ? cancelCallback(e) : okCallback(e)
+                }
+            >
+                <div css={DialogStyles(theme)} className={`${className}`}>
+                    <h1 className={`${className}--title`}>{title}</h1>
+                    {message && (
+                        <p className={`${className}--message`}>{message}</p>
+                    )}
+                    {requestMessage && (
+                        <textarea className={`${className}--request-message`} />
+                    )}
+                    {okCallback && (
+                        <Button
+                            className={`${className}--confirm`}
+                            title='Ok'
+                            clicked={okCallback}
+                        />
+                    )}
+                    {cancelCallback && (
+                        <Button
+                            className={`${className}--cancel`}
+                            title='Cancel'
+                            clicked={cancelCallback}
+                        />
+                    )}
+                </div>
+            </Popup>
         </CSSTransition>
     );
 };

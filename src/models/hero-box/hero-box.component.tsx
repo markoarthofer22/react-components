@@ -5,58 +5,46 @@ import { useTheme } from '@emotion/react';
 import { HeroBoxStyles } from './styles';
 
 interface IHeroBoxProps {
-    customClass?: string;
+    className?: string;
     bgImage: string;
     title: string;
     subtitle?: string;
     hasOverlay?: boolean;
-    columnSize?: string;
 }
 
 const HeroBox: React.FC<IHeroBoxProps> = ({
-    customClass,
+    className = 'hero-box',
     bgImage,
     title,
     subtitle,
     hasOverlay,
-    columnSize,
 }): JSX.Element => {
     const theme = useTheme();
 
     return (
-        <span css={HeroBoxStyles(theme)}>
-            <div className={`hero-box ${customClass || ''}`}>
-                {bgImage && (
-                    <div
-                        className='hero-box--helper-img'
-                        style={{
-                            backgroundImage: `url('${bgImage}')`,
-                        }}
-                    />
-                )}
-                {hasOverlay && (
-                    <div className='hero-box--helper-img--overlay' />
-                )}
-                {(title || subtitle) && (
-                    <div className='container'>
-                        <div className='row'>
-                            <div
-                                className={`${columnSize || 'col-12 col-sm-8'}`}
-                            >
-                                {title && (
-                                    <h1 className='hero-box--title'>{title}</h1>
-                                )}
-                                {subtitle && (
-                                    <h1 className='hero-box--subtitle'>
-                                        {subtitle}
-                                    </h1>
-                                )}
-                            </div>
-                        </div>
-                    </div>
-                )}
-            </div>
-        </span>
+        <div css={HeroBoxStyles(theme)} className={`${className}`}>
+            {bgImage && (
+                <div
+                    className={`${className}--helper-img`}
+                    style={{
+                        backgroundImage: `url('${bgImage}')`,
+                    }}
+                />
+            )}
+            {hasOverlay && (
+                <div className={`${className}--helper-img--overlay`} />
+            )}
+            {(title || subtitle) && (
+                <div className={`${className}--container`}>
+                    {title && (
+                        <h1 className={`${className}--title`}>{title}</h1>
+                    )}
+                    {subtitle && (
+                        <h1 className={`${className}--subtitle`}>{subtitle}</h1>
+                    )}
+                </div>
+            )}
+        </div>
     );
 };
 

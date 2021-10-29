@@ -13,6 +13,7 @@ interface ISelectProps {
     returnValue: (data: any) => void;
     isSearchable?: boolean;
     bindingValue?: string;
+    className?: string;
 }
 
 const Select: React.FC<ISelectProps> = ({
@@ -23,6 +24,7 @@ const Select: React.FC<ISelectProps> = ({
     returnValue,
     isSearchable,
     bindingValue,
+    className = 'select',
 }): JSX.Element => {
     const theme = useTheme();
 
@@ -100,58 +102,60 @@ const Select: React.FC<ISelectProps> = ({
     };
 
     return (
-        <span css={SelectStyles(theme)}>
-            <div className={`select ${selectClass}`} ref={mainInput}>
-                <div
-                    className={`select--header ${
-                        isOpen ? 'select--header-open' : ''
-                    } `}
-                    onClick={(e) => {
-                        toggleDropdown(e);
-                    }}
-                >
-                    {selectedTitle ? (
-                        <div className='select--header--title'>
-                            {selectedTitle || ''}
-                        </div>
-                    ) : (
-                        <div className='select--header--placeholder'>
-                            {placeholder || ''}
-                        </div>
-                    )}
-                    <MdExpandMore />
-                </div>
-                <div
-                    className={`select--list ${
-                        isOpen ? 'select--list-open' : ''
-                    }`}
-                >
-                    {isSearchable && (
-                        <input
-                            ref={searchInput}
-                            type='text'
-                            autoComplete='off'
-                            name='search-select'
-                            id='search-select'
-                            className='select--list--search'
-                            onChange={(e) => searchTroughSelectData(e)}
-                        />
-                    )}
-                    {selectData.map((item, index) => (
-                        <li
-                            className='select--item'
-                            key={index}
-                            data-value={item[bindingValue || 'value']}
-                            onClick={(e) => {
-                                selectItem(e, item);
-                            }}
-                        >
-                            {item[bindingValue || 'value']}
-                        </li>
-                    ))}
-                </div>
+        <div
+            css={SelectStyles(theme)}
+            className={`${className} ${selectClass}`}
+            ref={mainInput}
+        >
+            <div
+                className={`${className}--header ${
+                    isOpen ? `${className}--header-open` : ''
+                } `}
+                onClick={(e) => {
+                    toggleDropdown(e);
+                }}
+            >
+                {selectedTitle ? (
+                    <div className={`${className}--header--title`}>
+                        {selectedTitle || ''}
+                    </div>
+                ) : (
+                    <div className={`${className}--header--placeholder`}>
+                        {placeholder || ''}
+                    </div>
+                )}
+                <MdExpandMore />
             </div>
-        </span>
+            <div
+                className={`${className}--list ${
+                    isOpen ? `${className}--list-open` : ''
+                }`}
+            >
+                {isSearchable && (
+                    <input
+                        ref={searchInput}
+                        type='text'
+                        autoComplete='off'
+                        name='search-select'
+                        id='search-select'
+                        className={`${className}--list--search`}
+                        onChange={(e) => searchTroughSelectData(e)}
+                    />
+                )}
+                {selectData.map((item, index) => (
+                    <li
+                        className={`${className}--item`}
+                        key={index}
+                        data-value={item[bindingValue || 'value']}
+                        onClick={(e) => {
+                            selectItem(e, item);
+                        }}
+                    >
+                        {item[bindingValue || 'value']}
+                    </li>
+                ))}
+            </div>
+        </div>
     );
 };
 

@@ -35,15 +35,15 @@ export const HamburgerStyles = (theme) => {
                 right: 13,
                 transition: 'all 0.6s ease',
 
-                '&:nth-child(1)': {
+                '&:nth-of-type(1)': {
                     top: 'calc(34% - 2px)',
                 },
 
-                '&:nth-child(2)': {
+                '&:nth-of-type(2)': {
                     top: 'calc(50% - 2px)',
                 },
 
-                '&:nth-child(3)': {
+                '&:nth-of-type(3)': {
                     top: 'calc(66% - 2px)',
                 },
             },
@@ -53,16 +53,16 @@ export const HamburgerStyles = (theme) => {
                     backgroundColor: theme.colors.blue,
                 },
 
-                '& > div:nth-child(1)': {
+                '& > div:nth-of-type(1)': {
                     top: 'calc(50% - 2px)',
                     transform: 'rotateZ(45deg)',
                 },
 
-                '& > div:nth-child(2)': {
+                '& > div:nth-of-type(2)': {
                     opacity: 0,
                 },
 
-                '& > div:nth-child(3)': {
+                '& > div:nth-of-type(3)': {
                     top: 'calc(50% - 2px)',
                     transform: 'rotateZ(-45deg)',
                 },

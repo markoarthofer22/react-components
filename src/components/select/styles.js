@@ -11,10 +11,9 @@ export const SelectStyles = (theme) => {
     const mq = breakpoints.map((bp) => `@media (min-width: ${bp}px)`);
 
     return css({
+        position: 'relative',
+        width: '100%',
         '.select': {
-            position: 'relative',
-            width: '100%',
-
             '&--header': {
                 position: 'relative',
                 cursor: 'pointer',
@@ -111,7 +110,7 @@ export const SelectStyles = (theme) => {
             },
 
             '&--item': {
-                width: '100%',
+                width: 'calc(100% - 24px)',
                 cursor: 'pointer',
                 fontSize: 12,
                 padding: 12,

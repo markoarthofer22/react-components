@@ -20,6 +20,7 @@ interface IInputProps {
     type?: string;
     name?: string | null;
     inputClass?: string;
+    className?: string;
     required: RegisterOptions;
     errorMessage?: NestDataObject<FieldValues, FieldError>;
     register?: any;
@@ -40,6 +41,7 @@ const InputComponent: React.FC<IInputProps> = ({
     type = 'text',
     name,
     inputClass,
+    className = 'form-item-floating',
     required,
     errorMessage,
     register,
@@ -107,7 +109,7 @@ const InputComponent: React.FC<IInputProps> = ({
                 >
                     {labelText}
                     {tooltip && (
-                        <Tooltip title={tooltip} customClass='custom-tooltip' />
+                        <Tooltip title={tooltip} className='custom-tooltip' />
                     )}
                     {type === 'checkbox' && (
                         <ChecboxIcon className='checkbox-svg' />
@@ -129,10 +131,10 @@ const InputComponent: React.FC<IInputProps> = ({
     return hasWrapper ? (
         <div
             css={getInputStyles(type)}
-            className={`form-item-floating ${
+            className={`${className} ${
                 (type === 'radio' || type === 'checkbox') && 'mb-0'
-            } ${type === 'radio' && 'form-item-floating--radio'} ${
-                type === 'checkbox' && 'form-item-floating--checkbox'
+            } ${type === 'radio' && `${className}--radio`} ${
+                type === 'checkbox' && `${className}--checkbox`
             } ${errorMessage && 'invalid'}`}
         >
             {returnInput()}

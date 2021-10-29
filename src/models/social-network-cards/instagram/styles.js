@@ -2,18 +2,17 @@ import { css } from '@emotion/react';
 
 export const InstagramCardStyles = (theme) => {
     return css({
-        display: 'block',
+        background: theme.colors.white,
+        border: `1px solid ${theme.colors.lighterGrey}`,
+        borderRadius: 3,
+        width: '100%',
+        maxWidth: 600,
+        margin: '0 15px',
+        display: 'flex',
+        flexDirection: 'column',
         alignSelf: 'stretch',
-        margin: '0 10px',
 
         '.instagram-card': {
-            background: theme.colors.white,
-            border: `1px solid ${theme.colors.lighterGrey}`,
-            borderRadius: 3,
-            width: '100%',
-            maxWidth: 600,
-            height: '100%',
-
             a: {
                 textDecoration: 'none',
             },
