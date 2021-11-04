@@ -1,7 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text, optionsKnob, select } from '@storybook/addon-knobs';
-import { action } from '@storybook/addon-actions';
 import Button from './button.component';
 
 import GlobalThemeProvider from '../../themes/global-theme.provider';
@@ -33,9 +32,7 @@ storiesOf(`Designs/Atoms/Buttons`, module)
     .add('Default', () => (
         <GlobalThemeProvider>
             <Button
-                clicked={action({
-                    onClick: `clikced on`,
-                })}
+                clicked={(e) => console.log('action')}
                 className={`default ${optionsKnob(
                     label,
                     options,
