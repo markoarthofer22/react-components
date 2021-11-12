@@ -24,7 +24,7 @@ jobs:
             - name: Install dependecies
               run: |
                   npm install
-                  npx lerna bootstrap
+                  npx lerna bootstrap --no-ci
                   npx lerna link
               env:
                   NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
