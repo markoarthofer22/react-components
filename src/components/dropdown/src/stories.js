@@ -1,8 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { boolean, object, text, withKnobs } from '@storybook/addon-knobs';
-import Dropdown from './index';
-import GlobalThemeProvider from '../../../themes/src/index';
+import Dropdown from './';
 
 storiesOf(`Designs/Atoms`, module)
     .addDecorator(withKnobs)
@@ -38,33 +37,28 @@ storiesOf(`Designs/Atoms`, module)
         };
 
         return (
-            <GlobalThemeProvider>
-                <div
-                    style={{
-                        maxWidth: '400px',
-                        width: '100%',
-                        marginTop: '20px',
-                    }}
-                >
-                    <Dropdown
-                        dropdownClass={text('Dropdown Class', '')}
-                        placeholder={text(
-                            'Placeholder',
-                            'Select from dropdown'
-                        )}
-                        label={text('Label', 'Some label')}
-                        dropdownID={text('Dropdown ID', 'dropdown1')}
-                        isDefaultOpen={boolean('Is dropdown open?', false)}
-                        defaultValue={text(
-                            'Default value (value field in data)',
-                            ''
-                        )}
-                        // eslint-disable-next-line no-console
-                        onChange={() => console.log('clicked on change')}
-                        returnValue={returnSelect}
-                        data={object('Data', data)}
-                    />
-                </div>
-            </GlobalThemeProvider>
+            <div
+                style={{
+                    maxWidth: '400px',
+                    width: '100%',
+                    marginTop: '20px',
+                }}
+            >
+                <Dropdown
+                    dropdownClass={text('Dropdown Class', '')}
+                    placeholder={text('Placeholder', 'Select from dropdown')}
+                    label={text('Label', 'Some label')}
+                    dropdownID={text('Dropdown ID', 'dropdown1')}
+                    isDefaultOpen={boolean('Is dropdown open?', false)}
+                    defaultValue={text(
+                        'Default value (value field in data)',
+                        ''
+                    )}
+                    // eslint-disable-next-line no-console
+                    onChange={() => console.log('clicked on change')}
+                    returnValue={returnSelect}
+                    data={object('Data', data)}
+                />
+            </div>
         );
     });

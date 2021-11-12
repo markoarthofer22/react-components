@@ -2,8 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, number } from '@storybook/addon-knobs';
 import { MdKeyboardArrowUp } from 'react-icons/md';
-import JumpToTop from './index';
-import GlobalThemeProvider from '../../../themes/src/index';
+import JumpToTop from './';
 
 const styles = {
     width: '100%',
@@ -16,14 +15,12 @@ const styles = {
 storiesOf(`Designs/Atoms/Jump to Top`, module)
     .addDecorator(withKnobs)
     .add('Default Jump to Top', () => (
-        <GlobalThemeProvider>
-            <div style={styles}>
-                <JumpToTop visibleFrom={number('Visible from', 800)} />
-            </div>
-        </GlobalThemeProvider>
+        <div style={styles}>
+            <JumpToTop visibleFrom={number('Visible from', 800)} />
+        </div>
     ))
     .add('Component with custom icon and title', () => (
-        <GlobalThemeProvider>
+        <>
             <div id='jump-to-top'></div>
             <div style={styles}>
                 <JumpToTop
@@ -34,10 +31,10 @@ storiesOf(`Designs/Atoms/Jump to Top`, module)
                     animationDuration={number('Animation duration', 300)}
                 />
             </div>
-        </GlobalThemeProvider>
+        </>
     ))
     .add('Component with custom icon', () => (
-        <GlobalThemeProvider>
+        <>
             <div id='jump-to-top'></div>
             <div style={styles}>
                 <JumpToTop
@@ -46,5 +43,5 @@ storiesOf(`Designs/Atoms/Jump to Top`, module)
                     animationDuration={number('Animation duration', 300)}
                 />
             </div>
-        </GlobalThemeProvider>
+        </>
     ));

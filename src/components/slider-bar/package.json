@@ -27,9 +27,8 @@
     "homepage": "https://github.com/markoarthofer22/react-components#readme",
     "peerDependencies": {
         "react": ">=16.8.0",
-        "react-dom": ">=16.8.0"
-    },
-    "dependencies": {
+        "react-dom": ">=16.8.0",
         "@emotion/react": "^11.4.1"
-    }
+    },
+    "dependencies": {}
 }

@@ -2,8 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs';
 import { AiOutlineQuestion } from 'react-icons/ai';
-import Badge from './index';
-import GlobalThemeProvider from '../../../themes/src/index';
+import Badge from './';
 
 const style = {
     width: 200,
@@ -22,50 +21,44 @@ const img = {
 storiesOf(`Designs/Atoms/Badge`, module)
     .addDecorator(withKnobs)
     .add('Default', () => (
-        <GlobalThemeProvider>
-            <div style={{ position: 'relative' }}>
-                <div style={style}>
-                    <img
-                        style={img}
-                        src='https://picsum.photos/id/237/400/400'
-                        alt='Some radnom image'
-                    />
-                    <Badge value='90' />
-                </div>
+        <div style={{ position: 'relative' }}>
+            <div style={style}>
+                <img
+                    style={img}
+                    src='https://picsum.photos/id/237/400/400'
+                    alt='Some radnom image'
+                />
+                <Badge value='90' />
             </div>
-        </GlobalThemeProvider>
+        </div>
     ))
     .add('With custom stlyes', () => (
-        <GlobalThemeProvider>
-            <div style={{ position: 'relative' }}>
-                <div style={style}>
-                    <img
-                        style={img}
-                        src='https://picsum.photos/id/237/400/400'
-                        alt='Some radnom image'
-                    />
-                    <Badge
-                        value='90'
-                        stylesObj={{ backgroundColor: 'blue', color: 'pink' }}
-                    />
-                </div>
+        <div style={{ position: 'relative' }}>
+            <div style={style}>
+                <img
+                    style={img}
+                    src='https://picsum.photos/id/237/400/400'
+                    alt='Some radnom image'
+                />
+                <Badge
+                    value='90'
+                    stylesObj={{ backgroundColor: 'blue', color: 'pink' }}
+                />
             </div>
-        </GlobalThemeProvider>
+        </div>
     ))
     .add('With custom icon ', () => (
-        <GlobalThemeProvider>
-            <div style={{ position: 'relative' }}>
-                <div style={style}>
-                    <img
-                        style={img}
-                        src='https://picsum.photos/id/237/400/400'
-                        alt='Some radnom image'
-                    />
-                    <Badge
-                        value={<AiOutlineQuestion />}
-                        stylesObj={{ width: 30, height: 30 }}
-                    />
-                </div>
+        <div style={{ position: 'relative' }}>
+            <div style={style}>
+                <img
+                    style={img}
+                    src='https://picsum.photos/id/237/400/400'
+                    alt='Some radnom image'
+                />
+                <Badge
+                    value={<AiOutlineQuestion />}
+                    stylesObj={{ width: 30, height: 30 }}
+                />
             </div>
-        </GlobalThemeProvider>
+        </div>
     ));

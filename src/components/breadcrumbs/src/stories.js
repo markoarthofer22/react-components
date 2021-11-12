@@ -3,8 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs';
 import { RiCloseCircleLine } from 'react-icons/ri';
 import { uniqueId } from 'underscore';
-import Breadcrumbs from './index';
-import GlobalThemeProvider from '../../../themes/src/index';
+import Breadcrumbs from './';
 
 const crumbsWithoutHome = [
     {
@@ -40,36 +39,28 @@ const crubsWithHome = [
 storiesOf(`Designs/Atoms/Breadcrumbs`, module)
     .addDecorator(withKnobs)
     .add('Breadcrumbs with Home root and default icon', () => (
-        <GlobalThemeProvider>
-            <Breadcrumbs hasHomeIcon isHomeRoot crumbs={crumbsWithoutHome} />
-        </GlobalThemeProvider>
+        <Breadcrumbs hasHomeIcon isHomeRoot crumbs={crumbsWithoutHome} />
     ))
     .add('Breadcrumbs with Home root and custom icon', () => (
-        <GlobalThemeProvider>
-            <Breadcrumbs
-                hasHomeIcon
-                homeIcon={RiCloseCircleLine}
-                isHomeRoot
-                crumbs={crumbsWithoutHome}
-            />
-        </GlobalThemeProvider>
+        <Breadcrumbs
+            hasHomeIcon
+            homeIcon={RiCloseCircleLine}
+            isHomeRoot
+            crumbs={crumbsWithoutHome}
+        />
     ))
     .add('Breadcrumbs without Home root and with custom icon', () => (
-        <GlobalThemeProvider>
-            <Breadcrumbs
-                hasHomeIcon
-                homeIcon={RiCloseCircleLine}
-                isHomeRoot={false}
-                crumbs={crubsWithHome}
-            />
-        </GlobalThemeProvider>
+        <Breadcrumbs
+            hasHomeIcon
+            homeIcon={RiCloseCircleLine}
+            isHomeRoot={false}
+            crumbs={crubsWithHome}
+        />
     ))
     .add('Breadcrumbs without icon', () => (
-        <GlobalThemeProvider>
-            <Breadcrumbs
-                hasHomeIcon={false}
-                isHomeRoot
-                crumbs={crumbsWithoutHome}
-            />
-        </GlobalThemeProvider>
+        <Breadcrumbs
+            hasHomeIcon={false}
+            isHomeRoot
+            crumbs={crumbsWithoutHome}
+        />
     ));

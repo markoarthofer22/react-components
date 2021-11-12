@@ -3,7 +3,6 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, optionsKnob } from '@storybook/addon-knobs';
 import { useForm } from 'react-hook-form';
 
-import GlobalThemeProvider from '../../../themes/src/index';
 import InputComponent from './input.component';
 import InputTypePhone from './input-type-phone.component';
 
@@ -25,59 +24,56 @@ storiesOf(`Designs/Atoms/Inputs`, module)
         });
 
         return (
-            <GlobalThemeProvider>
-                <div
-                    style={{
-                        maxWidth: '400px',
-                        width: '100%',
-                        marginTop: '20px',
-                    }}
-                >
-                    <Warning />
-                    <div className='form-item-container single'>
-                        <InputComponent
-                            name='name'
-                            labelText='Default input with validation'
-                            errorMessage={errors.name}
-                            register={register}
-                            required={{
-                                required: 'Custom message',
-                            }}
-                        />
-                    </div>
-                    <div className='form-item-container single'>
-                        <InputComponent
-                            name='email'
-                            labelText='Email'
-                            errorMessage={errors.email}
-                            register={register}
-                            required={{
-                                required: 'This field is required',
-                                pattern: {
-                                    value: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                                    message:
-                                        'Please enter email in correct format',
-                                },
-                            }}
-                        />
-                    </div>
-                    <div className='form-item-container single'>
-                        <InputComponent
-                            name='zip'
-                            labelText='Postal'
-                            errorMessage={errors.zip}
-                            register={register}
-                            required={{
-                                required: 'This field is required',
-                                maxLength: {
-                                    value: 10,
-                                    message: '10 chars max',
-                                },
-                            }}
-                        />
-                    </div>
+            <div
+                style={{
+                    maxWidth: '400px',
+                    width: '100%',
+                    marginTop: '20px',
+                }}
+            >
+                <Warning />
+                <div className='form-item-container single'>
+                    <InputComponent
+                        name='name'
+                        labelText='Default input with validation'
+                        errorMessage={errors.name}
+                        register={register}
+                        required={{
+                            required: 'Custom message',
+                        }}
+                    />
                 </div>
-            </GlobalThemeProvider>
+                <div className='form-item-container single'>
+                    <InputComponent
+                        name='email'
+                        labelText='Email'
+                        errorMessage={errors.email}
+                        register={register}
+                        required={{
+                            required: 'This field is required',
+                            pattern: {
+                                value: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                                message: 'Please enter email in correct format',
+                            },
+                        }}
+                    />
+                </div>
+                <div className='form-item-container single'>
+                    <InputComponent
+                        name='zip'
+                        labelText='Postal'
+                        errorMessage={errors.zip}
+                        register={register}
+                        required={{
+                            required: 'This field is required',
+                            maxLength: {
+                                value: 10,
+                                message: '10 chars max',
+                            },
+                        }}
+                    />
+                </div>
+            </div>
         );
     })
     .add('Checkbox', () => {
@@ -87,26 +83,24 @@ storiesOf(`Designs/Atoms/Inputs`, module)
         });
 
         return (
-            <GlobalThemeProvider>
-                <div
-                    className='form-item-container single checkbox-single'
-                    style={{ width: 'fit-content' }}
-                >
-                    <InputComponent
-                        hasWrapper={true}
-                        checked={true}
-                        type='checkbox'
-                        inputValue='agree'
-                        name='checkboxExample'
-                        labelText='Officia cillum aute magna in est nostrud dolore ullamco excepteur in mollit id.'
-                        errorMessage={errors.checkboxExample}
-                        register={register}
-                        required={{
-                            required: 'This field is required',
-                        }}
-                    />
-                </div>
-            </GlobalThemeProvider>
+            <div
+                className='form-item-container single checkbox-single'
+                style={{ width: 'fit-content' }}
+            >
+                <InputComponent
+                    hasWrapper={true}
+                    checked={true}
+                    type='checkbox'
+                    inputValue='agree'
+                    name='checkboxExample'
+                    labelText='Officia cillum aute magna in est nostrud dolore ullamco excepteur in mollit id.'
+                    errorMessage={errors.checkboxExample}
+                    register={register}
+                    required={{
+                        required: 'This field is required',
+                    }}
+                />
+            </div>
         );
     })
     .add('Radio', () => {
@@ -116,36 +110,34 @@ storiesOf(`Designs/Atoms/Inputs`, module)
         });
 
         return (
-            <GlobalThemeProvider>
-                <div className={`form-item-container single radio-single`}>
-                    <InputComponent
-                        type='radio'
-                        id='val1'
-                        inputValue='value1'
-                        checked={true}
-                        name='radioExample'
-                        labelText='value1'
-                        errorMessage={errors.radioExample}
-                        register={register}
-                        required={{
-                            required: 'This field is required',
-                        }}
-                    />
+            <div className={`form-item-container single radio-single`}>
+                <InputComponent
+                    type='radio'
+                    id='val1'
+                    inputValue='value1'
+                    checked={true}
+                    name='radioExample'
+                    labelText='value1'
+                    errorMessage={errors.radioExample}
+                    register={register}
+                    required={{
+                        required: 'This field is required',
+                    }}
+                />
 
-                    <InputComponent
-                        type='radio'
-                        id='val2'
-                        inputValue='value2'
-                        name='radioExample'
-                        labelText='value2'
-                        errorMessage={errors.radioExample}
-                        register={register}
-                        required={{
-                            required: 'This field is required',
-                        }}
-                    />
-                </div>
-            </GlobalThemeProvider>
+                <InputComponent
+                    type='radio'
+                    id='val2'
+                    inputValue='value2'
+                    name='radioExample'
+                    labelText='value2'
+                    errorMessage={errors.radioExample}
+                    register={register}
+                    required={{
+                        required: 'This field is required',
+                    }}
+                />
+            </div>
         );
     })
     .add('Phone input', () => {
@@ -200,33 +192,31 @@ storiesOf(`Designs/Atoms/Inputs`, module)
         };
 
         return (
-            <GlobalThemeProvider>
-                <div
-                    style={{
-                        maxWidth: '400px',
-                        width: '100%',
-                        marginTop: '20px',
-                    }}
-                >
-                    <div className='form-item-container single'>
-                        <InputTypePhone
-                            countriesList={countries}
-                            selectBindingValue={'iso'}
-                            predefinedDialValue='385'
-                            returnInputValue={returnInputValue}
-                            name='phone'
-                            errorMessage={errors.phone}
-                            register={register}
-                            required={{
-                                required: 'Please enter you phone number',
-                                pattern: {
-                                    value: /^[+\d]?(?:[\d-.\s()]*)$/,
-                                    message: 'Use only numeric values!',
-                                },
-                            }}
-                        />
-                    </div>
+            <div
+                style={{
+                    maxWidth: '400px',
+                    width: '100%',
+                    marginTop: '20px',
+                }}
+            >
+                <div className='form-item-container single'>
+                    <InputTypePhone
+                        countriesList={countries}
+                        selectBindingValue={'iso'}
+                        predefinedDialValue='385'
+                        returnInputValue={returnInputValue}
+                        name='phone'
+                        errorMessage={errors.phone}
+                        register={register}
+                        required={{
+                            required: 'Please enter you phone number',
+                            pattern: {
+                                value: /^[+\d]?(?:[\d-.\s()]*)$/,
+                                message: 'Use only numeric values!',
+                            },
+                        }}
+                    />
                 </div>
-            </GlobalThemeProvider>
+            </div>
         );
     });

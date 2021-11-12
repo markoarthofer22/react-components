@@ -1,8 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs';
-import GlobalThemeProvider from '../../../themes/src/index';
-import Hamburger from './index';
+
+import Hamburger from './';
 
 const onChange = () => {
     console.log('clicked onChange!');
@@ -18,13 +18,11 @@ const styles = {
 storiesOf(`Designs/Atoms`, module)
     .addDecorator(withKnobs)
     .add('Hamburger', () => (
-        <GlobalThemeProvider>
-            <div style={styles}>
-                <Hamburger
-                    isOpen={true}
-                    disableOnDesktop={false}
-                    onChange={() => onChange()}
-                />
-            </div>
-        </GlobalThemeProvider>
+        <div style={styles}>
+            <Hamburger
+                isOpen={true}
+                disableOnDesktop={false}
+                onChange={() => onChange()}
+            />
+        </div>
     ));

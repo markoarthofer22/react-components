@@ -28,10 +28,10 @@
     "peerDependencies": {
         "react": ">=16.8.0",
         "react-dom": ">=16.8.0",
-        "react-router-dom": "^5.2.0"
+        "react-router-dom": "^5.2.0",
+        "@emotion/react": "^11.4.1"
     },
     "dependencies": {
-        "@emotion/react": "^11.4.1",
         "react-icons": "^4.2.0",
         "underscore": "^1.13.1"
     }

@@ -28,10 +28,10 @@
     "devDependencies": {},
     "peerDependencies": {
         "react": ">=16.8.0",
-        "react-dom": ">=16.8.0"
+        "react-dom": ">=16.8.0",
+        "@emotion/react": "^11.4.1"
     },
     "dependencies": {
-        "@emotion/react": "^11.4.1",
         "emotion-normalize": "^11.0.1"
     }
 }

@@ -1,8 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text } from '@storybook/addon-knobs';
-import QuantityInput from './index';
-import GlobalThemeProvider from '../../../themes/src/index';
+import QuantityInput from './';
 
 const onInputChange = (value) => {
     console.log('returned value from onChange :>> ', value);
@@ -11,7 +10,7 @@ const onInputChange = (value) => {
 storiesOf(`Designs/Atoms`, module)
     .addDecorator(withKnobs)
     .add('Quantity Input', () => (
-        <GlobalThemeProvider>
+        <>
             <h3>Quantity Input without default value</h3>
             <QuantityInput
                 maxValue={text('Max entered value', '99')}
@@ -24,5 +23,5 @@ storiesOf(`Designs/Atoms`, module)
                 onChange={onInputChange}
                 defaultValue='44'
             />
-        </GlobalThemeProvider>
+        </>
     ));

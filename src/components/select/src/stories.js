@@ -1,8 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { boolean, text, withKnobs } from '@storybook/addon-knobs';
-import Select from './index';
-import GlobalThemeProvider from '../../../themes/src/index';
+import Select from './';
 
 storiesOf(`Designs/Atoms`, module)
     .addDecorator(withKnobs)
@@ -52,27 +51,25 @@ storiesOf(`Designs/Atoms`, module)
         if (countries.length === 0) return <div></div>;
 
         return (
-            <GlobalThemeProvider>
-                <div
-                    style={{
-                        maxWidth: '400px',
-                        width: '100%',
-                        marginTop: '20px',
-                    }}
-                >
-                    <Select
-                        title={text('Select Title', 'Select')}
-                        data={countries}
-                        selectClass={text('Custom Class', '')}
-                        placeholder={text('Placeholder', 'Countries')}
-                        returnValue={returnSelect}
-                        isSearchable={boolean('Is Searchable', true)}
-                        bindingValue={text(
-                            'Binding value (data-value attr in select)',
-                            'country'
-                        )}
-                    />
-                </div>
-            </GlobalThemeProvider>
+            <div
+                style={{
+                    maxWidth: '400px',
+                    width: '100%',
+                    marginTop: '20px',
+                }}
+            >
+                <Select
+                    title={text('Select Title', 'Select')}
+                    data={countries}
+                    selectClass={text('Custom Class', '')}
+                    placeholder={text('Placeholder', 'Countries')}
+                    returnValue={returnSelect}
+                    isSearchable={boolean('Is Searchable', true)}
+                    bindingValue={text(
+                        'Binding value (data-value attr in select)',
+                        'country'
+                    )}
+                />
+            </div>
         );
     });

@@ -2,8 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text } from '@storybook/addon-knobs';
 import { AiOutlineQuestion } from 'react-icons/ai';
-import Tooltip from './index';
-import GlobalThemeProvider from '../../../themes/src/index';
+import Tooltip from './';
 
 const style = {
     fontSize: '14px',
@@ -16,19 +15,17 @@ const style = {
 storiesOf(`Designs/Atoms`, module)
     .addDecorator(withKnobs)
     .add('Tooltip', () => (
-        <GlobalThemeProvider>
-            <div>
-                <p style={style}>
-                    This is custom text that has tooltip
-                    <Tooltip
-                        icon={AiOutlineQuestion}
-                        title={text(
-                            'Tooltip text',
-                            'Esse esse irure dolor aliqua pariatur esse excepteur voluptate mollit ad eiusmod Lorem.'
-                        )}
-                        customClass={text('Custom Class', '')}
-                    />
-                </p>
-            </div>
-        </GlobalThemeProvider>
+        <div>
+            <p style={style}>
+                This is custom text that has tooltip
+                <Tooltip
+                    icon={AiOutlineQuestion}
+                    title={text(
+                        'Tooltip text',
+                        'Esse esse irure dolor aliqua pariatur esse excepteur voluptate mollit ad eiusmod Lorem.'
+                    )}
+                    customClass={text('Custom Class', '')}
+                />
+            </p>
+        </div>
     ));

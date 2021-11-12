@@ -24,4 +24,4 @@ export { default as SocialCards } from './models/social-network-cards/src';
 export { default as Modal } from './components/modal/src';
 
 // themes
-export { default as GlobalThemeProvider } from './themes/src';
+export { default as GlobalThemeProvider } from './themes/global-theme-wrapper/src';

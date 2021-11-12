@@ -2,8 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text, optionsKnob, select } from '@storybook/addon-knobs';
 
-import Button from './index';
-import GlobalThemeProvider from '../../../themes/src/index';
+import Button from './';
 
 // for sizing
 const label = 'Size';
@@ -30,15 +29,14 @@ const colors = {
 storiesOf(`Designs/Atoms/Buttons`, module)
     .addDecorator(withKnobs)
     .add('Default', () => (
-        <GlobalThemeProvider>
-            <Button
-                clicked={(e) => console.log('action')}
-                className={`default ${optionsKnob(
-                    label,
-                    options,
-                    defaultValue,
-                    optionsObj
-                )}
+        <Button
+            clicked={(e) => console.log('action')}
+            className={`default ${optionsKnob(
+                label,
+                options,
+                defaultValue,
+                optionsObj
+            )}
                 ${optionsKnob(
                     'Is Loading',
                     {
@@ -50,7 +48,6 @@ storiesOf(`Designs/Atoms/Buttons`, module)
                 )}
                 ${select('Colors', colors, 'Normal')}
                 `}
-                title={text('Label', 'Click me')}
-            />
-        </GlobalThemeProvider>
+            title={text('Label', 'Click me')}
+        />
     ));

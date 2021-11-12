@@ -28,10 +28,10 @@
     "peerDependencies": {
         "react": ">=16.8.0",
         "react-dom": ">=16.8.0",
-        "react-hook-form": "5.7.2"
+        "react-hook-form": "5.7.2",
+        "@emotion/react": "^11.4.1"
     },
     "dependencies": {
-        "@emotion/react": "^11.4.1",
         "@markoarthofer22/react-components.tooltip": "^1.0.0",
         "react-icons": "^4.2.0",
         "underscore": "^1.13.1"
