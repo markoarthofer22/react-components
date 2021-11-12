@@ -1,6 +1,6 @@
 {
     "name": "@markoarthofer22/react-components",
-    "version": "1.1.7",
+    "version": "1.1.8",
     "description": "The React-Components is library that contains various components intended for reusing on another projects.",
     "main": "dist/index.js",
     "module": "dist/index.esm.js",
@@ -29,7 +29,7 @@
         "build:bundle": "rimraf dist && tsc && rollup --config",
         "lint": "eslint src --ext=.js,.ts,.tsx,.jsx",
         "prettier": "prettier --write '**/*.{js,ts,tsx,jsx}'",
-        "prepare:local": "rm -rf node_modules && npm i && npm run local-symlink",
+        "prepare:local": "rm -rf node_modules && npm install && npm run local-symlink",
         "local-symlink": "npx lerna bootstrap && npx lerna link",
         "delete-modules": "find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +",
         "prepare": "husky install",

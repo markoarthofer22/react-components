@@ -12,6 +12,7 @@ tsconfig.json.*
 ## Output
 src/**/**/dist
 src/**/**/README.md
+src/**/**/package-lock.json
 storybook-static/
 
 # System files
