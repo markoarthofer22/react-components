@@ -1,7 +1,6 @@
 <br />
 <p align="center">
-  <h3 align="center">React Components Collection [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org/)
-</h3>
+  <h3 align="center">React Components Collection </h3>
 
   <p align="center">
     Collection of react components built from ground up :smile:
@@ -14,7 +13,7 @@
 
 <!-- ABOUT THE PROJECT -->
 
-## About The Project
+## About The Project [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org/)
 
 Basic structure:
 
