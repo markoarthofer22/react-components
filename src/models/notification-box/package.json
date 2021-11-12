@@ -31,6 +31,6 @@
     },
     "dependencies": {
         "@emotion/react": "^11.4.1",
-        "@markoarthofer22/react-components.button": "file:../../components/buttons"
+        "@markoarthofer22/react-components.button": "^1.0.0"
     }
 }

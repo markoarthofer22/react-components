@@ -32,7 +32,7 @@
     },
     "dependencies": {
         "@emotion/react": "^11.4.1",
-        "@markoarthofer22/react-components.tooltip": "file:../tooltip",
+        "@markoarthofer22/react-components.tooltip": "^1.0.0",
         "react-icons": "^4.2.0",
         "underscore": "^1.13.1"
     }
