@@ -69,6 +69,11 @@ const copyBuiltFiles = async (location) => {
     const fromRelative = commonPrefix(paths);
     const from = path.join(CWD, './dist', fromRelative);
     const to = path.join(location, './dist');
+    const readmeFile = path.join(CWD, './README.md');
+
+    await execa.command(`cp -r ${readmeFile} ${location}`, {
+        stdio: 'inherit',
+    });
 
     const filename = includes[0].slice(includes[0].lastIndexOf('/') + 1);
 
