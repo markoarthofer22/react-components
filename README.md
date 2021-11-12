@@ -1,6 +1,7 @@
 <br />
 <p align="center">
-  <h3 align="center">React Components Collection</h3>
+  <h3 align="center">React Components Collection [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org/)
+</h3>
 
   <p align="center">
     Collection of react components built from ground up :smile:
@@ -18,6 +19,7 @@
 Basic structure:
 
 -   Collection of components written in ReactJS
+-   Monorepo created with [Lerna](https://lerna.js.org/)
 -   Using StroyBook lib for presentation
 -   Function based React, knowledge of Hooks is required
 -   Normalize from [Infinum](https://github.com/infinum/emotion-normalize) :heart:
@@ -39,7 +41,6 @@ Basic structure:
 
 First, to discuss structure and typing in the app.
 
--   files are sorted per usage. (alphabetically)
 -   inside component folder you should have 2 files
     -   .component (`*.component.tsx`) and Storybook for showing component (`*.stories.js`)
     -   stylings go to scss folder (name it after component and import inside `App.scss`) => **legacy**
@@ -48,6 +49,18 @@ First, to discuss structure and typing in the app.
 -   use `npm run build` to create build for testing (build process in run trough GitHub Actions)
 -   use `npm run lint` to run linter with --fix param
 -   use `npm run prettier` to run prettier
+
+### Development
+
+All commands can be run from individual packages, but it is not necessary to do so.
+
+-   Run `npm run prepare:local` at the project root to install the dev dependencies and link them to each other.
+
+On some systems, `npx lerna bootstrap` may fail with an error `Unexpected end of JSON input while parsing near '...-imports":"^7.7.0","@'` - in this case, try running `npm cache clean --force`
+
+To run storybook locally `npm start`.
+
+To add a new element, copy the template to the src/elements directory, update the package.json with the name and add your source code.
 
 ### Styling
 
@@ -284,13 +297,19 @@ These are some of the components that we have in mind. Will be populated over ti
 
 <!-- PUBLISH -->
 
-## Publish
+## Publishing
 
-If you want to contribute to this project create your own branch and do your work there. When you are satasfied with what you did push your branch and create a PR.
+**Do not do this until you are ready to merge and your PR has been approved!** Justification below.
 
-We use GitHub Actions for running automated process, and husky for pre-commiting. If your code doesn't meet the requirements it will block you commit.
+To preview which packages have changed, you can run `npx lerna changed` without publishing.
 
-All upadates will regularly be pushed to npm package
+Once happy with the code changes, run `npx lerna version` and bump the versions accordingly.
+
+Lerna will generate a publish commit. Push that commit to your remote branch and once it gets merged to master, CI will publish the new versions to `npm`.
+
+## Build test
+
+If you want to build locally just run `npm run build`
 
 <!-- LICENSE -->
 

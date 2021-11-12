@@ -1,0 +1,31 @@
+{
+    "lerna": "4.0.0",
+    "packages": ["src/components/**/*", "src/models/**/*", "src/themes/**/*"],
+    "version": "independent",
+    "npmClient": "npm",
+    "ignoreChanges": [
+        "**/package-lock.json",
+        "**/*.stories.js",
+        "**/stories.js",
+        "**/*.stories.ts",
+        "**/stories.ts",
+        "**/*.stories.tsx",
+        "**/stories.tsx",
+        "**/*.stories.jsx",
+        "**/stories.jsx",
+        "**/.npmrc"
+    ],
+    "command": {
+        "changed": {
+            "includeMergedTags": true
+        },
+        "publish": {
+            "includeMergedTags": true,
+            "conventionalCommits": true,
+            "message": "chore: release"
+        },
+        "version": {
+            "message": "chore: release"
+        }
+    }
+}
