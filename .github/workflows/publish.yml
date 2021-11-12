@@ -1,7 +1,7 @@
 name: 'Publish Package'
 on:
     workflow_run:
-        workflows: ['Publish tags', 'Publish Packages Lerna']
+        workflows: ['Publish Packages Lerna']
         branches: [main]
         types:
             - completed
@@ -23,7 +23,7 @@ jobs:
 
             - name: Install dependecies
               run: |
-                  npm ci
+                  npm install
                   npx lerna bootstrap
                   npx lerna link
               env:
