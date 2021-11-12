@@ -1,6 +1,6 @@
 {
     "name": "@markoarthofer22/react-components.social-network-card",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "description": "The React-Components is library that contains various components intended for reusing on another projects.",
     "main": "dist/index.js",
     "ts:main": "src/index.tsx",
