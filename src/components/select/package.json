@@ -1,0 +1,36 @@
+{
+    "name": "@markoarthofer22/react-components.select",
+    "version": "1.0.0",
+    "description": "The React-Components is library that contains various components intended for reusing on another projects.",
+    "main": "dist/index.js",
+    "module": "dist/index.esm.js",
+    "files": [
+        "dist",
+        "README.md"
+    ],
+    "types": "dist/index.d.ts",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/markoarthofer22/react-components/"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "keywords": [
+        "react-components"
+    ],
+    "author": "Marko Arthofer",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/markoarthofer22/react-components/issues"
+    },
+    "homepage": "https://github.com/markoarthofer22/react-components#readme",
+    "peerDependencies": {
+        "react": ">=16.8.0",
+        "react-dom": ">=16.8.0"
+    },
+    "dependencies": {
+        "@emotion/react": "^11.4.1",
+        "react-icons": "^4.2.0"
+    }
+}
