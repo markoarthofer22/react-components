@@ -1,8 +1,7 @@
 // components
 export { default as Button } from './components/buttons/src';
 export { default as Dropdown } from './components/dropdown/src';
-export { default as InputComponent } from './components/input/src/input.component';
-export { default as InputTypePhone } from './components/input/src/input-type-phone.component';
+export { InputComponent, InputTypePhone } from './components/input/src';
 export { default as Popup } from './components/popup/src';
 export { default as Select } from './components/select/src';
 export { default as Tooltip } from './components/badge/src';
