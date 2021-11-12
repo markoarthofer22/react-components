@@ -1,2 +1,4 @@
-export { default as InputComponent } from './input.component';
-export { default as InputTypePhone } from './input-type-phone.component';
+import InputComponent from './input.component';
+import InputTypePhone from './input-type-phone.component';
+
+export { InputComponent, InputTypePhone };
