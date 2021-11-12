@@ -27,7 +27,7 @@ jobs:
                   NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
             - name: Run build
-              run: npm run build
+              run: npm run build:bundle
 
               # Setup .npmrc file to publish to GitHub Packages
             - uses: actions/setup-node@v2
