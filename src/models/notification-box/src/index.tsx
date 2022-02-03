@@ -2,7 +2,7 @@
 import React, { useEffect } from 'react';
 import { useTheme } from '@emotion/react';
 
-import Button from '@markoarthofer22/react-components.button';
+import Button from '../../../components/buttons/src/index';
 import { NotificationBoxStyles } from './styles';
 
 interface INotificationBoxProp {

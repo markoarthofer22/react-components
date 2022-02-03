@@ -14,7 +14,12 @@ module.exports = {
         tsconfigRootDir: __dirname,
     },
     plugins: ['@typescript-eslint', '@emotion', 'prettier', 'react'],
-    extends: ['airbnb', 'airbnb-typescript', 'prettier'],
+    extends: [
+        'airbnb',
+        'airbnb-typescript',
+        'prettier',
+        'plugin:storybook/recommended',
+    ],
     settings: {
         'import/resolver': {
             node: {
@@ -26,7 +31,11 @@ module.exports = {
         'no-unused-vars': 'warn',
         'no-use-before-define': [
             'error',
-            { functions: false, classes: true, variables: true },
+            {
+                functions: false,
+                classes: true,
+                variables: true,
+            },
         ],
         'react/jsx-uses-vars': 'error',
         'react/jsx-uses-react': 'error',

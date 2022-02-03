@@ -26,6 +26,7 @@ jobs:
                   rm -rf node_modules/
                   npm cache clear --force && npm ci
                   npx lerna bootstrap --no-ci
+                  npx lerna link
               env:
                   NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
