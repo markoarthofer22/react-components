@@ -9,7 +9,7 @@ const rotate = keyframes`
     }
 `;
 
-export const ButtonStyles = (theme) =>
+export const ButtonStyles = (theme: any) =>
     css({
         position: 'relative',
         padding: '10px 25px',

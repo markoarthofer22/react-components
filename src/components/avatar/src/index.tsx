@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useTheme } from '@emotion/react';
 import { AvatarStyles } from './styles';
 
-type IconType = React.ElementType | React.ComponentType;
+type IconType = React.ElementType | React.ComponentType | React.ReactNode;
 
 type Color = string | 'transparent';
 
@@ -12,7 +12,7 @@ interface IAvatarProps {
     grouped?: boolean;
     size?: 'small' | 'normal' | 'big';
     variant?: 'squared' | 'circled' | 'rounded';
-    values?: IconType[];
+    values?: Array<IconType>;
     children?: React.ElementType | React.ReactNode;
     backgroundColor?: Color;
     groupedLimit?: string | number;

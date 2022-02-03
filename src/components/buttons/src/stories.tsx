@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text, optionsKnob, select } from '@storybook/addon-knobs';
 
-import Button from './';
+import Button from '.';
 
 // for sizing
 const label = 'Size';
@@ -13,7 +13,7 @@ const options = {
 };
 const defaultValue = '';
 const optionsObj = {
-    display: 'inline-radio',
+    display: 'inline-radio' as const,
 };
 
 // colors select
@@ -30,7 +30,11 @@ storiesOf(`Designs/Atoms/Buttons`, module)
     .addDecorator(withKnobs)
     .add('Default', () => (
         <Button
-            clicked={(e) => console.log('action')}
+            clicked={(e: React.MouseEvent) => {
+                e.preventDefault();
+                // eslint-disable-next-line no-alert
+                alert('You clicked on a button');
+            }}
             className={`default ${optionsKnob(
                 label,
                 options,

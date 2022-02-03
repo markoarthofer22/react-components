@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
 
-export const AvatarStyles = (theme) =>
+export const AvatarStyles = (theme: any) =>
     css({
         '.avatar': {
             '&--wrapper': {

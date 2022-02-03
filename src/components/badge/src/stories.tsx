@@ -2,18 +2,18 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs';
 import { AiOutlineQuestion } from 'react-icons/ai';
-import Badge from './';
+import Badge from '.';
 
 const style = {
     width: 200,
     height: 200,
     borderRadius: '100%',
-    position: 'relative',
+    position: 'relative' as const,
     marginTop: '80px',
 };
 
 const img = {
-    position: 'absolute',
+    position: 'absolute' as const,
     width: '100%',
     height: '100%',
 };
@@ -26,7 +26,7 @@ storiesOf(`Designs/Atoms/Badge`, module)
                 <img
                     style={img}
                     src='https://picsum.photos/id/237/400/400'
-                    alt='Some radnom image'
+                    alt='Some radnom'
                 />
                 <Badge value='90' />
             </div>
@@ -38,7 +38,7 @@ storiesOf(`Designs/Atoms/Badge`, module)
                 <img
                     style={img}
                     src='https://picsum.photos/id/237/400/400'
-                    alt='Some radnom image'
+                    alt='Some radnom'
                 />
                 <Badge
                     value='90'
@@ -53,7 +53,7 @@ storiesOf(`Designs/Atoms/Badge`, module)
                 <img
                     style={img}
                     src='https://picsum.photos/id/237/400/400'
-                    alt='Some radnom image'
+                    alt='Some radnom'
                 />
                 <Badge
                     value={<AiOutlineQuestion />}

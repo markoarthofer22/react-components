@@ -2,16 +2,17 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs';
 
-import Hamburger from './';
+import Hamburger from '.';
 
 const onChange = () => {
+    // eslint-disable-next-line no-console
     console.log('clicked onChange!');
 };
 
 const styles = {
     width: '200px',
     height: '200px',
-    position: 'relative',
+    position: 'relative' as const,
     border: '1px solid #000',
 };
 
@@ -20,7 +21,7 @@ storiesOf(`Designs/Atoms`, module)
     .add('Hamburger', () => (
         <div style={styles}>
             <Hamburger
-                isOpen={true}
+                isOpen
                 disableOnDesktop={false}
                 onChange={() => onChange()}
             />

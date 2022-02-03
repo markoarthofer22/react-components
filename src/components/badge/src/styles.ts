@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
 
-export const BadgeStyles = (theme) =>
+export const BadgeStyles = (theme: any) =>
     css({
         position: 'absolute',
         top: -22,

@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
 
-export const HamburgerStyles = (theme) => {
+export const HamburgerStyles = (theme: any) => {
     const breakpoints = [
         theme.breakpoints.sm,
         theme.breakpoints.md,

@@ -7,9 +7,9 @@ type IconType = React.ElementType | React.ComponentType;
 
 interface IBadgeProps {
     stylesObj?: {
-        [key: string]: React.CSSProperties;
+        [key: string]: any;
     };
-    value: string | number | IconType;
+    value: string | number | IconType | React.ReactNode;
     className?: string;
 }
 

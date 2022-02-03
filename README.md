@@ -63,23 +63,6 @@ To add a new element, copy the template to the src/elements directory, update th
 
 From 03.02. we switched to `jsx-control-statments` for `.tsx`. It makes control elements easier to use and to maintain.
 
-```jsx
-/// use for import
-import {
-    For,
-    If,
-    With,
-    Choose,
-    When,
-    Otherwise,
-} from 'tsx-control-statements/components';
-
-// example
-return <If condition={condition}> </If>;
-```
-
-[Link to NPM package](https://www.npmjs.com/package/tsx-control-statements)
-
 ### Styling
 
 ~~For `.scss` files please use [BEM convention](http://getbem.com/). This keeps it readable, neat and understandable to other devs :smile:~~

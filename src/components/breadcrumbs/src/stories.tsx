@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs';
 import { RiCloseCircleLine } from 'react-icons/ri';
 import { uniqueId } from 'underscore';
-import Breadcrumbs from './';
+import Breadcrumbs from '.';
 
 const crumbsWithoutHome = [
     {

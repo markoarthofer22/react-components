@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
 
-export const BreadcrumbsStyles = (theme) => {
+export const BreadcrumbsStyles = (theme: any) => {
     const breakpoints = [
         theme.breakpoints.sm,
         theme.breakpoints.md,

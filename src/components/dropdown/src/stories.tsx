@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { boolean, object, text, withKnobs } from '@storybook/addon-knobs';
-import Dropdown from './';
+import Dropdown from '.';
 
 storiesOf(`Designs/Atoms`, module)
     .addDecorator(withKnobs)
@@ -27,13 +27,13 @@ storiesOf(`Designs/Atoms`, module)
             },
         ];
 
-        const returnSelect = (_data) => {
+        const returnSelect = (_data: any) => {
             const vals = {
                 ..._data,
             };
 
-            // eslint-disable-next-line no-console
-            console.log('Returned values from dropdown :>> ', vals);
+            // eslint-disable-next-line no-alert
+            alert(`Returned values from dropdown  ${JSON.stringify(vals)}`);
         };
 
         return (
@@ -54,8 +54,8 @@ storiesOf(`Designs/Atoms`, module)
                         'Default value (value field in data)',
                         ''
                     )}
-                    // eslint-disable-next-line no-console
-                    onChange={() => console.log('clicked on change')}
+                    // eslint-disable-next-line no-alert
+                    onChange={() => alert('on Change event')}
                     returnValue={returnSelect}
                     data={object('Data', data)}
                 />

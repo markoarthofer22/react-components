@@ -1,8 +1,8 @@
 import { css } from '@emotion/react';
 
-export const DropdownStyles = (theme) =>
+export const DropdownStyles = (theme: any) =>
     css({
-        position: ' relative',
+        position: 'relative',
         width: '100%',
         '.dropdown': {
             '&--label': {

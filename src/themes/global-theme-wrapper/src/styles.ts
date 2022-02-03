@@ -1,10 +1,11 @@
-export const GlobalStyles = {
+import { Theme } from '@emotion/react';
+
+export const GlobalStyles: Theme = {
     colors: {
         warningRed: '#d71920',
         white: '#ffffff',
         background: '#f9fbfe',
         black: '#000000',
-        lighterGrey: '#f2f2f2',
         lightGrey: '#a7b0b4',
         grey20: '#cccccc',
         grey70: '#333',
