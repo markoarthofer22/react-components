@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.2](https://github.com/markoarthofer22/react-components/compare/@markoarthofer22/react-components.hero-box@1.1.1...@markoarthofer22/react-components.hero-box@1.1.2) (2022-02-03)
+
+**Note:** Version bump only for package @markoarthofer22/react-components.hero-box
+
+
+
+
+
 ## [1.1.1](https://github.com/markoarthofer22/react-components/compare/@markoarthofer22/react-components.hero-box@1.1.0...@markoarthofer22/react-components.hero-box@1.1.1) (2021-11-12)
 
 **Note:** Version bump only for package @markoarthofer22/react-components.hero-box

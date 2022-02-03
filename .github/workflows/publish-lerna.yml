@@ -22,11 +22,7 @@ jobs:
               uses: actions/checkout@v2
 
             - name: Install dependecies
-              run: |
-                  rm -rf node_modules/
-                  npm cache clear --force && npm ci
-                  npx lerna bootstrap --no-ci
-                  npx lerna link
+              run: npm run prepare:local
               env:
                   NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
