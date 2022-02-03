@@ -23,7 +23,7 @@ jobs:
 
             - name: Install dependecies
               run: |
-                  npm install
+                  npm i --legacy-peer-deps
               env:
                   NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
