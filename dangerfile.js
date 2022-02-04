@@ -1,4 +1,4 @@
-import { message, danger, warn } from 'danger';
+import { message, warn, fail, danger, schedule } from 'danger'
 
 const newFiles = danger.git.created_files.join('- ');
 
@@ -7,10 +7,12 @@ message('New Files in this PR: \n - ' + newFiles);
 const packageChanged = danger.git.modified_files.includes('package.json');
 const lockfileChanged = danger.git.modified_files.includes('package-lock.json');
 
-
 if (packageChanged && !lockfileChanged) {
-    warn(`Changes were made to package.json, but not to package-lock.json - <i>'Perhaps you need to run ${String(`npm install`)}?'</i>`);
-}
+    const message = 'Changes were made to package.json, but not to package-lock.lock'
+    const idea = 'Perhaps you need to run `npm install`?'
+    warn(`${message} - <i>${idea}</i>`)
+  }
+
 
 const bigPRThreshold = 900;
 if (danger.github.pr.additions + danger.github.pr.deletions > bigPRThreshold) {
@@ -22,3 +24,17 @@ danger.git.commits.forEach(commit => {
         fail(`Commit message '${commit.message}' doesn't match the correct format`);
     }
 })
+
+if (packageDiff.devDependencies && packageDiff.devDependencies.added) {
+    message(`New developer dependencies "${packageDiff.devDependencies.added.join('", "')}"`)
+  }
+
+
+const createdJSFiles = danger.git.created_files.filter(
+    (file) => file.match(/\.jsx?$/) && !file.match(/webpack/),
+  )
+  
+  if (createdJSFiles.length) {
+    fail(`A new .js file was added, please convert to .tsx or .ts and try again`)
+  }
+  
