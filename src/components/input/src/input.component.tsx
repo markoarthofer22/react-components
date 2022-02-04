@@ -1,42 +1,37 @@
 /** @jsxImportSource @emotion/react */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useTheme, css } from '@emotion/react';
 
-import {
-    FieldError,
-    FieldValues,
-    NestDataObject,
-} from 'react-hook-form/dist/types';
+import { UseFormRegister, RegisterOptions } from 'react-hook-form';
+
 import { MdRemoveRedEye } from 'react-icons/md';
 import { IoCheckmarkDoneOutline } from 'react-icons/io5';
-import { useTheme, css } from '@emotion/react';
-import Tooltip from '@markoarthofer22/react-components.tooltip';
-import { RegisterOptions } from './validation.types';
-import { InputStyles, InputRadioStyles, InputCheckboxStyles } from './styles';
 
-// component
+import Tooltip from '../../tooltip/src/index';
+import { InputStyles, InputRadioStyles, InputCheckboxStyles } from './styles';
 
 interface IInputProps {
     hasWrapper?: boolean;
     type?: string;
-    name?: string | null;
+    name: string;
     inputClass?: string;
     className?: string;
-    required: RegisterOptions;
-    errorMessage?: NestDataObject<FieldValues, FieldError>;
-    register?: any;
+    required?: RegisterOptions;
+    errorMessage?: { message?: string };
+    register: UseFormRegister<any>;
     labelText?: string;
-    onEveryChange: (e: any) => void;
+    onEveryChange?: (e?: any) => void;
     inputValue?: string;
     tooltip?: string;
     disabled?: boolean;
-    showIcon?: boolean;
     icon?: React.ElementType | React.ComponentType;
     id?: string;
     checked?: boolean;
+    enableShowPassword?: boolean;
     checkboxIcon?: React.ElementType | React.ComponentType;
 }
 
-const InputComponent: React.FC<IInputProps> = ({
+const InputComponent: React.FC<IInputProps & Record<string, any>> = ({
     hasWrapper = true,
     type = 'text',
     name,
@@ -50,16 +45,17 @@ const InputComponent: React.FC<IInputProps> = ({
     inputValue,
     tooltip,
     disabled = false,
-    showIcon = false,
     icon,
     checkboxIcon,
     id,
     checked = false,
+    enableShowPassword = false,
+    ...rest
 }): JSX.Element => {
     const theme = useTheme();
     const C = icon || MdRemoveRedEye;
     const ChecboxIcon = checkboxIcon || IoCheckmarkDoneOutline;
-    const [isChecked, setIsChecked] = useState<boolean>(checked);
+    const [showPassword, setShowPassword] = useState<boolean>(false);
 
     const getInputStyles = (_type: string) => {
         let value;
@@ -81,30 +77,36 @@ const InputComponent: React.FC<IInputProps> = ({
         return value;
     };
 
+    useEffect(() => {
+        if (!checked) return;
+
+        document.querySelector<HTMLInputElement>(
+            `input[type='${type}'][id='${id}']`
+        )!.checked = true;
+    }, []);
+
     function returnInput() {
         return (
             <>
                 <input
                     id={id}
-                    type={type}
+                    type={showPassword ? 'text' : type}
                     disabled={disabled}
                     required
-                    checked={isChecked}
-                    name={name || undefined}
                     autoComplete='0'
                     className={`${inputClass || 'input-default'} ${
                         errorMessage && 'invalid'
                     }`}
                     data-error={errorMessage ? errorMessage.message : undefined}
                     value={inputValue && inputValue.toString()}
-                    ref={register ? register({ ...required }) : null}
-                    onChange={(e) => {
+                    onKeyUp={(e) => {
                         onEveryChange && onEveryChange(e);
-                        setIsChecked(!isChecked);
                     }}
+                    {...register(name, { ...required })}
+                    {...rest}
                 />
                 <label
-                    htmlFor={name || undefined}
+                    htmlFor={name}
                     className={`floating-label ${tooltip ? 'flexed' : ''}`}
                 >
                     {labelText}
@@ -116,7 +118,11 @@ const InputComponent: React.FC<IInputProps> = ({
                     )}
                 </label>
 
-                {showIcon && <C />}
+                {enableShowPassword && (
+                    <span onClick={() => setShowPassword(!showPassword)}>
+                        <C className='password-svg' />
+                    </span>
+                )}
 
                 {errorMessage && (
                     <span

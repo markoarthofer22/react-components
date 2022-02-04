@@ -1,13 +1,9 @@
 /** @jsxImportSource @emotion/react */
 import React, { useState, useEffect } from 'react';
 import _ from 'underscore';
-import {
-    FieldError,
-    FieldValues,
-    NestDataObject,
-} from 'react-hook-form/dist/types';
+
 import { useTheme } from '@emotion/react';
-import { RegisterOptions } from './validation.types';
+import { UseFormRegister, RegisterOptions } from 'react-hook-form';
 import { InputStyles, InputPhoneStyles } from './styles';
 
 import Select from '../../select/src';
@@ -15,7 +11,7 @@ import Select from '../../select/src';
 export interface ICountriesProps {
     country: string;
     iso: string;
-    dialing_code: string;
+    dialing_code: string | number;
 }
 
 interface IInputPhoneProps {
@@ -30,10 +26,10 @@ interface IInputPhoneProps {
         countriesName: string,
         inputValue: string
     ) => void;
-    register?: any;
-    required: RegisterOptions;
-    name?: string;
-    errorMessage?: NestDataObject<FieldValues, FieldError>;
+    required?: RegisterOptions;
+    errorMessage?: { message?: string };
+    register: UseFormRegister<any>;
+    name: string;
     countriesList: ICountriesProps[];
     disableFocus?: boolean;
     labelText?: string;
@@ -42,7 +38,7 @@ interface IInputPhoneProps {
     className?: string;
 }
 
-const InputTypePhone: React.FC<IInputPhoneProps> = ({
+const InputTypePhone: React.FC<IInputPhoneProps & Record<string, any>> = ({
     id,
     onBlur,
     className = 'form-item-phone',
@@ -59,6 +55,7 @@ const InputTypePhone: React.FC<IInputPhoneProps> = ({
     selectPlaceholder,
     selectBindingValue,
     hasWrapper = true,
+    ...rest
 }): JSX.Element => {
     const theme = useTheme();
 
@@ -89,7 +86,7 @@ const InputTypePhone: React.FC<IInputPhoneProps> = ({
             setInputValue(`+${country.dialing_code}`);
             setCountriesName(country.country);
             setCountriesID(country.iso.toLowerCase());
-            setCountriesDial(country.dialing_code);
+            setCountriesDial(String(country.dialing_code));
             return;
         }
 
@@ -128,7 +125,7 @@ const InputTypePhone: React.FC<IInputPhoneProps> = ({
             if (!country) return;
             setCountriesID(country.iso);
             setCountriesName(country.country);
-            setCountriesDial(country.dialing_code);
+            setCountriesDial(String(country.dialing_code));
             setInputValue(predefinedValue || `+${country.dialing_code}`);
         }
     }, [predefinedValue, predefinedDialValue]);
@@ -176,10 +173,10 @@ const InputTypePhone: React.FC<IInputPhoneProps> = ({
                             data-error={errorMessage && errorMessage.message}
                             id={`${id || 'countries'}`}
                             required
-                            name={name}
-                            autoComplete='off'
-                            ref={register ? register({ ...required }) : null}
                             value={inputValue}
+                            autoComplete='off'
+                            {...register(name, { ...required })}
+                            {...rest}
                             onChange={(e) => setInput(e)}
                             onBlur={(e) => (onBlur ? onBlur(e) : null)}
                         />

@@ -46,6 +46,7 @@ module.exports = {
         'import/prefer-default-export': 'off',
         'import/no-default-export': 'off',
         'import/no-cycle': 'off',
+        'import/no-extraneous-dependencies': 'off',
         '@typescript-eslint/explicit-function-return-type': 'off',
         'no-use-before-define': 'off',
         '@typescript-eslint/no-use-before-define': ['error'],

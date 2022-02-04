@@ -7,7 +7,7 @@ import { JumpToTopStyles } from './styles';
 interface IJumpToTopProps {
     icon?: React.ElementType | React.ComponentType;
     title?: string;
-    targetElement: string;
+    targetElement?: string;
     visibleFrom: number;
     animationDuration?: number;
     className?: string;
@@ -26,7 +26,7 @@ const JumpToTop: React.FC<IJumpToTopProps> = ({
 
     const [isScrollVisible, setIsScrollVisible] = useState<boolean>(false);
 
-    const scrollToTarget = (target: string, duration: number) => {
+    const scrollToTarget = (target?: string, duration = 400) => {
         let targeted = 0;
         if (target && document.querySelector(target) !== null) {
             targeted =
