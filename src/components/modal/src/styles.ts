@@ -1,17 +1,8 @@
 import { css } from '@emotion/react';
 import { rgba } from 'emotion-rgba';
 
-export const ModalStyles = (theme) => {
-    const breakpoints = [
-        theme.breakpoints.sm,
-        theme.breakpoints.md,
-        theme.breakpoints.lg,
-        theme.breakpoints.xlg,
-    ];
-
-    const mq = breakpoints.map((bp) => `@media (min-width: ${bp}px)`);
-
-    return css({
+export const ModalStyles = (theme: any) =>
+    css({
         '.modal': {
             '&--wrapper': {
                 position: 'fixed',
@@ -117,4 +108,3 @@ export const ModalStyles = (theme) => {
             },
         },
     });
-};

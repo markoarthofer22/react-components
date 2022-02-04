@@ -20,7 +20,7 @@ const ShowTooltipPeak = keyframes`
     }
 `;
 
-export const TooltipStyles = (theme) =>
+export const TooltipStyles = (theme: any) =>
     css({
         position: 'relative',
         cursor: 'pointer',

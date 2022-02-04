@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
 
-export const PopupStyles = (theme) => {
+export const PopupStyles = (theme: any) => {
     const breakpoints = [
         theme.breakpoints.sm,
         theme.breakpoints.md,
@@ -48,20 +48,21 @@ export const PopupStyles = (theme) => {
 
             '&--close': {
                 position: 'absolute',
-                padding: 0,
-                right: 30,
-                top: 25,
+                padding: 10,
+                right: 20,
+                top: 0,
                 transition: 'all 0.6s',
                 border: 'none',
                 zIndex: 100,
-                width: 20,
-                height: 20,
+                width: 30,
+                height: 30,
                 backgroundColor: 'transparent',
+                cursor: 'pointer',
 
                 svg: {
                     fill: theme.colors.blue,
-                    width: 20,
-                    height: 20,
+                    width: 30,
+                    height: 30,
                     border: 'none',
                     transition: 'all 0.6s ease',
                 },

@@ -17,8 +17,8 @@ interface ISwitchButtonProps {
     small?: boolean;
     disabled?: boolean;
     icon?: {
-        yes: React.ElementType | React.ComponentType;
-        no: React.ElementType | React.ComponentType;
+        yes: React.ElementType | React.ComponentType | React.ReactNode;
+        no: React.ElementType | React.ComponentType | React.ReactNode;
     };
 }
 

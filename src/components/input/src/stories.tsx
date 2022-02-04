@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, optionsKnob } from '@storybook/addon-knobs';
+import { withKnobs } from '@storybook/addon-knobs';
 import { useForm } from 'react-hook-form';
 
 import InputComponent from './input.component';
@@ -18,8 +18,18 @@ const Warning = () => (
 storiesOf(`Designs/Atoms/Inputs`, module)
     .addDecorator(withKnobs)
     .add('Default inputs', () => {
-        const { register, errors } = useForm({
-            mode: 'onChange',
+        // add types to form
+        type FormValues = {
+            name: string;
+            email: string;
+            zip: string;
+        };
+
+        const {
+            register,
+            formState: { errors },
+        } = useForm<FormValues>({
+            mode: 'onBlur',
             reValidateMode: 'onSubmit',
         });
 
@@ -77,8 +87,16 @@ storiesOf(`Designs/Atoms/Inputs`, module)
         );
     })
     .add('Checkbox', () => {
-        const { register, errors } = useForm({
-            mode: 'onChange',
+        // add types to form
+        type FormValues = {
+            checkboxExample: string;
+        };
+
+        const {
+            register,
+            formState: { errors },
+        } = useForm<FormValues>({
+            mode: 'onBlur',
             reValidateMode: 'onSubmit',
         });
 
@@ -88,8 +106,9 @@ storiesOf(`Designs/Atoms/Inputs`, module)
                 style={{ width: 'fit-content' }}
             >
                 <InputComponent
-                    hasWrapper={true}
-                    checked={true}
+                    hasWrapper
+                    checked
+                    id='checkbox'
                     type='checkbox'
                     inputValue='agree'
                     name='checkboxExample'
@@ -104,18 +123,26 @@ storiesOf(`Designs/Atoms/Inputs`, module)
         );
     })
     .add('Radio', () => {
-        const { register, errors } = useForm({
-            mode: 'onChange',
+        // add types to form
+        type FormValues = {
+            radioExample: string;
+        };
+
+        const {
+            register,
+            formState: { errors },
+        } = useForm<FormValues>({
+            mode: 'onBlur',
             reValidateMode: 'onSubmit',
         });
 
         return (
-            <div className={`form-item-container single radio-single`}>
+            <div className='form-item-container single radio-single'>
                 <InputComponent
                     type='radio'
                     id='val1'
                     inputValue='value1'
-                    checked={true}
+                    checked
                     name='radioExample'
                     labelText='value1'
                     errorMessage={errors.radioExample}
@@ -141,11 +168,18 @@ storiesOf(`Designs/Atoms/Inputs`, module)
         );
     })
     .add('Phone input', () => {
-        const { register, errors } = useForm({
-            mode: 'onChange',
+        // add types to form
+        type FormValues = {
+            phone: string;
+        };
+
+        const {
+            register,
+            formState: { errors },
+        } = useForm<FormValues>({
+            mode: 'onBlur',
             reValidateMode: 'onSubmit',
         });
-
         const countries = [
             { country: 'Afghanistan', dialing_code: 93, iso: 'AF' },
             { country: 'Albania', dialing_code: 355, iso: 'AL' },
@@ -175,10 +209,10 @@ storiesOf(`Designs/Atoms/Inputs`, module)
         ];
 
         const returnInputValue = (
-            countryID,
-            countryDial,
-            countryName,
-            value
+            countryID: any,
+            countryDial: any,
+            countryName: any,
+            value: any
         ) => {
             const vals = {
                 countryID,
@@ -202,7 +236,7 @@ storiesOf(`Designs/Atoms/Inputs`, module)
                 <div className='form-item-container single'>
                     <InputTypePhone
                         countriesList={countries}
-                        selectBindingValue={'iso'}
+                        selectBindingValue='iso'
                         predefinedDialValue='385'
                         returnInputValue={returnInputValue}
                         name='phone'

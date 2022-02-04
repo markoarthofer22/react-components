@@ -1,7 +1,27 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text, select } from '@storybook/addon-knobs';
-import SocialCards from './';
+import SocialCards from '.';
+
+const comments = [
+    {
+        author: 'MarkoA',
+        content:
+            'Aute consequat consectetur excepteur irure laborum laboris minim veniam veniam irure cupidatat veniam enim nostrud.',
+    },
+    {
+        author: 'MarkoB',
+        content: 'Eiusmod consequat ea eu amet non in Lorem velit amet.',
+    },
+    {
+        author: 'MarkoB',
+        content: 'Eiusmod consequat ea eu amet non in Lorem velit amet.',
+    },
+    {
+        author: 'MarkoB',
+        content: 'Eiusmod consequat ea eu amet non in Lorem velit amet.',
+    },
+];
 
 storiesOf(`Designs/Models/Social Network Cards`, module)
     .addDecorator(withKnobs)
@@ -41,28 +61,7 @@ storiesOf(`Designs/Models/Social Network Cards`, module)
                     likes: 5023,
                     commentsTotal: '10',
                     published: '42 minutes ago',
-                    comments: [
-                        {
-                            author: 'MarkoA',
-                            content:
-                                'Aute consequat consectetur excepteur irure laborum laboris minim veniam veniam irure cupidatat veniam enim nostrud.',
-                        },
-                        {
-                            author: 'MarkoB',
-                            content:
-                                'Eiusmod consequat ea eu amet non in Lorem velit amet.',
-                        },
-                        {
-                            author: 'MarkoB',
-                            content:
-                                'Eiusmod consequat ea eu amet non in Lorem velit amet.',
-                        },
-                        {
-                            author: 'MarkoB',
-                            content:
-                                'Eiusmod consequat ea eu amet non in Lorem velit amet.',
-                        },
-                    ],
+                    comments,
                 }}
             />
 
@@ -93,18 +92,7 @@ storiesOf(`Designs/Models/Social Network Cards`, module)
                 post={{
                     likes: 5023,
                     commentsTotal: '10',
-                    comments: [
-                        {
-                            author: 'MarkoA',
-                            content:
-                                'Aute consequat consectetur excepteur irure laborum laboris minim veniam veniam irure cupidatat veniam enim nostrud.',
-                        },
-                        {
-                            author: 'MarkoB',
-                            content:
-                                'Eiusmod consequat ea eu amet non in Lorem velit amet.',
-                        },
-                    ],
+                    comments,
                 }}
             />
 
@@ -185,28 +173,7 @@ storiesOf(`Designs/Models/Social Network Cards`, module)
                     likes: 5023,
                     commentsTotal: '10',
                     published: '42 minutes ago',
-                    comments: [
-                        {
-                            author: 'MarkoA',
-                            content:
-                                'Aute consequat consectetur excepteur irure laborum laboris minim veniam veniam irure cupidatat veniam enim nostrud.',
-                        },
-                        {
-                            author: 'MarkoB',
-                            content:
-                                'Eiusmod consequat ea eu amet non in Lorem velit amet.',
-                        },
-                        {
-                            author: 'MarkoB',
-                            content:
-                                'Eiusmod consequat ea eu amet non in Lorem velit amet.',
-                        },
-                        {
-                            author: 'MarkoB',
-                            content:
-                                'Eiusmod consequat ea eu amet non in Lorem velit amet.',
-                        },
-                    ],
+                    comments,
                 }}
             />
 
@@ -236,28 +203,7 @@ storiesOf(`Designs/Models/Social Network Cards`, module)
                     likes: 5023,
                     commentsTotal: '10',
                     published: '42 minutes ago',
-                    comments: [
-                        {
-                            author: 'MarkoA',
-                            content:
-                                'Aute consequat consectetur excepteur irure laborum laboris minim veniam veniam irure cupidatat veniam enim nostrud.',
-                        },
-                        {
-                            author: 'MarkoB',
-                            content:
-                                'Eiusmod consequat ea eu amet non in Lorem velit amet.',
-                        },
-                        {
-                            author: 'MarkoB',
-                            content:
-                                'Eiusmod consequat ea eu amet non in Lorem velit amet.',
-                        },
-                        {
-                            author: 'MarkoB',
-                            content:
-                                'Eiusmod consequat ea eu amet non in Lorem velit amet.',
-                        },
-                    ],
+                    comments,
                 }}
             />
         </div>

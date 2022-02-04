@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
 
-export const CustomCardStyles = (theme) =>
+export const CustomCardStyles = (theme: any) =>
     css({
         display: 'block',
         alignSelf: 'stretch',
@@ -9,7 +9,6 @@ export const CustomCardStyles = (theme) =>
         '.custom-card-wrapper': {
             background: theme.colors.white,
             border: `1px solid ${theme.colors.lighterGrey}`,
-            borderRadius: 3,
             width: '100%',
             maxWidth: 600,
             margin: '0 10px',

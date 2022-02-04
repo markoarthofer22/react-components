@@ -1,7 +1,6 @@
 import { css } from '@emotion/react';
-import _ from 'underscore';
 
-export const SwitchButtonStyles = (theme) => {
+export const SwitchButtonStyles = (theme: any) => {
     const breakpoints = [
         theme.breakpoints.sm,
         theme.breakpoints.md,

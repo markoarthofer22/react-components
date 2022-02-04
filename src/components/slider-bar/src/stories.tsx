@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, number } from '@storybook/addon-knobs';
-import SliderBar from './';
+import SliderBar from '.';
 
 storiesOf(`Designs/Atoms/Slider Bar`, module)
     .addDecorator(withKnobs)
@@ -20,6 +20,7 @@ storiesOf(`Designs/Atoms/Slider Bar`, module)
                 min={number('Minimal value', 5)}
                 max={number('Maximal value', 50)}
                 formatFn={(value) => `${(value * 2.2).toFixed(2)} lbs`}
+                // eslint-disable-next-line no-console
                 onChange={(_) => console.log(_)}
             />
         </>

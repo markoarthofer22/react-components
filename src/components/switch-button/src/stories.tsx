@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, boolean, object } from '@storybook/addon-knobs';
 import { VscCheck, VscChromeClose } from 'react-icons/vsc';
-import SwitchButton from './';
+import SwitchButton from '.';
 
 const font = {
     fontSize: 16,

@@ -41,10 +41,10 @@ Basic structure:
 First, to discuss structure and typing in the app.
 
 -   inside component folder you should have 2 files
-    -   .component (`*.component.tsx`) and Storybook for showing component (`*.stories.js`)
+    -   .component (`*.component.tsx`) and Storybook for showing component (`*.stories.tsx`)
     -   stylings go to scss folder (name it after component and import inside `App.scss`) => **legacy**
     -   Changed from css to JSS (emotion)
-    -   stylings now go to styles.js, styles are now scoped to component
+    -   stylings now go to `styles.ts`, styles are now scoped to component
 -   use `npm run build` to create build for testing (build process in run trough GitHub Actions)
 -   use `npm run lint` to run linter with --fix param
 -   use `npm run prettier` to run prettier
@@ -60,8 +60,6 @@ On some systems, `npx lerna bootstrap` may fail with an error `Unexpected end of
 To run storybook locally `npm start`.
 
 To add a new element, copy the template to the src/elements directory, update the package.json with the name and add your source code.
-
-From 03.02. we switched to `jsx-control-statments` for `.tsx`. It makes control elements easier to use and to maintain.
 
 ### Styling
 
@@ -244,18 +242,18 @@ We use [Husky](https://github.com/typicode/husky) for precommit, so you don't ne
 
 The project includes a [Storybook](https://storybook.js.org/) for developing and testing components in isolation.
 
-To add a story for your component create a `*.stories.js` file. Preferably inside component you are creating
+To add a story for your component create a `*.stories.tsx` file. Preferably inside component you are creating.
 
-Additionaly you can add `knobs` (more on [knobs](https://storybook.js.org/addons/storybook-addon-knobs-color-options)) for adding props trough storybook UI
+Additionaly you can add `knobs` (more on [knobs](https://storybook.js.org/addons/storybook-addon-knobs-color-options)) for adding props trough storybook UI.
 
-You can also manually add stories using the Storybook [`storiesOf` API](https://storybook.js.org/docs/formats/storiesof-api/)
+You can also manually add stories using the Storybook [`storiesOf` API](https://storybook.js.org/docs/formats/storiesof-api/).
 
 ## Usage
 
 For starting Storybook on your localhost use
 
 ```sh
-  npm run storybook
+    npm start
 ```
 
 ### List of components
@@ -282,6 +280,8 @@ These are some of the components that we have in mind. Will be populated over ti
 16. Jump to top :white_check_mark:
 17. Input (quantity) :white_check_mark:
 18. Modal :white_check_mark:
+19. Table - In planning
+20. Grid :soon:
 
 #### Models
 

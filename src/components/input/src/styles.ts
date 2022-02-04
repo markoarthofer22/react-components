@@ -12,7 +12,7 @@ const errorShow = keyframes`
 }
 `;
 
-export const InputStyles = (theme) => {
+export const InputStyles = (theme: any) => {
     const breakpoints = [
         theme.breakpoints.sm,
         theme.breakpoints.md,
@@ -24,19 +24,18 @@ export const InputStyles = (theme) => {
 
     return css({
         label: {
-            display: 'inline-block',
+            display: 'inline-block' as const,
             marginBottom: 7,
             fontSize: 14,
             fontWeight: 400,
             lineHeight: 'normal',
             color: theme.colors.grey90,
         },
-
         textarea: {
             padding: 10,
             borderRadius: 5,
             fontSize: 14,
-            outline: 'none',
+            outline: 'none' as const,
             width: '100%',
             border: `1px solid ${theme.colors.grey20}`,
             backgroundColor: theme.colors.white,
@@ -44,11 +43,11 @@ export const InputStyles = (theme) => {
             transition: 'all 0.3s ease',
 
             '& + label': {
-                position: 'absolute',
+                position: 'absolute' as const,
                 top: 10,
                 left: 0,
-                userSelect: 'none',
-                pointerEvents: 'none',
+                userSelect: 'none' as const,
+                pointerEvents: 'none' as const,
             },
 
             '&.no-resize': {
@@ -61,7 +60,7 @@ export const InputStyles = (theme) => {
             height: 60,
             borderRadius: 5,
             fontSize: 14,
-            outline: 'none',
+            outline: 'none' as const,
             width: '100%',
             border: `1px solid ${theme.colors.grey20}`,
             backgroundColor: theme.colors.white,
@@ -75,7 +74,7 @@ export const InputStyles = (theme) => {
 
             '&:focus': {
                 outline: 0,
-                boxShadow: 0,
+                boxShadow: 'none',
                 border: `2px solid ${theme.colors.blue}`,
             },
 
@@ -86,9 +85,6 @@ export const InputStyles = (theme) => {
                 fontWeight: 500,
                 px: 6,
                 backgroundColor: theme.colors.white,
-            },
-
-            '& + label': {
                 position: 'absolute',
                 top: '50%',
                 transform: 'translateY(-50%)',
@@ -151,11 +147,11 @@ export const InputStyles = (theme) => {
     });
 };
 
-export const InputPhoneStyles = (theme) =>
+export const InputPhoneStyles = (theme: any) =>
     css({
         '.form-item-phone': {
-            display: 'flex',
-            alignItems: 'center',
+            display: 'flex' as const,
+            alignItems: 'center' as const,
             border: `1px solid ${theme.colors.grey20}`,
             borderRadius: 3,
             height: 40,
@@ -170,7 +166,7 @@ export const InputPhoneStyles = (theme) =>
                 flexBasis: '40%',
 
                 '&-disabled': {
-                    pointerEvents: 'none',
+                    pointerEvents: 'none' as const,
 
                     '.select--header': {
                         color: theme.colors.grey90,
@@ -201,10 +197,10 @@ export const InputPhoneStyles = (theme) =>
 
                 '&--placeholder': {
                     fontSize: 13,
-                    position: 'relative !important',
-                    transform: 'none !important',
-                    top: 'unset !important',
-                    left: 'unset !important',
+                    position: 'relative' as const,
+                    transform: 'none',
+                    top: 'unset' as const,
+                    left: 'unset' as const,
                 },
             },
 
@@ -227,7 +223,7 @@ export const InputPhoneStyles = (theme) =>
         },
 
         '.countries-input-holder': {
-            position: 'relative',
+            position: 'relative' as const,
 
             input: {
                 height: 40,
@@ -236,7 +232,7 @@ export const InputPhoneStyles = (theme) =>
         },
     });
 
-export const InputRadioStyles = (theme) =>
+export const InputRadioStyles = (theme: any) =>
     css({
         "input[type='radio']": {
             opacity: 0,
@@ -286,7 +282,7 @@ export const InputRadioStyles = (theme) =>
         },
     });
 
-export const InputCheckboxStyles = (theme) =>
+export const InputCheckboxStyles = (theme: any) =>
     css({
         "input[type='checkbox']": {
             opacity: 0,

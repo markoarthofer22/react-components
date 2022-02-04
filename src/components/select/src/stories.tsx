@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { boolean, text, withKnobs } from '@storybook/addon-knobs';
-import Select from './';
+import Select from '.';
 
 storiesOf(`Designs/Atoms`, module)
     .addDecorator(withKnobs)
@@ -39,7 +39,7 @@ storiesOf(`Designs/Atoms`, module)
             },
         ]);
 
-        const returnSelect = (data) => {
+        const returnSelect = (data: any) => {
             const vals = {
                 ...data,
             };
@@ -48,7 +48,7 @@ storiesOf(`Designs/Atoms`, module)
             console.log('Returned values from input :>> ', vals);
         };
 
-        if (countries.length === 0) return <div></div>;
+        if (countries.length === 0) return <div />;
 
         return (
             <div

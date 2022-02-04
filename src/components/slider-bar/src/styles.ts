@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 
-export const SliderbarStyles = (theme) => {
-    return css({
+export const SliderbarStyles = (theme: any) =>
+    css({
         maxWidth: 400,
         width: '100%',
         '.slider-bar': {
@@ -55,4 +55,3 @@ export const SliderbarStyles = (theme) => {
             },
         },
     });
-};

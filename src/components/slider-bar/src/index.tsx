@@ -9,7 +9,7 @@ interface ISliderBarProps {
     min?: number;
     max?: number;
     formatFn?: (val: any) => any;
-    onChange: (e: any) => any;
+    onChange?: (e: any) => any;
 }
 
 const SliderBar: React.FC<ISliderBarProps> = ({

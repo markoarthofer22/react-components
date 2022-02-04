@@ -1,6 +1,7 @@
 import { css } from '@emotion/react';
 import { rgba } from 'emotion-rgba';
-export const QuantityInputStyles = (theme) => {
+
+export const QuantityInputStyles = (theme: any) => {
     const breakpoints = [
         theme.breakpoints.sm,
         theme.breakpoints.md,

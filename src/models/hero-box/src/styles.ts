@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 import { rgba } from 'emotion-rgba';
 
-export const HeroBoxStyles = (theme) => {
+export const HeroBoxStyles = (theme: any) => {
     const breakpoints = [
         theme.breakpoints.sm,
         theme.breakpoints.md,

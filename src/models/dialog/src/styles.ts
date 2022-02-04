@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 import { rgba } from 'emotion-rgba';
 
-export const DialogStyles = (theme) =>
+export const DialogStyles = (theme: any) =>
     css({
         '.dialog': {
             '&--message': {

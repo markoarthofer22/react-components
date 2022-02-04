@@ -1,11 +1,11 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text } from '@storybook/addon-knobs';
-import QuantityInput from './';
+import QuantityInput from '.';
 
-const onInputChange = (value) => {
-    console.log('returned value from onChange :>> ', value);
-};
+const onInputChange = (value: string) =>
+    // eslint-disable-next-line no-console
+    console.log(`returned value from onChange :>> ${value} `);
 
 storiesOf(`Designs/Atoms`, module)
     .addDecorator(withKnobs)

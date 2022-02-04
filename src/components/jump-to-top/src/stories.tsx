@@ -2,12 +2,12 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, number } from '@storybook/addon-knobs';
 import { MdKeyboardArrowUp } from 'react-icons/md';
-import JumpToTop from './';
+import JumpToTop from '.';
 
 const styles = {
     width: '100%',
     height: '2000px',
-    position: 'relative',
+    position: 'relative' as const,
     border: '1px solid #000',
     backgroundColor: '#dfe4ed',
 };
@@ -21,7 +21,7 @@ storiesOf(`Designs/Atoms/Jump to Top`, module)
     ))
     .add('Component with custom icon and title', () => (
         <>
-            <div id='jump-to-top'></div>
+            <div id='jump-to-top' />
             <div style={styles}>
                 <JumpToTop
                     icon={MdKeyboardArrowUp}
@@ -35,7 +35,7 @@ storiesOf(`Designs/Atoms/Jump to Top`, module)
     ))
     .add('Component with custom icon', () => (
         <>
-            <div id='jump-to-top'></div>
+            <div id='jump-to-top' />
             <div style={styles}>
                 <JumpToTop
                     icon={MdKeyboardArrowUp}

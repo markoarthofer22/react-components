@@ -1,10 +1,10 @@
+/* eslint-disable no-alert */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs';
-import { RiCloseCircleLine } from 'react-icons/ri';
-import Modal from './';
+import Modal from '.';
 
-import Button from '../../buttons/src/';
+import Button from '../../buttons/src';
 
 storiesOf(`Designs/Atoms`, module)
     .addDecorator(withKnobs)
@@ -24,12 +24,12 @@ storiesOf(`Designs/Atoms`, module)
                     <Button
                         title='Yes'
                         className='blue big mr-10'
-                        clicked={() => console.log('Yes')}
+                        clicked={() => alert('Yes pressed')}
                     />
                     <Button
                         title='No'
                         className='default big'
-                        clicked={() => console.log('No')}
+                        clicked={() => alert('No pressed')}
                     />
                 </div>
             </Modal>

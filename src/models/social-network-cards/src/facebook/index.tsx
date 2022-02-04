@@ -19,7 +19,7 @@ const FacebookCard: React.FC<ISocialCardsProps> = ({
     const [isActive, setIsActive] = useState<boolean>(false);
 
     const setCommentsSectionActive = (): void => {
-        if (post.comments?.length! < 1) return;
+        if (post?.comments?.length! < 1) return;
         setIsActive(!isActive);
     };
 
@@ -37,11 +37,11 @@ const FacebookCard: React.FC<ISocialCardsProps> = ({
         <div css={FacebookCardStyles(theme)} className={`${className}`}>
             <div className={`${className}--header`}>
                 <div className={`${className}--author--img`}>
-                    <div style={{ backgroundImage: `url(${author.image})` }} />
+                    <div style={{ backgroundImage: `url(${author?.image})` }} />
                 </div>
                 <div className={`${className}--author`}>
-                    <p>{author.name}</p>
-                    <span>{post.published}</span>
+                    <p>{author?.name}</p>
+                    <span>{post?.published}</span>
                 </div>
             </div>
             <div className={`${className}--content`}>
@@ -58,7 +58,7 @@ const FacebookCard: React.FC<ISocialCardsProps> = ({
                         <AiFillLike />
                     </span>
                     <p className={`${className}--likes--count`}>
-                        {post.likes > 0 ? post.likes : 0}
+                        {post && post.likes > 0 ? post?.likes : 0}
                     </p>
                 </div>
 
@@ -71,7 +71,7 @@ const FacebookCard: React.FC<ISocialCardsProps> = ({
                 >
                     <p>
                         {post?.comments?.length! > 0
-                            ? post.comments?.length
+                            ? post?.comments?.length
                             : 0}{' '}
                         comments
                     </p>
@@ -84,7 +84,7 @@ const FacebookCard: React.FC<ISocialCardsProps> = ({
                     }`}
                     style={isActive ? calculateCommentsSectionHeight() : {}}
                 >
-                    {post.comments?.map((item, i) => (
+                    {post?.comments?.map((item, i) => (
                         <div
                             key={i}
                             className={`${className}--all-comments--item`}

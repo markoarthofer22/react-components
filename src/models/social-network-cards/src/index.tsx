@@ -2,8 +2,8 @@
 import React from 'react';
 import { useTheme } from '@emotion/react';
 
-import FacebookCard from './facebook/facebook.component';
-import InstagramCard from './instagram/instagram.component';
+import FacebookCard from './facebook';
+import InstagramCard from './instagram';
 
 import { CustomCardStyles } from './styles';
 
@@ -13,26 +13,24 @@ interface IPost {
     likes: number | string;
     commentsTotal: number | string;
     published?: string;
-    comments?: [
-        {
-            author: string;
-            content: string;
-        }
-    ];
+    comments?: Array<{
+        author: string;
+        content: string;
+    }>;
 }
 
 export interface ISocialCardsProps {
     title?: string;
-    description: string;
+    description?: string;
     image?: string;
-    author: {
+    author?: {
         name: string;
         avatarLink?: string;
         image?: string;
     };
     isHorizontal?: boolean;
     type: CardType | CardType[];
-    post: IPost;
+    post?: IPost;
     children?: React.ReactNode;
     className?: string;
 }
@@ -42,10 +40,13 @@ const SocialCards: React.FC<ISocialCardsProps> = (props): JSX.Element => {
 
     const theme = useTheme();
 
-    const renderBasedOnType = (_type: typeof type): JSX.Element => {
+    const renderBasedOnType = (
+        _type: typeof type,
+        direction?: boolean
+    ): JSX.Element => {
         switch (_type) {
             case 'facebook':
-                return <FacebookCard {...props} />;
+                return <FacebookCard {...props} isHorizontal={direction} />;
 
             case 'custom':
                 return (
@@ -57,18 +58,15 @@ const SocialCards: React.FC<ISocialCardsProps> = (props): JSX.Element => {
                 );
 
             case 'instagram':
-                return <InstagramCard {...props} />;
+                return <InstagramCard {...props} isHorizontal={direction} />;
 
             default:
-                return <InstagramCard {...props} />;
+                return <InstagramCard {...props} isHorizontal={direction} />;
         }
     };
 
-    const checkIfMultipleCards = (_isHorizontal: boolean): JSX.Element => {
-        // eslint-disable-next-line no-console
-        console.log(_isHorizontal);
-        return renderBasedOnType(type);
-    };
+    const checkIfMultipleCards = (_isHorizontal: boolean): JSX.Element =>
+        renderBasedOnType(type, _isHorizontal);
 
     return checkIfMultipleCards(isHorizontal);
 };

@@ -1,10 +1,9 @@
 import { css } from '@emotion/react';
 
-export const FacebookCardStyles = (theme) => {
-    return css({
+export const FacebookCardStyles = (theme: any) =>
+    css({
         background: theme.colors.white,
         border: `1px solid ${theme.colors.lighterGrey}`,
-        borderRadius: 3,
         width: '100%',
         maxWidth: 600,
         borderRadius: 12,
@@ -190,4 +189,3 @@ export const FacebookCardStyles = (theme) => {
             },
         },
     });
-};

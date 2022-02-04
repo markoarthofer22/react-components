@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 
-export const InstagramCardStyles = (theme) => {
-    return css({
+export const InstagramCardStyles = (theme: any) =>
+    css({
         background: theme.colors.white,
         border: `1px solid ${theme.colors.lighterGrey}`,
         borderRadius: 3,
@@ -109,4 +109,3 @@ export const InstagramCardStyles = (theme) => {
             },
         },
     });
-};

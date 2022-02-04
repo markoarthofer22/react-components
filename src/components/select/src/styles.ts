@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
 
-export const SelectStyles = (theme) => {
+export const SelectStyles = (theme: any) => {
     const breakpoints = [
         theme.breakpoints.sm,
         theme.breakpoints.md,

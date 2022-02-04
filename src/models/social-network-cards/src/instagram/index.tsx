@@ -21,17 +21,17 @@ const InstagramCard: React.FC<ISocialCardsProps> = ({
                 <span>
                     <img
                         alt=''
-                        src={author.avatarLink}
+                        src={author?.avatarLink}
                         className={`${className}--user-image`}
                     />
                     <a
                         className={`${className}--user-name`}
-                        href={`https://www.instagram.com/${author.name}`}
+                        href={`https://www.instagram.com/${author?.name}`}
                     >
-                        {author.name}
+                        {author?.name}
                     </a>
                 </span>
-                <div className={`${className}--time`}>{post.published}</div>
+                <div className={`${className}--time`}>{post?.published}</div>
             </div>
 
             {image && (
@@ -42,23 +42,23 @@ const InstagramCard: React.FC<ISocialCardsProps> = ({
 
             <div className={`${className}--content`}>
                 <div className={`${className}--main`}>
-                    <p className={`${className}--likes`}>{post.likes} likes</p>
+                    <p className={`${className}--likes`}>{post?.likes} likes</p>
                     {title && <h4>{title}</h4>}
                     <p>
                         <a
                             className={`${className}--content-user`}
-                            href={`https://www.instagram.com/${author.name}`}
+                            href={`https://www.instagram.com/${author?.name}`}
                         >
-                            {author.name}
+                            {author?.name}
                         </a>
                         {description}
                     </p>
                 </div>
                 <div className={`${className}--footer`}>
                     <p className={`${className}--comments`}>
-                        Go over {post.commentsTotal} comments
+                        Go over {post?.commentsTotal} comments
                     </p>
-                    {post.comments?.map((item, i) => (
+                    {post?.comments?.map((item, i) => (
                         <div key={i} className={`${className}--user-comment`}>
                             <a href='https://www.instagram.com/'>
                                 {item.author}

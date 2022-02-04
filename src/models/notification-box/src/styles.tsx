@@ -21,8 +21,8 @@ const rotate = keyframes`
     }
 `;
 
-export const NotificationBoxStyles = (theme) => {
-    return css({
+export const NotificationBoxStyles = (theme: any) =>
+    css({
         '.notification-box': {
             position: 'absolute',
             opacity: 0,
@@ -131,4 +131,3 @@ export const NotificationBoxStyles = (theme) => {
             },
         },
     });
-};

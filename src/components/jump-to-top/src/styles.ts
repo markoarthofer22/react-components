@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
 
-export const JumpToTopStyles = (theme) =>
+export const JumpToTopStyles = (theme: any) =>
     css({
         '.jump-to-top': {
             position: 'fixed',

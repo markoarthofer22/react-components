@@ -1,13 +1,9 @@
+/* eslint-disable no-alert */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text, boolean, optionsKnob } from '@storybook/addon-knobs';
 
-import NotificationBox from './';
-
-const valuesObj = {
-    Success: 'success',
-    Fail: 'fail',
-};
+import NotificationBox from '.';
 
 storiesOf(`Designs/Models`, module)
     .addDecorator(withKnobs)
@@ -19,11 +15,16 @@ storiesOf(`Designs/Models`, module)
                 'Ex incididunt sint consectetur consequat tempor.'
             )}
             isShowing={boolean('Is showing?', true)}
-            okCallback={() => console.log('clicked ok')}
-            cancelCallback={() => console.log('clicked cancle')}
+            okCallback={() => alert('clicked ok')}
+            cancelCallback={() => alert('clicked cancel')}
             handleClose={() => boolean('Is showing?', true)}
-            alertType={optionsKnob('Alert type', valuesObj, 'success', {
-                display: 'inline-radio',
-            })}
+            alertType={optionsKnob(
+                'Alert type',
+                { Success: 'success', Fail: 'fail' },
+                'success',
+                {
+                    display: 'inline-radio',
+                }
+            )}
         />
     ));
