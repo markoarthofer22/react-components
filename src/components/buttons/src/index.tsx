@@ -3,9 +3,11 @@ import React from 'react';
 import { useTheme } from '@emotion/react';
 import { ButtonStyles } from './styles';
 
-interface IButtonProps {
+export interface IButtonProps {
     children?: React.ReactNode;
     className?: string;
+    color?: string;
+    size?: 'small' | '' | 'big';
     clicked: (e?: any) => void;
     title: string;
     isLoading?: boolean;
@@ -14,18 +16,20 @@ interface IButtonProps {
 
 const Button: React.FC<IButtonProps> = ({
     children,
-    className = 'button',
+    className,
     clicked,
     title,
     isLoading,
     attributes,
+    size = '',
+    color,
 }): JSX.Element => {
     const theme = useTheme();
 
     return (
         <button
             title={title}
-            className={`button ${className || ''} ${
+            className={`button ${className || ''} ${size} ${color} ${
                 isLoading ? 'loading' : ''
             }`}
             type='button'

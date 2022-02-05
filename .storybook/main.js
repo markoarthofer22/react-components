@@ -10,8 +10,8 @@ module.exports = {
         '../src/models/**/*development.stories.@(js|jsx|ts|tsx|mdx)',
     ],
     addons: [
-        '@storybook/addon-knobs',
         '@storybook/addon-essentials',
         '@storybook/addon-viewport',
+        '@storybook/addon-docs',
     ],
 };
