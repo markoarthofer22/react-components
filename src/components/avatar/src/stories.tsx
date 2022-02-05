@@ -1,12 +1,5 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import {
-    withKnobs,
-    boolean,
-    color,
-    select,
-    number,
-} from '@storybook/addon-knobs';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { AiOutlineQuestion } from 'react-icons/ai';
 import Avatar from '.';
 
@@ -23,87 +16,150 @@ const itemsArray = [
     <AiOutlineQuestion />,
 ];
 
-storiesOf(`Designs/Atoms/Avatar`, module)
-    .addDecorator(withKnobs)
-    .add('Default', () => (
-        <Avatar
-            groupedLimit={number('Limit', 3)}
-            grouped={boolean('Grouped', true)}
-            stringifyLetter={boolean('Show Initials', true)}
-            backgroundColor={color('Background Color', '#d71920')}
-            variant={select(
-                'Variant',
-                {
+export default {
+    title: 'Designs/Atoms/Avatar',
+    component: Avatar,
+    argTypes: {
+        groupedLimit: {
+            defaultValue: 3,
+            description: 'Limit number of avatars',
+            control: {
+                type: 'number',
+            },
+            table: {
+                type: { summary: 'number' },
+                defaultValue: { summary: '3' },
+            },
+        },
+        grouped: {
+            defaultValue: true,
+            description: 'Group avatars together',
+            control: {
+                type: 'boolean',
+            },
+            table: {
+                type: { summary: 'boolean' },
+                defaultValue: { summary: true },
+            },
+        },
+        stringifyLetter: {
+            defaultValue: true,
+            description: 'Show avatars with initals',
+            control: {
+                type: 'boolean',
+            },
+            table: {
+                type: { summary: 'boolean' },
+                defaultValue: { summary: true },
+            },
+        },
+        backgroundColor: {
+            defaultValue: '#d71920',
+            description: 'Select avatar background color',
+            control: {
+                type: 'color',
+            },
+            table: {
+                type: { summary: 'string' },
+                defaultValue: { summary: 'transparent' },
+            },
+        },
+        size: {
+            defaultValue: 'normal',
+            description: 'Select size',
+            table: {
+                type: {
+                    summary: 'small | normal | big',
+                },
+                defaultValue: { summary: 'normal' },
+            },
+            control: {
+                type: 'select',
+                options: {
+                    small: 'small',
+                    normal: 'normal',
+                    big: 'big',
+                },
+            },
+        },
+        variant: {
+            defaultValue: 'circled',
+            description: 'Select variant',
+            table: {
+                type: {
+                    summary: 'circled | squared | rounded',
+                },
+                defaultValue: { summary: 'circled' },
+            },
+            control: {
+                type: 'select',
+                options: {
                     circled: 'circled',
                     squared: 'squared',
                     rounded: 'rounded',
                 },
-                'circled'
-            )}
-            size={select(
-                'Size',
-                { small: 'small', normal: 'normal', big: 'big' },
-                'normal'
-            )}
-        >
-            <div style={{ backgroundColor: '#1693c5' }}>
-                <img
-                    src='https://avataaars.io/?avatarStyle=Transparent&topType=LongHairStraight&accessoriesType=Blank&hairColor=BrownDark&facialHairType=Blank&clotheType=BlazerShirt&eyeType=Default&eyebrowType=Default&mouthType=Default&skinColor=Light'
-                    alt='img1'
-                />
-            </div>
+            },
+        },
+        values: {
+            defaultValue: itemsArray,
+            description: 'Pass an array of values to render as avatars',
+            control: {
+                type: 'array',
+            },
+            table: {
+                type: { summary: 'array<any>' },
+                defaultValue: { summary: '[]' },
+            },
+        },
+    },
+} as ComponentMeta<typeof Avatar>;
 
-            <div style={{ backgroundColor: '#c71585' }}>
-                <img
-                    src='https://avataaars.io/?avatarStyle=Transparent&topType=Turban&accessoriesType=Prescription01&hatColor=PastelRed&hairColor=Brown&facialHairType=BeardMajestic&facialHairColor=Blonde&clotheType=ShirtCrewNeck&clotheColor=PastelBlue&graphicType=Bear&eyeType=Dizzy&eyebrowType=Angry&mouthType=Serious&skinColor=Yellow'
-                    alt='img2'
-                />
-            </div>
+export const Default: ComponentStory<typeof Avatar> = (args) => (
+    <Avatar {...args}>
+        <div style={{ backgroundColor: '#1693c5' }}>
+            <img
+                src='https://avataaars.io/?avatarStyle=Transparent&topType=LongHairStraight&accessoriesType=Blank&hairColor=BrownDark&facialHairType=Blank&clotheType=BlazerShirt&eyeType=Default&eyebrowType=Default&mouthType=Default&skinColor=Light'
+                alt='img1'
+            />
+        </div>
 
-            <p style={{ color: '#FFF', textAlign: 'center' }}>Marko Arthofer</p>
+        <div style={{ backgroundColor: '#c71585' }}>
+            <img
+                src='https://avataaars.io/?avatarStyle=Transparent&topType=Turban&accessoriesType=Prescription01&hatColor=PastelRed&hairColor=Brown&facialHairType=BeardMajestic&facialHairColor=Blonde&clotheType=ShirtCrewNeck&clotheColor=PastelBlue&graphicType=Bear&eyeType=Dizzy&eyebrowType=Angry&mouthType=Serious&skinColor=Yellow'
+                alt='img2'
+            />
+        </div>
 
-            <div>
-                <img
-                    src='https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairTheCaesar&accessoriesType=Blank&hairColor=Blue&facialHairType=MoustacheFancy&facialHairColor=Brown&clotheType=BlazerShirt&clotheColor=Heather&eyeType=WinkWacky&eyebrowType=UpDown&mouthType=Vomit&skinColor=Black'
-                    alt='img3'
-                />
-            </div>
+        <p style={{ color: '#FFF', textAlign: 'center' }}>Marko Arthofer</p>
 
-            <div>
-                <img
-                    src='https://avataaars.io/?avatarStyle=Transparent&topType=LongHairFroBand&accessoriesType=Prescription02&hairColor=Black&facialHairType=BeardMajestic&facialHairColor=Black&clotheType=ShirtCrewNeck&clotheColor=Gray01&eyeType=Surprised&eyebrowType=SadConcerned&mouthType=Grimace&skinColor=Brown'
-                    alt='img4'
-                />
-            </div>
+        <div>
+            <img
+                src='https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairTheCaesar&accessoriesType=Blank&hairColor=Blue&facialHairType=MoustacheFancy&facialHairColor=Brown&clotheType=BlazerShirt&clotheColor=Heather&eyeType=WinkWacky&eyebrowType=UpDown&mouthType=Vomit&skinColor=Black'
+                alt='img3'
+            />
+        </div>
 
-            <div>
-                <img
-                    src='https://avataaars.io/?avatarStyle=Transparent&topType=LongHairBob&accessoriesType=Kurt&hairColor=Brown&facialHairType=BeardLight&facialHairColor=Red&clotheType=ShirtVNeck&clotheColor=Gray02&eyeType=WinkWacky&eyebrowType=UpDownNatural&mouthType=Vomit&skinColor=DarkBrown'
-                    alt='img5'
-                />
-            </div>
-        </Avatar>
-    ))
-    .add('Avatar with array of values', () => (
-        <Avatar
-            groupedLimit={number('Limit', 3)}
-            grouped={boolean('Grouped', false)}
-            values={itemsArray}
-            stringifyLetter={boolean('Show Initials', true)}
-            backgroundColor={color('Background Color', '#d71920')}
-            variant={select(
-                'Variant',
-                {
-                    circled: 'circled',
-                    squared: 'squared',
-                    rounded: 'rounded',
-                },
-                'circled'
-            )}
-            size={select(
-                'Size',
-                { small: 'small', normal: 'normal', big: 'big' },
-                'normal'
-            )}
-        />
-    ));
+        <div>
+            <img
+                src='https://avataaars.io/?avatarStyle=Transparent&topType=LongHairFroBand&accessoriesType=Prescription02&hairColor=Black&facialHairType=BeardMajestic&facialHairColor=Black&clotheType=ShirtCrewNeck&clotheColor=Gray01&eyeType=Surprised&eyebrowType=SadConcerned&mouthType=Grimace&skinColor=Brown'
+                alt='img4'
+            />
+        </div>
+
+        <div>
+            <img
+                src='https://avataaars.io/?avatarStyle=Transparent&topType=LongHairBob&accessoriesType=Kurt&hairColor=Brown&facialHairType=BeardLight&facialHairColor=Red&clotheType=ShirtVNeck&clotheColor=Gray02&eyeType=WinkWacky&eyebrowType=UpDownNatural&mouthType=Vomit&skinColor=DarkBrown'
+                alt='img5'
+            />
+        </div>
+    </Avatar>
+);
+
+Default.storyName = 'Default Avatar';
+Default.args = {
+    values: undefined,
+};
+
+export const AvatarWithArrayOfValues: ComponentStory<typeof Avatar> = (
+    args
+) => <Avatar {...args} />;

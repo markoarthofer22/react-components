@@ -3,11 +3,14 @@ import React, { useEffect, useState } from 'react';
 import { useTheme } from '@emotion/react';
 import { AvatarStyles } from './styles';
 
-type IconType = React.ElementType | React.ComponentType | React.ReactNode;
+export type IconType =
+    | React.ElementType
+    | React.ComponentType
+    | React.ReactNode;
 
-type Color = string | 'transparent';
+export type Color = string | 'transparent';
 
-interface IAvatarProps {
+export interface IAvatarProps {
     stringifyLetter?: boolean;
     grouped?: boolean;
     size?: 'small' | 'normal' | 'big';

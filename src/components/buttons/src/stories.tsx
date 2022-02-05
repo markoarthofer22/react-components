@@ -25,7 +25,7 @@ export default {
             defaultValue: 'big',
             description: 'Change size of the button',
             table: {
-                type: { summary: 'string' },
+                type: { summary: "small | big | '' " },
                 defaultValue: { summary: 'Normal' },
             },
             control: {
@@ -41,7 +41,10 @@ export default {
             defaultValue: 'blue',
             description: 'Select the color from an array of predefined colors',
             table: {
-                type: { summary: 'string' },
+                type: {
+                    summary:
+                        "'' | default | red | blue | yellow | pink | green",
+                },
                 defaultValue: { summary: 'default' },
             },
             control: {
