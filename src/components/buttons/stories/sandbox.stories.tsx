@@ -1,6 +1,7 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import Button from '.';
+import { Button } from '../src/index';
+import PageDoc from './development.mdx';
 
 export default {
     title: 'Designs/Atoms/Button',
@@ -22,17 +23,17 @@ export default {
             description: 'Specify the title for the button',
         },
         size: {
-            defaultValue: 'big',
+            defaultValue: 'default',
             description: 'Change size of the button',
             table: {
-                type: { summary: "small | big | '' " },
-                defaultValue: { summary: 'Normal' },
+                type: { summary: 'small | default | big ' },
+                defaultValue: { summary: 'default' },
             },
             control: {
                 type: 'select',
                 options: {
                     Small: 'small',
-                    Normal: '',
+                    Normal: 'default',
                     Big: 'big',
                 },
             },
@@ -72,7 +73,7 @@ export default {
             },
         },
         className: {
-            defaultValue: 'default',
+            defaultValue: '',
             description: 'Add any custom className to your button',
             control: {
                 type: 'text',
@@ -83,11 +84,31 @@ export default {
             },
         },
         clicked: {
+            type: {
+                name: 'function',
+                required: true,
+            },
             table: {
                 type: { summary: 'function' },
                 defaultValue: { summary: '() => {}' },
             },
             action: 'clicked',
+        },
+        attributes: {
+            defaultValue: [],
+            description: 'Add button attributes',
+            control: {
+                type: null,
+            },
+            table: {
+                type: { summary: 'array<any>' },
+                defaultValue: { summary: [] },
+            },
+        },
+    },
+    parameters: {
+        docs: {
+            page: PageDoc,
         },
     },
 } as ComponentMeta<typeof Button>;

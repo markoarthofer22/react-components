@@ -7,8 +7,6 @@ rollup.config.js
 storybook-static
 # since we are using typscript parser ignore eslintrc since we dont want to parse it
 .eslintrc.js
-*.stories.js
-stories.js
 dangerfile.js
 styles.js
 builder.js

@@ -49,7 +49,8 @@
         "react-hook-form": "^7.16.2",
         "react-icons": "^4.2.0",
         "react-transition-group": "^4.4.1",
-        "underscore": "^1.13.1"
+        "underscore": "^1.13.1",
+        "core-js": "^3.13.0"
     },
     "devDependencies": {
         "@babel/core": "^7.15.0",

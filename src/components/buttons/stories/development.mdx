@@ -1,0 +1,28 @@
+import { Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+import { Button } from '../src/index';
+
+# Button
+
+Collection of buttons that can be customized
+
+### Usage and import
+
+You can import it in two ways: - as a standalone component - from the whole package
+
+```jsx
+import Button from '@markoarthofer22/react-components.button';
+// OR
+import { Button } from '@markoarthofer22/react-components';
+```
+
+<Canvas withSource={'open'}>
+    <Story id='designs-atoms-button--default' />
+</Canvas>
+
+`title` is a **required** prop. You can also pass children to your button. Use `className` to override all styles and add your own. `color` prop has predefined values (`'' | default | red | blue | yellow | pink | green`). Also you can change size of a button with a `size` prop (`small | default | big`)
+
+<div style={{ marginBottom: '50px' }} />
+
+### API
+
+<ArgsTable of={Button} />

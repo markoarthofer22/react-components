@@ -7,7 +7,7 @@ const COL_BASE_FLEX_SIZE = 8.33333;
 const PADDING_X = 16;
 const PADDING_Y = 12;
 
-interface IGridProps {
+export interface IGridProps {
     paddingX?: number;
     paddingY?: number;
     isCentered?: boolean;
@@ -56,14 +56,14 @@ export const Grid: React.FC<IGridProps> = ({
     return <div css={{ ...gridStyles, ...style }}>{children}</div>;
 };
 
-type GridItemsAlignment =
+export type GridItemsAlignment =
     | 'flex-start'
     | 'center'
     | 'flex-end'
     | 'stretch'
     | 'baseline';
 
-type GridJustify =
+export type GridJustify =
     | 'flex-start'
     | 'center'
     | 'flex-end'
@@ -71,7 +71,7 @@ type GridJustify =
     | 'space-around'
     | 'space-evenly';
 
-interface IRowProps {
+export interface IRowProps {
     children: React.ReactNode;
     alignItems?: GridItemsAlignment;
     expanded?: boolean;
@@ -125,9 +125,9 @@ export const Row: React.FC<IRowProps> = ({
     );
 };
 
-type GridSizes = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
+export type GridSizes = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 
-interface IColumnProps {
+export interface IColumnProps {
     children: React.ReactNode;
     gutter?: number;
     xs?: GridSizes;

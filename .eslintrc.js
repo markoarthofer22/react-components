@@ -23,12 +23,13 @@ module.exports = {
     settings: {
         'import/resolver': {
             node: {
-                extensions: ['.js', '.jsx', '.ts', '.tsx'],
+                extensions: ['.js', '.jsx', '.ts', '.tsx', '.mdx'],
             },
         },
     },
     rules: {
         'no-unused-vars': 'warn',
+        'import/no-named-as-default': 'off',
         'no-use-before-define': [
             'error',
             {

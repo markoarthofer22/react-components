@@ -1,7 +1,8 @@
-import React from 'react';
+import * as React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { AiOutlineQuestion } from 'react-icons/ai';
-import Avatar from '.';
+import { Avatar } from '../src/index';
+import PageDoc from './development.mdx';
 
 const itemsArray = [
     <img
@@ -21,10 +22,10 @@ export default {
     component: Avatar,
     argTypes: {
         groupedLimit: {
-            defaultValue: 3,
+            defaultValue: '3',
             description: 'Limit number of avatars',
             control: {
-                type: 'number',
+                type: 'text',
             },
             table: {
                 type: { summary: 'number' },
@@ -32,25 +33,25 @@ export default {
             },
         },
         grouped: {
-            defaultValue: true,
+            defaultValue: false,
             description: 'Group avatars together',
             control: {
                 type: 'boolean',
             },
             table: {
                 type: { summary: 'boolean' },
-                defaultValue: { summary: true },
+                defaultValue: { summary: false },
             },
         },
         stringifyLetter: {
-            defaultValue: true,
+            defaultValue: false,
             description: 'Show avatars with initals',
             control: {
                 type: 'boolean',
             },
             table: {
                 type: { summary: 'boolean' },
-                defaultValue: { summary: true },
+                defaultValue: { summary: false },
             },
         },
         backgroundColor: {
@@ -111,6 +112,22 @@ export default {
                 defaultValue: { summary: '[]' },
             },
         },
+        className: {
+            defaultValue: 'avatar',
+            control: {
+                type: 'text',
+            },
+            table: {
+                type: { summary: 'string' },
+                defaultValue: { summary: 'avatar' },
+            },
+            description: 'Specify custom className for override',
+        },
+    },
+    parameters: {
+        docs: {
+            page: PageDoc,
+        },
     },
 } as ComponentMeta<typeof Avatar>;
 
@@ -155,7 +172,6 @@ export const Default: ComponentStory<typeof Avatar> = (args) => (
     </Avatar>
 );
 
-Default.storyName = 'Default Avatar';
 Default.args = {
     values: undefined,
 };

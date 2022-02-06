@@ -13,6 +13,7 @@
 -   [] Added the appropriate labels to my PR
 -   [] Linted the code and removed unused variables
 -   [] Added stories to component
+-   [] Added development.mdx to component
 -   [] Added new styles file
 -   [] Tested changes in the Storybook
 

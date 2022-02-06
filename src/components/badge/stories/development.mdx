@@ -1,0 +1,38 @@
+import { Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+import { Badge } from '../src/index';
+
+# Badge
+
+### Usage and import
+
+You can import it in two ways: - as a standalone component - from the whole package
+
+```jsx
+import Badge from '@markoarthofer22/react-components.badge';
+// OR
+import { Badge } from '@markoarthofer22/react-components';
+```
+
+<Canvas withSource={'open'}>
+    <Story id='designs-atoms-badge--default' />
+</Canvas>
+
+`value` is a **required** prop. Look at the table for types.
+
+<Canvas>
+    <Story id='designs-atoms-badge--with-custom-styles' />
+</Canvas>
+
+You can apply custom styles object to `Badge` component.
+
+<Canvas>
+    <Story id='designs-atoms-badge--with-custom-icon' />
+</Canvas>
+
+If needed value can be provided as a `ReactIcon` type.
+
+<div style={{ marginBottom: '50px' }} />
+
+### API
+
+<ArgsTable of={Badge} />

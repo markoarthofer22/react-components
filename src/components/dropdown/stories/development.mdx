@@ -1,0 +1,35 @@
+import { Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+import { Dropdown } from '../src/index';
+
+# Dropdown
+
+Dropdown component for everyday usage :)
+
+### Usage and import
+
+You can import it in two ways: - as a standalone component - from the whole package
+
+```jsx
+import Dropdown from '@markoarthofer22/react-components.dropdown';
+// OR
+import { Dropdown } from '@markoarthofer22/react-components';
+```
+
+<Canvas withSource={'open'}>
+    <Story id='designs-atoms-dropdown--default' />
+</Canvas>
+
+In order for it to work you need to pass at least **2 props** that are required. Component needs and `dropdownID` for internal state managment and it needs dataSet to show data (`data` prop).
+
+Also you should pass prosp for data managment:
+
+```jsx
+    onChange?: (e?: any) => void;
+returnValue?: (data: IData) => void;
+```
+
+<div style={{ marginBottom: '50px' }} />
+
+### API
+
+<ArgsTable of={Dropdown} />

@@ -1,0 +1,30 @@
+import { Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+import { Hamburger } from '../src/index';
+
+# Hamburger
+
+Hamburger component for everyday usage :)
+
+### Usage and import
+
+You can import it in two ways: - as a standalone component - from the whole package
+
+```jsx
+import Hamburger from '@markoarthofer22/react-components.hamburger';
+// OR
+import { Hamburger } from '@markoarthofer22/react-components';
+```
+
+<Canvas withSource={'open'}>
+    <Story id='designs-atoms-hamburger--default' />
+</Canvas>
+
+We strongly suggest that `isOpen` prop is managed trough `React.useState` functionality to minimize unnecessary rerenders.
+
+Pass `disableOnDesktop` prop to disable hamburger on Desktop devices.
+
+<div style={{ marginBottom: '50px' }} />
+
+### API
+
+<ArgsTable of={Hamburger} />

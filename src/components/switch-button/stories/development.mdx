@@ -1,0 +1,34 @@
+import { Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+import { SwitchButton } from '../src/index';
+
+# SwitchButton
+
+SwitchButton component for everyday usage :)
+
+### Usage and import
+
+You can import it in two ways: - as a standalone component - from the whole package
+
+```jsx
+import SwitchButton from '@markoarthofer22/react-components.switch-button';
+// OR
+import { SwitchButton } from '@markoarthofer22/react-components';
+```
+
+<Canvas withSource={'open'}>
+    <Story id='designs-atoms-switch-button--default' />
+</Canvas>
+
+You must provide `id` and `name` props for the internal state managment. Also by passing `small` prop you can change the size of the button. The same works with `disabled` prop.
+
+<Canvas withSource={'close'}>
+    <Story id='designs-atoms-switch-button--with-icon' />
+</Canvas>
+
+You can provide different optionLabels prop. It cane be an icon if you specify the `icon` prop (`React.ElementType | React.ComponentType`). Look at the source for the implementation.
+
+<div style={{ marginBottom: '50px' }} />
+
+### API
+
+<ArgsTable of={SwitchButton} />

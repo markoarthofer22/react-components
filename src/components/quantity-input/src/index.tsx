@@ -3,14 +3,14 @@ import React, { useEffect, useState } from 'react';
 import { useTheme } from '@emotion/react';
 import { QuantityInputStyles } from './styles';
 
-interface IQuantityProps {
+export interface IQuantityProps {
     onChange: (e: any) => void;
     maxValue?: string;
     defaultValue?: string;
     className?: string;
 }
 
-const QuantityInput: React.FC<IQuantityProps> = ({
+export const QuantityInput: React.FC<IQuantityProps> = ({
     onChange,
     maxValue = '99',
     defaultValue = '0',

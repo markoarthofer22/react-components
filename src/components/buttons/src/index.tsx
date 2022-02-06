@@ -7,31 +7,31 @@ export interface IButtonProps {
     children?: React.ReactNode;
     className?: string;
     color?: string;
-    size?: 'small' | '' | 'big';
+    size?: 'small' | 'default' | 'big';
     clicked: (e?: any) => void;
     title: string;
     isLoading?: boolean;
     attributes?: Record<string, unknown>;
 }
 
-const Button: React.FC<IButtonProps> = ({
+export const Button: React.FC<IButtonProps> = ({
     children,
     className,
     clicked,
     title,
-    isLoading,
+    isLoading = false,
     attributes,
-    size = '',
-    color,
+    size = 'default',
+    color = 'default',
 }): JSX.Element => {
     const theme = useTheme();
 
     return (
         <button
             title={title}
-            className={`button ${className || ''} ${size} ${color} ${
-                isLoading ? 'loading' : ''
-            }`}
+            className={`button ${className || ''} ${
+                size !== 'default' ? size : ''
+            } ${color} ${isLoading ? 'loading' : ''}`}
             type='button'
             onClick={clicked && ((e) => clicked(e))}
             disabled={isLoading}

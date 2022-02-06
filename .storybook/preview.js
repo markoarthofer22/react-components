@@ -4,6 +4,8 @@ import { addDecorator, addParameters } from '@storybook/react';
 import StoryRouter from 'storybook-react-router';
 import GlobalThemeProvider from '../src/themes/global-theme-wrapper/src';
 
+import { DocsPage, DocsContainer } from '@storybook/addon-docs';
+
 const withGlobalProvider = (story) => (
     <GlobalThemeProvider>{story()}</GlobalThemeProvider>
 );
@@ -51,6 +53,10 @@ addDecorator(withGlobalProvider);
 addDecorator(StoryRouter());
 
 addParameters({
+    docs: {
+        container: DocsContainer,
+        page: DocsPage,
+    },
     viewport: {
         viewports: newViewports,
         defaultViewport: 'desktop',
@@ -66,15 +72,12 @@ addParameters({
         hierarchyRootSeparator: '|',
         hierarchySeparator: /\/|\./,
     },
-    a11y: {
-        options: {
-            runOnly: {
-                type: 'tag',
-                values: ['wcag2aa', 'wcag21a', 'wcag21aa'],
-            },
-            rules: {
-                'color-contrast': { enabled: false },
-            },
-        },
-    },
 });
+
+export const parameters = {
+    controls: {
+        expanded: true,
+        hideNoControlsWarning: true,
+        sort: 'requiredFirst',
+    },
+};

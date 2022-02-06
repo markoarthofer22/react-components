@@ -4,11 +4,11 @@ import { useTheme } from '@emotion/react';
 
 import { SwitchButtonStyles } from './styles';
 
-interface ISwitchButtonProps {
-    className?: string;
-    checked?: boolean;
+export interface ISwitchButtonProps {
     id: string;
     name: string;
+    className?: string;
+    checked?: boolean;
     onChange?: (e?: any) => void | any;
     optionLabels?: {
         yes: string;
@@ -22,7 +22,7 @@ interface ISwitchButtonProps {
     };
 }
 
-const SwitchButton: React.FC<ISwitchButtonProps> = ({
+export const SwitchButton: React.FC<ISwitchButtonProps> = ({
     id,
     name,
     checked = false,

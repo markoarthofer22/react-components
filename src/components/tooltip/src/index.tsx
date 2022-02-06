@@ -5,13 +5,13 @@ import { useTheme } from '@emotion/react';
 import { BsQuestion } from 'react-icons/bs';
 import { TooltipStyles } from './styles';
 
-interface ITooltipProps {
-    className?: string;
+export interface ITooltipProps {
     title: string;
+    className?: string;
     icon?: React.ElementType | React.ComponentType;
 }
 
-const Tooltip: React.FC<ITooltipProps> = ({
+export const Tooltip: React.FC<ITooltipProps> = ({
     className = 'tooltip',
     title,
     icon,

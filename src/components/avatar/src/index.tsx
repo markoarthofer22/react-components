@@ -1,5 +1,6 @@
 /** @jsxImportSource @emotion/react */
-import React, { useEffect, useState } from 'react';
+import * as React from 'react';
+import { useEffect, useState } from 'react';
 import { useTheme } from '@emotion/react';
 import { AvatarStyles } from './styles';
 
@@ -22,7 +23,7 @@ export interface IAvatarProps {
     className?: string;
 }
 
-const Avatar: React.FC<IAvatarProps> = ({
+export const Avatar: React.FC<IAvatarProps> = ({
     stringifyLetter = false,
     grouped = false,
     size = 'normal',

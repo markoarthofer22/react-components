@@ -6,13 +6,13 @@ import { MdStore } from 'react-icons/md';
 import { uniqueId } from 'underscore';
 import { BreadcrumbsStyles } from './styles';
 
-interface ICrumb {
+export interface ICrumb {
     id: string | number;
     link: string;
     title: string;
 }
 
-interface IBreadcrumbsProps {
+export interface IBreadcrumbsProps {
     hasHomeIcon?: boolean;
     homeIcon?: React.ElementType | React.ComponentType;
     isHomeRoot?: boolean;
@@ -20,7 +20,7 @@ interface IBreadcrumbsProps {
     className?: string;
 }
 
-const Breadcrumbs: React.FC<IBreadcrumbsProps> = ({
+export const Breadcrumbs: React.FC<IBreadcrumbsProps> = ({
     hasHomeIcon = true,
     homeIcon,
     isHomeRoot = true,

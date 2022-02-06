@@ -190,7 +190,8 @@ Here is a good example of how to add a new component/model/page
         propTwo: number
     }
 
-    const Component: React.FC<IComponentProps> = (props): JSX.Element => {
+    // add named export for storybook support (for args table)
+    export const Component: React.FC<IComponentProps> = (props): JSX.Element => {
         // define theme hook
         const theme = useTheme()
 
@@ -242,11 +243,17 @@ We use [Husky](https://github.com/typicode/husky) for precommit, so you don't ne
 
 The project includes a [Storybook](https://storybook.js.org/) for developing and testing components in isolation.
 
-To add a story for your component create a `*.stories.tsx` file. Preferably inside component you are creating.
+To add a story for your component create a `sandbox.stories.tsx` file. You can create file in `stories/` folder in a root of a package.
 
-Additionaly you can add `knobs` (more on [knobs](https://storybook.js.org/addons/storybook-addon-knobs-color-options)) for adding props trough storybook UI.
+~~Additionaly you can add `knobs` (more on [knobs](https://storybook.js.org/addons/storybook-addon-knobs-color-options)) for adding props trough storybook UI.
 
-You can also manually add stories using the Storybook [`storiesOf` API](https://storybook.js.org/docs/formats/storiesof-api/).
+You can also manually add stories using the Storybook [`storiesOf` API](https://storybook.js.org/docs/formats/storiesof-api/).~~
+
+**THIS IS DEPRECATED**
+
+After updating to Storybook 6.4 we are using [`controls` API](https://storybook.js.org/docs/react/essentials/controls) and [`args` API](https://storybook.js.org/docs/react/writing-stories/args)
+
+For easier development and maintenance **you must add** `development.mdx` file where you will describe your component. For templating you can copy stories and docs from other packages! [SEE DOCS](https://storybook.js.org/docs/react/writing-docs/docs-page#with-mdx-documentation) and [MDX USAGE](https://storybook.js.org/docs/react/writing-docs/mdx)
 
 ## Usage
 
