@@ -2,12 +2,12 @@
 import React from 'react';
 import { CSSTransition } from 'react-transition-group';
 import { useTheme } from '@emotion/react';
-import Button from '../../../components/buttons/src/index';
-import Popup from '../../../components/popup/src/index';
+import { Button } from '../../../components/buttons/src/index';
+import { Popup } from '../../../components/popup/src/index';
 
 import { DialogStyles } from './styles';
 
-interface IDialogProps {
+export interface IDialogProps {
     title: string;
     message?: string;
     requestMessage?: string;
@@ -17,7 +17,7 @@ interface IDialogProps {
     cancelCallback: (e?: any) => void;
 }
 
-const Dialog: React.FC<IDialogProps> = ({
+export const Dialog: React.FC<IDialogProps> = ({
     title,
     message,
     requestMessage,
@@ -36,6 +36,7 @@ const Dialog: React.FC<IDialogProps> = ({
             unmountOnExit
         >
             <Popup
+                visible={isShowing}
                 closePopup={(e?: any) =>
                     cancelCallback ? cancelCallback(e) : okCallback(e)
                 }

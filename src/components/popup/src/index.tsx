@@ -4,14 +4,16 @@ import React, { useEffect } from 'react';
 import { MdClose } from 'react-icons/md';
 import { PopupStyles } from './styles';
 
-interface IPopupProps {
+export interface IPopupProps {
+    visible: boolean;
     closePopup: (e?: any) => void;
     children: React.ReactNode;
     className?: string;
     icon?: React.ElementType | React.ComponentType;
 }
 
-const Popup: React.FC<IPopupProps> = ({
+export const Popup: React.FC<IPopupProps> = ({
+    visible = false,
     closePopup,
     children,
     className = 'popup',
@@ -43,7 +45,7 @@ const Popup: React.FC<IPopupProps> = ({
         };
     }, []);
 
-    return (
+    return visible ? (
         <span css={PopupStyles(theme)}>
             <div id='popup' className={`${className}`}>
                 <div className={`${className}--window`}>
@@ -61,6 +63,8 @@ const Popup: React.FC<IPopupProps> = ({
                 </div>
             </div>
         </span>
+    ) : (
+        <div />
     );
 };
 

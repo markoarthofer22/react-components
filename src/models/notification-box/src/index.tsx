@@ -5,7 +5,7 @@ import { useTheme } from '@emotion/react';
 import Button from '../../../components/buttons/src/index';
 import { NotificationBoxStyles } from './styles';
 
-interface INotificationBoxProp {
+export interface INotificationBoxProp {
     alertType: 'success' | 'fail';
     isShowing: boolean;
     title: string;
@@ -13,14 +13,14 @@ interface INotificationBoxProp {
     message: string;
     okCallback?: (e?: any) => void;
     cancelCallback?: (e?: any) => void;
-    handleClose: (e?: any) => void;
+    handleClose?: (e?: any) => void;
 }
 
-const NotificationBox: React.FC<INotificationBoxProp> = (
+export const NotificationBox: React.FC<INotificationBoxProp> = (
     props
 ): JSX.Element => {
     const {
-        alertType,
+        alertType = 'success',
         isShowing,
         title,
         message,
@@ -36,7 +36,7 @@ const NotificationBox: React.FC<INotificationBoxProp> = (
         let handler: ReturnType<typeof setTimeout>;
         if (!okCallback && !cancelCallback) {
             handler = setTimeout(() => {
-                handleClose();
+                handleClose && handleClose();
             }, 5000);
         }
         return () => {
@@ -134,7 +134,7 @@ const NotificationBox: React.FC<INotificationBoxProp> = (
                             <Button
                                 className='blue'
                                 title='Cancel'
-                                clicked={handleClose}
+                                clicked={handleClose || cancelCallback}
                             />
                         )}
                     </div>

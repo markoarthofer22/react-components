@@ -3,22 +3,26 @@ import React from 'react';
 import { useTheme } from '@emotion/react';
 import { ButtonStyles } from './styles';
 
-interface IButtonProps {
+export interface IButtonProps {
     children?: React.ReactNode;
     className?: string;
+    color?: string;
+    size?: 'small' | 'default' | 'big';
     clicked: (e?: any) => void;
     title: string;
     isLoading?: boolean;
     attributes?: Record<string, unknown>;
 }
 
-const Button: React.FC<IButtonProps> = ({
+export const Button: React.FC<IButtonProps> = ({
     children,
-    className = 'button',
+    className,
     clicked,
     title,
-    isLoading,
+    isLoading = false,
     attributes,
+    size = 'default',
+    color = 'default',
 }): JSX.Element => {
     const theme = useTheme();
 
@@ -26,8 +30,8 @@ const Button: React.FC<IButtonProps> = ({
         <button
             title={title}
             className={`button ${className || ''} ${
-                isLoading ? 'loading' : ''
-            }`}
+                size !== 'default' ? size : ''
+            } ${color} ${isLoading ? 'loading' : ''}`}
             type='button'
             onClick={clicked && ((e) => clicked(e))}
             disabled={isLoading}

@@ -3,9 +3,9 @@ import React from 'react';
 import { useTheme } from '@emotion/react';
 import { BadgeStyles } from './styles';
 
-type IconType = React.ElementType | React.ComponentType;
+export type IconType = React.ElementType | React.ComponentType;
 
-interface IBadgeProps {
+export interface IBadgeProps {
     stylesObj?: {
         [key: string]: any;
     };
@@ -13,7 +13,7 @@ interface IBadgeProps {
     className?: string;
 }
 
-const Badge: React.FC<IBadgeProps> = ({
+export const Badge: React.FC<IBadgeProps> = ({
     stylesObj = {},
     value,
     className = 'badge',

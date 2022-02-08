@@ -1,0 +1,41 @@
+import { Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+import { Grid, Col, Row } from '../src/index';
+
+# Grid component
+
+Custom grid component that uses Flex for positioning.
+
+### Usage and import
+
+You can import it in two ways: - as a standalone component - from the whole package
+
+```jsx
+import { Grid, Col, Row } from '@markoarthofer22/react-components.grid';
+// OR
+import { Grid, Col, Row } from '@markoarthofer22/react-components';
+```
+
+### Working example
+
+<Canvas withSource={'open'}>
+    <Story id='designs-atoms-grid--default' />
+</Canvas>
+
+`<Grid/>`, `<Row/>` and `<Col/>` work as a seperate modules. You don't need to pass `<Row/>` and `<Col/>` as children but it is highly recommended. This component follows Material Grid idea. For all of the props check tables below.
+
+<div style={{ marginBottom: 40 }} />
+
+## GRID API
+
+<div style={{ marginBottom: 20 }} />
+<ArgsTable of={Grid} />
+
+## ROW API
+
+<div style={{ marginBottom: 20 }} />
+<ArgsTable of={Row} />
+
+## COL API
+
+<div style={{ marginBottom: 20 }} />
+<ArgsTable of={Col} />

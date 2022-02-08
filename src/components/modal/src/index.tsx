@@ -4,7 +4,7 @@ import { useTheme } from '@emotion/react';
 import { VscChromeClose } from 'react-icons/vsc';
 import { ModalStyles } from './styles';
 
-interface IModalProps {
+export interface IModalProps {
     visible: boolean;
     children: React.ReactNode;
     className?: string;
@@ -13,7 +13,7 @@ interface IModalProps {
     onModalClose: (returnedData?: any) => void;
 }
 
-const Modal: React.FC<IModalProps> = ({
+export const Modal: React.FC<IModalProps> = ({
     visible = false,
     children,
     title,

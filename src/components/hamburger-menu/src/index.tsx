@@ -3,14 +3,14 @@ import React, { useState, useEffect } from 'react';
 import { useTheme } from '@emotion/react';
 import { HamburgerStyles } from './styles';
 
-interface IHamburgerProps {
-    className?: string;
+export interface IHamburgerProps {
     isOpen: boolean;
+    className?: string;
     onChange?: (e?: any) => void;
     disableOnDesktop?: boolean;
 }
 
-const Hamburger: React.FC<IHamburgerProps> = ({
+export const Hamburger: React.FC<IHamburgerProps> = ({
     isOpen,
     onChange,
     className = 'hamburger',

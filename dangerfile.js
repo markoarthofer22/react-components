@@ -25,16 +25,11 @@ danger.git.commits.forEach(commit => {
     }
 })
 
-if (packageDiff.devDependencies && packageDiff.devDependencies.added) {
-    message(`New developer dependencies "${packageDiff.devDependencies.added.join('", "')}"`)
-  }
-
-
 const createdJSFiles = danger.git.created_files.filter(
-    (file) => file.match(/\.jsx?$/) && !file.match(/webpack/),
-  )
+  (file) => file.match(/\.jsx?$/) && !file.match(/webpack/),
+)
   
-  if (createdJSFiles.length) {
-    fail(`A new .js file was added, please convert to .tsx or .ts and try again`)
-  }
+if (createdJSFiles.length) {
+  fail(`A new .js file was added, please convert to .tsx or .ts and try again`)
+}
   

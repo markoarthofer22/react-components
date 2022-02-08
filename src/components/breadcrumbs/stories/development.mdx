@@ -1,0 +1,44 @@
+import { Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+import { Breadcrumbs } from '../src/index';
+
+# Breadcrumbs
+
+Breadcrumbs component for everday usage :)
+
+### Usage and import
+
+You can import it in two ways: - as a standalone component - from the whole package
+
+```jsx
+import Breadcrumbs from '@markoarthofer22/react-components.breadcrumbs';
+// OR
+import { Breadcrumbs } from '@markoarthofer22/react-components';
+```
+
+<Canvas withSource={'open'}>
+    <Story id='designs-atoms-breadcrumbs--breadcrumbs-with-home-root-and-default-icon' />
+</Canvas>
+
+This is the default config. You have default icon selected and breadcrumb starts at root level `/`.
+
+<Canvas>
+    <Story id='designs-atoms-breadcrumbs--breadcrumbs-with-home-root-and-custom-icon' />
+</Canvas>
+
+You can add Home Icon by providing `homeIcon` prop (`ElementType<any> | ComponentType<{}>`)
+
+<Canvas>
+    <Story id='designs-atoms-breadcrumbs--breadcrumbs-without-home-root-and-custom-icon' />
+</Canvas>
+
+If you want you can disable root level by setting `isHomeRoot` to `false`.
+
+<Canvas>
+    <Story id='designs-atoms-breadcrumbs--breadcrumbs-without-icon' />
+</Canvas>
+
+Disable Home Icon by setting `hasHomeIcon` to `false`
+
+### API
+
+<ArgsTable of={Breadcrumbs} />

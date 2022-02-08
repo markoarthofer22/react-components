@@ -5,26 +5,26 @@ import { Link } from 'react-router-dom';
 import { MdKeyboardArrowDown } from 'react-icons/md';
 import { DropdownStyles } from './styles';
 
-interface IData {
+export interface IData {
     value: string;
     id: string;
     link?: string;
 }
 
-interface IDropdownProps {
+export interface IDropdownProps {
     data: IData[];
+    dropdownID: string;
     dropdownClass?: string;
     className?: string;
     placeholder?: string;
     label?: string;
-    dropdownID: string;
     onChange?: (e?: any) => void;
     returnValue?: (data: IData) => void;
     isDefaultOpen?: boolean;
     defaultValue?: string;
 }
 
-const Dropdown: React.FC<IDropdownProps> = (props): JSX.Element => {
+export const Dropdown: React.FC<IDropdownProps> = (props): JSX.Element => {
     const {
         data,
         dropdownClass,

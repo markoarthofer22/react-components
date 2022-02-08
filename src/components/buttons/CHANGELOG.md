@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/markoarthofer22/react-components/compare/@markoarthofer22/react-components.button@1.2.0...@markoarthofer22/react-components.button@1.5.0) (2022-02-08)
+
+
+### Features
+
+* adding new storybook with docs support and new syntax ([7bdfda0](https://github.com/markoarthofer22/react-components/commit/7bdfda0d2d4ca92688b7044a69c911306f475c5f))
+* finalized new storybook with docs, WIP ([a11c23b](https://github.com/markoarthofer22/react-components/commit/a11c23bcde3e37023c02a5721f1b564d6413c1d0))
+* wip ([6ba8ea8](https://github.com/markoarthofer22/react-components/commit/6ba8ea8037ec15a8c071413fb0741a0d6b972754))
+
+
+
+
+
 # [1.2.0](https://github.com/markoarthofer22/react-components/compare/@markoarthofer22/react-components.button@1.1.2...@markoarthofer22/react-components.button@1.2.0) (2022-02-04)
 
 
