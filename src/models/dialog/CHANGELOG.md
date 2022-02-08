@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/markoarthofer22/react-components/compare/@markoarthofer22/react-components.dialog@1.3.0...@markoarthofer22/react-components.dialog@1.5.0) (2022-02-08)
+
+
+### Features
+
+* storybook finished ([cea7507](https://github.com/markoarthofer22/react-components/commit/cea7507f41f22e5f3d3eb5aee0ef82dd3e285890))
+
+
+
+
+
 # [1.3.0](https://github.com/markoarthofer22/react-components/compare/@markoarthofer22/react-components.dialog@1.2.0...@markoarthofer22/react-components.dialog@1.3.0) (2022-02-04)
 
 
