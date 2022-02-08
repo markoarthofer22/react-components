@@ -293,12 +293,12 @@ These are some of the components that we have in mind. Will be populated over ti
 #### Models
 
 1.  Dialog :white_check_mark:
-2.  Hero Box :white_check_mark:
+2.  Hero Box - removed
 3.  Notification Box :white_check_mark:
 4.  Swiper - removed
-5.  Container :soon:
+5.  Container - added as <Grid/>
 6.  List (wrapper for passed children) :soon:
-7.  Social Network Cards (facebook | instagram | custom) - :white_check_mark:
+7.  Social Network Cards (facebook | instagram | custom) - removed
 8.  Accordion :soon:
 9.  Share Socials - In planning
 10. Side Navigation :soon:

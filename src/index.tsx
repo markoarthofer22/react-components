@@ -14,12 +14,11 @@ export { default as GoogleAnalytics } from './components/google-analytics/src';
 export { default as SliderBar } from './components/slider-bar/src';
 export { default as SwitchButton } from './components/switch-button/src';
 export { default as Avatar } from './components/avatar/src';
+export { Grid, Row, Col } from './components/grid/src';
 
 // models
 export { default as Dialog } from './models/dialog/src';
-export { default as HeroBox } from './models/hero-box/src';
 export { default as NotificationBox } from './models/notification-box/src';
-export { default as SocialCards } from './models/social-network-cards/src';
 export { default as Modal } from './components/modal/src';
 
 // themes

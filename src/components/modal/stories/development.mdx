@@ -1,0 +1,30 @@
+import { Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+import { Modal } from '../src/index';
+
+# Modal
+
+Modal component for everyday usage :)
+
+### Usage and import
+
+You can import it in two ways: - as a standalone component - from the whole package
+
+```jsx
+import Modal from '@markoarthofer22/react-components.modal';
+// OR
+import { Modal } from '@markoarthofer22/react-components';
+```
+
+<Canvas withSource={'open'}>
+    <Story id='designs-atoms-modal--default' />
+</Canvas>
+
+Modal state is not controled from the component itself. You need to pass `onModalClose` prop that will handle the change.
+
+Also you can pass `icon` prop (`React.ElementType | React.ComponentType`) for custom closeIcon
+
+<div style={{ marginBottom: '50px' }} />
+
+### API
+
+<ArgsTable of={Modal} />

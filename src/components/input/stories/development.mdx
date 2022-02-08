@@ -1,0 +1,65 @@
+import { Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+import { InputComponent, InputTypePhone } from '../src/index';
+
+# Input
+
+Input component with react-hook-forms validation :)
+
+### Usage and import
+
+You can import it in two ways: - as a standalone component - from the whole package
+
+```jsx
+import {
+    InputComponent,
+    InputTypePhone,
+} from '@markoarthofer22/react-components.input';
+// OR
+import {
+    InputComponent,
+    InputTypePhone,
+} from '@markoarthofer22/react-components';
+```
+
+<Canvas withSource={'open'}>
+    <Story id='designs-atoms-inputs--default' />
+</Canvas>
+
+### INPUT API
+
+For input usage it is mandatory to use [React-hook-form](https://react-hook-form.com/) lib. This is used for validation. In order for it to work wit TS you need to define `type` for each form you use, which you pass to `useForm` hook
+
+```jsx
+import { useForm } from 'react-hook-form';
+
+type FormValues = {
+    name: string,
+    email: string,
+    zip: string,
+};
+
+const {
+    register,
+    formState: { errors },
+} =
+    useForm <
+    FormValues >
+    {
+        mode: 'onBlur',
+        reValidateMode: 'onSubmit',
+    };
+```
+
+For more info oh how to use this lib check the link above. :)
+
+<div style={{ marginBottom: '50px' }} />
+
+<ArgsTable of={InputComponent} />
+
+### INPUT TYPE PHONE API
+
+`InputTypePhone` component is basically input on steroids. Check the table for all of the props.
+
+<div style={{ marginBottom: '50px' }} />
+
+<ArgsTable of={InputTypePhone} />

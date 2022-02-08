@@ -1,0 +1,28 @@
+import { Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+import { Dialog } from '../src/index';
+
+# Dialog
+
+Dialog component for everyday usage :)
+
+### Usage and import
+
+You can import it in two ways: - as a standalone component - from the whole package
+
+```jsx
+import Dialog from '@markoarthofer22/react-components.dialog';
+// OR
+import { Dialog } from '@markoarthofer22/react-components';
+```
+
+<Canvas withSource={'open'}>
+    <Story id='designs-models-dialog--default' />
+</Canvas>
+
+Dialog state is not controled from the component itself.
+
+<div style={{ marginBottom: '50px' }} />
+
+### API
+
+<ArgsTable of={Dialog} />

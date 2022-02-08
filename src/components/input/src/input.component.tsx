@@ -10,7 +10,7 @@ import { IoCheckmarkDoneOutline } from 'react-icons/io5';
 import Tooltip from '../../tooltip/src/index';
 import { InputStyles, InputRadioStyles, InputCheckboxStyles } from './styles';
 
-interface IInputProps {
+export interface IInputProps {
     hasWrapper?: boolean;
     type?: string;
     name: string;
@@ -31,7 +31,7 @@ interface IInputProps {
     checkboxIcon?: React.ElementType | React.ComponentType;
 }
 
-const InputComponent: React.FC<IInputProps & Record<string, any>> = ({
+export const InputComponent: React.FC<IInputProps & Record<string, any>> = ({
     hasWrapper = true,
     type = 'text',
     name,

@@ -4,7 +4,7 @@ import { MdExpandMore } from 'react-icons/md';
 import { useTheme } from '@emotion/react';
 import { SelectStyles } from './styles';
 
-interface ISelectProps {
+export interface ISelectProps {
     title?: string | null;
     data: any[];
     selectClass?: string;
@@ -15,13 +15,13 @@ interface ISelectProps {
     className?: string;
 }
 
-const Select: React.FC<ISelectProps> = ({
+export const Select: React.FC<ISelectProps> = ({
     title,
     data,
     selectClass,
     placeholder,
     returnValue,
-    isSearchable,
+    isSearchable = true,
     bindingValue,
     className = 'select',
 }): JSX.Element => {

@@ -22,7 +22,7 @@ export const SelectStyles = (theme: any) => {
                 transition: 'all 0.4s ease',
                 display: 'flex',
                 alignItems: 'center',
-                justifyContent: 'space-evenly',
+                justifyContent: 'flex-end',
 
                 svg: {
                     fill: theme.colors.blue,
