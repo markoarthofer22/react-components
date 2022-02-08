@@ -1,0 +1,46 @@
+import { Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+import { For, If } from '../src/index';
+
+# JSX STATMENTS
+
+React components that remove `if, map` etc. from use :)
+
+### Usage and import
+
+You can import it in two ways: - as a standalone component - from the whole package
+
+```jsx
+import { For, If } from '@markoarthofer22/react-components.jsx-statments';
+// OR
+import { For, If } from '@markoarthofer22/react-components';
+```
+
+<Canvas withSource={'open'}>
+    <Story id='designs-helpers-jsx-statments--default' />
+</Canvas>
+
+`<If>` component must have `condition` prop passed. You can pass children inside to render it. if you want optionally you can pass `otherwise` prop (`React.ReactNode`) that will render element if `condition === false`.
+
+<div style={{ marginBottom: '50px' }} />
+<ArgsTable of={If} />
+
+### `<FOR>` COMPONENT
+
+This component is made for custom components that accept props for mapping.
+
+```jsx
+<For items={users} each='customData'>
+    <ChildComponent />
+</For>
+```
+
+**will produce...**
+
+```jsx
+<ChildComponent customData={users} />
+```
+
+<div style={{ marginBottom: '50px' }} />
+<ArgsTable of={For} />
+
+### API
