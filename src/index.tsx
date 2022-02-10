@@ -15,6 +15,7 @@ export { default as SliderBar } from './components/slider-bar/src';
 export { default as SwitchButton } from './components/switch-button/src';
 export { default as Avatar } from './components/avatar/src';
 export { Grid, Row, Col } from './components/grid/src';
+export { Accordion, AccordionItem } from './components/accordion/src';
 
 // models
 export { default as Dialog } from './models/dialog/src';
@@ -23,3 +24,6 @@ export { default as Modal } from './components/modal/src';
 
 // themes
 export { default as GlobalThemeProvider } from './themes/global-theme-wrapper/src';
+
+// helpers
+export { If, For } from './helpers/jsx-statments/src';
