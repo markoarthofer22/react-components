@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.0.1 (2022-02-10)
+
+**Note:** Version bump only for package @markoarthofer22/react-components.accordion
+
+
+
+
+
 # [1.5.0](https://github.com/markoarthofer22/react-components/compare/@markoarthofer22/react-components.avatar@1.2.0...@markoarthofer22/react-components.avatar@1.5.0) (2022-02-08)
 
 
