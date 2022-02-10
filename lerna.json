@@ -1,6 +1,11 @@
 {
     "lerna": "4.0.0",
-    "packages": ["src/components/**/*", "src/models/**/*", "src/themes/**/*"],
+    "packages": [
+        "src/components/**/*",
+        "src/models/**/*",
+        "src/themes/**/*",
+        "src/helpers/**/*"
+    ],
     "version": "independent",
     "npmClient": "npm",
     "ignoreChanges": [
