@@ -5,8 +5,8 @@ on:
             - main
         paths-ignore:
             - 'package.json'
-            - 'CHANGELOG.md'
-            - 'README.md'
+            - '.github/**'
+            - '*.md'
 
 jobs:
     publish-tags:
