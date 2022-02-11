@@ -317,7 +317,7 @@ Lerna will generate a publish commit. Push that commit to your remote branch and
 
 ## Build test
 
-If you want to build locally just run `npm run build`
+If you want to build locally just run `npm run build` for package, and `npm run build:bundle` to create a whole lib
 
 <!-- LICENSE -->
 

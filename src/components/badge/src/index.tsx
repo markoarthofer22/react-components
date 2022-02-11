@@ -3,13 +3,13 @@ import React from 'react';
 import { useTheme } from '@emotion/react';
 import { BadgeStyles } from './styles';
 
-export type IconType = React.ElementType | React.ComponentType;
+export type TIconType = React.ElementType | React.ComponentType;
 
 export interface IBadgeProps {
     stylesObj?: {
         [key: string]: any;
     };
-    value: string | number | IconType | React.ReactNode;
+    value: string | number | TIconType | React.ReactNode;
     className?: string;
 }
 

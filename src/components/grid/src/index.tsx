@@ -56,14 +56,14 @@ export const Grid: React.FC<IGridProps> = ({
     return <div css={{ ...gridStyles, ...style }}>{children}</div>;
 };
 
-export type GridItemsAlignment =
+export type TGridItemsAlignment =
     | 'flex-start'
     | 'center'
     | 'flex-end'
     | 'stretch'
     | 'baseline';
 
-export type GridJustify =
+export type TGridJustify =
     | 'flex-start'
     | 'center'
     | 'flex-end'
@@ -73,9 +73,9 @@ export type GridJustify =
 
 export interface IRowProps {
     children: React.ReactNode;
-    alignItems?: GridItemsAlignment;
+    alignItems?: TGridItemsAlignment;
     expanded?: boolean;
-    justify?: GridJustify;
+    justify?: TGridJustify;
     row?: boolean;
     gutter?: number;
     style?: {
@@ -125,16 +125,16 @@ export const Row: React.FC<IRowProps> = ({
     );
 };
 
-export type GridSizes = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
+export type TGridSizes = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 
 export interface IColumnProps {
     children: React.ReactNode;
     gutter?: number;
-    xs?: GridSizes;
-    sm?: GridSizes;
-    md?: GridSizes;
-    lg?: GridSizes;
-    xl?: GridSizes;
+    xs?: TGridSizes;
+    sm?: TGridSizes;
+    md?: TGridSizes;
+    lg?: TGridSizes;
+    xl?: TGridSizes;
     style?: {
         [key: string]: any;
     };
@@ -173,7 +173,7 @@ export const Col: React.FC<IColumnProps> = ({
 
     const mq = breakpoints.map((bp) => `@media (min-width: ${bp}px)`);
 
-    const calculateColumnSize = (sizes: GridSizes[]) =>
+    const calculateColumnSize = (sizes: TGridSizes[]) =>
         css({
             ...colStyle,
             flex: `0 0 ${COL_BASE_FLEX_SIZE * sizes[0]}%`,

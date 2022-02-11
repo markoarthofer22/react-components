@@ -6,7 +6,7 @@ import AnimateHeight from 'react-animate-height';
 
 import { AccordionStyles } from './styles';
 
-export type IconType =
+export type TIconType =
     | React.ElementType
     | React.ComponentType
     | React.ReactNode;
@@ -14,7 +14,7 @@ export type IconType =
 export interface IAccordionItemProps {
     children: any;
     className?: string;
-    icon?: IconType;
+    icon?: TIconType;
     title: string;
     active?: boolean;
     returnActive?: (e?: any) => void;
@@ -81,7 +81,7 @@ export interface IAccordionProps {
         | Array<React.ReactElement<IAccordionItemProps>>;
     data?: Array<TData>;
     className?: string;
-    icon?: IconType;
+    icon?: TIconType;
     title?: string;
 }
 
