@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.0.2 (2022-02-11)
+
+
+### Bug Fixes
+
+* fixed typings and names for Type ([d598406](https://github.com/markoarthofer22/react-components/commit/d5984069b819032d7d83ae52ddcb441ef909d11b))
+
+
+
+
+
 ## 1.0.1 (2022-02-10)
 
 **Note:** Version bump only for package @markoarthofer22/react-components.accordion

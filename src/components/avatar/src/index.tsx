@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { useTheme } from '@emotion/react';
 import { AvatarStyles } from './styles';
 
-export type IconType =
+export type TIconType =
     | React.ElementType
     | React.ComponentType
     | React.ReactNode;
@@ -16,7 +16,7 @@ export interface IAvatarProps {
     grouped?: boolean;
     size?: 'small' | 'normal' | 'big';
     variant?: 'squared' | 'circled' | 'rounded';
-    values?: Array<IconType>;
+    values?: Array<TIconType>;
     children?: React.ElementType | React.ReactNode;
     backgroundColor?: Color;
     groupedLimit?: string | number;
