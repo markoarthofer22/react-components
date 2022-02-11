@@ -150,7 +150,7 @@ According to creator definition of BEM is as follows:
 
 ### `Typings`
 
-For Typescript types use interfaces. Respect naming convention. All of your types should start with a capital "I". Also, if you are creating interface for component props they should end with "Props"
+For Typescript types use interfaces. Respect naming convention. All of your interfaces should start with a capital "I". Also, if you are creating interface for component props they should end with "Props". Use T for type, E for enums etc...
 
 <b>Good Example</b>
 
@@ -228,9 +228,9 @@ We use [Husky](https://github.com/typicode/husky) for precommit, so you don't ne
     ```sh
     https://github.com/markoarthofer22/react-components
     ```
-2. Install NPM packages
+2. Install NPM packages and link all
     ```sh
-    npm install
+    npm run prepare:local
     ```
 
 ### Install lib from NPM
@@ -245,9 +245,9 @@ The project includes a [Storybook](https://storybook.js.org/) for developing and
 
 To add a story for your component create a `sandbox.stories.tsx` file. You can create file in `stories/` folder in a root of a package.
 
-~~Additionaly you can add `knobs` (more on [knobs](https://storybook.js.org/addons/storybook-addon-knobs-color-options)) for adding props trough storybook UI.
+~~Additionaly you can add `knobs` (more on [knobs](https://storybook.js.org/addons/storybook-addon-knobs-color-options)) for adding props trough storybook UI.~~
 
-You can also manually add stories using the Storybook [`storiesOf` API](https://storybook.js.org/docs/formats/storiesof-api/).~~
+~~You can also manually add stories using the Storybook [`storiesOf` API](https://storybook.js.org/docs/formats/storiesof-api/).~~
 
 **THIS IS DEPRECATED**
 
@@ -296,10 +296,10 @@ These are some of the components that we have in mind. Will be populated over ti
 2.  Hero Box - removed
 3.  Notification Box :white_check_mark:
 4.  Swiper - removed
-5.  Container - added as <Grid/>
-6.  List (wrapper for passed children) :soon:
+5.  Container - added as `<Grid/>`
+6.  List & ListItem :soon:
 7.  Social Network Cards (facebook | instagram | custom) - removed
-8.  Accordion :soon:
+8.  Accordion :white_check_mark:
 9.  Share Socials - In planning
 10. Side Navigation :soon:
 

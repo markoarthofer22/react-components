@@ -8,6 +8,7 @@ on:
         paths-ignore:
             - 'package.json'
             - 'CHANGELOG.md'
+            - 'README.md'
 
 jobs:
     publish:
@@ -26,7 +27,7 @@ jobs:
             - run: git fetch --depth=1 origin +refs/tags/*:refs/tags/*
 
             - name: Install dependecies
-              run: npm run prepare:local
+              run: npm run prepare:prod
               env:
                   NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 

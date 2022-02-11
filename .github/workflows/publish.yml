@@ -8,6 +8,7 @@ on:
         paths-ignore:
             - 'package.json'
             - 'CHANGELOG.md'
+            - 'README.md'
 
 jobs:
     publish:
@@ -22,7 +23,7 @@ jobs:
               uses: actions/checkout@v2
 
             - name: Install dependecies
-              run: npm run prepare:local
+              run: npm run prepare:prod
               env:
                   NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
