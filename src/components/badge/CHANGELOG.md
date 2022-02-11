@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/markoarthofer22/react-components/compare/@markoarthofer22/react-components.badge@1.2.0...@markoarthofer22/react-components.badge@1.6.0) (2022-02-11)
+
+
+### Bug Fixes
+
+* fixed typings and names for Type ([d598406](https://github.com/markoarthofer22/react-components/commit/d5984069b819032d7d83ae52ddcb441ef909d11b))
+
+
+### Features
+
+* adding new storybook with docs support and new syntax ([#32](https://github.com/markoarthofer22/react-components/issues/32)) ([91be992](https://github.com/markoarthofer22/react-components/commit/91be99236e1722d4681d59adc33aaade1f78b77b))
+
+
+
+
+
 # [1.5.0](https://github.com/markoarthofer22/react-components/compare/@markoarthofer22/react-components.badge@1.2.0...@markoarthofer22/react-components.badge@1.5.0) (2022-02-08)
 
 

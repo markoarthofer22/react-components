@@ -1,6 +1,6 @@
 {
     "name": "@markoarthofer22/react-components.avatar",
-    "version": "1.5.0",
+    "version": "1.6.0",
     "description": "The React-Components is library that contains various components intended for reusing on another projects.",
     "main": "dist/index.js",
     "files": [

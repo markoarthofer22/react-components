@@ -1,6 +1,6 @@
 {
     "name": "@markoarthofer22/react-components.accordion",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "The React-Components is library that contains various components intended for reusing on another projects.",
     "main": "dist/index.js",
     "files": [
