@@ -9,7 +9,7 @@ export type TIconType =
     | React.ComponentType
     | React.ReactNode;
 
-export type Color = string | 'transparent';
+export type TColor = string | 'transparent';
 
 export interface IAvatarProps {
     stringifyLetter?: boolean;
@@ -18,7 +18,7 @@ export interface IAvatarProps {
     variant?: 'squared' | 'circled' | 'rounded';
     values?: Array<TIconType>;
     children?: React.ElementType | React.ReactNode;
-    backgroundColor?: Color;
+    backgroundColor?: TColor;
     groupedLimit?: string | number;
     className?: string;
 }

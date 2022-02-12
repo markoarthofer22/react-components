@@ -23,6 +23,10 @@ export const GlobalStyles: Theme = {
         pink: '#c71585',
         swiperPaginationFirst: '#1693c5',
         swiperPaginationSecond: '#334a9c',
+        info: '#03a9f4',
+        warning: '#ff9800',
+        success: '#4caf50',
+        error: '#ef5350',
     },
     fonts: {
         titleFont: "'Exo 2', sans-serif",
