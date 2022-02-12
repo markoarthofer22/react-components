@@ -104,6 +104,7 @@ export const Accordion: React.FC<IAccordionProps> = ({
                 {data && data.length > 0
                     ? data?.map((item: TData, index: number) => (
                           <AccordionItem
+                              key={index}
                               active={activeIndex === index}
                               title={item.title}
                               className={className}
