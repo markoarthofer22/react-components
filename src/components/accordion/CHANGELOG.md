@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.3](https://github.com/markoarthofer22/react-components/compare/@markoarthofer22/react-components.accordion@1.0.2...@markoarthofer22/react-components.accordion@1.0.3) (2022-02-12)
+
+
+### Bug Fixes
+
+* fixed lerna ([9240827](https://github.com/markoarthofer22/react-components/commit/9240827b22f365ba83dc63e432b1b9caacd819c2))
+
+
+
+
+
 ## 1.0.2 (2022-02-11)
 
 
