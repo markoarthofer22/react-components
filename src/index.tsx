@@ -16,6 +16,7 @@ export { default as SwitchButton } from './components/switch-button/src';
 export { default as Avatar } from './components/avatar/src';
 export { Grid, Row, Col } from './components/grid/src';
 export { Accordion, AccordionItem } from './components/accordion/src';
+export { default as Alert } from './components/alert/src';
 
 // models
 export { default as Dialog } from './models/dialog/src';

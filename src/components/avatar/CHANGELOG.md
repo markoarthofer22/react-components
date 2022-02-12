@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.7.0](https://github.com/markoarthofer22/react-components/compare/@markoarthofer22/react-components.avatar@1.6.0...@markoarthofer22/react-components.avatar@1.7.0) (2022-02-12)
+
+
+### Features
+
+* added alert components, added new vars to theme ([886a194](https://github.com/markoarthofer22/react-components/commit/886a19422948fde3c30335c12dd041b335e39935))
+
+
+
+
+
 # [1.6.0](https://github.com/markoarthofer22/react-components/compare/@markoarthofer22/react-components.avatar@1.2.0...@markoarthofer22/react-components.avatar@1.6.0) (2022-02-11)
 
 

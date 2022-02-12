@@ -1,0 +1,49 @@
+import { Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+import { Alert } from '../src/index';
+
+# Alert
+
+Alert are component that show an array of values as small badges
+
+### Usage and import
+
+You can import it in two ways: - as a standalone component - from the whole package
+
+```jsx
+import Alert from '@markoarthofer22/react-components.alert';
+// OR
+import { Alert } from '@markoarthofer22/react-components';
+```
+
+**Alert => still in development. Selfclosing feature is missing.**
+
+<Canvas withSource={'open'}>
+    <div style={{ height: 140 }}></div>
+    <Story id='designs-atoms-alert--default' />
+</Canvas>
+
+You need to pass `show` prop to open Alert. State is managed outside of the component.
+
+This alert is guided by Material Alert component. Check the table for all of the available props. Icon is `boolean` by default, but you can pass any `React.ReactNode` element. If `icon` is `true` default Icon will render.
+
+You can pass `backgroundColor` prop if you want to manualy change background Color of the element.
+
+<Canvas>
+    <div style={{ height: 140 }}></div>
+    <Story id='designs-atoms-alert--tertiary' />
+</Canvas>
+
+<div style={{ marginBottom: '50px' }} />
+
+### API
+
+<ArgsTable of={Alert} />
+
+### Alert with `onClose` callback
+
+<Canvas>
+    <div style={{ height: 140 }}></div>
+    <Story id='designs-atoms-alert--secondary' />
+</Canvas>
+
+If you want to close your alert you can do that by adding `onClose` prop
