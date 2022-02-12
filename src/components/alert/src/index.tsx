@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /** @jsxImportSource @emotion/react */
 import * as React from 'react';
-// import { useEffect, useState } from 'react';
+import { CSSTransition } from 'react-transition-group';
 import { useTheme } from '@emotion/react';
 import {
     MdInfoOutline,
@@ -26,9 +26,10 @@ export interface IAlertProps {
     children: React.ElementType | React.ReactNode;
     closeIcon?: TIconType;
     icon?: TIconType | boolean;
-    // backgroundColor?: TColor;
+    backgroundColor?: TColor;
     className?: string;
     onClose?: (e?: React.MouseEvent) => void;
+    show: boolean;
 }
 
 export const Alert: React.FC<IAlertProps> = ({
@@ -39,9 +40,12 @@ export const Alert: React.FC<IAlertProps> = ({
     children,
     className = 'alert',
     onClose,
-    icon,
-    // backgroundColor,
+    icon = true,
+    backgroundColor,
+    show,
 }): JSX.Element => {
+    const [isActive, setIsActive] = React.useState<boolean>(show);
+
     const theme = useTheme();
 
     const CloseIcon = (closeIcon as React.ElementType) || MdClose;
@@ -79,33 +83,55 @@ export const Alert: React.FC<IAlertProps> = ({
 
     const getType = (_type: typeof type): string => `type-${_type}`;
 
+    // TODO - return state value without adding explicit prop
+    // React.useEffect(() => {
+    //     const timer = setTimeout(() => setIsActive(false), 5000);
+    //     return () => clearTimeout(timer);
+    // }, []);
+
+    React.useEffect(() => {
+        if (isActive === show) return;
+
+        setIsActive(show);
+    }, [show]);
+
     return (
         <div className={`${className}`} css={AlertStyles(theme)}>
-            <div
-                className={`${className}--wrapper ${getVariant(
-                    variant
-                )} ${getType(type)}`}
+            <CSSTransition
+                in={isActive}
+                timeout={400}
+                classNames='alert'
+                unmountOnExit
             >
-                {icon && (
-                    <div className={`${className}--main-icon`}>
-                        {checkWhatIsIcon(type)}
-                    </div>
-                )}
-                <div className={`${className}--content--wrapper`}>
-                    {title && (
-                        <div className={`${className}--title`}>{title}</div>
+                <div
+                    style={backgroundColor ? { backgroundColor } : {}}
+                    className={`${className}--wrapper ${getVariant(
+                        variant
+                    )} ${getType(type)}`}
+                >
+                    {icon && (
+                        <div className={`${className}--main-icon`}>
+                            {checkWhatIsIcon(type)}
+                        </div>
                     )}
-                    <div className={`${className}--content`}>{children}</div>
-                </div>
-                {onClose && (
-                    <div
-                        className={`${className}--on-close`}
-                        onClick={(e) => onClose(e)}
-                    >
-                        <CloseIcon />
+                    <div className={`${className}--content--wrapper`}>
+                        {title && (
+                            <div className={`${className}--title`}>{title}</div>
+                        )}
+                        <div className={`${className}--content`}>
+                            {children}
+                        </div>
                     </div>
-                )}
-            </div>
+                    {onClose && (
+                        <div
+                            className={`${className}--on-close`}
+                            onClick={(e) => onClose(e)}
+                        >
+                            <CloseIcon />
+                        </div>
+                    )}
+                </div>
+            </CSSTransition>
         </div>
     );
 };

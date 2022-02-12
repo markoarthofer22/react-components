@@ -1,38 +1,49 @@
 import { Story, Canvas, ArgsTable } from '@storybook/addon-docs';
-import { Avatar } from '../src/index';
+import { Alert } from '../src/index';
 
-# Avatar
+# Alert
 
-Avatar are component that show an array of values as small badges
+Alert are component that show an array of values as small badges
 
 ### Usage and import
 
 You can import it in two ways: - as a standalone component - from the whole package
 
 ```jsx
-import Avatar from '@markoarthofer22/react-components.avatar';
+import Alert from '@markoarthofer22/react-components.alert';
 // OR
-import { Avatar } from '@markoarthofer22/react-components';
+import { Alert } from '@markoarthofer22/react-components';
 ```
 
+**Alert => still in development. Selfclosing feature is missing.**
+
 <Canvas withSource={'open'}>
-    <Story id='designs-atoms-avatar--default' />
+    <div style={{ height: 140 }}></div>
+    <Story id='designs-atoms-alert--default' />
 </Canvas>
 
-Avatar has no **required** dependencies except `children` property. It has 3 sizes:
-`small | normal | big`. Default is `normal`. Check the table at the bottom to see
-all of the available props.
+You need to pass `show` prop to open Alert. State is managed outside of the component.
 
-### Avatar with values passed trough props (`values`)
+This alert is guided by Material Alert component. Check the table for all of the available props. Icon is `boolean` by default, but you can pass any `React.ReactNode` element. If `icon` is `true` default Icon will render.
+
+You can pass `backgroundColor` prop if you want to manualy change background Color of the element.
 
 <Canvas>
-    <Story id='designs-atoms-avatar--avatar-with-array-of-values' />
+    <div style={{ height: 140 }}></div>
+    <Story id='designs-atoms-alert--tertiary' />
 </Canvas>
-
-Also, you can pass `values` property (`Array<any>`) that will render your children to `Avatar`
 
 <div style={{ marginBottom: '50px' }} />
 
 ### API
 
-<ArgsTable of={Avatar} />
+<ArgsTable of={Alert} />
+
+### Alert with `onClose` callback
+
+<Canvas>
+    <div style={{ height: 140 }}></div>
+    <Story id='designs-atoms-alert--secondary' />
+</Canvas>
+
+If you want to close your alert you can do that by adding `onClose` prop

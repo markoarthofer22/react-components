@@ -1,8 +1,46 @@
-import { css } from '@emotion/react';
+import { css, keyframes } from '@emotion/react';
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const animation = keyframes`
+    0% {
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(0.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+`;
+
 export const AlertStyles = (theme: any) =>
     css({
+        '.alert-enter': {
+            opacity: '0',
+            transform: 'scale(1)',
+
+            '.window': {
+                animation: `${animation} 0.4s`,
+            },
+        },
+
+        '.alert-enter-active': {
+            opacity: 1,
+            transform: 'scale(1)',
+            transition: 'opacity 0.4s, transform 0.4s',
+        },
+
+        '.alert-exit': {
+            opacity: 1,
+
+            '.window': {
+                animation: `${animation} 0.4s reverse`,
+            },
+        },
+        '.alert-exit-active': {
+            opacity: 0,
+            transition: 'opacity 0.4s, transform 0.4s',
+        },
+
         '.alert': {
             '&--wrapper': {
                 position: 'absolute',
@@ -54,18 +92,34 @@ export const AlertStyles = (theme: any) =>
                             '&-info': {
                                 borderColor: theme.colors.info,
                                 backgroundColor: theme.colors.info,
+
+                                '& *': {
+                                    color: theme.colors.white,
+                                },
                             },
                             '&-warning': {
                                 borderColor: theme.colors.warning,
                                 backgroundColor: theme.colors.warning,
+
+                                '& *': {
+                                    color: theme.colors.white,
+                                },
                             },
                             '&-success': {
                                 borderColor: theme.colors.success,
                                 backgroundColor: theme.colors.success,
+
+                                '& *': {
+                                    color: theme.colors.white,
+                                },
                             },
                             '&-error': {
                                 borderColor: theme.colors.error,
                                 backgroundColor: theme.colors.error,
+
+                                '& *': {
+                                    color: theme.colors.white,
+                                },
                             },
                         },
                     },
@@ -94,6 +148,13 @@ export const AlertStyles = (theme: any) =>
             },
 
             '&--content': {
+                fontSize: 14,
+                marginTop: 8,
+                letterSpacing: 0.8,
+                fontWeight: 500,
+                lineHeight: '16px',
+                fontFamily: theme.fonts.titleFont,
+
                 '&--wrapper': {
                     flexBasis: '80%',
                 },
