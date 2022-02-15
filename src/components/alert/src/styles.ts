@@ -1,26 +1,10 @@
-import { css, keyframes } from '@emotion/react';
-
-const animation = keyframes`
-    0% {
-        transform: scale(0);
-    }
-    50% {
-        transform: scale(0.2);
-    }
-    100% {
-        transform: scale(1);
-    }
-`;
+import { css } from '@emotion/react';
 
 export const AlertStyles = (theme: any) =>
     css({
         '.alert-enter': {
             opacity: '0',
-            transform: 'scale(1)',
-
-            '.window': {
-                animation: `${animation} 0.4s`,
-            },
+            transform: 'scale(0)',
         },
 
         '.alert-enter-active': {
@@ -31,13 +15,10 @@ export const AlertStyles = (theme: any) =>
 
         '.alert-exit': {
             opacity: 1,
-
-            '.window': {
-                animation: `${animation} 0.4s reverse`,
-            },
         },
         '.alert-exit-active': {
             opacity: 0,
+            transform: 'scale(0)',
             transition: 'opacity 0.4s, transform 0.4s',
         },
 

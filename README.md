@@ -277,7 +277,7 @@ These are some of the components that we have in mind. Will be populated over ti
 6.  Popup :white_check_mark:
 7.  Select :white_check_mark:
 8.  Tooltip :white_check_mark:
-9.  Alerts Box/Bar :soon:
+9.  Alerts Box/Bar :white_check_mark:
 10. Slider Bar :white_check_mark:
 11. Switch Button :white_check_mark:
 12. Avatar :white_check_mark:
