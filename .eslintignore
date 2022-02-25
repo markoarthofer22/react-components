@@ -10,3 +10,4 @@ storybook-static
 dangerfile.js
 styles.js
 builder.js
+jest.config.js

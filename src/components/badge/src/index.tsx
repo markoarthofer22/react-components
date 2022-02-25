@@ -19,7 +19,7 @@ export const Badge: React.FC<IBadgeProps> = ({
     className = 'badge',
 }): JSX.Element => {
     const theme = useTheme();
-
+    console.log('lerna');
     return (
         <div
             className={`${className}--wrapper`}

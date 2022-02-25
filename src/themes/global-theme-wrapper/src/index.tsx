@@ -6,7 +6,7 @@ import { GlobalStyles } from './styles';
 
 interface GlobalThemeProviderProps {
     children: React.ReactNode;
-    theme: object;
+    theme?: object;
     addNormalize?: boolean;
 }
 
