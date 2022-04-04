@@ -15,6 +15,10 @@
 
 ## About The Project [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org/)
 
+[![Coverage Status](https://coveralls.io/repos/github/markoarthofer22/react-components/badge.svg?branch=main)](https://coveralls.io/github/markoarthofer22/react-components?branch=main)
+[![npm](https://img.shields.io/npm/v/@markoarthofer22/react-components.svg?maxAge=3600)](https://www.npmjs.com/package/@markoarthofer22/react-components)
+[![Bundlephobia minified size](https://img.shields.io/bundlephobia/min/@markoarthofer22/react-components)](https://bundlephobia.com/result?p=@markoarthofer22/react-components)
+
 Basic structure:
 
 -   Collection of components written in ReactJS
