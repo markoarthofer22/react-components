@@ -1,6 +1,10 @@
 import { Theme } from '@emotion/react';
 
-export const GlobalStyles: Theme = {
+export interface ICustomTheme extends Theme {
+    [key: string]: any;
+}
+
+export const GlobalStyles: ICustomTheme = {
     colors: {
         warningRed: '#d71920',
         white: '#ffffff',

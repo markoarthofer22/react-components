@@ -2,12 +2,17 @@
 import React from 'react';
 import { ThemeProvider, Global, css, useTheme } from '@emotion/react';
 import emotionNormalize from 'emotion-normalize';
-import { GlobalStyles } from './styles';
+import { GlobalStyles, ICustomTheme } from './styles';
 
 interface GlobalThemeProviderProps {
     children: React.ReactNode;
-    theme: object;
+    theme: ICustomTheme;
     addNormalize?: boolean;
+    primaryColor?: string | 'transparent' | 'initial' | 'inherit';
+    secondaryColor?: string | 'transparent' | 'initial' | 'inherit';
+    mainFont?: string | 'initial' | 'inherit';
+    titleFont?: string | 'initial' | 'inherit';
+    fontSize?: number;
 }
 
 const GlobalWrapper: React.FC = (): JSX.Element => {
@@ -52,7 +57,7 @@ const GlobalWrapper: React.FC = (): JSX.Element => {
                     line-height: 1.231;
                     height: 100%;
                     font-weight: 500;
-                    color: ${colors.black};
+                    color: ${colors.primary || colors.black};
                     background-color: ${colors.white};
                     display: flex;
                     flex-direction: column;
@@ -64,7 +69,7 @@ const GlobalWrapper: React.FC = (): JSX.Element => {
 
                 p {
                     font-size: ${fonts.fontSizeMain}px;
-                    color: ${colors.black};
+                    color: ${colors.primary || colors.black};
                     font-weight: 500;
                     line-height: ${fonts.fontSizeMain + 2}px;
                 }
@@ -77,7 +82,7 @@ const GlobalWrapper: React.FC = (): JSX.Element => {
                 h6 {
                     margin: 0.47em 0;
                     font-weight: 500;
-                    color: ${colors.black};
+                    color: ${colors.primary || colors.black};
                 }
 
                 h1 {
@@ -101,10 +106,11 @@ const GlobalWrapper: React.FC = (): JSX.Element => {
 
                 b,
                 strong {
-                    color: ${colors.black};
+                    color: ${colors.primary || colors.black};
                     font-weight: 700;
                 }
 
+                ,
                 .mt-5 {
                     margin-top: 5px;
                 }
@@ -297,11 +303,35 @@ const GlobalThemeProvider: React.FC<GlobalThemeProviderProps> = ({
     children,
     theme = GlobalStyles,
     addNormalize = true,
-}): JSX.Element => (
-    <ThemeProvider theme={theme}>
-        {addNormalize && <GlobalWrapper />}
-        {children}
-    </ThemeProvider>
-);
+    primaryColor,
+    secondaryColor,
+    mainFont,
+    titleFont,
+    fontSize,
+}): JSX.Element => {
+    const mergedTheme = {
+        ...theme,
+        colors: {
+            ...theme?.colors,
+            primary: primaryColor,
+            secondary: secondaryColor,
+        },
+        fonts: {
+            ...theme?.fonts,
+            font: mainFont || theme?.fonts?.font,
+            titleFont: titleFont || theme?.fonts?.titleFont,
+            fontSizeMain: fontSize || theme?.fonts?.fontSizeMain,
+        },
+    };
+
+    console.log('mergedTheme :>> ', mergedTheme);
+
+    return (
+        <ThemeProvider theme={mergedTheme}>
+            {addNormalize && <GlobalWrapper />}
+            {children}
+        </ThemeProvider>
+    );
+};
 
 export default GlobalThemeProvider;

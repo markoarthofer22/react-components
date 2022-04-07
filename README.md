@@ -306,6 +306,7 @@ These are some of the components that we have in mind. Will be populated over ti
 8.  Accordion :white_check_mark:
 9.  Share Socials - In planning
 10. Side Navigation :soon:
+11. Masonary layout
 
 <!-- PUBLISH -->
 
