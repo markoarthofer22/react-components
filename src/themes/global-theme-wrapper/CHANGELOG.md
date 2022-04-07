@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/markoarthofer22/react-components/compare/@markoarthofer22/react-components.global-theme-provider@1.3.0...@markoarthofer22/react-components.global-theme-provider@1.4.0) (2022-04-07)
+
+
+### Features
+
+* updated theme provider ([50fe1ce](https://github.com/markoarthofer22/react-components/commit/50fe1ce2d4d88dc36cf62da923ef08b4c4f93e31))
+
+
+
+
+
 # [1.3.0](https://github.com/markoarthofer22/react-components/compare/@markoarthofer22/react-components.global-theme-provider@1.2.0...@markoarthofer22/react-components.global-theme-provider@1.3.0) (2022-02-12)
 
 
