@@ -7,7 +7,9 @@ import GlobalThemeProvider from '../src/themes/global-theme-wrapper/src';
 import { DocsPage, DocsContainer } from '@storybook/addon-docs';
 
 const withGlobalProvider = (story) => (
-    <GlobalThemeProvider>{story()}</GlobalThemeProvider>
+    <GlobalThemeProvider primaryColor='#334a9c' secondaryColor='#ef5350'>
+        {story()}
+    </GlobalThemeProvider>
 );
 
 const newViewports = {
