@@ -293,6 +293,7 @@ These are some of the components that we have in mind. Will be populated over ti
 18. Modal :white_check_mark:
 19. Table - In planning
 20. Grid :white_check_mark:
+21. Masonry layout :white_check_mark:
 
 #### Models
 

@@ -324,8 +324,6 @@ const GlobalThemeProvider: React.FC<GlobalThemeProviderProps> = ({
         },
     };
 
-    console.log('mergedTheme :>> ', mergedTheme);
-
     return (
         <ThemeProvider theme={mergedTheme}>
             {addNormalize && <GlobalWrapper />}
