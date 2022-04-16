@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/markoarthofer22/react-components/compare/@markoarthofer22/react-components.global-theme-provider@1.3.0...@markoarthofer22/react-components.global-theme-provider@1.5.0) (2022-04-16)
+
+
+### Features
+
+* added masonry layout ([977b406](https://github.com/markoarthofer22/react-components/commit/977b4063cf5a4df01a812ab8d532d315afd476b7))
+* updated theme provider ([50fe1ce](https://github.com/markoarthofer22/react-components/commit/50fe1ce2d4d88dc36cf62da923ef08b4c4f93e31))
+
+
+
+
+
 # [1.4.0](https://github.com/markoarthofer22/react-components/compare/@markoarthofer22/react-components.global-theme-provider@1.3.0...@markoarthofer22/react-components.global-theme-provider@1.4.0) (2022-04-07)
 
 

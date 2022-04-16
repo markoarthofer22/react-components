@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [1.3.0](https://github.com/markoarthofer22/react-components/compare/@markoarthofer22/react-components.alert@1.2.0...@markoarthofer22/react-components.alert@1.3.0) (2022-04-16)
+# 1.3.0 (2022-04-16)
 
 
 ### Features
