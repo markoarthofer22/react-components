@@ -302,12 +302,11 @@ These are some of the components that we have in mind. Will be populated over ti
 3.  Notification Box :white_check_mark:
 4.  Swiper - removed
 5.  Container - added as `<Grid/>`
-6.  List & ListItem :soon:
+6.  List & ListItem :white_check_mark:
 7.  Social Network Cards (facebook | instagram | custom) - removed
 8.  Accordion :white_check_mark:
 9.  Share Socials - In planning
 10. Side Navigation :soon:
-11. Masonary layout
 
 <!-- PUBLISH -->
 

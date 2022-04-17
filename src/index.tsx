@@ -18,6 +18,7 @@ export { Grid, Row, Col } from './components/grid/src';
 export { Accordion, AccordionItem } from './components/accordion/src';
 export { default as Alert } from './components/alert/src';
 export { default as MasonryLayout } from './components/masonry/src';
+export { StyledList, StyledListItem } from 'components/styled-list/src';
 
 // models
 export { default as Dialog } from './models/dialog/src';

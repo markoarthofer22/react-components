@@ -1,0 +1,38 @@
+import { Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+import { StyledListItem, StyledList } from '../src/index';
+
+# StyledList
+
+List component for everyday usage :)
+
+### Usage and import
+
+You can import it in two ways: - as a standalone component - from the whole package
+
+```jsx
+import {
+    StyledListItem, StyledList
+} from '@markoarthofer22/react-components.styled-list';
+// OR
+import { StyledListItem, StyledList } from '@markoarthofer22/react-components';
+```
+
+<Canvas withSource={'open'}>
+    <Story id='designs-atoms-accordion--default' />
+</Canvas>
+
+Accordion only accepts `React.Component` of type `StyledListItem`. Wrap your content inside of the component (for state managment). Be aware, you can pass only **ONE** element inside of the `StyledListItem`. If you want to pass more then one, wrapp children with `<React.Fragment />`
+
+### Accordion with values passed trough props (`data`)
+
+<Canvas>
+    <Story id='designs-atoms-accordion--accordion-with-data-prop' />
+</Canvas>
+
+Also, you can pass `data` property (`Array<TData>`) that will render your children as `<StyledListItem/>`
+
+<div style={{ marginBottom: '50px' }} />
+
+### API
+
+<ArgsTable of={StyledList} />
