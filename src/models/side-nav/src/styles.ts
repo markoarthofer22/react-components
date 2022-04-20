@@ -1,18 +1,12 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable no-unused-vars */
 import { css } from '@emotion/react';
-// import { rgba } from 'emotion-rgba';
+import { rgba } from 'emotion-rgba';
 
 export const SideNavStyles = (theme: any) =>
     css({
-        background: '#00073d',
-        color: theme.colors.white,
+        background: theme.colors.sideNavPrimary,
+        color: theme.colors.sideNavSecondary,
         height: '100vh',
         overflowY: 'auto',
-
-        '.hide': {
-            display: 'none',
-        },
 
         '.side-nav': {
             '&--top-section': {
@@ -25,11 +19,36 @@ export const SideNavStyles = (theme: any) =>
             '&--logo': {
                 fontSize: 18,
                 lineHeight: 0,
-                color: theme.colors.white,
+                color: theme.colors.sideNavSecondary,
+            },
+
+            '&--menu-button': {
+                width: 30,
+                cursor: 'pointer',
             },
 
             '&--menu': {
-                width: 30,
+                display: 'flex',
+                color: theme.colors.sideNavSecondary,
+                padding: '5px 10px',
+                borderRight: '4px solid transparent',
+                transition: '0.2s ease-in all',
+                justifyContent: 'space-between',
+            },
+
+            '&--menu-item': {
+                display: 'flex',
+                gap: 10,
+            },
+
+            '&--menu-container': {
+                display: 'flex',
+                flexDirection: 'column',
+            },
+
+            '&--menu-container .sublink': {
+                paddingLeft: 20,
+                borderBottom: `0.2px solid ${theme.colors.sideNavSecondary}`,
             },
 
             '&--search': {
@@ -43,8 +62,21 @@ export const SideNavStyles = (theme: any) =>
                     border: 'none',
                     marginLeft: 10,
                     borderRadius: 5,
-                    background: '#eeeeee',
-                    color: theme.colors.white,
+                    background: theme.colors.grey20,
+                    color: theme.colors.black,
+                    WebkitAppearance: 'none',
+                    transition: 'all 0.3s ease',
+
+                    '&[disabled]': {
+                        borderColor: rgba(theme.colors.grey90, 0.3),
+                        color: theme.colors.grey90,
+                    },
+
+                    '&:focus': {
+                        outline: 0,
+                        boxShadow: 'none',
+                        border: `2px solid ${theme.colors.blue}`,
+                    },
                 },
             },
 
@@ -57,22 +89,22 @@ export const SideNavStyles = (theme: any) =>
 
             '&--link': {
                 display: 'flex',
-                color: theme.colors.white,
+                color: theme.colors.sideNavSecondary,
                 gap: 10,
                 padding: '5px 10px',
                 borderRight: '4px solid transparent',
-                transition: '0.2s cubic-bezier(0.6, -0.28, 0.735, 0.045)',
+                transition: '0.2s ease-in all',
                 textDecoration: 'none',
 
                 '&-active': {
-                    borderRight: `4px solid ${theme.colors.white}`,
+                    borderRight: `4px solid ${theme.colors.sideNavSecondary}`,
                     background: '#2d3359',
                 },
 
                 '&:hover': {
-                    borderRight: `4px solid ${theme.colors.white}`,
+                    borderRight: `4px solid ${theme.colors.sideNavSecondary}`,
                     background: '#2d3359',
-                    transition: '0.2s cubic-bezier(0.6, -0.28, 0.735, 0.045)',
+                    transition: '0.2s ease-in all',
                 },
             },
 

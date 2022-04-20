@@ -109,6 +109,21 @@ export default {
                 defaultValue: { summary: false },
             },
         },
+        isSearchEnabled: {
+            defaultValue: true,
+            description: 'Show or hide search option',
+            type: {
+                name: 'boolean',
+                required: false,
+            },
+            control: {
+                type: 'boolean',
+            },
+            table: {
+                type: { summary: 'boolean' },
+                defaultValue: { summary: true },
+            },
+        },
         className: {
             defaultValue: 'side-nav',
             description: 'Add any custom className to your Side Nav',
@@ -151,6 +166,12 @@ export default {
 
 export const Default: ComponentStory<typeof SideNav> = (args) => (
     <div style={{ display: 'flex' }}>
-        <SideNav {...args} />
+        <SideNav
+            {...args}
+            onSearchChange={(e) => {
+                // eslint-disable-next-line no-console
+                console.log(e);
+            }}
+        />
     </div>
 );

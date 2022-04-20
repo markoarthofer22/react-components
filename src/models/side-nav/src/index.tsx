@@ -7,6 +7,7 @@ import { NavLink } from 'react-router-dom';
 import { useTheme } from '@emotion/react';
 
 import { SideNavStyles } from './styles';
+import SideNavChild from './side-nav-child';
 
 export type TIconType =
     | React.ElementType
@@ -27,6 +28,9 @@ export interface ISideNavProps {
     className?: string;
     isSearchEnabled?: boolean;
     routes: TSideNavRoutes[];
+    onSearchChange?: (e: React.SyntheticEvent, payload?: any) => any | void;
+    // primaryColor?: string;
+    // secondaryColor?: string;
 }
 
 export const SideNav: React.FC<ISideNavProps> = ({
@@ -35,6 +39,9 @@ export const SideNav: React.FC<ISideNavProps> = ({
     isSearchEnabled = true,
     className = 'side-nav',
     routes,
+    onSearchChange,
+    // primaryColor,
+    // secondaryColor,
 }): JSX.Element => {
     const [navOpened, setNavOpened] = React.useState(isOpen);
 
@@ -103,7 +110,7 @@ export const SideNav: React.FC<ISideNavProps> = ({
                         )}
                     </AnimatePresence>
                 )}
-                <div className={`${className}--menu`}>
+                <div className={`${className}--menu-button`}>
                     <FaBars onClick={() => setNavOpened(!navOpened)} />
                 </div>
             </div>
@@ -121,6 +128,9 @@ export const SideNav: React.FC<ISideNavProps> = ({
                                 variants={inputAnimation}
                                 type='text'
                                 placeholder='Search'
+                                onChange={(e) =>
+                                    onSearchChange && onSearchChange(e)
+                                }
                             />
                         )}
                     </AnimatePresence>
@@ -131,16 +141,16 @@ export const SideNav: React.FC<ISideNavProps> = ({
                     const Icon = route.icon as React.ElementType;
 
                     if (route.children) {
-                        // return (
-                        //     <SidebarMenu
-                        //         key={i}
-                        //         setIsOpen={setNavOpened}
-                        //         route={route}
-                        //         showAnimation={showAnimation}
-                        //         isOpen={navOpened}
-                        //     />
-                        // );
-                        <></>;
+                        return (
+                            <SideNavChild
+                                key={i}
+                                setIsOpen={setNavOpened}
+                                route={route}
+                                showAnimation={showAnimation}
+                                isOpen={navOpened}
+                                className={className}
+                            />
+                        );
                     }
 
                     return (

@@ -22,6 +22,7 @@ export { StyledList, StyledListItem } from 'components/styled-list/src';
 
 // models
 export { default as Dialog } from './models/dialog/src';
+export { default as SideNav } from 'models/side-nav/src';
 export { default as NotificationBox } from './models/notification-box/src';
 export { default as Modal } from './components/modal/src';
 

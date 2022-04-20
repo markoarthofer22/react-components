@@ -306,7 +306,7 @@ These are some of the components that we have in mind. Will be populated over ti
 7.  Social Network Cards (facebook | instagram | custom) - removed
 8.  Accordion :white_check_mark:
 9.  Share Socials - In planning
-10. Side Navigation :soon:
+10. Side Navigation :white_check_mark:
 
 <!-- PUBLISH -->
 
@@ -351,3 +351,5 @@ Project Link: [https://github.com/markoarthofer22/react-components](https://gith
 -   [react-icons](https://react-icons.github.io/react-icons/)
 -   [emotion](https://emotion.sh/docs/introduction)
 -   [emotion/normalize](https://github.com/infinum/emotion-normalize)
+-   [framer](https://www.framer.com/docs/)
+

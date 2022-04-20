@@ -31,6 +31,8 @@ export const GlobalStyles: ICustomTheme = {
         warning: '#ff9800',
         success: '#4caf50',
         error: '#ef5350',
+        sideNavPrimary: '#00073d',
+        sideNavSecondary: '#ffffff',
     },
     fonts: {
         titleFont: "'Exo 2', sans-serif",
