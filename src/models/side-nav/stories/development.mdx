@@ -1,0 +1,28 @@
+import { Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+import { SideNav } from '../src/index';
+
+# Side Nav
+
+Side navigation animated with [Framer Motion](https://www.npmjs.com/package/framer-motion)
+
+### Usage and import
+
+You can import it in two ways: - as a standalone component - from the whole package
+
+```jsx
+import SideNav from '@markoarthofer22/react-components.dialog';
+// OR
+import { SideNav } from '@markoarthofer22/react-components';
+```
+
+<Canvas withSource={'open'}>
+    <Story id='designs-models-side-navigation--default' />
+</Canvas>
+
+Check out the table for the list of the arugments. Search function is optional and can be controlled from the outside. You can pass `onSearchChange` as a callback which will be triggered on every input change. You should debounce it!
+
+<div style={{ marginBottom: '50px' }} />
+
+### API
+
+<ArgsTable of={SideNav} />
