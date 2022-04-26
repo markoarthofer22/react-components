@@ -294,6 +294,10 @@ These are some of the components that we have in mind. Will be populated over ti
 19. Table - In planning
 20. Grid :white_check_mark:
 21. Masonry layout :white_check_mark:
+22. SweetAlert Wrapper :white_check_mark:
+23. Helmet Wrapper :white_check_mark:
+
+
 
 #### Models
 
