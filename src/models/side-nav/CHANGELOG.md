@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/markoarthofer22/react-components/compare/@markoarthofer22/react-components.side-nav@1.1.0...@markoarthofer22/react-components.side-nav@1.2.0) (2022-04-27)
+
+
+### Features
+
+* added new components. added sweet alert lib ([c844837](https://github.com/markoarthofer22/react-components/commit/c844837ba15b3e0dc68dadbcc9a58edb4526e21e))
+
+
+
+
+
 # 1.1.0 (2022-04-20)
 
 

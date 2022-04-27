@@ -1,6 +1,6 @@
 {
     "name": "@markoarthofer22/react-components.dialog",
-    "version": "1.5.0",
+    "version": "1.6.0",
     "description": "The React-Components is library that contains various components intended for reusing on another projects.",
     "main": "dist/index.js",
     "files": [
@@ -31,7 +31,7 @@
     },
     "dependencies": {
         "@markoarthofer22/react-components.button": "^1.5.0",
-        "@markoarthofer22/react-components.popup": "^1.5.0",
+        "@markoarthofer22/react-components.popup": "^1.6.0",
         "react-transition-group": "^4.4.1"
     }
 }
