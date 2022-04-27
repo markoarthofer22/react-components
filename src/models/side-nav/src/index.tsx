@@ -29,6 +29,7 @@ export interface ISideNavProps {
     isSearchEnabled?: boolean;
     routes: TSideNavRoutes[];
     onSearchChange?: (e: React.SyntheticEvent, payload?: any) => any | void;
+    // logo?: TIconType
     // primaryColor?: string;
     // secondaryColor?: string;
 }
@@ -40,6 +41,7 @@ export const SideNav: React.FC<ISideNavProps> = ({
     className = 'side-nav',
     routes,
     onSearchChange,
+    // icon
     // primaryColor,
     // secondaryColor,
 }): JSX.Element => {
