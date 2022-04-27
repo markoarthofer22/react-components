@@ -37,11 +37,6 @@ export const Default: ComponentStory<typeof SweetAlert> = () => {
                     alert(`Results: ${JSON.stringify(result)}`);
                 }}
                 willClose={() => setIsVisible(false)}
-                customClass={{
-                    confirmButton: 'default blue',
-                    cancelButton: 'default red ml-10',
-                }}
-                buttonsStyling={false}
             />
         </>
     );

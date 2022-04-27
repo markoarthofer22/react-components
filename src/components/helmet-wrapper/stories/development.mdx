@@ -1,0 +1,29 @@
+import { Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+import { HelmetWrapper } from '../src/index';
+
+# HelmetWrapper
+
+Just a Helemet wrapper that makes usage easier
+
+### Usage and import
+
+You can import it in two ways: - as a standalone component - from the whole package
+
+```jsx
+import HelmetWrapper from '@markoarthofer22/react-components.select';
+// OR
+import { HelmetWrapper } from '@markoarthofer22/react-components';
+```
+
+<Canvas withSource={'open'}>
+    <Story id='designs-atoms-helmet-wrapper--default' />
+</Canvas>
+
+You can pass `metaArray` prop to define your meta data. By default it is taken from localstorage, so be sure to put it there.
+Also you can pass `localStorageKey` if you want to change your key name (by default it is "helmet-meta")
+
+<div style={{ marginBottom: '50px' }} />
+
+### API
+
+<ArgsTable of={HelmetWrapper} />
