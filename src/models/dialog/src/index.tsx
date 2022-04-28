@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import React from 'react';
+import * as React from 'react';
 import { CSSTransition } from 'react-transition-group';
 import { useTheme } from '@emotion/react';
 import { Button } from '../../../components/buttons/src/index';

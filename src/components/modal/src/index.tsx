@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import React, { useEffect } from 'react';
+import * as React from 'react';
 import { useTheme } from '@emotion/react';
 import { VscChromeClose } from 'react-icons/vsc';
 import { ModalStyles } from './styles';
@@ -25,7 +25,7 @@ export const Modal: React.FC<IModalProps> = ({
 
     const CloseIcon = icon || VscChromeClose;
 
-    useEffect(() => {
+    React.useEffect(() => {
         const closeOnEsc = (e?: any) => {
             e.stopPropagation();
             e.preventDefault();

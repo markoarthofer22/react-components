@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import React, { useState, useEffect, useLayoutEffect, useRef } from 'react';
+import * as React from 'react';
 import { MdExpandMore } from 'react-icons/md';
 import { useTheme } from '@emotion/react';
 import { SelectStyles } from './styles';
@@ -27,19 +27,21 @@ export const Select: React.FC<ISelectProps> = ({
 }): JSX.Element => {
     const theme = useTheme();
 
-    const [isOpen, setOpen] = useState<boolean>(false);
-    const [selectedTitle, setSelectedTitle] = useState<string | undefined>('');
-    const [selectData, setSelectData] = useState<any[]>(data);
+    const [isOpen, setOpen] = React.useState<boolean>(false);
+    const [selectedTitle, setSelectedTitle] = React.useState<
+        string | undefined
+    >('');
+    const [selectData, setSelectData] = React.useState<any[]>(data);
 
-    const searchInput = useRef<HTMLInputElement | null>(null);
-    const mainInput = useRef<HTMLInputElement | null>(null);
+    const searchInput = React.useRef<HTMLInputElement | null>(null);
+    const mainInput = React.useRef<HTMLInputElement | null>(null);
 
-    useEffect(() => {
+    React.useEffect(() => {
         if (!title) return;
         setSelectedTitle(title);
     }, [title]);
 
-    useLayoutEffect(() => {
+    React.useLayoutEffect(() => {
         function handleClickOutside(e: any) {
             if (mainInput.current === null) return;
 

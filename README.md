@@ -55,6 +55,9 @@ First, to discuss structure and typing in the app.
 
 ### Development
 
+
+**When running this, first install required node version using `nvm install`** - if you dont have nvm install it using `npm` or `brew`
+
 All commands can be run from individual packages, but it is not necessary to do so.
 
 -   Run `npm run prepare:local` at the project root to install the dev dependencies and link them to each other.
@@ -183,7 +186,7 @@ Here is a good example of how to add a new component/model/page
     // dont forget to add, so you can use emotion css prop
     /** @jsxImportSource @emotion/react */
     // import packages
-    import React, {useEffect, useState} from "react";
+    import * as React from "react";
     import { useTheme } from "emotion"
 
     import { stylesObj } from "./styles"
@@ -211,7 +214,7 @@ Here is a good example of how to add a new component/model/page
         }
 
         // add lifecycle hook
-        useEffect(()=>{
+        React.useEffect(()=>{
             // do something
         },[])
 
@@ -321,6 +324,8 @@ These are some of the components that we have in mind. Will be populated over ti
 To preview which packages have changed, you can run `npx lerna changed` without publishing.
 
 Once happy with the code changes, run `npx lerna version` and bump the versions accordingly.
+
+If you have created new component there is no need to run `npx lerna version`. Publish under version `1.0.0`
 
 Lerna will generate a publish commit. Push that commit to your remote branch and once it gets merged to master, CI will publish the new versions to `npm`.
 

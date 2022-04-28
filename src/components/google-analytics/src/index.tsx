@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import * as React from 'react';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 
 declare global {
@@ -22,7 +22,7 @@ const GoogleAnalytics: React.FC<IAnalyticsProps> = ({
 }): any => {
     const { gtag } = window;
 
-    useEffect(() => {
+    React.useEffect(() => {
         if (!handleLocationChange) return;
 
         handleLocationChange(history);

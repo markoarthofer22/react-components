@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { useForm } from 'react-hook-form';
 import { InputComponent, InputTypePhone } from '../src/index';

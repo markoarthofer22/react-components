@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
+import * as React from 'react';
 import { useTheme } from '@emotion/react';
-import React, { useEffect } from 'react';
 import { MdClose } from 'react-icons/md';
 import { PopupStyles } from './styles';
 
@@ -23,7 +23,7 @@ export const Popup: React.FC<IPopupProps> = ({
 
     const C = icon || MdClose;
 
-    useEffect(() => {
+    React.useEffect(() => {
         const closeOnEsc = (e?: any) => {
             e.stopPropagation();
             if (e.keyCode === 27) {
@@ -37,7 +37,7 @@ export const Popup: React.FC<IPopupProps> = ({
         };
     }, [closePopup]);
 
-    useEffect(() => {
+    React.useEffect(() => {
         document.querySelector('body')!.classList.add('no-scroll');
 
         return () => {

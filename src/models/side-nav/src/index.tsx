@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import React from 'react';
+import * as React from 'react';
 import { FaBars } from 'react-icons/fa';
 import { BiSearch } from 'react-icons/bi';
 import { AnimatePresence, motion } from 'framer-motion';

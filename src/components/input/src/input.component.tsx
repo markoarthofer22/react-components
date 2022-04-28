@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import React, { useState, useEffect } from 'react';
+import * as React from 'react';
 import { useTheme, css } from '@emotion/react';
 
 import { UseFormRegister, RegisterOptions } from 'react-hook-form';
@@ -55,7 +55,7 @@ export const InputComponent: React.FC<IInputProps & Record<string, any>> = ({
     const theme = useTheme();
     const C = icon || MdRemoveRedEye;
     const ChecboxIcon = checkboxIcon || IoCheckmarkDoneOutline;
-    const [showPassword, setShowPassword] = useState<boolean>(false);
+    const [showPassword, setShowPassword] = React.useState<boolean>(false);
 
     const getInputStyles = (_type: string) => {
         let value;
@@ -77,7 +77,7 @@ export const InputComponent: React.FC<IInputProps & Record<string, any>> = ({
         return value;
     };
 
-    useEffect(() => {
+    React.useEffect(() => {
         if (!checked) return;
 
         document.querySelector<HTMLInputElement>(

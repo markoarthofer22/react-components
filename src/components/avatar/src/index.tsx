@@ -1,6 +1,5 @@
 /** @jsxImportSource @emotion/react */
 import * as React from 'react';
-import { useEffect, useState } from 'react';
 import { useTheme } from '@emotion/react';
 import { AvatarStyles } from './styles';
 
@@ -36,7 +35,7 @@ export const Avatar: React.FC<IAvatarProps> = ({
 }): JSX.Element => {
     const theme = useTheme();
 
-    const [itemsLength, setItemsLength] = useState<number | null>(null);
+    const [itemsLength, setItemsLength] = React.useState<number | null>(null);
 
     const getInitialsFromString = (
         childElement: any
@@ -54,7 +53,7 @@ export const Avatar: React.FC<IAvatarProps> = ({
     const getSize = (_size: typeof size): string =>
         `${className}--item-${_size}`;
 
-    useEffect(() => {
+    React.useEffect(() => {
         if (!grouped) return;
 
         if (values) {

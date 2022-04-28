@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import React, { useState, useEffect } from 'react';
+import * as React from 'react';
 import { useTheme } from '@emotion/react';
 import { HamburgerStyles } from './styles';
 
@@ -16,10 +16,11 @@ export const Hamburger: React.FC<IHamburgerProps> = ({
     className = 'hamburger',
     disableOnDesktop = true,
 }): JSX.Element => {
-    const [isHamburgerOpen, setIsHamburgerOpen] = useState<boolean>(isOpen);
+    const [isHamburgerOpen, setIsHamburgerOpen] =
+        React.useState<boolean>(isOpen);
     const theme = useTheme();
 
-    useEffect(() => {
+    React.useEffect(() => {
         if (!onChange) return;
 
         onChange();
