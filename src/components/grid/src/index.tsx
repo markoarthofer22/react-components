@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import React from 'react';
+import * as React from 'react';
 import { useTheme, css } from '@emotion/react';
 
 const GUTTER = 0.9375;

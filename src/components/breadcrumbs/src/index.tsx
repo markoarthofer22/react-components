@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import React, { useState } from 'react';
+import * as React from 'react';
 import { useTheme } from '@emotion/react';
 import { NavLink } from 'react-router-dom';
 import { MdStore } from 'react-icons/md';
@@ -40,7 +40,7 @@ export const Breadcrumbs: React.FC<IBreadcrumbsProps> = ({
           ]
         : [...crumbs];
 
-    const [breadcrumbs] = useState<ICrumb[]>(initialArray);
+    const [breadcrumbs] = React.useState<ICrumb[]>(initialArray);
 
     const C = homeIcon || MdStore;
 

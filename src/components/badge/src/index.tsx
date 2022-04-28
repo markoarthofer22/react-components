@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import React from 'react';
+import * as React from 'react';
 import { useTheme } from '@emotion/react';
 import { BadgeStyles } from './styles';
 

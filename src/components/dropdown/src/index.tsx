@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import React, { useState, useEffect } from 'react';
+import * as React from 'react';
 import { useTheme } from '@emotion/react';
 import { Link } from 'react-router-dom';
 import { MdKeyboardArrowDown } from 'react-icons/md';
@@ -40,8 +40,10 @@ export const Dropdown: React.FC<IDropdownProps> = (props): JSX.Element => {
 
     const theme = useTheme();
 
-    const [isOpen, setOpen] = useState<boolean>(isDefaultOpen);
-    const [selectedTitle, setSelectedTitle] = useState<string | null>(null);
+    const [isOpen, setOpen] = React.useState<boolean>(isDefaultOpen);
+    const [selectedTitle, setSelectedTitle] = React.useState<string | null>(
+        null
+    );
 
     const checkIfSelected = (): void => {
         data.find((item) => {
@@ -65,12 +67,12 @@ export const Dropdown: React.FC<IDropdownProps> = (props): JSX.Element => {
         if (returnValue) returnValue(item);
     };
 
-    useEffect(() => {
+    React.useEffect(() => {
         if (!defaultValue) return;
         checkIfSelected();
     }, [defaultValue]);
 
-    useEffect(() => {
+    React.useEffect(() => {
         if (selectedTitle === null || !onChange) return;
 
         onChange();

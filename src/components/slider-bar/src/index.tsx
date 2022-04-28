@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import React, { useLayoutEffect } from 'react';
+import * as React from 'react';
 import { useTheme } from '@emotion/react';
 import { SliderbarStyles } from './styles';
 
@@ -92,7 +92,7 @@ export const SliderBar: React.FC<ISliderBarProps> = ({
         document.addEventListener('mouseup', handleMouseUp);
     };
 
-    useLayoutEffect(() => {
+    React.useLayoutEffect(() => {
         handleUpdate(initialValue, initialPercentage);
     }, [initialValue, initialPercentage, handleUpdate]);
 

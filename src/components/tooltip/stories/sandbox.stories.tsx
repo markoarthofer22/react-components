@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { AiOutlineQuestion } from 'react-icons/ai';
 import { Tooltip } from '../src/index';

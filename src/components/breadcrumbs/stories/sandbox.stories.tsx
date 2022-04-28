@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { RiCloseCircleLine } from 'react-icons/ri';
 import { uniqueId } from 'underscore';

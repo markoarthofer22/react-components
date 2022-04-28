@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import React, { useState, useEffect } from 'react';
+import * as React from 'react';
 import _ from 'underscore';
 
 import { useTheme } from '@emotion/react';
@@ -60,10 +60,10 @@ export const InputTypePhone: React.FC<IInputPhoneProps & Record<string, any>> =
     }): JSX.Element => {
         const theme = useTheme();
 
-        const [countriesID, setCountriesID] = useState<string>('');
-        const [countriesName, setCountriesName] = useState<string>('');
-        const [countriesDial, setCountriesDial] = useState<string>('');
-        const [inputValue, setInputValue] = useState<string>('');
+        const [countriesID, setCountriesID] = React.useState<string>('');
+        const [countriesName, setCountriesName] = React.useState<string>('');
+        const [countriesDial, setCountriesDial] = React.useState<string>('');
+        const [inputValue, setInputValue] = React.useState<string>('');
 
         const returnValueFromSelect = (data: any) => {
             setCountriesName(data.country);
@@ -94,13 +94,13 @@ export const InputTypePhone: React.FC<IInputPhoneProps & Record<string, any>> =
             setInputValue(`+${countriesDial}`);
         };
 
-        useEffect(() => {
+        React.useEffect(() => {
             if (predefinedValue && predefinedDialValue) return;
 
             checkForCountryPhone(countriesID);
         }, [countriesID]);
 
-        useEffect(() => {
+        React.useEffect(() => {
             if (inputValue) {
                 if (!disableFocus) {
                     document.getElementById(`${id || 'countries'}`)?.focus();
@@ -116,7 +116,7 @@ export const InputTypePhone: React.FC<IInputPhoneProps & Record<string, any>> =
             }
         }, [inputValue]);
 
-        useEffect(() => {
+        React.useEffect(() => {
             if (predefinedDialValue) {
                 const country = _.find(
                     countriesList,

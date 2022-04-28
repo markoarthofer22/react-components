@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import React, { useEffect, useState } from 'react';
+import * as React from 'react';
 import { useTheme } from '@emotion/react';
 import { QuantityInputStyles } from './styles';
 
@@ -26,7 +26,7 @@ export const QuantityInput: React.FC<IQuantityProps> = ({
             ? maxValue
             : String(parseInt(defaultValue, 10));
 
-    const [value, setValue] = useState<string>(checkDefaultValue);
+    const [value, setValue] = React.useState<string>(checkDefaultValue);
 
     const increment = (): void => {
         if (Number(value) >= max) {
@@ -58,7 +58,7 @@ export const QuantityInput: React.FC<IQuantityProps> = ({
         setValue(val.toString());
     };
 
-    useEffect(() => {
+    React.useEffect(() => {
         if (Number(value) >= max) {
             onChange(maxValue);
             return;

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.7.0](https://github.com/markoarthofer22/react-components/compare/@markoarthofer22/react-components.grid@1.6.0...@markoarthofer22/react-components.grid@1.7.0) (2022-04-28)
+
+
+### Features
+
+* changed react import. fixed hook usage trough the whole project - smaller import size ([17f7ee5](https://github.com/markoarthofer22/react-components/commit/17f7ee5fbab26d1b33d6cbbb2e9c1ee858c04db1))
+
+
+
+
+
 # 1.6.0 (2022-02-11)
 
 

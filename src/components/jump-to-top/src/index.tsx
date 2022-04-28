@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import React, { useEffect, useState } from 'react';
+import * as React from 'react';
 import { MdTrendingUp } from 'react-icons/md';
 import { useTheme } from '@emotion/react';
 import { JumpToTopStyles } from './styles';
@@ -24,7 +24,8 @@ export const JumpToTop: React.FC<IJumpToTopProps> = ({
     const theme = useTheme();
     const Icon = icon || MdTrendingUp;
 
-    const [isScrollVisible, setIsScrollVisible] = useState<boolean>(false);
+    const [isScrollVisible, setIsScrollVisible] =
+        React.useState<boolean>(false);
 
     const scrollToTarget = (target?: string, duration = 400) => {
         let targeted = 0;
@@ -65,7 +66,7 @@ export const JumpToTop: React.FC<IJumpToTopProps> = ({
         }
     }
 
-    useEffect(() => {
+    React.useEffect(() => {
         window.addEventListener('scroll', checkScrollPosition);
 
         return () => {

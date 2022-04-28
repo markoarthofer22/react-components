@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { FaAngleDown } from 'react-icons/fa';
 import { NavLink } from 'react-router-dom';

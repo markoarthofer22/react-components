@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import React, { useEffect } from 'react';
+import * as React from 'react';
 import { useTheme } from '@emotion/react';
 
 import Button from '../../../components/buttons/src/index';
@@ -32,7 +32,7 @@ export const NotificationBox: React.FC<INotificationBoxProp> = (
 
     const theme = useTheme();
 
-    useEffect(() => {
+    React.useEffect(() => {
         let handler: ReturnType<typeof setTimeout>;
         if (!okCallback && !cancelCallback) {
             handler = setTimeout(() => {
