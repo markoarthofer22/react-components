@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.7.0](https://github.com/markoarthofer22/react-components/compare/@markoarthofer22/react-components.modal@1.6.0...@markoarthofer22/react-components.modal@1.7.0) (2022-05-05)
+
+
+### Features
+
+* updated modal to use framer-motion ([4ae0d34](https://github.com/markoarthofer22/react-components/commit/4ae0d3457f728092a240dac4a461fd0bdeccad60))
+
+
+
+
+
 # [1.6.0](https://github.com/markoarthofer22/react-components/compare/@markoarthofer22/react-components.modal@1.2.0...@markoarthofer22/react-components.modal@1.6.0) (2022-04-28)
 
 
