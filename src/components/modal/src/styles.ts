@@ -16,24 +16,7 @@ export const ModalStyles = (theme: any) =>
                 height: '100vh',
                 overflowX: 'hidden',
                 backgroundColor: rgba(theme.colors.black, 0.75),
-                pointerEvents: 'none',
-                opacity: 0,
-                visibility: 'hidden',
                 zIndex: 10000000,
-                transition: 'all 250ms 400ms ease-in-out',
-
-                '&-active': {
-                    pointerEvents: 'all',
-                    opacity: 1,
-                    visibility: 'visible',
-
-                    '.modal--content': {
-                        opacity: 1,
-                        transform: 'scale(1)',
-                        transition:
-                            'opacity 250ms 500ms ease, transform 350ms 500ms ease',
-                    },
-                },
             },
 
             '&--content': {
@@ -54,10 +37,6 @@ export const ModalStyles = (theme: any) =>
                 backgroundColor: theme.colors.white,
                 alignSelf: 'center',
                 boxShadow: `0 12px 25px 0 ${rgba(theme.colors.grey, 0.25)}`,
-                opacity: 0,
-                transition:
-                    'opacity 250ms 250ms ease, transform 300ms 250ms ease',
-                transform: 'scale(0)',
             },
 
             '&--header': {
