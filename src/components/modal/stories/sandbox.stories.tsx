@@ -30,6 +30,21 @@ export default {
                 defaultValue: { summary: false },
             },
         },
+        isDraggable: {
+            defaultValue: false,
+            description: 'Add dragging to your content',
+            type: {
+                name: 'boolean',
+                required: false,
+            },
+            control: {
+                type: 'boolean',
+            },
+            table: {
+                type: { summary: 'boolean' },
+                defaultValue: { summary: false },
+            },
+        },
         className: {
             defaultValue: 'modal',
             description: 'Add any custom className to your Modal',
@@ -51,6 +66,18 @@ export default {
                 defaultValue: { summary: '' },
             },
             description: 'Specify the title for the Modal',
+        },
+        animationType: {
+            defaultValue: 'dropIn',
+            control: {
+                type: 'text',
+                required: false,
+            },
+            table: {
+                type: { summary: 'flip | dropIn' },
+                defaultValue: { summary: 'dropIn' },
+            },
+            description: 'Specify animation type',
         },
         icon: {
             options: Object.keys(Icons),

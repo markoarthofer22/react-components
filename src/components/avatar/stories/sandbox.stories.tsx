@@ -13,7 +13,7 @@ const itemsArray = [
         src='https://avataaars.io/?avatarStyle=Transparent&topType=WinterHat3&accessoriesType=Sunglasses&hatColor=PastelGreen&facialHairType=BeardMajestic&facialHairColor=Red&clotheType=Hoodie&clotheColor=Gray01&eyeType=Side&eyebrowType=DefaultNatural&mouthType=Serious&skinColor=Pale'
         alt='img2'
     />,
-    <p>Damire Arthofer</p>,
+    <p>John Doe</p>,
     <AiOutlineQuestion />,
 ];
 
@@ -147,7 +147,7 @@ export const Default: ComponentStory<typeof Avatar> = (args) => (
             />
         </div>
 
-        <p style={{ color: '#FFF', textAlign: 'center' }}>Marko Arthofer</p>
+        <p style={{ color: '#FFF', textAlign: 'center' }}>John Doe</p>
 
         <div>
             <img
