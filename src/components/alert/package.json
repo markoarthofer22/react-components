@@ -31,6 +31,6 @@
     },
     "dependencies": {
         "react-icons": "^4.2.0",
-        "react-transition-group": "^4.4.1"
+        "framer-motion": "^6.2.3"
     }
 }

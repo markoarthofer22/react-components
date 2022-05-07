@@ -2,26 +2,6 @@ import { css } from '@emotion/react';
 
 export const AlertStyles = (theme: any) =>
     css({
-        '.alert-enter': {
-            opacity: '0',
-            transform: 'scale(0)',
-        },
-
-        '.alert-enter-active': {
-            opacity: 1,
-            transform: 'scale(1)',
-            transition: 'opacity 0.4s, transform 0.4s',
-        },
-
-        '.alert-exit': {
-            opacity: 1,
-        },
-        '.alert-exit-active': {
-            opacity: 0,
-            transform: 'scale(0)',
-            transition: 'opacity 0.4s, transform 0.4s',
-        },
-
         '.alert': {
             '&--wrapper': {
                 position: 'absolute',
