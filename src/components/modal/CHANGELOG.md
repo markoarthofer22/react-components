@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.8.0](https://github.com/markoarthofer22/react-components/compare/@markoarthofer22/react-components.modal@1.7.0...@markoarthofer22/react-components.modal@1.8.0) (2022-05-09)
+
+
+### Features
+
+* updated modal, added drag and animate props ([41c3ebf](https://github.com/markoarthofer22/react-components/commit/41c3ebffea062fb751ea48782b02416be05b712f))
+
+
+
+
+
 # [1.7.0](https://github.com/markoarthofer22/react-components/compare/@markoarthofer22/react-components.modal@1.6.0...@markoarthofer22/react-components.modal@1.7.0) (2022-05-05)
 
 
