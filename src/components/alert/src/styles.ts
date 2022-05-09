@@ -129,16 +129,10 @@ export const AlertStyles = (theme: any) =>
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                '&:hover': {
-                    svg: {
-                        transform: 'scale(1.1)',
-                    },
-                },
 
                 svg: {
                     width: 25,
                     height: 25,
-                    transition: 'all .4s ease',
                 },
             },
         },

@@ -99,10 +99,10 @@ export const Alert: React.FC<IAlertProps> = ({
             },
         },
         exit: {
-            x: '-100vw',
+            x: '100vw',
             opacity: 0,
             transition: {
-                duration: 1,
+                duration: 0.7,
             },
         },
     };
@@ -158,12 +158,20 @@ export const Alert: React.FC<IAlertProps> = ({
                                 </div>
                             </div>
                             {onClose && (
-                                <div
+                                <motion.div
+                                    whileHover={{
+                                        scale: 1.2,
+                                        transition: { duration: 0.4 },
+                                    }}
+                                    whileTap={{
+                                        scale: 0.7,
+                                        transition: { duration: 0.4 },
+                                    }}
                                     className={`${className}--on-close`}
                                     onClick={(e) => onClose(e)}
                                 >
                                     <CloseIcon />
-                                </div>
+                                </motion.div>
                             )}
                         </div>
                     </motion.div>
