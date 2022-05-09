@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/markoarthofer22/react-components/compare/@markoarthofer22/react-components.alert@1.3.0...@markoarthofer22/react-components.alert@1.4.0) (2022-05-09)
+
+
+### Features
+
+* added animation for hover status on alert component, updated main package.json ([03724d7](https://github.com/markoarthofer22/react-components/commit/03724d768b6e9ed1fa38f91026a2bac71aa4ab56))
+* added selfclosing feature to alert ([91c029c](https://github.com/markoarthofer22/react-components/commit/91c029cf0ed805a9ef7df5be66077ef02af08baf))
+
+
+
+
+
 # [1.3.0](https://github.com/markoarthofer22/react-components/compare/@markoarthofer22/react-components.alert@1.2.0...@markoarthofer22/react-components.alert@1.3.0) (2022-04-16)
 
 

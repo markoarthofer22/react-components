@@ -11,7 +11,9 @@ export interface IModalProps {
     className?: string;
     title?: string;
     icon?: React.ElementType | React.ComponentType;
+    isDraggable?: boolean;
     onModalClose: (returnedData?: any) => void;
+    animationType?: 'flip' | 'dropIn';
 }
 
 export const Modal: React.FC<IModalProps> = ({
@@ -20,30 +22,52 @@ export const Modal: React.FC<IModalProps> = ({
     title,
     className = 'modal',
     icon,
+    isDraggable = false,
     onModalClose,
+    animationType = 'dropIn',
 }): JSX.Element => {
     const theme = useTheme();
 
+    const containerMotionRef = React.useRef(null);
+
     const CloseIcon = icon || VscChromeClose;
 
-    const dropIn = {
-        hidden: {
-            y: '-100vh',
-            opacity: 0,
-        },
-        active: {
-            y: '0',
-            opacity: 1,
-            transition: {
-                duration: 0.1,
-                type: 'spring',
-                damping: 25,
-                stiffness: 500,
+    const animation = {
+        flip: {
+            hidden: { rotateY: 180 },
+            active: {
+                rotateY: 0,
+                transition: {
+                    duration: 1,
+                },
+            },
+            exit: {
+                rotateY: 180,
+                transition: {
+                    duration: 1,
+                },
             },
         },
-        exit: {
-            y: '-100vh',
-            opacity: 0,
+
+        dropIn: {
+            hidden: {
+                y: '-100vh',
+                opacity: 0,
+            },
+            active: {
+                y: '0',
+                opacity: 1,
+                transition: {
+                    duration: 0.1,
+                    type: 'spring',
+                    damping: 25,
+                    stiffness: 500,
+                },
+            },
+            exit: {
+                y: '-100vh',
+                opacity: 0,
+            },
         },
     };
 
@@ -63,41 +87,57 @@ export const Modal: React.FC<IModalProps> = ({
         };
     }, []);
 
+    const renderChildren = () => (
+        <>
+            <div className={`${className}--header`}>
+                {title && (
+                    <h2 className={`${className}--header--title`}>{title}</h2>
+                )}
+                <CloseIcon onClick={() => onModalClose()} />
+            </div>
+            <div className={`${className}--children`}>{children}</div>
+        </>
+    );
+
     return (
         <AnimatePresence initial={false} exitBeforeEnter>
             {visible && (
                 <div css={ModalStyles(theme)}>
                     <motion.div
+                        ref={containerMotionRef}
                         initial={{
                             opacity: 0,
                         }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        className={`${className}--wrapper ${
-                            visible ? `${className}--wrapper-active` : ''
-                        }`}
+                        className={`${className}--wrapper`}
                     >
-                        <motion.div
-                            variants={dropIn}
-                            initial='hidden'
-                            animate='active'
-                            exit='exit'
-                            className={`${className}--content`}
-                        >
-                            <div className={`${className}--header`}>
-                                {title && (
-                                    <h2
-                                        className={`${className}--header--title`}
-                                    >
-                                        {title}
-                                    </h2>
-                                )}
-                                <CloseIcon onClick={() => onModalClose()} />
-                            </div>
-                            <div className={`${className}--children`}>
-                                {children}
-                            </div>
-                        </motion.div>
+                        {isDraggable ? (
+                            <motion.div
+                                drag
+                                dragConstraints={containerMotionRef}
+                                dragTransition={{
+                                    bounceStiffness: 600,
+                                    bounceDamping: 20,
+                                }}
+                                dragElastic={0.5}
+                                whileTap={{ cursor: 'grabbing' }}
+                                whileDrag={{ scale: 0.875 }}
+                                className={`${className}--content`}
+                            >
+                                {renderChildren()}
+                            </motion.div>
+                        ) : (
+                            <motion.div
+                                className={`${className}--content`}
+                                variants={animation[animationType]}
+                                initial='hidden'
+                                animate='active'
+                                exit='exit'
+                            >
+                                {renderChildren()}
+                            </motion.div>
+                        )}
                     </motion.div>
                 </div>
             )}

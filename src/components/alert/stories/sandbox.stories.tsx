@@ -57,6 +57,17 @@ export default {
             },
             description: 'Specify custom className for override',
         },
+        closeAfterMs: {
+            defaultValue: 5000,
+            control: {
+                type: 'number',
+            },
+            table: {
+                type: { summary: 'number' },
+                defaultValue: { summary: 5000 },
+            },
+            description: 'Specify timeout value for autoclose',
+        },
         title: {
             defaultValue: 'Some title',
             control: {
@@ -107,7 +118,12 @@ export const Default: ComponentStory<typeof Alert> = (args) => {
                 title={openAlert ? 'Close Alert' : 'Open Alert'}
                 clicked={() => setOpenAlert(!openAlert)}
             />
-            <Alert {...args} icon show={openAlert}>
+            <Alert
+                {...args}
+                icon
+                show={openAlert}
+                returnShowValue={() => setOpenAlert(false)}
+            >
                 Some kind of text
             </Alert>
         </>
@@ -155,6 +171,7 @@ export const Tertiary: ComponentStory<typeof Alert> = (args) => {
                 icon={IoHeartHalfSharp}
                 onClose={() => setOpenAlert(false)}
                 show={openAlert}
+                returnShowValue={() => setOpenAlert(false)}
             >
                 Some kind of text
             </Alert>

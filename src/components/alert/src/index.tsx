@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import * as React from 'react';
-import { CSSTransition } from 'react-transition-group';
 import { useTheme } from '@emotion/react';
+import { AnimatePresence, motion } from 'framer-motion';
 import {
     MdInfoOutline,
     MdWarningAmber,
@@ -29,6 +29,8 @@ export interface IAlertProps {
     className?: string;
     onClose?: (e?: React.MouseEvent) => void;
     show: boolean;
+    closeAfterMs?: number;
+    returnShowValue: (showValue?: boolean) => void | boolean;
 }
 
 export const Alert: React.FC<IAlertProps> = ({
@@ -42,6 +44,8 @@ export const Alert: React.FC<IAlertProps> = ({
     icon = true,
     backgroundColor,
     show,
+    closeAfterMs = 5000,
+    returnShowValue,
 }): JSX.Element => {
     const [isActive, setIsActive] = React.useState<boolean>(show);
 
@@ -82,11 +86,39 @@ export const Alert: React.FC<IAlertProps> = ({
 
     const getType = (_type: typeof type): string => `type-${_type}`;
 
-    // TODO - return state value without adding explicit prop
-    // React.useEffect(() => {
-    //     const timer = setTimeout(() => setIsActive(false), 5000);
-    //     return () => clearTimeout(timer);
-    // }, []);
+    const animation = {
+        hidden: { x: '100vw', opacity: 0 },
+        active: {
+            x: '0',
+            opacity: 1,
+            transition: {
+                duration: 2.5,
+                type: 'spring',
+                damping: 25,
+                stiffness: 400,
+            },
+        },
+        exit: {
+            x: '100vw',
+            opacity: 0,
+            transition: {
+                duration: 0.7,
+            },
+        },
+    };
+
+    React.useEffect(() => {
+        if (onClose) return undefined;
+
+        const timer = setTimeout(() => {
+            setIsActive(false);
+            if (returnShowValue) {
+                returnShowValue();
+            }
+        }, closeAfterMs);
+
+        return () => clearTimeout(timer);
+    }, [onClose, closeAfterMs, returnShowValue]);
 
     React.useEffect(() => {
         if (isActive === show) return;
@@ -96,41 +128,55 @@ export const Alert: React.FC<IAlertProps> = ({
 
     return (
         <div className={`${className}`} css={AlertStyles(theme)}>
-            <CSSTransition
-                in={isActive}
-                timeout={400}
-                classNames='alert'
-                unmountOnExit
-            >
-                <div
-                    style={backgroundColor ? { backgroundColor } : {}}
-                    className={`${className}--wrapper ${getVariant(
-                        variant
-                    )} ${getType(type)}`}
-                >
-                    {icon && (
-                        <div className={`${className}--main-icon`}>
-                            {checkWhatIsIcon(type)}
-                        </div>
-                    )}
-                    <div className={`${className}--content--wrapper`}>
-                        {title && (
-                            <div className={`${className}--title`}>{title}</div>
-                        )}
-                        <div className={`${className}--content`}>
-                            {children}
-                        </div>
-                    </div>
-                    {onClose && (
+            <AnimatePresence exitBeforeEnter>
+                {isActive && (
+                    <motion.div
+                        variants={animation}
+                        initial='hidden'
+                        animate='active'
+                        exit='exit'
+                    >
                         <div
-                            className={`${className}--on-close`}
-                            onClick={(e) => onClose(e)}
+                            style={backgroundColor ? { backgroundColor } : {}}
+                            className={`${className}--wrapper ${getVariant(
+                                variant
+                            )} ${getType(type)}`}
                         >
-                            <CloseIcon />
+                            {icon && (
+                                <div className={`${className}--main-icon`}>
+                                    {checkWhatIsIcon(type)}
+                                </div>
+                            )}
+                            <div className={`${className}--content--wrapper`}>
+                                {title && (
+                                    <div className={`${className}--title`}>
+                                        {title}
+                                    </div>
+                                )}
+                                <div className={`${className}--content`}>
+                                    {children}
+                                </div>
+                            </div>
+                            {onClose && (
+                                <motion.div
+                                    whileHover={{
+                                        scale: 1.2,
+                                        transition: { duration: 0.4 },
+                                    }}
+                                    whileTap={{
+                                        scale: 0.7,
+                                        transition: { duration: 0.4 },
+                                    }}
+                                    className={`${className}--on-close`}
+                                    onClick={(e) => onClose(e)}
+                                >
+                                    <CloseIcon />
+                                </motion.div>
+                            )}
                         </div>
-                    )}
-                </div>
-            </CSSTransition>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </div>
     );
 };
