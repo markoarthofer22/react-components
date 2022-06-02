@@ -4,7 +4,7 @@ import { ThemeProvider, Global, css, useTheme } from '@emotion/react';
 import emotionNormalize from 'emotion-normalize';
 import { GlobalStyles, ICustomTheme } from './styles';
 
-interface GlobalThemeProviderProps {
+interface IGlobalThemeProviderProps {
     children: React.ReactNode;
     theme: ICustomTheme;
     addNormalize?: boolean;
@@ -299,7 +299,7 @@ const GlobalWrapper: React.FC = (): JSX.Element => {
     );
 };
 
-const GlobalThemeProvider: React.FC<GlobalThemeProviderProps> = ({
+const GlobalThemeProvider: React.FC<IGlobalThemeProviderProps> = ({
     children,
     theme = GlobalStyles,
     addNormalize = true,

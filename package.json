@@ -28,6 +28,7 @@
         "build": "rimraf dist && node builder.js && npx lerna run build && rm -rf ./dist",
         "build:bundle": "rimraf dist && tsc && rollup --config",
         "lint": "eslint src --ext=.js,.ts,.tsx,.jsx",
+        "lint:fix": "eslint src --ext=.js,.ts,.tsx,.jsx --fix ",
         "prettier": "prettier --write '**/*.{js,ts,tsx,jsx}'",
         "prepare:local": "rm -rf node_modules && npm cache clean -force && npm i && npx lerna bootstrap --no-ci --hoist",
         "prepare:prod": "rm -rf node_modules && npm cache clean -force && npm ci && npx lerna bootstrap --no-ci",

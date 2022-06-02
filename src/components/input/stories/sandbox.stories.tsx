@@ -25,7 +25,7 @@ const Warning = () => (
 
 export const Default: ComponentStory<typeof InputComponent> = () => {
     // add types to form
-    type FormValues = {
+    type TFormValues = {
         name: string;
         email: string;
         zip: string;
@@ -34,7 +34,7 @@ export const Default: ComponentStory<typeof InputComponent> = () => {
     const {
         register,
         formState: { errors },
-    } = useForm<FormValues>({
+    } = useForm<TFormValues>({
         mode: 'onBlur',
         reValidateMode: 'onSubmit',
     });
@@ -94,14 +94,14 @@ export const Default: ComponentStory<typeof InputComponent> = () => {
 };
 
 export const Radio: ComponentStory<typeof InputComponent> = () => {
-    type FormValues = {
+    type TFormValues = {
         radioExample: string;
     };
 
     const {
         register,
         formState: { errors },
-    } = useForm<FormValues>({
+    } = useForm<TFormValues>({
         mode: 'onBlur',
         reValidateMode: 'onSubmit',
     });
@@ -140,14 +140,14 @@ export const Radio: ComponentStory<typeof InputComponent> = () => {
 
 export const Checkbox: ComponentStory<typeof InputComponent> = () => {
     // add types to form
-    type FormValues = {
+    type TFormValues = {
         checkboxExample: string;
     };
 
     const {
         register,
         formState: { errors },
-    } = useForm<FormValues>({
+    } = useForm<TFormValues>({
         mode: 'onBlur',
         reValidateMode: 'onSubmit',
     });
@@ -177,14 +177,14 @@ export const Checkbox: ComponentStory<typeof InputComponent> = () => {
 
 export const PhoneInput: ComponentStory<typeof InputTypePhone> = () => {
     // add types to form
-    type FormValues = {
+    type TFormValues = {
         phone: string;
     };
 
     const {
         register,
         formState: { errors },
-    } = useForm<FormValues>({
+    } = useForm<TFormValues>({
         mode: 'onBlur',
         reValidateMode: 'onSubmit',
     });
