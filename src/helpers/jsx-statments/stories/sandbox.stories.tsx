@@ -24,9 +24,18 @@ export default {
 } as ComponentMeta<typeof If>;
 
 export const Default: ComponentStory<typeof If> = ({ condition }) => {
-    const MappedComp = ({ items }: { items?: any }) => (
-        <div>{items} Rendered</div>
+    const MappedComp = ({ name, id }: any) => (
+        <div>
+            {name} with id: {id} Rendered
+        </div>
     );
+
+    const data = [
+        {
+            name: 'marko',
+            id: 1,
+        },
+    ];
 
     return (
         <div>
@@ -34,7 +43,7 @@ export const Default: ComponentStory<typeof If> = ({ condition }) => {
                 <div>This is true</div>
             </If>
             <div style={{ marginBottom: '50px' }} />
-            <For of={['1', '2', '3']} each='items'>
+            <For of={data} each='items'>
                 <MappedComp />
             </For>
         </div>
