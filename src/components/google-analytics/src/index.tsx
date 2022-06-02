@@ -2,6 +2,7 @@ import * as React from 'react';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 
 declare global {
+    // eslint-disable-next-line @typescript-eslint/naming-convention
     interface Window {
         gtag: any;
     }

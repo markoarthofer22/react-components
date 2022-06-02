@@ -32,7 +32,7 @@ For input usage it is mandatory to use [React-hook-form](https://react-hook-form
 ```jsx
 import { useForm } from 'react-hook-form';
 
-type FormValues = {
+type TFormValues = {
     name: string,
     email: string,
     zip: string,
@@ -43,7 +43,7 @@ const {
     formState: { errors },
 } =
     useForm <
-    FormValues >
+    TFormValues >
     {
         mode: 'onBlur',
         reValidateMode: 'onSubmit',

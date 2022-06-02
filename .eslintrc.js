@@ -38,6 +38,13 @@ module.exports = {
                 variables: true,
             },
         ],
+        'react/function-component-definition': [
+            2,
+            {
+                namedComponents: 'arrow-function',
+                unnamedComponents: 'arrow-function',
+            },
+        ],
         'react/jsx-uses-vars': 'error',
         'react/jsx-uses-react': 'error',
         'no-restricted-globals': 'off',
@@ -54,6 +61,33 @@ module.exports = {
         'no-param-reassign': 0,
         'no-unused-expressions': 'off',
         '@typescript-eslint/no-unused-expressions': ['off'],
+        '@typescript-eslint/naming-convention': [
+            'error',
+            {
+                selector: 'interface',
+                format: ['PascalCase'],
+                custom: {
+                    regex: '^I[A-Z]',
+                    match: true,
+                },
+            },
+            {
+                selector: 'typeAlias',
+                format: ['PascalCase'],
+                custom: {
+                    regex: '^T[A-Z]',
+                    match: true,
+                },
+            },
+            {
+                selector: 'enum',
+                format: ['PascalCase'],
+                custom: {
+                    regex: '^E[A-Z]',
+                    match: true,
+                },
+            },
+        ],
         'react/no-array-index-key': 'off',
         'react/prop-types': 'off',
         'react/jsx-props-no-spreading': 'off',
