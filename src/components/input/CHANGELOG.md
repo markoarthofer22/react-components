@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.8.0](https://github.com/markoarthofer22/react-components/compare/@markoarthofer22/react-components.inputs@1.7.0...@markoarthofer22/react-components.inputs@1.8.0) (2022-06-02)
+
+
+### Features
+
+* updated linter with new rules, forcing arrow functions and naming convention for interfaces and types ([3c52453](https://github.com/markoarthofer22/react-components/commit/3c52453d506f86781a1e069afa3afbe48be6d912))
+
+
+
+
+
 # [1.7.0](https://github.com/markoarthofer22/react-components/compare/@markoarthofer22/react-components.inputs@1.6.0...@markoarthofer22/react-components.inputs@1.7.0) (2022-04-28)
 
 
